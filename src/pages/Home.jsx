@@ -17,7 +17,8 @@ const pages = [
   { path: '/programmation-ros', title: 'PROGRAMMATION ROS' },
   { path: '/lexique', title: 'LEXIQUE' },
   { path: '/liens', title: 'LIENS UTILES' },
-  { path: '/annexes', title: 'ANNEXES' }
+  { path: '/annexes', title: 'ANNEXES' },
+  { path: '/testing', title: 'Testing of all sorts' }
 ];
 
 export default function Home() {

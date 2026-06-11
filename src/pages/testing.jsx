@@ -1,4 +1,4 @@
-export default function Robot() {
+export default function testing() {
   return (
     <>
       <div className="container-fluid px-0 px-md-3 mb-5">
