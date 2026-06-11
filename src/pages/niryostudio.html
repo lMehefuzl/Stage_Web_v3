@@ -1,0 +1,362 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Niryo Ned2 et NiryoStudio - Guide Technique</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.0/font/bootstrap-icons.css">
+</head>
+<body class="bg-light">
+
+    <div class="bg-white border-bottom shadow-sm mb-4">
+        <div class="container-fluid py-3 px-4">
+            <a href="index.html" class="btn btn-outline-primary btn-sm">
+                <i class="bi bi-arrow-left"></i> Accueil
+            </a>
+            <span class="ms-3 fs-5 fw-semibold text-primary">🎮 NIRYO NED2 ET NIRYOSTUDIO</span>
+        </div>
+    </div>
+
+    <div class="container-fluid px-0 px-md-3 mb-5">
+        <div class="row g-0 g-md-4 mx-0">
+            
+            <!-- side bar -->
+            <div class="col-md-3 ps-0 pe-0 pe-md-2">
+                <div class="bg-white rounded-3 shadow-sm p-3 me-0 me-md-2" style="position: sticky; top: 20px; max-height: calc(100vh - 40px); overflow-y: auto;">
+                    <h5 class="text-primary mb-3 pb-2 border-bottom">
+                        <i class="bi bi-list-ul"></i> Sommaire
+                    </h5>
+                    <nav class="nav flex-column">
+                        <a class="nav-link px-0 py-1 text-dark" href="#utilisation-seul"><i class="bi bi-robot text-primary me-2"></i>1. Utilisation du robot seul</a>
+                        <a class="nav-link px-0 py-1 text-dark mt-2" href="#configuration-initiale"><i class="bi bi-gear text-primary me-2"></i>2. Configuration initiale de NiryoStudio</a>
+                        <a class="nav-link px-0 py-1 text-dark mt-2" href="#connexion"><i class="bi bi-wifi text-primary me-2"></i>3. Connexion au robot</a>
+                        <div class="ps-4">
+                            <a class="nav-link px-0 py-1 text-secondary small" href="#mode-point-acces">a) Mode point d'accès</a>
+                            <a class="nav-link px-0 py-1 text-secondary small" href="#mode-wifi">b) Mode Wi-Fi</a>
+                            <a class="nav-link px-0 py-1 text-secondary small" href="#mode-ethernet">c) Mode Ethernet</a>
+                            <a class="nav-link px-0 py-1 text-secondary small" href="#mode-ethernet-direct">d) Mode Ethernet Direct</a>
+                        </div>
+                        <a class="nav-link px-0 py-1 text-dark mt-2" href="#calibration"><i class="bi bi-sliders2 text-primary me-2"></i>4. Calibration du robot</a>
+                        <a class="nav-link px-0 py-1 text-dark mt-2" href="#interface"><i class="bi bi-display text-primary me-2"></i>5. Interface de NiryoStudio</a>
+                        <a class="nav-link px-0 py-1 text-dark mt-2" href="#tableau-bord"><i class="bi bi-speedometer2 text-primary me-2"></i>6. Tableau de bord</a>
+                        <a class="nav-link px-0 py-1 text-dark mt-2" href="#utilisation"><i class="bi bi-play-circle text-primary me-2"></i>7. Utilisation du robot avec le logiciel NiryoStudio</a>
+                    </nav>
+                </div>
+            </div>
+
+            <!-- contenu principal -->
+            <div class="col-md-9 ps-0 ps-md-2 pe-0">
+                
+                <div id="nirystudio" class="bg-white rounded-3 shadow-sm p-4 mb-4">
+                    <h2 class="text-primary border-bottom pb-2 mb-4"><i class="bi bi-display"></i> NIRYO NED2 ET NIRYOSTUDIO</h2>
+                    
+                    <!-- ============================================ -->
+                    <!-- 1. UTILISATION DU ROBOT SEUL -->
+                    <!-- ============================================ -->
+                    <div id="utilisation-seul" class="mt-3">
+                        <h3 class="text-dark">1. Utilisation du robot seul</h3>
+
+                        <p>Les deux images suivantes montrent les différentes amplitudes que peut emprunter le robot.</p>
+                        
+                        <!-- FIGURE 69 -->
+                        <div class="row g-3 mb-4">
+                            <div class="col-md-12">
+                                <div class="border rounded bg-light p-2 d-flex align-items-center justify-content-center" style="height: 300px;">
+                                    <img src="images/Figure69.png" class="img-fluid" style="max-height: 100%; object-fit: contain;">
+                                </div>
+                                <p class="text-center small mt-1">Figure 69 : Schémas descriptifs de l'amplitude des mouvements du Niryo Ned2</p>
+                            </div>
+                        </div>
+                        
+                        <ul>
+                            <li><strong>Bouton Free Motion :</strong> désactive les couples moteurs</li>
+                            <li><strong>Bouton Save :</strong> enregistrer la position du robot sur NiryoStudio</li>
+                            <li><strong>Bouton Custom :</strong> bouton programmable et permet à l'utilisateur de choisir le type d'action et la fonction du bouton</li>
+                        </ul>
+                    </div>
+                    
+                    <!-- ============================================ -->
+                    <!-- 2. CONFIGURATION INITIALE DE NIRYOSTUDIO -->
+                    <!-- ============================================ -->
+                    <div id="configuration-initiale" class="mt-5">
+                        <h3 class="text-dark">2. Configuration initiale de NiryoStudio</h3>
+                        
+                        <p><strong>• Allumer le robot :</strong></p>
+                        <p>Assurer que le robot est sous tension puis appuyer sur le bouton « POWER » situé à l'arrière de la base. Quand le bouton est appuyé l'anneau LED devient blanc et passe au bleu après quelques secondes. Après ça, il est enfin possible d'utiliser le robot.</p>
+                        
+                        <p><strong>• Lancer NiryoStudio :</strong></p>
+                        
+                        <p><strong>• Connexion à NiryoStudio :</strong></p>
+                        <p>Se connecter à son compte personnel ou en utilisant un jeton invité.</p>
+                        
+                        <p><strong>Pour créer un compte :</strong></p>
+                        <ul>
+                            <li>Sur l'écran de connexion, cliquer sur l'option « Créer un compte »</li>
+                            <li>Ajouter son email</li>
+                            <li>Vérifier son adresse email (email de confirmation peut être dans les spams)</li>
+                            <li>Choisir un mot de passe sécurisé et conforme (longueur, caractères spéciaux)</li>
+                            <li>Retourner à la page de connexion de NiryoStudio</li>
+                            <li>Entrer son email et son mot de passe pour se connecter à son compte</li>
+                        </ul>
+                        
+                        
+                        
+                        <!-- FIGURE 70 et 71 -->
+                        <div class="row g-3 mb-4">
+                            <div class="col-md-6">
+                                <div class="border rounded bg-light p-2 d-flex align-items-center justify-content-center" style="height: 300px;">
+                                    <img src="images/Figure70.png" class="img-fluid" style="max-height: 100%; object-fit: contain;">
+                                </div>
+                                <p class="text-center small mt-1">Figure 70 : Connexion à NiryoStudio</p>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="border rounded bg-light p-2 d-flex align-items-center justify-content-center" style="height: 300px;">
+                                    <img src="images/Figure71.png" class="img-fluid" style="max-height: 100%; object-fit: contain;">
+                                </div>
+                                <p class="text-center small mt-1">Figure 71 : Création de compte NiryoStudio</p>
+                            </div>
+                        </div>
+
+                        <!-- FIGURE 72 -->
+                        <div class="border rounded bg-light p-2 d-flex align-items-center justify-content-center" style="height: 250px; margin-bottom: 1rem;">
+                            <img src="images/Figure72.png" class="img-fluid" style="max-height: 100%; object-fit: contain;">
+                        </div>
+                        <p class="text-center small mt-1">Figure 72 : Page de vérification du compte</p>
+                    </div>
+                    
+                    <!-- ============================================ -->
+                    <!-- 3. CONNEXION AU ROBOT -->
+                    <!-- ============================================ -->
+                    <div id="connexion" class="mt-5">
+                        <h3 class="text-dark">3. Connexion au robot</h3>
+                        <p>Il existe plusieurs possibilités pour connecter le logiciel NiryoStudio avec le robot selon le mode de connexion que l'on souhaite.</p>
+                        
+                        <div id="mode-point-acces">
+                            <h4 class="text-dark mt-3">a) Mode point d'accès</h4>
+                            <p>Chaque robot possède son propre réseau <strong>Wi-Fi (SSID)</strong>. Ce dernier est sous la forme <strong>Niryo Hotspot XX-XXX-XXX</strong>. L'adresse complète le robot est visible sous la base du robot.</p>
+                            <p>Il faut ensuite suivre les étapes suivantes :</p>
+                            <ul>
+                                <li>Connecter le PC au Wi-Fi du robot avec le mot de passe : niryorobot</li>
+                                <li>Dans NiryoStudio, depuis l'écran du tableau de bord, cliquer sur « Connecter le robot »</li>
+                            </ul>
+                            
+                            <!-- FIGURE 73 -->
+                            <div class="border rounded bg-light p-2 d-flex align-items-center justify-content-center" style="height: 400px; margin-bottom: 1rem;">
+                                <img src="images/Figure73.png" class="img-fluid" style="max-height: 100%; object-fit: contain;">
+                            </div>
+                            <p class="text-center small mt-1">Figure 73 : Connexion du robot à NiryoStudio</p>
+                            
+
+                            <!-- FIGURE 74 -->
+                            <div class="row g-3 mb-4">
+                                <div class="col-md-3">
+                                    <div class="border rounded bg-light p-2 d-flex align-items-center justify-content-center" style="height: 400px;">
+                                        <p>Sélectionner ensuite le robot dans la fenêtre contextuelle <br>« Connexion ».<br>
+                                        Par défaut, le nom du robot correspond au SSID.</p>
+                                    </div>
+                                </div>
+                                <div class="col-md-9">
+                                    <div class="border rounded bg-light p-2 d-flex align-items-center justify-content-center" style="height: 400px; margin-bottom: 1rem;">
+                                        <img src="images/Figure74.png" class="img-fluid" style="max-height: 100%; object-fit: contain;">
+                                    </div>
+                                    <p class="text-center small mt-1">Figure 74 : Liste des robots disponible à la connexion</p>
+                                </div>
+                            </div>
+                            
+                            <p>Cliquer sur le bouton « Connecter » correspondant à votre mode de connexion et attendre
+                            que <strong>a connexion soit établie</strong>. La connexion prend quelques secondes.
+                            <strong>L'adresse IP</strong> utilisée par le robot pour la connexion au point d'accès est <strong>10.10.10.10</strong>.</p>
+                            <!-- FIGURE 75 -->
+                            <div class="border rounded bg-light p-2 d-flex align-items-center justify-content-center" style="height: 400px; margin-bottom: 1rem;">
+                                <img src="images/Figure75.png" class="img-fluid" style="max-height: 100%; object-fit: contain;">
+                            </div>
+                            <p class="text-center small mt-1">Figure 75 : Choix du mode de connexion</p>
+                            
+                            <p>Une fois connecté, NiryoStudio affiche l'état de la connexion sur la barre supérieure de l'interface et une vue 3D du robot.</p>
+                        </div>
+                        
+                        <div id="mode-wifi">
+                            <h4 class="text-dark mt-3">b) Mode Wi-Fi</h4>
+                            <p>Pour activer le mode Wi-Fi, le robot doit être d'abord connecté en mode point d'accès. <br>
+                            Une fois connecté au Ned2, allez dans <strong>« Mon robot » → « Paramètres »</strong> puis cliquer sur 
+                            <strong>« Modifier »</strong> dans la section <strong>« Connexion au robot »</strong>.</p>
+                            
+                            <!-- FIGURE 76 -->
+                            <div class="border rounded bg-light p-2 d-flex align-items-center justify-content-center" style="height: 400px; margin-bottom: 1rem;">
+                                <img src="images/Figure76.png" class="img-fluid" style="max-height: 100%; object-fit: contain;">
+                            </div>
+                            <p class="text-center small mt-1">Figure 76 : Vérification de la connexion du robot</p>
+                            
+
+                            <div class="row g-3 mb-4">
+                                <div class="col-md-6">
+                                    <div class="border rounded bg-light p-2" style="height: 400px;">
+                                        <p>Dans la section Wi-Fi, on peut connecter le robot au réseau <strong>Wi-Fi</strong> que l'on souhaite.</p>
+                                        <p>Une fois le robot connecté au réseau, connecter NiryoStudio au robot en suivant les étapes suivantes :</p>
+                                        <ul>
+                                            <li><strong>Connecter votre ordinateur</strong> sur le même réseau que votre robot</li>
+                                            <li>Cliquer sur <strong>Connecter le robot</strong></li>
+                                            <li><strong>Sélectionner votre robot</strong>, puis connectez-vous au robot en utilisant le mode Wi-Fi</li>
+                                        </ul>
+                                    </div>
+                                </div>
+                                <!-- FIGURE 77 -->
+                                <div class="col-md-6">
+                                    <div class="border rounded bg-light p-2 d-flex align-items-center justify-content-center" style="height: 400px; margin-bottom: 1rem;">
+                                        <img src="images/Figure77.png" class="img-fluid" style="max-height: 100%; object-fit: contain;">
+                                    </div>
+                                    <p class="text-center small mt-1">Figure 77 : Connecter le robot</p>
+                                </div>
+                            </div>
+
+                            <!-- FIGURE 78 -->
+                            <div class="border rounded bg-light p-2 d-flex align-items-center justify-content-center" style="height: 400px; margin-bottom: 1rem;">
+                                <img src="images/Figure78.png" class="img-fluid" style="max-height: 100%; object-fit: contain;">
+                            </div>
+                            <p class="text-center small mt-1">Figure 78 : Activation du mode de connexion Wi-Fi</p>
+                        </div>
+                        
+                        <div id="mode-ethernet">
+                            <h4 class="text-dark mt-3">c) Mode Ethernet</h4>
+                            <p>Le robot peut être connecté à un réseau à l'aide du <strong>port Ethernet</strong> situé sur le panneau arrière. 
+                            Une fois le robot connecté au <strong>réseau via Ethernet</strong>, on peut se connecter au Ned2 en suivant les étapes ci-dessous :</p>
+                            <ul>
+                                <li><strong>Connecter</strong> votre ordinateur sur le même réseau (avec Ethernet ou Wi-Fi)</li>
+                                <li><strong>Cliquer</strong> sur <strong>« Connecter le robot »</strong> pour accéder à la connexion Ned2</li>
+                                <li><strong>Sélectionner</strong> son robot, puis se <strong>connecter</strong> avec Ethernet</li>
+                            </ul>
+                            
+                            <div id="mode-ethernet-direct">
+                                <h4 class="text-dark mt-3">d) Mode Ethernet Direct</h4>
+                                <p>On peut aussi utiliser un câble Ethernet pour connecter physiquement le robot avec
+                                l'ordinateur. Cependant le robot doit déjà être utiliser en mode point d'accès ou en mode WiFi.<br>
+                                On a ensuite quelque étape à suivre :</p>
+                                <ul>
+                                    <li>Aller sur <strong>Mon robot → Paramètres</strong> puis cliquer sur <strong>Modifier</strong> dans la <strong>section Connexion</strong> du robot.</li>
+                                    <li>Dans la <strong>section Ethernet</strong>, sélectionner <strong>« Ethernet direct »</strong> et déconnecter votre robot.</li>
+                                    <li><strong>Reconnecter</strong> à votre robot en cliquant sur le bouton <strong>« Connecter le robot »</strong>.</li>
+                                    <li><strong>Sélectionner</strong> votre robot, puis se connecter au robot en utilisant le <strong>mode Ethernet Direct</strong>.</li>
+                                </ul>
+                            
+                            </div>
+
+                             <!-- FIGURE 79 -->
+                            <div class="border rounded bg-light p-2 d-flex align-items-center justify-content-center" style="height: 400px; margin-bottom: 1rem;">
+                                <img src="images/Figure79.png" class="img-fluid" style="max-height: 100%; object-fit: contain;">
+                            </div>
+                            <p class="text-center small mt-1">Figure 79 : Changer le mode de connexion du robot.</p>
+
+                             <!-- FIGURE 80 -->
+                            <div class="border rounded bg-light p-2 d-flex align-items-center justify-content-center" style="height: 400px; margin-bottom: 1rem;">
+                                <img src="images/Figure80.png" class="img-fluid" style="max-height: 100%; object-fit: contain;">
+                            </div>
+                            <p class="text-center small mt-1">Figure 80 : Paramètre de connexion du robot.</p>
+
+                            <!-- FIGURE 81 -->
+                            <div class="border rounded bg-light p-2 d-flex align-items-center justify-content-center" style="height: 400px; margin-bottom: 1rem;">
+                                <img src="images/Figure81.png" class="img-fluid" style="max-height: 100%; object-fit: contain;">
+                            </div>
+                            <p class="text-center small mt-1">Figure 81 : Connecter le robot</p>
+                            
+                            <!-- FIGURE 82 -->
+                            <div class="border rounded bg-light p-2 d-flex align-items-center justify-content-center" style="height: 400px; margin-bottom: 1rem;">
+                                <img src="images/Figure82.png" class="img-fluid" style="max-height: 100%; object-fit: contain;">
+                            </div>
+                            <p class="text-center small mt-1">Figure 82 : Activation du mode de connexion Ethernet</p>
+                        </div>
+
+                    </div>
+                    
+                    <!-- ============================================ -->
+                    <!-- 4. CALIBRATION DU ROBOT -->
+                    <!-- ============================================ -->
+                    <div id="calibration" class="mt-5">
+                        <h3 class="text-dark">4. Calibration du robot</h3>
+                        <p>Avant de déplacer le robot, on doit calibrer les moteurs. Cette procédure doit être effectuée à chaque redémarrage. 
+                        Pour cela cliquer sur le bouton clignotant <strong>« Calibration requise » (1)</strong> sur l'écran du tableau de bord
+                        ou sur l'écran <strong>MyRobot</strong> et attendre que la procédure soit terminée.</p>
+                        
+                        <!-- FIGURE 83 -->
+                        <div class="border rounded bg-light p-2 d-flex align-items-center justify-content-center" style="height: 400px; margin-bottom: 1rem;">
+                            <img src="images/Figure83.png" class="img-fluid" style="max-height: 100%; object-fit: contain;">
+                        </div>
+                        <p class="text-center small mt-1">Figure 83 : Calibration du robot</p>
+                        
+                        <p>À la fin du calibrage, un message s'affichera pour indiquer si l'étalonnage s'est bien déroulé. 
+                        Le robot affichera ensuite <strong>« Calibrage OK »</strong> sur le tableau de bord. Ce statut s'affichera quelques secondes avant de passer au bouton <strong>« Nouvel étalonnage »</strong>,
+                        permettant d'effectuer un autre calibrage.</p>
+                        <p>Une fois calibré, à l'emplacement <strong>(1)</strong>, le message « Calibration OK » en vert s'affiche.</p>
+                    </div>
+                    
+                    <!-- ============================================ -->
+                    <!-- 5. INTERFACE DE NIRYOSTUDIO -->
+                    <!-- ============================================ -->
+                    <div id="interface" class="mt-5">
+                        <h3 class="text-dark">5. Interface de NiryoStudio</h3>
+                        
+                        <!-- FIGURE 84 -->
+                        <div class="border rounded bg-light p-2 d-flex align-items-center justify-content-center" style="height: 400px; margin-bottom: 1rem;">
+                            <img src="images/Figure84.png" class="img-fluid" style="max-height: 100%; object-fit: contain;">
+                        </div>
+                        <p class="text-center small mt-1">Figure 84 : Interface générale de NiryoStudio</p>
+                        
+                        <p><strong>(1) État de la connexion :</strong> affiche l'état actuel de la connexion avec le robot.</p>
+                        <p><strong>(2) Panneau de navigation principal :</strong> cette barre latérale gauche offre un accès rapide aux fonctionnalités principales de NiryoStudio.</p>
+                        <ul>
+                            <li><strong>Tableau de bord :</strong> retourne à cet écran principal</li>
+                            <li><strong>Blockly :</strong> ouvre l'interface de programmation Blockly</li>
+                            <li><strong>Python :</strong> accès direct à la programmation Python pour les utilisateurs avancés</li>
+                            <li><strong>Direct Move :</strong> permet le contrôle manuel du robot pour des commandes de mouvement directes</li>
+                            <li><strong>Équipement :</strong> fournit des options pour configurer les outils ou accessoires connectés</li>
+                            <li><strong>Bibliothèques :</strong> accéder aux programmes enregistrés, aux positions, à la trajectoire et à d'autres ressources</li>
+                            <li><strong>Mon robot :</strong> affiche les détails et les paramètres du robot</li>
+                        </ul>
+                        <p><strong>(3) Commentaires et paramètres :</strong> pour gérer les paramètres de l'application et du compte.</p>
+                        <ul>
+                            <li>Bouton de commentaires : les utilisateurs peuvent donner leur avis sur l'application, partager des suggestions ou signaler des problèmes</li>
+                            <li>Langue : choisissez parmi les options de langues disponibles (anglais et français)</li>
+                            <li>Unités d'angles : sélectionnez les unités d'angle pour l'interface (radians ou degrés)</li>
+                            <li>Paramètres du compte : modifiez les informations de votre compte</li>
+                            <li>Mode plein écran : bascule l'application entre les modes plein écran et fenêtres</li>
+                            <li>Mode sombre : bascule l'application entre les modes claires et sombres</li>
+                            <li>Terminal SSH : ouvre un terminal SSH sur le robot (indisponible si vous n'êtes pas connecté au robot)</li>
+                        </ul>
+                        <p><strong>(4) Tableau de bord :</strong> affiche le contenu de la section du panneau de navigation,<br>
+                        le tableau de bord sur cette image (qui sera décrit dans la partie suivante).</p>
+                        <p><strong>(5) Vue 3D du robot :</strong> affiche un modèle 3D du robot permettant aux utilisateurs de visualiser son état actuel et son positionnement.</p>
+                    </div>
+                    
+                    <!-- ============================================ -->
+                    <!-- 6. TABLEAU DE BORD -->
+                    <!-- ============================================ -->
+                    <div id="tableau-bord" class="mt-5">
+                        <h3 class="text-dark">6. Tableau de bord</h3>
+                        
+                        <!-- FIGURE 85 -->
+                        <div class="border rounded bg-light p-2 d-flex align-items-center justify-content-center" style="height: 400px; margin-bottom: 1rem;">
+                            <img src="images/Figure85.png" class="img-fluid" style="max-height: 100%; object-fit: contain;">
+                        </div>
+                        <p class="text-center small mt-1">Figure 85 : Image montrant les différentes parties du tableau de bord</p>
+                        
+                        <p><strong>(1) État de la connexion :</strong> Affiche le nom du robot auquel NiryoStudio est connecté, l'état de la connexion, le mode de connexion et le bouton pour se déconnecter du robot.</p>
+                        <p><strong>(2) Étalonnage :</strong> permet à l'utilisateur de lancer le processus d'étalonnage du robot. Un clic sur ce bouton lance la procédure pour garantir que les mouvements du robot sont correctement alignés et calibrés pour des performances optimales.</p>
+                        <p><strong>(3) Annonce de mise à jour :</strong> avertit l'utilisateur lorsqu'une nouvelle version de NiryoStudio est disponible. Cliquer sur ce bouton installera la nouvelle version.</p>
+                        <p><strong>(4) Mes équipements connectés :</strong> Affiche la liste de tous les appareils actuellement connectés à NiryoStudio. Cette section indique le nom, l'état et les paramètres des équipements connectés. Vous pouvez lancer une analyse pour détecter les nouveaux équipements connectés en cliquant sur le bouton <strong>« Nouvelle analyse »</strong>.</p>
+                        <p><strong>(5) Mes derniers programmes :</strong> Affiche la liste des programmes récemment créés ou utilisés par l'utilisateur. Cette section permet un accès rapide aux programmes précédemment utilisés pour faciliter leur modification ou leur exécution. La liste complète des programmes se trouve dans la section <a href="https://docs.niryo.com/niryostudio/interface/library/">Bibliothèque</a>.</p>
+                    </div>
+                    
+                    <!-- ============================================ -->
+                    <!-- 7. UTILISATION DU ROBOT AVEC LE LOGICIEL NIRYOSTUDIO -->
+                    <!-- ============================================ -->
+                    <div id="utilisation" class="mt-5">
+                        <h3 class="text-dark">7. Utilisation du robot avec le logiciel NiryoStudio</h3>
+                        <p>Le robot Niryo Ned2 possède un système de trajectoire d'intégré. En effet, un appui simultané sur les boutons SAVE et FreeMotion sur le panneau de contrôle situé sur le bras du robot jusqu'à leurs relâchement, permet d'enregistrer la trajectoire effectuée. Après avoir relâcher les boutons, NiryoStudio va demander à l'utilisateur d'entrer un nom pour cette trajectoire. Cette dernière sera disponible dans la mémoire du logiciel jusqu'à sa suppression.</p>
+                        <p>Les trajectoires sont enregistrées dans le robot au format « .trajectory ». Ce sont des fichiers au format binaire (« pickeld », donc illisible en tant que tel), ce format est souvent utilisé pour stocker des données. Pour lire ces fichiers, mais également en créer des nouveaux, il est nécessaire d'utiliser un script dans le même dossier que les trajectoires.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

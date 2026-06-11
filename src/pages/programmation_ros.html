@@ -1,0 +1,2275 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Programmation ROS - Niryo Ned2</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.0/font/bootstrap-icons.css">
+</head>
+<body class="bg-light">
+
+    <div class="bg-white border-bottom shadow-sm mb-4">
+        <div class="container-fluid py-3 px-4">
+            <a href="index.html" class="btn btn-outline-primary btn-sm">
+                <i class="bi bi-arrow-left"></i> Accueil
+            </a>
+            <span class="ms-3 fs-5 fw-semibold text-primary"> PROGRAMMATION ROS</span>
+        </div>
+    </div>
+
+    <div class="container-fluid px-0 px-md-3 mb-5">
+        <div class="row g-0 g-md-4 mx-0">
+            
+            <!-- side bar -->
+            <div class="col-md-3 ps-0 pe-0 pe-md-2">
+                <div class="bg-white rounded-3 shadow-sm p-3 me-0 me-md-2" style="position: sticky; top: 20px; max-height: calc(100vh - 40px); overflow-y: auto;">
+                    <h5 class="text-primary mb-3 pb-2 border-bottom">
+                        <i class="bi bi-list-ul"></i> Sommaire
+                    </h5>
+                    <nav class="nav flex-column">
+                        <a class="nav-link px-0 py-1 text-dark" href="#preambule"><i class="bi bi-terminal text-primary me-2"></i>1. Préambule</a>
+                        <div class="ps-4">
+                            <a class="nav-link px-0 py-1 text-secondary small" href="#commandes-bases">a) Commandes de bases</a>
+                            <a class="nav-link px-0 py-1 text-secondary small" href="#commandes-ros">b) Commandes ROS fréquentes</a>
+                            <a class="nav-link px-0 py-1 text-secondary small" href="#commandes-compilation">c) Commandes de compilation</a>
+                        </div>
+                        <a class="nav-link px-0 py-1 text-dark mt-2" href="#simulation-gazebo-rviz"><i class="bi bi-play-circle text-primary me-2"></i>2. Simulation : Gazebo et RViz</a>
+                        <div class="ps-4">
+                            <a class="nav-link px-0 py-1 text-secondary small" href="#generalites-simulation">a) Généralités</a>
+                            <a class="nav-link px-0 py-1 text-secondary small" href="#modeles-robot-rviz">b) Les différents modèles de robot dans Rviz</a>
+                        </div>
+                        <a class="nav-link px-0 py-1 text-dark mt-2" href="#creation-programmes"><i class="bi bi-code-square text-primary me-2"></i>3. Création et Lancement de programme (Simulation)</a>
+                        <div class="ps-4">
+                            <a class="nav-link px-0 py-1 text-secondary small" href="#commandes-utiles">a) Où trouver les commandes nécessaires ?</a>
+                            <a class="nav-link px-0 py-1 text-secondary small" href="#commandes-utiles-liste">b) Les commandes utiles</a>
+                            <a class="nav-link px-0 py-1 text-secondary small" href="#structure-programme">c) Structure d'un programme</a>
+                            <a class="nav-link px-0 py-1 text-secondary small" href="#simulation-programmes">d) Simulation</a>
+                            <a class="nav-link px-0 py-1 text-secondary small" href="#defaut-trajectoire">e) Défaut de trajectoire</a>
+                            <a class="nav-link px-0 py-1 text-secondary small" href="#debug-warn">f) Méthodologie de débogage d'une erreur de type [WARN]</a>
+                            <a class="nav-link px-0 py-1 text-secondary small" href="#plateformes-simulation">g) Ajouter des plateformes en simulations</a>
+                            <a class="nav-link px-0 py-1 text-secondary small" href="#conclusion-simulation">h) Conclusion sur la simulation</a>
+                        </div>
+                        <a class="nav-link px-0 py-1 text-dark mt-2" href="#programmation-reel"><i class="bi bi-robot text-primary me-2"></i>4. Programmation du robot réel</a>
+                        <div class="ps-4">
+                            <a class="nav-link px-0 py-1 text-secondary small" href="#commande-reel">a) Commande du robot réel</a>
+                            <a class="nav-link px-0 py-1 text-secondary small" href="#limites-connexion">b) Limites rencontrées pour se connecter au robot par la méthode « rospy »</a>
+                            <a class="nav-link px-0 py-1 text-secondary small" href="#analyse-cause">c) Analyse de la cause du dysfonctionnement</a>
+                            <a class="nav-link px-0 py-1 text-secondary small" href="#solution-mise-oeuvre">d) Solution mise en œuvre</a>
+                            <a class="nav-link px-0 py-1 text-secondary small" href="#methode-embarquee">e) La méthode embarquée : principe et protocole</a>
+                            <a class="nav-link px-0 py-1 text-secondary small" href="#mise-place-embarquee">f) Mise en place de la méthode embarquée</a>
+                            <a class="nav-link px-0 py-1 text-secondary small" href="#definitions">g) Quelques définitions</a>
+                        </div>
+                        <div class="mt-3 pt-2 border-top">
+                            <h6 class="text-primary mb-2"><i class="bi bi-paperclip"></i> Annexes</h6>
+                            <a class="nav-link px-0 py-1 text-secondary small ps-3" href="#annexe08">Annexe 08</a>
+                            <a class="nav-link px-0 py-1 text-secondary small ps-3" href="#annexe09">Annexe 09</a>
+                            <a class="nav-link px-0 py-1 text-secondary small ps-3" href="#annexe10">Annexe 10</a>
+                            <a class="nav-link px-0 py-1 text-secondary small ps-3" href="#annexe11">Annexe 11</a>
+                            <a class="nav-link px-0 py-1 text-secondary small ps-3" href="#annexe12">Annexe 12</a>
+                            <a class="nav-link px-0 py-1 text-secondary small ps-3" href="#annexe13">Annexe 13</a>
+                            <a class="nav-link px-0 py-1 text-secondary small ps-3" href="#annexe14">Annexe 14</a>
+                            <a class="nav-link px-0 py-1 text-secondary small ps-3" href="#annexe15">Annexe 15</a>
+                            <a class="nav-link px-0 py-1 text-secondary small ps-3" href="#annexe16">Annexe 16</a>
+                            <a class="nav-link px-0 py-1 text-secondary small ps-3" href="#annexe17">Annexe 17</a>
+                        </div>
+                    </nav>
+                </div>
+            </div>
+
+            <!-- contenu principal -->
+            <div class="col-md-9 ps-0 ps-md-2 pe-0">
+                
+                <div id="programmation-ros" class="bg-white rounded-3 shadow-sm p-4 mb-4">
+                    <h2 class="text-primary border-bottom pb-2 mb-4"><i class="bi bi-terminal"></i> PROGRAMMATION ROS</h2>
+                    
+                    <!-- ============================================ -->
+                    <!-- 1. PRÉAMBULE -->
+                    <!-- ============================================ -->
+                    <div id="preambule" class="mt-3">
+                        <h3 class="text-dark">1. Préambule</h3>
+                        <p>Dans cette première partie on va lister les différentes commandes indispensables pour utiliser et naviguer à travers un environnement ROS.</p>
+                        
+                        <div id="commandes-bases">
+                            <h4 class="text-dark mt-3">a) Commandes de bases</h4>
+                            <div class="table-responsive">
+                                <table class="table table-bordered">
+                                    <thead class="table-primary">
+                                        <tr><th>Instructions</th><th>Description</th></tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr><td class="fw-bold">cd</td><td>Change Directory : permet de naviguer entre les répertoires. cd &lt;nom_du_répertoire&gt;</td></tr>
+                                        <tr><td class="fw-bold">cd ..</td><td>Remonte d'un niveau dans l'arborescence des répertoires</td></tr>
+                                        <tr><td class="fw-bold">ls</td><td>List : affiche le contenu du répertoire courant (fichiers et sous-répertoires)</td></tr>
+                                        <tr><td class="fw-bold">mkdir</td><td>Make Directory : crée un nouveau répertoire. Utilisé par exemple pour créer
+                                        l'espace de travail (catkin_ws/src) ou le répertoire qui contiendra les fichiers python.</td></tr>
+                                        <tr><td class="fw-bold">touch</td><td>Créer un nouveau fichier vide</td></tr>
+                                        <tr><td class="fw-bold">chmod +x</td><td>Change les permissions d'un fichier pour le rendre exécutable. Il est
+                                        notamment indispensable pour les scripts Python.</td></tr>
+                                        <tr><td class="fw-bold">cp</td><td>Copy : permet de copier un répertoire ou un fichier. cp</td></tr>
+                                        <tr><td class="fw-bold">rm</td><td>Remove : supprime un fichier</td></tr>
+                                        <tr><td class="fw-bold">rm -rf</td><td>Supprime un répertoire et tout son contenu (r : récursif, f : forcer)</td></tr>
+                                        <tr><td class="fw-bold">source</td><td>Exécute un script (fichier .bash ou setup.bash) dans le terminal actuel pour
+                                        charger des variables ou des chemins d'accès.<br>
+                                        Essentiel après l'installation de ROS ou la compilation d'un workspace.</td></tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                            <p class="text-center small mt-1">Tableau 28 : Tableau répertoriant les commandes ROS de base</p>
+                        </div>
+                        
+                        <div id="commandes-ros">
+                            <h4 class="text-dark mt-3">b) Commandes ROS fréquentes</h4>
+                            <p>Ces commandes interagissent directement avec l'environnement ROS (le Master et les noeuds).</p>
+                            <div class="table-responsive">
+                                <table class="table table-bordered">
+                                    <thead class="table-primary">
+                                        <tr><th>Instructions</th><th>Description</th></tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr><td class="fw-bold">roslaunch</td><td>Lance un ou plusieurs nœuds, services, et serveurs de paramètres définis dans un fichier « .launch ».
+                                        <br>C'est la façon la plus courante de démarrer une application ROS complète.</td></tr>
+                                        <tr><td class="fw-bold">roscd</td><td>ROS Change Directory : Une commande spécifique à ROS pour naviguer
+                                        rapidement vers le répertoire d'un <strong>package</strong> ou d'un stack.<br>Ex: roscd &lt;mon_package&gt;.</td></tr>
+                                        <tr><td class="fw-bold">rosrun</td><td>Exécute directement un nœud unique dans un package.<br>
+                                        Ex: rosrun &lt;mon_package&gt; &lt;mon_noeud&gt;.</td></tr>
+                                        <tr><td class="fw-bold">roscore</td><td>Démarre le <strong>ROS Master</strong>, qui est le service d'enregistrement des nœuds.<br>
+                                        C'est la première chose à lancer pour qu'un système ROS fonctionne.</td></tr>
+                                        <tr><td class="fw-bold">rosnode list</td><td>Affiche la liste des nœuds actuellement actifs.</td></tr>
+                                        <tr><td class="fw-bold">rosnode kill &lt;nom_noeud&gt;</td><td>Arrête un nœud spécifique.</td></tr>
+                                        <tr><td class="fw-bold">rostopic list</td><td>Affiche la liste des Topics actuellement publiés.</td></tr>
+                                        <tr><td class="fw-bold">rostopic echo &lt;nom_topic&gt;</td><td>Affiche le contenu des <strong>messages</strong> circulant sur un Topic en temps réel.</td></tr>
+                                        <tr><td class="fw-bold">rostopic pub &lt;topic&gt; &lt;type_msg&gt; &lt;données&gt;</td><td>Publie un message sur un Topic. Souvent utilisé pour le débogage ou les tests rapides.</td></tr>
+                                        <tr><td class="fw-bold">rosservice list</td><td>Exécute un script (fichier .bash ou setup.bash) dans le terminal actuel pour charger des variables ou des chemins d'accès.<br>
+                                        Essentiel après l'installation de ROS ou la compilation d'un workspace.</td></tr>
+                                        <tr><td class="fw-bold">rosservice info &lt;nom_service&gt;</td><td>Affiche le type de message requis par un Service</td></tr>
+                                        <tr><td class="fw-bold">rosparam list</td><td>Affiche la liste de tous les paramètres chargés sur le <strong>Serveur de Paramètres</strong></td></tr>
+                                        <tr><td class="fw-bold">rosparam set &lt;param&gt; &lt;valeur&gt;</td><td>Modifie la valeur d'un paramètre en temps réel</td></tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                            <p class="text-center small mt-1">Tableau 29 : Tableau répertoriant les commandes ROS fréquentes</p>
+                        </div>
+                        
+                        <div id="commandes-compilation">
+                            <h4 class="text-dark mt-3">c) Commandes de compilation</h4>
+                            <p>Ces commandes sont utilisées pour créer et compiler les packages dans un « workspace » Catkin.</p>
+                            <div class="table-responsive">
+                                <table class="table table-bordered">
+                                    <thead class="table-primary">
+                                        <tr><th>Commande</th><th>Description</th></tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr><td class="fw-bold">catkin_make</td><td>Commande de compilation principale pour les workspaces Catkin.<br>
+                                        Elle crée les exécutables et génère les fichiers de messages et services.</td></tr>
+                                        <tr><td class="fw-bold">rosdep install</td><td>Installe les dépendances logicielles et système (bibliothèques tierces) requises par les packages ROS.</td></tr>
+                                        <tr><td class="fw-bold">catkin_create_pkg</td><td>Commande pour créer la structure de base d'un nouveau package 
+                                        (avec son fichier package.xml et ses répertoires standard).</td></tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                            <p class="text-center small mt-1">Tableau 30 : Tableau répertoriant les commandes principales de compilation</p>
+                        </div>
+                    </div>
+                    
+                    <!-- ============================================ -->
+                    <!-- 2. SIMULATION : GAZEBO ET RVIZ -->
+                    <!-- ============================================ -->
+                    <div id="simulation-gazebo-rviz" class="mt-5">
+                        <h3 class="text-dark">2. Simulation : Gazebo et RViz</h3>
+                        
+                        <div id="generalites-simulation">
+                            <h4 class="text-dark mt-3">a) Généralités</h4>
+                            <p>Dans cette partie on va présenter les méthodes pour ouvrir les pages de simulation RViz et Gazebo et y énoncer les problèmes rencontrés pour obtenir une modélisation idéale du robot Niryo Ned2.</p>
+                            
+                            <p>Pour lancer la simulation Gazebo la documentation Ned ROS Stack nous dit d'exécuter la commande suivante :</p>
+                            <pre class="bg-dark text-white p-3 rounded"><code>roslaunch niryo_robot_bringup desktop_gazebo_simulation.launch</code></pre>
+                            
+                            <p>Cependant la commande ne fonctionne pas et on obtient un message d'erreur commençant par :</p>
+                            <pre class="bg-dark text-white p-3 rounded"><code>RLExecption: [desktop_gazebo_simulation.launch'] is neither a launch file in package [niryo_robot_bringup] nor is [niryo_robot_bringup] a launch file name
+The traceback for the exception was written to the log file</code></pre>
+                            
+                            <p>Pour ce genre de problème, il est important de vérifier le chemin exact ainsi que le nom du fichier launch à lancer.</p>
+                            
+                            <p>Par exemple, si on reprend notre problème nous avons dû trouver le bon chemin avec les noms exacts :</p>
+                            <ul>
+                                <li>cd ~/niryo_ws/src/ned_ros</li>
+                                <li>ls</li>
+                                <li> on a obtenu les dossiers présents dans le package ned_ros</li>
+                                <li>celui qui nous intéresse est : cd niryo_robot_gazebo</li>
+                                <li>ls launch → pour afficher uniquement les packages launch</li>
+                                <li>puis on a trouvé notre document que l'on veut : gazebo.launch</li>
+                            </ul>
+                            
+                            <p>Donc après ces étapes, nous avons pu lancer notre fichier launch puis voir une page Gazebo s'ouvrir (<strong>Remarque</strong> : il faut sourcer les terminaux dès que l'on veut faire un roslaunch)</p>
+                            <pre class="bg-dark text-white p-3 rounded"><code>cd ~
+source /opt/ROS/noetic/setup.bash
+source ~/niryo_ws/devel/setup.bash
+roslaunch niryo_robot_gazebo gazebo.launch</code></pre>
+
+                            <p>Une page Gazebo s'ouvre mais le robot représenté est le Niryo Ned1 or nous on veut le Niryo Ned2. 
+                            Pour corriger cela, il faut modifier le document gazebo.launch.<br>
+                            Il faut se rendre dans le répertoire niryo_robot_gazebo puis faire ‘gedit gazebo.launch' et cette page s'ouvre : </p>
+                            
+                            <!-- FIGURE 113 -->
+                            <div class="border rounded bg-light p-2 d-flex align-items-center justify-content-center" style="height: 400px; margin-bottom: 1rem;">
+                                <img src="images/Figure113.png" class="img-fluid" style="max-height: 100%; object-fit: contain;" alt="Code contenu dans le fichier gazebo.launch">
+                            </div>
+                            <p class="text-center small mt-1">Figure 113 : Code contenu dans le fichier « gazebo.launch »</p>
+                            
+                            <p>On voit que le modèle du robot est défini dans la ligne de code :<br>
+                            <pre class="bg-dark text-white p-3 rounded"><code>&lt;arg name="hardware_version" default="ned"/&gt;</code></pre></p>
+
+                            
+                            
+                            <p>A présent, deux possibilités sont envisageables pour avoir le modèle que l'on souhaite :</p>
+                            <ul>
+                                <li>Soit on remplace « ned » par « ned2 » dans la ligne de code ci-dessus ;</li>
+                                <li>Soit on force le modèle souhaité lors de la commande roslaunch en écrivant :<br>
+                                <code class = "text-dark">roslaunch niryo_robot_gazebo gazebo.launch hardware_version:=ned2</code></li>
+                            </ul>
+                            <p>Dans notre cas nous avons choisi la première méthode car c'est la plus pour éviter tout problème de version de robot.<br>
+                            <strong>Remarque :</strong>il faut bien évidemment sourcer le terminal avec les instructions énoncés plus haut.</p>
+
+                            <p>Après ces étapes effectué une page Gazebo s'ouvre et on voit ceci </p>
+                            
+                            <!-- FIGURE 114 -->
+                            <div class="border rounded bg-light p-2 d-flex align-items-center justify-content-center" style="height: 300px; margin-bottom: 1rem;">
+                                <img src="images/Figure114.png" class="img-fluid" style="max-height: 100%; object-fit: contain;" alt="Interface de Gazebo">
+                            </div>
+                            <p class="text-center small mt-1">Figure 114 : Interface de Gazebo</p>
+                            
+                            <p>Pour lancer RViz la <a href="https://niryorobotics.github.io/ned_ros/index.html">documentation Ned ROS Stack</a> nous donne la commande suivante :</p>
+                            <pre class="bg-dark text-white p-3 rounded"><code>roslaunch niryo_robot_bringup desktop_RViz_simulation.launch</code></pre>
+                            
+                            <p>Cependant, comme pour lancer Gazebo, le chemin et les noms des packages/documents sont pas les bons. Le chemin exact est le suivant :</p>
+                            <pre class="bg-dark text-white p-3 rounded"><code>niryo_ws/src/ned_ros/niryo_robot_moveit_config/niryo_moveit_config_w_gripper1/launch</code></pre>
+                            
+                            <p>Et dans le répertoire launch on trouve le document à lancer : demo_gazebo.launch</p>
+                            
+                            <p>Si on suit la méthodologie précédente pour lancer ce document, la commande serait :</p>
+                            <pre class="bg-dark text-white p-3 rounded"><code>roslaunch niryo_robot_moveit_config niryo_moveit_config_w_gripper1 /demo_gazebo.launch hardware_version:=ned2</code></pre>
+                            
+                            <p>Néanmoins, cette commande renvoie l'erreur suivante :</p>
+                            <pre class="bg-dark text-white p-3 rounded"><code>RLExecption: [niryo_moveit_config_w_gripper1/demo_gazebo.launch] is neither a launch file in package [niryo_robot_moveit_config] nor is [niryo_robot_moveit_config] a launch file name
+The traceback for the exception was written to the log file</code></pre>
+
+                            <p>Nous avons essayé de copier le document demo_gazebo.launch dans un répertoire launch
+                            (que nous avons créé) qui est lui-même dans le répertoire niryo_robot_moveit_config. Malgré
+                            ça, la même erreur revient quand on compile.</p>
+                            <pre class="bg-dark text-white p-3 rounded"><code>cp niryo_moveit_config_w_gripper1/demo_gazebo.launch launch/demo_gazebo.launch</code></pre>
+                            
+                            <p>La solution que nous avons trouvée est de faire la commande roslaunch demo_gazebo.launch depuis le répertoire où il est présent. C'est-à-dire :</p>
+                            <pre class="bg-dark text-white p-3 rounded"><code>~/niryo_ws/src/ned_ros/niryo_robot_moveit_config/niryo_moveit_config_w_gripper1/launch</code></pre>
+                            
+                            <p><strong>Remarque :</strong> le document demo_gazebo.launch permet de lancer RViz mais également Gazebo.
+                            Donc pour pouvoir la compiler il ne faut pas que Gazebo soit déjà ouvert.</p>
+
+                            <p>Pour que la compilation se passe sans problème il nous a fallu faire une modification dans le document ros_controllers.launch selon ce que l'erreur de compilation nous disait.</p>
+                            
+                            <pre class="bg-dark text-white p-3 rounded"><code>... logging to /home/crestic/.ros/log/969be68e-ca9b-11f0-9b4b-e59671ab820d/roslaunch-crestic-Precision-7730-402438.log
+Checking log directory for disk usage. This may take a while.
+Press Ctrl-C to interrupt
+Done checking log file disk usage. Usage is <1GB.
+
+RLException: unused args [hardware_version] for include of [/home/crestic/niryo_ws/src/ned_ros/niryo_robot_moveit_config/niryo_moveit_config_w_gripper1/launch/ros_controllers.launch]
+The traceback for the exception was written to the log file</code></pre>
+                            
+                            <p>Nous nous sommes rendus dans le document ros_controllers.launch dans lequel on y trouve le code suivant :</p>
+                            <pre class="bg-dark text-white p-3 rounded"><code>&lt;?xml version="1.0" ?&gt;
+&lt;launch xmlns:xs="http://www.w3.org/2001/XMLSchema"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:noNamespaceSchemaLocation="https://gist.githubusercontent.com/nalt/dfa2abc9d2e3ae4feb82ca5608090387/raw/roslaunch.xsd"&gt;
+    &lt;!-- Load joint controller configurations from YAML file to parameter server --&gt;
+    (1)
+    &lt;rosparam file="${find niryo_moveit_config_w_gripper1}/config/${arg hardware_version}/ros_controllers.yaml" command="load"/&gt;
+    &lt;!-- Load the controllers --&gt;
+    &lt;node name="controller_spawner" pkg="controller_manager" type="spawner" respawn="false" output="log"
+    args="niryo_robot_follow_joint_trajectory_controller gazebo_tool_commander "/&gt;
+&lt;/launch&gt;</code></pre>
+                            
+                            <p>Nous avons donc rajouté la ligne <strong>&lt;arg name="hardware_version" default="ned2" /&gt;</strong> à l'emplacement (1) puis nous avons sourcé à nouveau puis compiler et nous n'avons pas eu d'autres problèmes pour lancer RViz et Gazebo à partir de la commande « roslaunch demo_gazebo.launch ».</p>
+                            
+                            <p>Une fois toutes ces modifications faites, nous obtenons :</p>
+                            
+                            <!-- FIGURE 115 -->
+                            <div class="border rounded bg-light p-2 d-flex align-items-center justify-content-center" style="height: 300px; margin-bottom: 1rem;">
+                                <img src="images/Figure115.png" class="img-fluid" style="max-height: 100%; object-fit: contain;" alt="Interfaces Gazebo et RViz avec le Niryo Ned2">
+                            </div>
+                            <p class="text-center small mt-1">Figure 115 : Interfaces Gazebo et RViz avec le Niryo Ned2</p>
+                            
+                            <p>En zoomant sur la page de RViz, nous voyons :</p>
+                            
+                            <!-- FIGURE 116 -->
+                            <div class="border rounded bg-light p-2 d-flex align-items-center justify-content-center" style="height: 300px; margin-bottom: 1rem;">
+                                <img src="images/Figure116.png" class="img-fluid" style="max-height: 100%; object-fit: contain;" alt="Image montrant un défaut de la modélisation initiale sur RViz et Gazebo">
+                            </div>
+                            <p class="text-center small mt-1">Figure 116 : Image montrant un "défault" de la modélisation initiale sur RViz (et Gazebo)</p>
+                            
+                            <p>Or, ce que l'on veut c'est que la pince soit alignée avec le reste du bras comme sur l'image suivant :</p>
+
+                            <!-- FIGURE 117 -->
+                            <div class="border rounded bg-light p-2 d-flex align-items-center justify-content-center" style="height: 200px; margin-bottom: 1rem;">
+                                <img src="images/Figure117.png" class="img-fluid" style="max-height: 100%; object-fit: contain;" alt="Position de repos désirée de l'effecteur joint 6 par rapport au joint 5">
+                            </div>
+                            <p class="text-center small mt-1">Figure 117 : Image montrant la position de repos désirée de l'effecteur/joint 6 (ici, la pince) par rapport au joint 5</p>
+                            
+                            <p>Pour faire cette modification du modèle, nous avons dû nous rendre dans le document « niryo_ned2_gripper1_n_camera.urdf.xacro » par le chemin suivant :</p>
+                            <pre class="bg-dark text-white p-3 rounded"><code>~/niryo_ws/src/ned_ros/niryo_robot_description/urdf/ned2</code></pre>
+                            
+                            <p>Une fois dans ce chemin, la commande « <code class="text-dark">gedit niryo_ned2_gripper1_n_camera.urdf.xacro</code> »<br>
+                            permet d'ouvrir le contenu de ce document comme le montre l'image suivante :</p>
+                            
+                            <!-- FIGURE 118 -->
+                            <div class="border rounded bg-light p-2 d-flex align-items-center justify-content-center" style="height: 550px; margin-bottom: 1rem;">
+                                <img src="images/Figure118.png" class="img-fluid" style="max-height: 100%; object-fit: contain;" alt="Code du fichier niryo_ned2_gripper1_n_camera.urdf.xacro">
+                            </div>
+                            <p class="text-center small mt-1">Figure 118 : Code du fichier "niryo_ned2_gripper1_n_camera.urdf.xacro"</p>
+                            
+                            <p>La ligne qui a dû être modifiée est la ligne 23. Nous avons modifié la valeur du pitch en passant de 0 radians à PI/2 radians.</p>
+                            
+                            <p>Et à présent (après avoir sourcé et compiler à nouveau avec roslaunch) nous obtenons :</p>
+                            
+                            <!-- FIGURE 119 et 120 -->
+                           
+                            <div class="border rounded bg-light p-2 d-flex align-items-center justify-content-center" style="height: 450px;">
+                                <img src="images/Figure119.png" class="img-fluid" style="max-height: 100%; object-fit: contain;" alt="Interface de RViz après modification de la position du joint 6">
+                            </div>
+                            <p class="text-center small mt-1">Figure 119 : Interface de RViz après modification de la position du joint 6</p>
+                                
+                            <div class="border rounded bg-light p-2 d-flex align-items-center justify-content-center" style="height: 450px;">
+                                <img src="images/Figure120.png" class="img-fluid" style="max-height: 100%; object-fit: contain;" alt="Interface de Gazebo après modification de la position du joint 5">
+                            </div>
+                            <p class="text-center small mt-1">Figure 120 : Interface de Gazebo après modification de la position du joint 5</p>
+                              
+                            
+                            <p>Remarque : il se peut qu'un message comme le suivant apparaisse :</p>
+                            <pre class="bg-dark text-white p-3 rounded"><code>[WARN] [1764164355.420297073, 17.801000000]: New joint state for joint 'joint_1' is not newer than the previous state. Assuming your rosbag looped.</code></pre>
+                            
+                            <p>Dans ce cas, faites les instructions suivantes :</p>
+                            <pre class="bg-dark text-white p-3 rounded"><code>ctrl + c # pour fermer Gazebo et RViz
+killall -9 gzserver gzclient rosmaster
+cd ~/niryo_ws
+catkin_make
+source devel/setup.bash
+source /opt/ros/noetic/setup.bash
+source ~/niryo_ws/devel/setup.bash
+roslaunch demo_gazebo.launch hardware_version:=ned2</code></pre>
+                            
+                            <p>Une fois les deux fenêtres ouvertes, en choisissant 'Interact' dans le ruban sur la page RViz, une 'sphère' apparaît au niveau de la pince. En la maintenant sélectionner on peut faire bouger le bras puis aller dans le panneau latéral 'MotionPlanning', puis dans 'Planning' et cliquer sur 'Plan & Execute'. On verra le robot bouger sur RViz et Gazebo.</p>
+                            
+                            <p>Sur RViz, quand on bouge le robot le mouvement et la nouvelle position du robot est affichée par un robot bleu un peu transparent et c'est en faisant 'Plan & Execute' que le robot « réel » (en jaune) bougera.</p>
+                            
+                            <p><strong>Remarque :</strong> il se peut que le robot fictif « bleu transparent » fasse le mouvement en boucle. Si c'est le cas, veuillez-vous rendre dans le panneau latéral du haut puis recherchez 'Planned Path'. Développez cet onglet et décochez la case en face de 'Loop Animation' ce qui fera bouger le robot fictif qu'une seule fois.</p>
+                        </div>
+                        
+                        <div id="modeles-robot-rviz">
+                            <h4 class="text-dark mt-3">b) Les différents modèles de robot dans Rviz</h4>
+                            
+                            <p>Dans RViz, surtout lorsqu'on utilise des outils de planification de mouvement comme MoveIt, il est fréquent de voir plusieurs "versions" du robot se superposer.</p>
+                            
+                            <p><strong>Remarque :</strong> MoveIt est un framework de planification de mouvements dédié aux robots
+                            manipulateurs, reposant sur ROS. Il permet de convertir des objectifs de déplacement de haut
+                            niveau en trajectoires articulaires réalisables, tout en respectant les contraintes mécaniques
+                            du robot, les limites articulaires et les collisions avec l'environnement. MoveIt agit comme une
+                            couche intermédiaire entre l'utilisateur et le robot, masquant la complexité des calculs de
+                            cinématique et de planification. Cette abstraction permet une programmation plus sûre, plus
+                            robuste et identique en simulation comme sur le robot réel.
+                            Pour en savoir davantage, veuillez-vous référer à l'<a href="#annexe08">Annexe 08</a>.<br>
+                            Pour comprendre à quoi correspond MoveIt.</p>
+
+                            <p><strong>Le robot réel (Current State / RobotModel) :</strong><br>
+                            C'est la représentation la plus importante : elle correspond à la réalité physique actuelle de
+                            votre robot (ou à sa simulation exacte dans Gazebo).</p>
+
+                            <ul>
+                                <li><strong>À quoi il sert :</strong> Il vous montre où se trouve le robot en ce moment même. Il est piloté
+                                par les données envoyées sur le topic « joint_states » (la position des moteurs)</li>
+                                <li><strong>Visuel :</strong> C'est généralement le modèle avec les textures pleines et les couleurs
+                                "normales" du robot.</li>
+                                <li><strong>Fonctionnement :</strong> Si vous bougez le vrai robot à la main, c'est ce modèle qui bougera dans RViz. 
+                                C'est votre retour visuel (feedback) pour confirmer que le logiciel sait où se trouve la machine dans l'espace.</li>
+                            </ul>
+
+                            <p><strong>L'état Objectif (Goal State).</strong><br>
+                            Ce modèle est un outil de commande. Il ne représente pas une réalité physique, mais une intention utilisateur</p>
+                            
+                            <ul>
+                                <li><strong>À quoi il sert :</strong> Il permet de définir la pose finale que vous souhaitez atteindre. Lorsque
+                                vous déplacez la "boule interactive" au bout du bras robotique, vous manipulez ce modèle "fantôme".</li>
+                                <li><strong>Visuel :</strong> Souvent représenté dans une couleur distincte (souvent orange ou vert, orange
+                                dans notre cas) ou parfois semi-transparent pour ne pas cacher le vrai robot.</li>
+                                <li><strong>Fonctionnement :</strong> Il est statique tant que vous ne le déplacez pas. Il sert de point
+                                d'arrivée pour le calcul de trajectoire. Une fois la planification lancée, le robot réel essaiera de se superposer à ce modèle.</li>
+                            </ul>
+
+                            <p><strong>La prévisualisation du chemin (Planned Path / Trajectory).</strong><br>
+                            C'est l'animation du futur. Une fois que l'algorithme a calculé comment aller du point A (Réel) au point B (Objectif), il génère ce modèle.</p>
+
+                            <ul>
+                                <li><strong>À quoi il sert :</strong>Il sert à valider la sécurité. Il vous montre le "film" du mouvement avant
+                                que le vrai robot ne bouge. C'est crucial pour vérifier que le robot ne va pas cogner un obstacle ou faire un mouvement bizarre.</li>
+                                <li><strong>Visuel :</strong>  C'est souvent un modèle "fantôme" translucide qui laisse une traînée derrière
+                                lui ou qui s'anime en boucle rapidement (dans notre cas : il est bleu et un peu transparent).</li>
+                                <li><strong>Fonctionnement :</strong>  Il n'apparaît qu'après avoir cliqué sur "Plan" et avant de cliquer sur
+                                "Execute". Il représente la solution mathématique trouvée par le planificateur de mouvement.</li>
+                            </ul>
+
+                            <p><strong>Résumé</strong><br>
+                            Si vous regardez dans le panneau de gauche ("Displays") de RViz, ces modèles correspondent généralement à :</p>
+
+                            <ul>
+                                <li><strong>RobotModel :</strong> L'état actuel (joint_states)</li>
+                                <li>MotionPlanning -> Planning Request -> Query Start/Goal State : La cible.</li>
+                                <li>MotionPlanning -> Planned Path : L'animation de la trajectoire.</li>
+                            </ul>
+
+                            <p>Pour afficher ou non l'un de ces robots, il faut se rendre à des endroits spécifiques dans le panneau latéral de RViz.</p>
+                            
+                            <div class="table-responsive">
+                                <table class="table table-bordered">
+                                    <tbody>
+                                        <tr><td class="fw-bold">Le robot "Réel"</th><td>Add → RobotModel → Add → aller dans ses paramètres → robot description : robotmodel</th>
+                                        </tr>
+                                        <tr><td class="fw-bold">L'état Objectif</th><td>MotionPlanning → PlanningRequests → Query Start State</th>
+                                        </tr>
+                                        <tr><td class="fw-bold">La Prévisualisation du Chemin</th><td>MotionPlanning → Planned Path → Show Robot Visual</th>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                            
+                            <!-- FIGURE 121 -->
+                            <div class="border rounded bg-light p-2 d-flex align-items-center justify-content-center" style="height: 600px; margin-bottom: 1rem;">
+                                <img src="images/Figure121.png" class="img-fluid" style="max-height: 100%; object-fit: contain;" alt="Panneau latéral de RViz">
+                            </div>
+                            <p class="text-center small mt-1">Figure 121 : Panneau latéral de RViz</p>
+                        </div>
+                    </div>
+                    
+                    <!-- ============================================ -->
+                    <!-- 3. CRÉATION ET LANCEMENT DE PROGRAMME (SIMULATION) -->
+                    <!-- ============================================ -->
+                    <div id="creation-programmes" class="mt-5">
+                        <h3 class="text-dark">3. Création et Lancement de programme (Simulation)</h3>
+                        
+                        <p>Pour pouvoir écrire les actions que l'on veut faire dans nos simulations, il est important de savoir toutes les commandes disponibles et identifier celles que nous devons utiliser. Bien évidemment, plusieurs options sont possibles mais nous en évoquerons que 2 plus un listage des commandes « générales ».</p>
+                        
+                        <div id="commandes-utiles">
+                            <h4 class="text-dark mt-3">a) Où trouver les commandes nécessaires ?</h4>
+                            
+                            <p><strong>Via le terminal.</strong> C'est la méthode la plus fiable car elle montre exactement ce qui est installé sur l'ordinateur.</p>
+                            
+                            <p>La méthodologie est la suivante :</p>
+                            <ul>
+                                <li>Ouvrir un terminal et le sourcer :<br>
+                                <code class="text-dark">source /opt/ros/noetic/setup.bash</code><br>
+                                <code class="text-dark">source ~/niryo_ws/devel/setup.bash</code></li>
+                                <li>Taper la commande suivante : <strong>« python3 »</strong> (cela correspond à l'interpréteur Python)</li>
+                                <li>Lancer la simulation avec <strong>« roslaunch demo_gazebo.launch »</strong></li>
+                                <li>Taper les lignes suivantes :</li>
+                            </ul>
+                            
+                            <pre class="bg-dark text-white p-3 rounded"><code>import sys, moveit_commander
+
+moveit_commander.roscpp_initialize(sys.argv)
+
+# Création d'un objet MoveGroupCommander
+# Pas besoin que le robot soit connecté pour ça
+group = moveit_commander.MoveGroupCommander("arm")
+
+# Liste toutes les méthodes disponibles :
+dir(group)</code></pre>
+                            
+                            <p>Une liste va apparaître dans le terminal. C'est la liste de toutes les fonctions disponibles.</p>
+                            <ul>
+                                <li>Les fonctions commençant par « set_ » pour définir des objectifs (positions, orientations, etc.)</li>
+                                <li>Les fonctions commençant par « get_ » pour obtenir des informations (état du robot, pose courants, joints, etc.)</li>
+                            </ul>
+                            
+                            <p>Pour obtenir l'aide détaillée sur une commande précise, il faut utiliser la commande suivante :</p>
+                            <pre class="bg-dark text-white p-3 rounded"><code>help(nom_de_la_fonction)</code></pre>
+                            <p>Cette commande expliquera la fonction et donnera les arguments qu'attend la fonction.</p>
+                            
+                            <p>Bien que cette méthode soit toujours utile et infaillible, il existe néanmoins des commandes à connaître car elles sont grandement utiles.</p>
+                            
+                            <p><strong>Via la documentation officielle (bibliothèque).</strong><br>
+                            Pour comprendre la philosophie ou voir des exemples complexes, c'est cette méthode qu'il faut utiliser.</p>
+                            
+                            <p>Le Guide Officiel MoveIt (Python Interface) : C'est la "Bible". 
+                            Regarde surtout la section sur MoveGroupCommander.<br>
+                            <a href="https://docs.ros.org/en/melodic/api/moveit_tutorials/html/doc/move_group_python_interface/move_group_python_interface_tutorial.html">Documentation MoveIt Commander</a>.<br>
+                            L'API Reference (plus fastidieux) : c'est la liste brute de toutes les classes.<a href="https://docs.ros.org/en/noetic/api/moveit_commander/html/classmoveit__commander_1_1move__group_1_1MoveGroupCommander.html">MoveIt Python API Doxygen</a>.</p>
+                        </div>
+                        
+                        <div id="commandes-utiles-liste">
+                            <h4 class="text-dark mt-3">b) Les commandes utiles</h4>
+                            
+                            <div class="table-responsive">
+                                <table class="table table-bordered">
+                                    <thead class="table-primary">
+                                        <tr><th>Description</th><th>Commandes</th></tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr><td class="fw-bold">Obtenir des informations</td>
+                                            <td>« group.get_current_pose().pose » : donne la position (x,y,z) et orientation (quaternion) actuelle de l'effecteur.<br>
+                                            « group.get_current_joint_values() » : donne les angles des 6 moteurs [ j1, j2, …].<br>
+                                            « group.get_planning_frame() » : dit par rapport à quoi on bouge (souvent "world" ou "base_link").</th>
+                                        </tr>
+                                        <tr><td class="fw-bold">Définir un objectif / une destination</td>
+                                            <td>« group.set_joint_value_target([j1, j2, …]) » : c'est la fonction la plus précise car on donne directement les angles des joints.<br>
+                                            « group.set_pose_target(pose_msg) » : On donne une coordonnée X,Y,Z + Orientation. Le robot calcule les angles (Inverse Kinematics).<br>
+                                            « group.set_named_target("home") » : Utilise une position pré-enregistrée dans le fichier SRDF.<br>
+                                            « group.set_position_target([x, y, z]) » : Si on veut juste changer la position sans se soucier de l'orientation de la pince.</td>
+                                        </tr>
+                                        <tr><td class="fw-bold">Lancer une action</td>
+                                            <td>« group.go(wait=True) » : Planifie et bouge le robot.<br>
+                                            « group.stop() » : Arrêt d'urgence du mouvement.<br>
+                                            « group.clear_pose_targets() » : Très important. À faire après chaque mouvement pour "oublier" l'ancien objectif.</th></tr>
+                                        <tr><td class="fw-bold">Développement de l'environnement (ajouter / supprimer un obstacle)</td>
+                                            <td>scene.add_box(...) : Ajoute un obstacle.<br>
+                                            scene.remove_world_object(...) : Supprime un obstacle.</th></tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                            <p class="text-center small mt-1">Tableau 31 : Tableau répertoriant les commandes fréquentes pour la construction de programme ".py" via ROS</p>
+                            
+                            <p>La partie suivante va présenter les différents programmes de simulation que nous avons fait ainsi que leurs constructions.</p>
+                        </div>
+                        
+                        <div id="structure-programme">
+                            <h4 class="text-dark mt-3">c) Structure d'un programme</h4>
+                            
+                            <p><strong>Importation des bibliothèques.</strong></p>
+                            <p>Cette partie concerne la programmation du robot Niryo Ned2 dans un environnement ROS à l'aide de la bibliothèque MoveIt, via son interface Python moveit_commander.</p>
+                            
+                            <p>Les éléments présentés dans cette section sont communs à la simulation et à l'utilisation du robot réel, à l'exception des bibliothèques explicitement liées à Gazebo, qui sont propres à la simulation. En effet, la logique de programmation ROS (nœuds, messages, planification de mouvement) reste identique dans les deux cas.</p>
+                            
+                            <p>En programmation ROS, les bibliothèques à importer ne sont pas arbitraires : elles dépendent strictement du type de données manipulées (positions, orientations, trajectoires, messages, services). Il est donc essentiel d'identifier correctement les objets utilisés afin d'importer les modules appropriés.</p>
+                            
+                            <p><strong>• Bibliothèques indispensables</strong></p>
+                            <p>Quel que soit le script utilisant MoveIt, certaines bibliothèques sont systématiquement nécessaires et constituent la base minimale d'un programme fonctionnel.</p>
+                            
+                            <pre class="bg-dark text-white p-3 rounded"><code>import sys
+import copy
+import rospy
+import moveit_commander</code></pre>
+                            
+                            <ul>
+                                <li><strong>sys :</strong> nécessaire à l'initialisation de l'interface C++ de MoveIt via moveit_commander.roscpp_initialize(sys.argv)</li>
+                                <li><strong>copy :</strong> permet de dupliquer des objets complexes (par exemple une `Pose`) sans modifier l'original par erreur</li>
+                                <li><strong>rospy :</strong> bibliothèque fondamentale de ROS en Python (création de nœuds, gestion du temps, temporisations)</li>
+                                <li><strong>moveit_commander :</strong> interface principale de MoveIt en Python, donnant accès notamment à «MoveGroupCommander» et «RobotCommander»</li>
+                            </ul>
+                            
+                            <p>Ces bibliothèques sont utilisées aussi bien en simulation que lors de l'exécution sur le robot réel.</p>
+                            
+                            <p><strong>• Manipulation des positions et orientations : geometry_msgs</strong></p>
+                            <p>Dès lors que l'on manipule des positions ou des orientations dans l'espace cartésien (axes X, Y, Z), l'utilisation des messages geometry_msgs devient indispensable.</p>
+                            
+                            <pre class="bg-dark text-white p-3 rounded"><code>import geometry_msgs.msg</code></pre>
+                            
+                            <p>Ces messages sont utilisés notamment dans les cas suivants :</p>
+                            <ul>
+                                <li>Définition d'une cible cartésienne ('target_pose')</li>
+                                <li>Modification directe de coordonnées ('position.x = 0.2')</li>
+                                <li>Ajout d'obstacles dans la scène MoveIt (nécessitant une 'PoseStamped')</li>
+                            </ul>
+                            <p>L'oubli de cet import provoque typiquement l'erreur suivante : <code class="text-dark">NameError: name 'Pose' is not defined</code></p>
+                            
+                            <p><strong>• Calculs d'angles : bibliothèque math</strong></p>
+                            <p>Les robots manipulent des angles exprimés en radians, tandis que l'utilisateur raisonne généralement en degrés. La bibliothèque 'math' permet de gérer cette conversion de manière explicite et lisible.</p>
+                            
+                            <pre class="bg-dark text-white p-3 rounded"><code>import math
+# Ou si on veut importer juste un ou deux objets :
+from math import pi, radians, degrees</code></pre>
+                            
+                            <p>Elle est utilisée notamment pour :</p>
+                            <ul>
+                                <li>Définir des positions articulaires de manière lisible (ex : pi/2 plutôt que 1.57)</li>
+                                <li>Convertir des angles exprimés en degrés vers des radians (ex : radians(90))</li>
+                            </ul>
+                            
+                            <p><strong>• Messages avancés MoveIt : moveit_msgs</strong></p>
+                            <p>La bibliothèque « moveit_msgs » permet de manipuler des messages avancés liés à la planification et à la visualisation dans MoveIt.</p>
+                            
+                            <pre class="bg-dark text-white p-3 rounded"><code>import moveit_msgs.msg</code></pre>
+                            
+                            <p>Elle est principalement utilisée pour :</p>
+                            <ul>
+                                <li>La gestion avancée des objets de collision</li>
+                                <li>L'attachement d'objets au robot</li>
+                                <li>L'affichage explicite de trajectoires dans RViz via DisplayTrajectory</li>
+                            </ul>
+                            <p>Cette bibliothèque est utilisée aussi bien en simulation que sur le robot réel.</p>
+                            
+                            <p><strong>• Interaction avec Gazebo (spécifique à la simulation)</strong></p>
+                            <p>Certaines bibliothèques sont spécifiques à l'environnement de simulation <strong>Gazebo</strong> et ne sont pas utilisées lors de l'exploitation du robot réel.</p>
+                            
+                            <pre class="bg-dark text-white p-3 rounded"><code>from gazebo_msgs.srv import SpawnModel, DeleteModel</code></pre>
+                            
+                            <p>Ces services permettent notamment :</p>
+                            <ul>
+                                <li>L'ajout dynamique de modèles dans la scène de simulation</li>
+                                <li>La suppression d'objets virtuels</li>
+                            </ul>
+                            <p>Ils sont utilisés exclusivement dans le cadre de la simulation.</p>
+                            
+                            <p><strong>• Mémo récapitulatif des imports</strong></p>
+                            <p>Le tableau suivant récapitule les principales bibliothèques à importer en fonction de l'action réalisée :</p>
+                            <div class="table-responsive">
+                                <table class="table table-bordered">
+                                    <thead class="table-primary">
+                                        <tr><th>Action</th><th>Commande / Objet utilisé</th><th>Import nécessaire</th></tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr><td class="fw-bold">Initialisation ROS</th><td>roscpp_initialize, init_node</th><td>import sys, import rospy, import moveit_commander</th>
+                                        </tr>
+                                        <tr><td class="fw-bold">Mouvement articulaire</th><td>group.go([...])</th><td>Aucun import supplémentaire</th>
+                                        </tr>
+                                        <tr><td class="fw-bold">Mouvement cartésien</th><td>set_pose_target(ma_pose)</th><td>geometry_msgs.msg (Pose)</th>
+                                        </tr>
+                                        <tr><td class="fw-bold">Calculs d'angles</th><td>pi, radians()</th><td>math</th>
+                                        </tr>
+                                        <tr><td class="fw-bold">Ajout d'obstacle</th><td>add_box(..., pose)</th><td>geometry_msgs.msg (PoseStamped)</th>
+                                        </tr>
+                                        <tr><td class="fw-bold">Ajout d'objet (Gazebo)</th><td>SpawnModel</th><td>gazebo_msgs.srv</th>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                            
+                            <p><strong>• Méthodologie pour identifier un import inconnu</strong></p>
+                            <p>Lorsqu'un objet ROS inconnu est rencontré dans un exemple de code (par exemple « Wrench »), la méthode suivante permet d'identifier rapidement son origine :</p>
+                            <ul>
+                                <li>Rechercher le nom de l'objet suivi de « ROS » Exemple : Wrench ROS msg</li>
+                                <li>Identifier le paquet ROS correspondant Exemple : geometry_msgs/Wrench</li>
+                            </ul>
+                            <p>En déduire l'import Python associé : <code class="text-dark">from geometry_msgs.msg import Wrench</code></p>
+                            <p>Cette méthodologie est universelle en programmation ROS et permet de gagner un temps considérable lors du développement.</p>
+                            
+                            <p><strong>Structure d'un programme</strong></p>
+                            <p>Dans plusieurs exemples de programme étudiés et utilisés, deux « blocs » revenaient à chaque fois :</p>
+                            <ul>
+                                <li>La définition de fonctions à l'aide du mot-clé « def »</li>
+                                <li>La présence d'un bloc conditionnel « if __name__ == "__main__" » en fin de script</li>
+                            </ul>
+                            
+                            <p>Ces deux éléments soulèvent naturellement plusieurs questions : </p>
+                            <ul>
+                                <li>À quoi servent-ils exactement ?</li>
+                                <li>Sont-ils réellement indispensables au bon fonctionnement du programme ?</li>
+                                <li> Etc.</li>
+                            </ul>
+                            
+                            <p>Dans un premier temps, il est important de préciser que ces structures ne sont pas obligatoires pour exécuter un programme Python ou piloter un robot. Il est tout à fait possible d'écrire un script sous forme d'une simple succession d'instructions, comme cela est souvent le cas dans Niryo Studio, où le code est exécuté de manière linéaire.</p>
+                            
+                            <p>Cependant, dès que l'on souhaite développer des programmes plus complexes, modulaires ou réutilisables, l'utilisation de fonctions « def » et du bloc « if __name__ == "__main__" » devient fortement recommandée.</p>
+                            
+                            <p><strong>Remarque : </strong>Les principes présentés dans cette section sont indépendants de la simulation ou de l'utilisation du robot réel et relèvent exclusivement de la structuration logicielle en Python.</p>
+                            
+                            <p><strong>Définition de fonctions : def</strong></p>
+                            <p>Le mot-clé def permet de regrouper un ensemble d'instructions au sein d'une fonction. Une fonction agit comme une « boîte » contenant une séquence d'actions qui ne sera exécutée que lorsqu'elle est explicitement appelée.</p>
+                            
+                            <p>Sans l'utilisation de fonctions, le code Python est exécuté ligne par ligne, immédiatement lors du lancement du script. Si une même action doit être répétée plusieurs fois, il est alors nécessaire de dupliquer les lignes correspondantes, ce qui nuit à la lisibilité et à la maintenabilité du programme.</p>
+                            
+                            <p>À l'inverse, l'utilisation de fonctions permet :</p>
+                            <ul>
+                                <li>De structurer clairement le programme</li>
+                                <li>D'éviter les répétitions inutiles</li>
+                                <li>De faciliter la modification ou l'évolution du code</li>
+                            </ul>
+                            
+                            <p>Par exemple, si le robot doit successivement effectuer des actions telles que : attraper, trier et ranger, il est pertinent de définir une fonction pour chacune de ces tâches :</p>
+                            <pre class="bg-dark text-white p-3 rounded"><code>catch()
+classify()
+tidy()</code></pre>
+                            <p>Cette approche rend le programme plus lisible et plus proche d'une description fonctionnelle du comportement du robot.</p>
+                            
+                            <p>Par ailleurs, les fonctions permettent de limiter la portée des variables. Les variables définies à l'intérieur d'une fonction sont locales et sont détruites à la fin de son exécution, ce qui réduit les risques d'interférences involontaires entre différentes parties du programme.</p>
+                            
+                            <p><strong>Bloc conditionnel if __name__ == "__main__"</strong></p>
+                            <p>Ce bloc conditionnel, généralement placé à la fin de chaque programme, est une construction Python utilisée pour contrôler le point d'entrée d'un programme.</p>
+                            
+                            <p>Concrètement, ce bloc permet de distinguer deux cas :</p>
+                            <ul>
+                                <li>Le fichier est exécuté directement depuis le terminal</li>
+                                <li>Le fichier est importé comme un module dans un autre programme</li>
+                            </ul>
+                            
+                            <p>Sans ce bloc, l'ensemble du code contenu dans le fichier serait exécuté automatiquement dès son importation. Dans un contexte robotique, cela peut provoquer des comportements indésirables, tels que le déclenchement immédiat de mouvements du robot.</p>
+                            <p>Prenons l'exemple d'un fichier nommé « mouvements_robot.py », contenant différentes
+                            fonctions de déplacement. Si ce fichier est importé dans un second programme, par exemple
+                            « assemblage.py », l'absence du bloc conditionnel entraînerait l'exécution immédiate du code.</p>
+                            <p>L'utilisation du bloc :</p>
+                            <pre class="bg-dark text-white p-3 rounded"><code>if __name__ == "__main__":
+    main()</code></pre>
+                            <p>permet de garantir que :</p>
+                            <ul>
+                                <li>Le code principal ne s'exécute que lorsque le fichier est lancé explicitement</li>
+                                <li>Les fonctions peuvent être importées et réutilisées en toute sécurité dans d'autres scripts</li>
+                            </ul>
+                            <p>Cette structure est essentielle pour concevoir des programmes modulaires, évolutifs et réutilisables, notamment dans des projets ROS impliquant plusieurs fichiers et plusieurs nœuds.</p>
+                        </div>
+                        
+                        <div id="simulation-programmes">
+                            <h4 class="text-dark mt-3">d) Simulation</h4>
+                            
+                            <p>Pour les exercices de cette partie, nous avons utilisé « moveit_commander » et « rospy ». C'est la méthode la plus fiable en simulation car le Wrapper Niryo (pyniryo) est conçu pour le robot réel et gère mal l'ajout d'obstacles virtuels dans RViz.</p>
+                            
+                            <strong>Remarques :</strong>
+                            <ul>
+                                <li>Ne pas oublier de lancer Gazebo et RViz avant et dans un autre terminal</li>
+                                <li>Ne pas oublier de sourcer ce terminal</li>
+                                <li>Pour lancer un programme Python, il faut taper la commande suivante : <code class="text-dark">python3 &lt;nom_fichier&gt;.py</code></li>
+                            </ul>
+                            
+                            <p><strong>Premier programme :</strong></p>
+                            <p>Le premier programme a comme chronologie de mouvement :</p>
+                            <ul>
+                                <li>Se mettre en position d'origine</li>
+                                <li>Ouvrir la pince</li>
+                                <li>Descendre saisir un objet imaginaire (non représenté)</li>
+                                <li>Fermer la pince</li>
+                                <li>Revenir une position d'origine</li>
+                                <li>Pivoter de 90° (π/2) le joint 1 (la base)</li>
+                                <li>Descendre pour poser l'objet</li>
+                                <li>Ouvrir la pince</li>
+                                <li>Remonter le long de z pour éviter des collisions latérales si présence d'obstacles</li>
+                                <li>Revenir à la position d'origine</li>
+                            </ul>
+                            
+                            <p>Pour cela on s'est rendu dans le répertoire src via la commande : <code class="text-dark">cd ~/niryo_ws/src</code>. Une fois dans ce répertoire, nous avons fait les instructions suivantes :</p>
+                            <pre class="bg-dark text-white p-3 rounded"><code>mkdir -p scripts_python
+cd scripts_python
+touch test_1.py
+chmod +x test_1.py
+gedit test_1.py</code></pre>
+                            
+                            <p>Le document test_1.py est l'endroit où nous avons écrit notre code. L'extension « .py » indique que c'est un script python qui doit être écrit. Deux méthodes peuvent être utilisées :</p>
+                            <ul>
+                                <li>Utiliser le Wrapper ROS Python : une surcouche créée par Niryo qui masque la complexité de ROS. C'est beaucoup plus simple à lire pour un débutant. Bibliothèque utilisée : pyniryo.<br>
+                                <strong>Remarque :</strong> cette méthode cache ce qui se passe "sous le capot". Si le wrapper plante, on ne sait pas pourquoi.</li>
+                                <li>Utiliser moveit_commander : c'est l'interface Python officielle de MoveIt. Ce code fonctionnerait presque à l'identique sur un bras robotique industriel KUKA, un Fanuc ou un Yaskawa. C'est la méthode "professionnelle" pour parler au planificateur de trajectoire.</li>
+                                <strong>Remarque :</strong> Le fichier demo_gazebo.launch permet de lancer simultanément la
+                                simulation Gazebo, RViz et MoveIt, garantissant la cohérence entre le modèle robot, lavplanification et la visualisation.</li>
+                            </ul>
+                            
+                            <p>Quand on utilise moveit_commander les programmes sont plus fastidieux mais permet de tout contrôler alors que la méthode Wrapper ROS Python est plus courte mais on n'a pas accès à tout car c'est le wrapper qui s'occupe de convertir le code en message ROS.</p>
+                            
+                            <p>Pour des programmes simples, l'utilisation du wrapper Python pyniryo peut être suffisante. En revanche, pour des scénarios plus complexes impliquant la planification, les collisions ou les obstacles virtuels, l'utilisation directe de moveit_commander est recommandée.</p>
+                            
+                            <p>Pour utiliser le wrapper il faut installer la librairie pyniryo si ce n'est pas déjà fait : <code class="text-dark">pip3 install pyniryo</code></p>
+                            
+                            <p>Notre code présent dans 'test_1.py' est présent en <strong><a href="#annexe09">Annexe 09</a></strong>.</p>
+                            
+                            <p>Pour lancer cette simulation, et avoir la meilleure visualisation, quelques prérequis doivent être faits :</p>
+                            <ul>
+                                <li>Lancer Gazebo et RViz : « demo_gazebo.launch » dans un terminal</li>
+                                <li>Décocher la case Loop Animation dans RViz</li>
+                                <li>Ouvrir et sourcer un deuxième terminal : « source ~/niryo_ws/devel/setup.bash »</li>
+                                <li>Lancer votre programme depuis le répertoire : « python3 « nom_du_fichier ».py »</li>
+                            </ul>
+                            
+                            <p><strong>Remarque :</strong> Nous avons remarqué qu'il était préférable de se mettre dans le répertoire où se trouve le document « .py » pour pouvoir le lancer. Néanmoins vous pouvez le lancer en étant dans « home (~) » avec la commande suivante :</p>
+                            <pre class="bg-dark text-white p-3 rounded"><code>python3 &lt;nom_du_package&gt; &lt;nom_du_fichier&gt;.py</code></pre>
+                            
+                            <p><strong>Deuxième programme :</strong></p>
+                            <p>Dans ce nouveau programme, on place une boîte virtuelle dans la trajectoire du robot et le robot va devoir trouver une trajectoire alternative (généralement courbée) pour éviter l'obstacle.</p>
+                            
+                            <p>On utilise l'outil « PlanningSceneInterface » de MoveIt qui permet d'ajouter des objets de collision (cubes, murs, tables) dans l'environnement 3D de RViz.</p>
+                            
+                            <p>Voici les étapes effectuées pour la conception de cet exercice :</p>
+                            <ul>
+                                <li>Création du fichier « obstacle_demo.py » dans le répertoire « scripts_python »</li>
+                                <li>Le code du script Python est celui de l'<strong><a href="#annexe10">Annexe 10</a></strong></li>
+                            </ul>
+                            
+                            <p>L'obstacle ajouté est intégré dans la scène de planification de MoveIt et est pris en compte par l'algorithme de planification lors du calcul de la trajectoire.</p>
+                            
+                            <p>Dans RViz, un bloc va apparaître. Le robot, au lieu de faire une ligne droite (qui traverserait le bloc), va lever le bras ou passer par-dessus pour atteindre l'autre côté.</p>
+                            
+                            <p><strong>Troisième programme :</strong></p>
+                            <p>À présent, nous avons voulu faire apparaître un vrai cube dans Gazebo, aller le saisir avec la pince et le soulever.</p>
+                            
+                            <p>Dans ce programme, on prend en compte les problèmes qui peuvent apparaître dans une situation réelle (collision avec le cube, glissement du cube s'il est mal saisi, etc.)</p>
+                            
+                            <p>Pour faire apparaître le cube dans Gazebo, on utilise la fonction « spawn_model ».<br>
+                            Voici les étapes effectuées pour la conception de cet exercice :</p>
+                            <ul>
+                                <li>Création du fichier « pick_and_place.py » dans le répertoire « scripts_python »</li>
+                                <li>Le code du script Python est celui de l'<strong><a href="#annexe11">Annexe 11</a></strong></li>
+                            </ul>
+                            
+                            <!-- FIGURE 122 -->
+                            <div class="border rounded bg-light p-2 d-flex align-items-center justify-content-center" style="height: 300px; margin-bottom: 1rem;">
+                                <img src="images/Figure122.png" class="img-fluid" style="max-height: 100%; object-fit: contain;" alt="Image montrant la mauvaise saisie d'un cube dans l'environnement de Gazebo">
+                            </div>
+                            <p class="text-center small mt-1">Figure 122 : Image montrant la mauvaise saisie d'un cube dans l'environnement de Gazebo</p>
+                            
+                            <p>Sur cette photo on peut voir que la saisie du cube est mal réalisée. Malgré plusieurs ajustements (hauteur de saisie, vitesse, friction), une prise stable n'a pas pu être obtenue.</p>
+                            
+                            <p>Cependant, nous avons pu lire que la simulation physique sous Gazebo présente des limites et que le cube glisse des doigts.<br>
+                            Ce comportement est cohérent avec les limites connues du moteur physique de Gazebo, dont la simulation des contacts et de la friction reste approximative.</p>
+                            
+                            <p>La compilation du fichier « demo_gazebo.launch » nous renvoyait deux erreurs dont une à chaque exercice. Cette dernière apparaissait après des changements dans les fichiers « .py » même si les démarches de fermeture des fichiers et l'exécution des commandes « source » aient été respectés.</p>
+                            
+                            <p>Quant à la première erreur énoncée, elle est apparue quand on est arrivé à l'exercice 3. Celle-ci n'était qu'un « défaut » de trajectoire dans Gazebo pour saisir le cube.</p>
+                            
+                            <p>Les deux prochaines parties vont expliquer la méthodologie à adopter pour résoudre ces erreurs.</p>
+                        </div>
+                        
+                        <div id="defaut-trajectoire">
+                            <h4 class="text-dark mt-3">e) Défaut de trajectoire</h4>
+                            
+                            <p>Après compilation du fichier « launch » puis du script Python, on a observé que le robot adoptait une trajectoire anormale, qualité de « tordue », lors de la tentative de saisie de l'objet. Pour modifier cela, deux approches ont été envisagées :</p>
+                            <ul>
+                                <li>Amener la pince <strong>parallèle au sol</strong> avant la pièce puis avancer horizontalement pour la saisir</li>
+                                <li>Orienter la pince perpendiculairement au-dessus de l'objet, en modifiant l'orientation du joint 5 (rotation de -π/4), puis effectuer une descente verticale</li>
+                            </ul>
+                            
+                            <p>La première méthode est souvent celle qu'on utilise dans un contexte réel, notamment pour la saisie d'objets plats. Cependant, en environnement simulé, cette stratégie s'avère inadaptée. En effet, les moteurs physiques utilisés par Gazebo présentent des limites lorsque deux objets entrent en inter-pénétration.</p>
+                            
+                            <p>Si on dit à MoveIt de mettre la pince au niveau du sol (Z=0 ou très proche de 0), une collision est immédiatement détectée, entraînant soit un refus de planification, soit un comportement instable du robot.</p>
+                            
+                            <p>Dans le cas où cette contrainte serait forcée côté Gazebo, le moteur physique tente de corriger l'inter-pénétration en appliquant des forces excessives, ce qui peut provoquer des comportements irréalistes tels que des « sauts » ou une instabilité globale du robot.</p>
+                            
+                            <p>C'est pourquoi, en simulation, il est préférable d'utiliser la seconde méthode n°2. Elle consiste à faire approcher la pince par le dessus de l'objet, avec une orientation verticale, ce qui limite les risques de collision et correspond davantage aux hypothèses implicites de la simulation. En imposant une orientation favorable via MoveIt, le planificateur est contraint d'utiliser une solution cinématique plus stable, notamment en pliant le joint 5 afin d'aligner la pince perpendiculairement à l'objet.</p>
+                            
+                            <p>Initialement, le code utilisait la fonction « set_rpy_target([0, 1.57, 0]) » (Orientation Roll/Pitch/Yaw). Cette approche laissait MoveIt résoudre seul le problème de cinématique inverse. Cependant, en raison du montage mécanique de la pince (rotation de 90° sur le joint 6), MoveIt pouvait sélectionner des solutions cinématiques peu intuitives, conduisant à des trajectoires non souhaitées, comme observé sur certaines simulations.</p>
+                            
+                            <p>Cette analyse montre l'importance de contraindre davantage la configuration articulaire lorsque l'on travaille en simulation, afin d'éviter des solutions mathématiquement valides mais physiquement peu réalistes.</p>
+                        </div>
+                        
+                        <div id="debug-warn">
+                            <h4 class="text-dark mt-3">f) Méthodologie de débogage d'une erreur de type [WARN]</h4>
+                            
+                            <p>L'erreur suivante apparaissait régulièrement lors de l'exécution des simulations :</p>
+                            <pre class="bg-dark text-white p-3 rounded"><code>[WARN] [1764164355.420297073, 17.801000000]: New joint state for joint 'joint_1' is not newer than the previous state. Assuming your rosbag looped.</code></pre>
+                            
+                            <p>Cet avertissement est fréquent dans les environnements combinant ROS et Gazebo. Il est généralement lié à un conflit de gestion du temps (d'horloge). Gazebo utilise une horloge simulée (qui démarre à 0 quand on lance la simulation), alors que ROS peut, par défaut, s'appuyer sur l'horloge de l'ordinateur.</p>
+                            
+                            <p>Lorsque ROS reçoit des messages avec l'heure 0 alors qu'il s'attendait à l'heure réelle (ou l'inverse), il interprète cela comme un retour en arrière temporel, d'où l'apparition de ce warning.</p>
+                            
+                            <p><strong>Méthode n°1 : Ignorer le warning</strong></p>
+                            <p>La première méthode est simple : elle consiste à ignorer ce warning. En effet, si le robot apparaît correctement dans RViz et qu'il est possible de le contrôler normalement alors on peut ignorer ce message. Il apparaît souvent au démarrage de la simulation, le temps que les différents nœuds se synchronisent.</p>
+                            
+                            <p><strong>Méthode n°2 : Nettoyage complet des processus ROS</strong></p>
+                            <p>Si le robot présente des mouvements saccadés ou ne répond plus correctement, il est probable que d'anciens processus ROS interfèrent avec la simulation en cours. Un nettoyage complet est alors nécessaire :</p>
+                            <pre class="bg-dark text-white p-3 rounded"><code>killall -9 gzserver gzclient rosmaster roscore</code></pre>
+                            
+                            <p>Les lignes suivantes devraient apparaître :</p>
+                            <pre class="bg-dark text-white p-3 rounded"><code>gzserver : aucun processus trouvé
+gzclient : aucun processus trouvé
+rosmaster : aucun processus trouvé
+roscore : aucun processus trouvé</code></pre>
+                            
+                            <p>Et on peut à présent relancer notre simulation en effectuant la succession de ces commandes :</p>
+                            <pre class="bg-dark text-white p-3 rounded"><code>source /opt/ros/noetic/setup.bash
+source ~/catkin_ws/devel/setup.bash
+catkin_make
+roslaunch demo_gazebo.launch  # depuis le répertoire où se trouve ce script</code></pre>
+                            
+                            <p><strong>Méthode n°3 : Vérifier le paramètre de temps</strong></p>
+                            <p>Si l'erreur persiste en continu (spam dans le terminal), vérifiez que ROS sait qu'il doit utiliser l'heure simulée de Gazebo (et non l'heure de votre ordinateur) :</p>
+                            <pre class="bg-dark text-white p-3 rounded"><code>rosparam set /use_sim_time true</code></pre>
+                            
+                            <p>Ce paramètre peut également être vérifié depuis RViz en activant l'option Use Sim Time. Si use_sim_time est correctement positionné à True et que le warning apparaît encore ponctuellement, il s'agit généralement d'un léger retard au démarrage de la simulation.</p>
+                            
+                            <p><strong>Attention :</strong> en faisant la commande « killall -9 gzserver gzclient rosmaster roscore », il se peut que l'erreur « ERROR: Unable to communicate with the master ! » apparaisse dans le terminal. Cette erreur est logique car la commande « killall … » a fermé le Master ROS.</p>
+                            
+                                
+                            <p><strong>Pour résoudre cette erreur, il suffit de :</strong></p>
+                            <ul>
+                                <li>Ouvrir deux nouveaux terminaux</li>
+                                <li>Faire : <code class="text-dark">killall -9 gzserver gzclient rosmaster roscore</code> dans le terminal de roslaunch</li>
+                                <li>Vérifier que cette commande renvoie les messages « … : aucun processus trouvé »</li>
+                                <li>Fermer ce terminal et celui où le fichier « .py » était lancé</li>
+                                <li>Dans un terminal : écrire <code class="text-dark">cd ~</code></li>
+                                <li>Puis écrire (l'une après l'autre) :</li>
+                            </ul>
+
+                            <pre class="bg-dark text-white p-3 rounded"><code>source ~/catkin_ws_niryo/devel/setup.bash
+cd ~/catkin_ws_niryo/niryo_robot_moveit_config/niryo_moveit_config_w_gripper1
+cd launch
+roslaunch demo_gazebo.launch hardware_version:=ned2</code></pre>
+
+                            <ul>
+                                <li>Attendre que Gazebo s'ouvre. Le message d'erreur "loop" peut revenir mais il faut l'ignorer pour l'instant</li>
+                                <li>Ouvrir le deuxième terminal :</li>
+                            </ul>
+
+                            <pre class="bg-dark text-white p-3 rounded"><code>cd ~
+source ~/catkin_ws_niryo/devel/setup.bash
+rosparam get /use_sim_time</code></pre>
+
+                            <p>Deux cas sont possibles :</p>
+                            <ul>
+                                <li><strong>« true » :</strong> la configuration est bonne, le warning "looped" vient d'un léger lag au démarrage de Gazebo. Si le robot est fonctionnel, on peut travailler sans se soucier de ce message.</li>
+                                <li><strong>« false » :</strong> C'est un problème. Il faut le forcer à true → Dans le Terminal 2 : <code class="text-dark">rosparam set /use_sim_time true</code> ; puis retourner dans le Terminal 1, faire CTRL+C pour arrêter la simulation, et relancer-la (<code class="text-dark">roslaunch ...</code>). Cette fois, ROS saura dès le début qu'il doit utiliser l'heure de Gazebo. Mais ce n'est pas pour autant qu'elle n'apparaîtra pas à nouveau...</li>
+                            </ul>
+
+                            <p>Dans certains cas, ce warning persiste malgré une configuration correcte du temps simulé. Cela peut être dû à la présence de plusieurs publishers publiant l'état des joints simultanément. Dans le cas du Niryo Ned2 simulé, Gazebo publie l'état physique des articulations tandis que MoveIt, via son module d'exécution, peut également tenter de publier un état estimé.</p>
+                            
+                            <p>Tant que le robot est correctement visualisé dans RViz, que la pince est orientée comme attendu et que les scripts Python s'exécutent sans comportement instable, ce warning peut être considéré comme non bloquant. Il s'agit d'un comportement bien connu dans les simulations Gazebo et qui n'empêche pas le développement, à condition que le robot ne présente pas d'instabilité visible.</p>
+                        </div>
+                        
+                        <div id="plateformes-simulation">
+                            <h4 class="text-dark mt-3">g) Ajouter des plateformes en simulations</h4>
+                            
+                            <p>Dans cette partie, l'objectif est de rapprocher l'environnement de simulation des conditions rencontrées sur une cellule robotisée réelle. Pour cela, nous avons étudié la création de plateformes (tables / workspaces) ainsi que de convoyeurs, éléments fréquemment utilisés dans les applications industrielles.</p>
+                            
+                            <p><strong>• Plateformes</strong></p>
+                            <p>Il existe principalement deux méthodes pour créer une plateforme dans Gazebo, selon le niveau de réalisme recherché et la complexité de la scène.</p>
+                            
+                            <p><strong>Méthode 1 : Méthode rapide par script Python</strong></p>
+                            <p>Cette méthode consiste à créer un objet directement via un script Python, en utilisant le service ROS de type spawn_model, comme dans l'exercice précédent. Elle est simple à mettre en œuvre et suffisante pour des tests fonctionnels ou pédagogiques.</p>
+                            
+                            <p>Par exemple, pour créer une table de dimensions 1 m × 1 m × 0,7 m, on définit un modèle URDF minimal directement dans le script :</p>
+                            <pre class="bg-dark text-white p-3 rounded"><code>table_xml = """
+&lt;robot name="simple_table"&gt;
+  &lt;link name="table_link"&gt;
+    &lt;inertial&gt;
+      &lt;origin xyz="0 0 0" /&gt;
+      &lt;mass value="10.0" /&gt;
+      &lt;inertia ixx="1.0" ixy="0.0" ixz="0.0" iyy="1.0" iyz="0.0" izz="1.0" /&gt;
+    &lt;/inertial&gt;
+    &lt;visual&gt;
+      &lt;geometry&gt;&lt;box size="1.0 1.0 0.7" /&gt;&lt;/geometry&gt;
+      &lt;material name="Gazebo/Grey"/&gt;
+    &lt;/visual&gt;
+    &lt;collision&gt;
+      &lt;geometry&gt;&lt;box size="1.0 1.0 0.7" /&gt;&lt;/geometry&gt;
+    &lt;/collision&gt;
+  &lt;/link&gt;
+  &lt;gazebo reference="table_link"&gt;
+    &lt;material&gt;Gazebo/Grey&lt;/material&gt;
+  &lt;/gazebo&gt;
+&lt;/robot&gt;
+"""</code></pre>
+                            
+                            <p>L'objet est ensuite inséré dans le monde Gazebo avec un décalage vertical approprié. L'origine d'une boîte étant située en son centre, la position en Z doit être ajustée de -0,35 m afin que la surface supérieure de la table soit alignée avec le sol :</p>
+                            <pre class="bg-dark text-white p-3 rounded"><code># Spawn de la table (décalée en Z pour que le dessus soit à 0)
+# Z = -0.35 car l'origine de la boite est son centre (0.7 / 2)
+spawn_urdf("work_table", table_xml, "", Pose(position=Point(0.5, 0, -0.35)), "world")</code></pre>
+                            
+                            <p>Cette méthode est rapide et flexible, mais elle reste limitée à des géométries simples et à un réalisme visuel réduit.</p>
+                            
+                            <p><strong>Méthode 2 : Méthode professionnelle via le fichier .world</strong></p>
+                            <p>La seconde méthode, plus proche des pratiques industrielles, consiste à modifier directement le fichier « .world » chargé par Gazebo. Cette approche permet d'intégrer des modèles 3D complexes, tels que des tables industrielles réalistes, des cellules complètes ou des environnements préconfigurés.</p>
+                            
+                            <p>Gazebo met à disposition une base de données de modèles intégrée. Il est ainsi possible, via le fichier launch, d'inclure un monde existant contenant déjà des tables et des éléments d'environnement :</p>
+                            <pre class="bg-dark text-white p-3 rounded"><code>&lt;include file="$(find gazebo_ros)/launch/empty_world.launch"&gt;</code></pre>
+                            
+                            <p>Cette méthode est plus robuste et recommandée pour des simulations complexes ou proches d'un environnement réel, notamment lorsque plusieurs objets fixes doivent être pris en compte dans la planification de trajectoires.</p>
+                            
+                            <p><strong>• Convoyeurs</strong></p>
+                            <p>Comme pour les plateformes, il y a deux méthodes pour le faire. La seule différence est que la première méthode créée le convoyeur mais qui a la même utilité qu'une plateforme (i.e elle ne bouge pas). Et la deuxième est de faire un convoyeur fonctionnel.</p>
+                            
+                            <p><strong>Méthode 1 : Convoyeur statique (non fonctionnel)</strong></p>
+                            <p>La méthode la plus simple consiste à modéliser le convoyeur comme une table rectangulaire, sans mouvement. Dans ce cas, le robot peut déposer un objet dessus, mais celui-ci ne sera pas déplacé automatiquement.</p>
+                            
+                            <p>La mise en œuvre est identique à celle d'une plateforme, en modifiant simplement les dimensions de la boîte, par exemple :</p>
+                            <pre class="bg-dark text-white p-3 rounded"><code>&lt;box size="0.3 1.5 0.7"/&gt;</code></pre>
+                            
+                            <p>Cette approche est suffisante pour tester des scénarios de prise et de dépôt, mais elle ne permet pas de simuler un flux de production.</p>
+                            
+                            <p><strong>Méthode 2 : Convoyeur fonctionnel avec plugin Gazebo</strong></p>
+                            <p>La création d'un convoyeur réellement fonctionnel dans Gazebo nécessite l'utilisation d'un plugin Gazebo, généralement écrit en C++. Ce plugin permet de simuler le mouvement du tapis roulant et d'appliquer des forces aux objets en contact avec celui-ci.</p>
+                            
+                            <p>Le constructeur fournit généralement un package « niryo_robot_gazebo ». Ce package peut contenir un modèle officiel de convoyeur Niryo ainsi que les plugins associés. Il est recommandé de vérifier le contenu du dossier launch afin d'identifier la présence d'un fichier de type : niryo_ned_gazebo_conveyor.launch ou d'un argument permettant d'activer le convoyeur directement au lancement de la simulation.</p>
+                            
+                            <p>À défaut d'un modèle fourni, la logique générale de création d'un convoyeur fonctionnel est la suivante :</p>
+                            <ul>
+                                <li>Charger un modèle URDF de convoyeur</li>
+                                <li>Ajouter un plugin Gazebo dans ce modèle afin de simuler le mouvement du tapis :</li>
+                            </ul>
+                            <pre class="bg-dark text-white p-3 rounded"><code>```xml
+&lt;plugin name="conveyor_belt_plugin" filename="libROSConveyorBeltPlugin.so"&gt;
+&lt;robot_namespace&gt;/&lt;/robot_namespace&gt;
+&lt;link&gt;belt_link&lt;/link&gt;
+&lt;power&gt;20&lt;/power&gt;
+&lt;/plugin&gt;
+```</code></pre>
+                            
+                            <p>Piloter ensuite le convoyeur via un service ROS, permettant de l'activer ou de le désactiver depuis un script Python.</p>
+                            
+                            <p><strong>A modifier : A VERIFIER DANS NED_ROS</strong><br>
+                            Cette partie n'a pas été validée expérimentalement dans le cadre de ce projet et doit être considérée comme une piste théorique basée sur la documentation Gazebo et les pratiques courantes en simulation robotique.</p>
+                        </div>
+                        
+                        <div id="conclusion-simulation">
+                            <h4 class="text-dark mt-3">h) Conclusion sur la simulation</h4>
+                            
+                            <p>La simulation du robot Niryo Ned2 avec ROS, MoveIt et Gazebo a permis d'appréhender la planification de trajectoires, la manipulation d'objets et la gestion d'obstacles dans un environnement 3D. L'usage de MoveIt a montré sa robustesse pour générer des trajectoires sûres, optimiser les mouvements et intégrer les contraintes physiques et géométriques.</p>
+                            
+                            <p>Les exercices réalisés ont mis en évidence <strong>les limites de la simulation</strong>, notamment dans la gestion des collisions et de la friction. Ils ont également illustré l'importance d'une méthodologie rigoureuse de débogage :</p>
+                            <ul>
+                                <li>synchronisation des horloges (`use\_sim\_time`)</li>
+                                <li>nettoyage des processus ROS</li>
+                                <li>vérification des états des joints pour garantir la cohérence entre simulation et planification</li>
+                            </ul>
+                            
+                            <p>En synthèse, ces différents exercices de simulation nous ont offert une expertise pratique sur la planification et le contrôle d'un bras robotisé, tout en consolidant la compréhension des contraintes physiques, logicielles et méthodologiques nécessaires à l'implémentation de systèmes robotiques fiables et industrialisables. La simulation reste un outil indispensable pour prototyper et valider les stratégies de manipulation avant expérimentation sur un robot réel.</p>
+                            
+                            <p>Après plusieurs jours à étudier et comprendre différents points de la simulation, nous sommes passés sur la programmation du robot réel.</p>
+                        </div>
+                    </div>
+                    
+                    <!-- ============================================ -->
+                    <!-- 4. PROGRAMMATION DU ROBOT RÉEL -->
+                    <!-- ============================================ -->
+                    <div id="programmation-reel" class="mt-5">
+                        <h3 class="text-dark">4. Programmation du robot réel</h3>
+                        
+                        <div id="commande-reel">
+                            <h4 class="text-dark mt-3">a) Commande du robot réel</h4>
+                            
+                            <p>Après avoir validé le bon fonctionnement de nos algorithmes en simulation sous ROS (Gazebo et RViz), nous avons entrepris la commande du robot réel Niryo Ned2. Afin de conserver une cohérence avec l'environnement de simulation et de faciliter l'intégration ultérieure de capteurs et de scénarios plus complexes, nous avons privilégié l'écriture de scripts Python basés sur l'interface ROS (rospy), plutôt que sur une communication directe de type client-serveur comme le wrapper Python.</p>
+                            
+                            <p>Avant toute mise en mouvement du robot, il est nécessaire de comprendre les différentes méthodes de commande disponibles. Le bras peut être déplacé soit en lui imposant des positions cartésiennes ou articulaires calculées par le programme, soit en utilisant des positions ou trajectoires préalablement enregistrées dans la mémoire interne du robot, via l'interface Niryo Studio.</p>
+                            
+                            <p>Dans un premier temps, l'utilisation de positions enregistrées s'est révélée plus simple et plus robuste. Contrairement à l'environnement de simulation ROS, où les positions sont décrites dans des fichiers de configuration complexes (tels que les fichiers « .srdf » utilisés par MoveIt), le robot réel stocke ces positions dans une base de données interne, directement gérée par le logiciel embarqué et accessible via Niryo Studio.</p>
+                            
+                            <p>Deux méthodes permettent d'accéder à ces positions :</p>
+                            <ul>
+                                <li>Par l'interface de Niryo Studio, dans l'onglet « Bibliothèques »</li>
+                                <li>Par un script Python utilisant le wrapper (le plus rapide)</li>
+                            </ul>
+                            
+                            <p>Pour la première, le wrapper Pyniryo possède une fonction dédiée pour "demander" au robot ce qu'il a en mémoire. Pour y accéder il suffit de :</p>
+                            <ul>
+                                <li>Créer un fichier « lister_positions.py » dans le répertoire « src » ou un sous-répertoire</li>
+                                <li>Donner l'autorisation avec « chmod +x lister_positions.py »</li>
+                                <li>Ecrire le code de l'<strong><a href="#annexe12">Annexe 12</a></strong> (avec la commande « gedit lister_positions.py »)</li>
+                            </ul>
+                            
+                            <p>L'utilisation du wrapper Python permet notamment d'interroger le robot afin de récupérer dynamiquement la liste des positions enregistrées. Cette approche s'avère particulièrement utile pour automatiser des séquences de mouvements ou vérifier l'existence de positions avant leur utilisation dans un programme.</p>
+                        </div>
+                        
+                        <div id="limites-connexion">
+                            <h4 class="text-dark mt-3">b) Limites rencontrées pour se connecter au robot par la méthode « rospy »</h4>
+                            
+                            <p>Lors de la tentative de commande du robot réel via ROS, un problème bloquant est apparu : malgré une calibration correcte du robot (indiquée par une LED verte), aucune communication ROS n'était possible depuis l'ordinateur de commande. Les commandes ROS standard, telles que « rostopic list », échouaient systématiquement avec l'erreur suivante indiquant l'impossibilité de se connecter au ROS Master :</p>
+                            <pre class="bg-dark text-white p-3 rounded"><code>ERROR: Unable to communicate with master!</code></pre>
+                            
+                            <p>Des tests réseau ont permis de mettre en évidence que le port ROS standard (11311) était bien actif sur le robot, mais uniquement sur l'interface locale. En d'autres termes, le ROS Master du robot était lancé en écoutant exclusivement sur l'adresse « 127.0.0.1 », ce qui empêche toute connexion provenant d'un autre ordinateur connecté par Ethernet.</p>
+                            
+                            <p>Cette configuration rend impossible l'utilisation de ROS de manière distribuée, que ce soit avec des scripts Python (rospy), des bibliothèques intermédiaires (comme roslibpy) ou des outils externes tels que MATLAB.</p>
+                        </div>
+                        
+                        <div id="analyse-cause">
+                            <h4 class="text-dark mt-3">c) Analyse de la cause du dysfonctionnement</h4>
+                            
+                            <p>L'origine de ce problème a été identifiée comme une modification manuelle du fichier système « .bashrc » du robot. Dans une tentative de configuration du réseau ROS, certaines variables d'environnement critiques (« ROS_MASTER_URI », « ROS_IP », « ROS_HOSTNAME ») ont été ajoutées ou modifiées. Or, sur le Niryo Ned2, le lancement et la configuration du ROS Master sont gérés automatiquement par le logiciel interne du robot.</p>
+                            
+                            <p>Cette intervention manuelle a provoqué un lancement incorrect du ROS Master, contraint à fonctionner uniquement en mode local. Une fois ce comportement installé, il n'est plus possible de corriger la situation depuis l'extérieur, même en rétablissant les variables d'environnement côté ordinateur.</p>
+                            
+                            <p>De manière plus simple, le problème de communication peut être schématisé de cette manière :</p>
+                            
+                            <!-- TABLEAU 32 avec Figure 123 et Figure 124 -->
+                            <div class="row g-3 mb-4">
+                                <div class="col-md-6">
+                                    <div class="border rounded bg-light p-2 d-flex align-items-center justify-content-center" style="height: 400px; margin-bottom: 1rem;">
+                                        <img src="images/Figure123v2.png" class="img-fluid" style="max-height: 100%; object-fit: contain;" alt="Schéma montrant la communication attendue entre le PC et le robot via le port 11311">
+                                    </div>
+                                    <p class="text-center small mt-1">Figure 123 : Schéma montrant la communication attendue entre le PC et le robot via le port 11311</p>
+                                    <ul>
+                                        <li> Le ROS Master écoute sur l'interface réseau ;</li>
+                                        <li> Le PC peut l'atteindre via 169.254.200.200:11311 ;</li>
+                                        <li> Utilisation possible de rostopic, rospy, MATLAB, etc.</li>
+                                    </ul>
+
+                                </div>
+                                <div class="col-md-6">
+                                    <div class="border rounded bg-light p-2 d-flex align-items-center justify-content-center" style="height: 400px; margin-bottom: 1rem;">
+                                        <img src="images/Figure124v2.png" class="img-fluid" style="max-height: 100%; object-fit: contain;" alt="Schéma montrant la communication réelle rencontrée entre le PC et le robot via le port 11311">
+                                    </div>
+                                    <p class="text-center small mt-1">Figure 124 : Schéma montrant la communication réelle rencontrée entre le PC et le robot via le port 11311</p>
+                                    <ul>
+                                        <li> Le ROS Master écoute sur l'interface réseau ;</li>
+                                        <li> Le PC peut l'atteindre via 169.254.200.200:11311 ;</li>
+                                        <li> Utilisation possible de rostopic, rospy, MATLAB, etc.</li>
+                                    </ul>
+                                </div>
+                            </div>
+
+
+                            <p class="text-center small mt-1">Tableau 32 : Tableau montrant la communication PC/Robot attendue versus la réalité</p>
+                            
+                            <p>Et on peut les expliquer de la façon suivante. Le fonctionnement de ROS repose sur un principe de communication distribuée, dans lequel un ROS Master centralise les informations sur les nœuds, les topics et les services. Pour permettre à plusieurs machines de communiquer entre elles, le ROS Master doit impérativement écouter sur une interface réseau accessible.</p>
+                            
+                            <p>Dans notre cas, le ROS Master du Niryo Ned2 était lancé en écoutant uniquement sur l'adresse « 127.0.0.1 », correspondant à l'interface locale du robot. Cette configuration signifie que seules les applications s'exécutant directement sur le robot peuvent accéder au ROS Master. Toute tentative de connexion depuis un ordinateur externe, même connecté par Ethernet, est alors refusée.</p>
+                            
+                            <p>Cette situation a été confirmée expérimentalement par la commande suivante :</p>
+                            <pre class="bg-dark text-white p-3 rounded"><code>ss -lntp | grep 11311</code></pre>
+                            
+                            <p>Qui a retourné :</p>
+                            <pre class="bg-dark text-white p-3 rounded"><code>LISTEN 0 128 127.0.0.1:11311</code></pre>
+                            
+                            <p>Cela explique pourquoi les commandes ROS exécutées depuis le PC, telles que `rostopic list`, échouaient systématiquement avec une erreur de communication, malgré une calibration correcte du robot et une LED indiquant un état opérationnel.</p>
+                            
+                        </div>
+                        
+                        <div id="solution-mise-oeuvre">
+                            <h4 class="text-dark mt-3">d) Solution mise en œuvre</h4>
+                            
+                            <p>Face à l'impossibilité de rétablir une configuration réseau ROS fonctionnelle sans risquer d'altérer davantage le système, la solution retenue a été de reflasher la carte SD du robot avec la dernière version de firmware disponible (5.8.5). Cette opération a permis de restaurer l'environnement logiciel du robot à un état fonctionnel et stable.</p>
+                            
+                            <p>Cette expérience met en évidence l'importance de ne pas modifier les fichiers système ou les variables d'environnement d'un robot industriel ou éducatif sans une connaissance précise de son mécanisme de démarrage interne. Elle souligne également la différence fondamentale entre un environnement ROS de simulation, totalement maîtrisé par l'utilisateur, et un robot réel, dont certaines couches logicielles sont volontairement abstraites afin de garantir la sécurité et la stabilité du système.</p>
+                            
+                            <p>Comme évoqué précédemment, la méthode la plus complète pour programmer le robot dans un environnement ROS est celle où l'on utilise la librairie « rospy ». Mais quand on a voulu passer à cette méthode, un problème s'est présenté à nous : le port 11311 servant à l'utilisation de celle-ci est fermé à la communication extérieure. En effet, un scan du port (via cette commande : nmap -p 11311 169.254.200.200) renvoyait l'état Closed. Le robot est configuré par défaut en mode « autiste ». Le Master ROS n'écoute que sur l'interface localhost (127.0.0.1). Toute tentative de connexion directe depuis l'IP du PC est donc rejetée par le système d'exploitation du robot.</p>
+                            
+                            <p>Après avoir contacté le support technique sur comment résoudre ce problème, et leur réponse fut la suivante : la communication par le port 11311 est possible avec un paramétrage mais qui, cependant, ne l'avait pas dans leurs documentations ce qui entraîne l'impossibilité de se connecter directement au port 11311. Néanmoins, ils nous ont renvoyé vers une documentation de ROS via le lien suivant : <a href="https://wiki.ros.org/ROS/Technical%20Overview">https://wiki.ros.org/ROS/Technical%20Overview</a>.</p>
+                            
+                            <p>Cette page Wiki nous a appris que ROS est un système distribué. Pour que deux machines communiquent, elles doivent avoir une visibilité totale sur tous leurs ports respectifs.<br>
+                            Comme nous voyons ce port fermé on en conclut que le port 11311 a été bridé par Niryo pour plus de sécurité.</p>
+                            
+                            <p>De ce fait, nous avons tenté de contourner le blocage avec un tunnel SSH qui redirige localement le port 11311 de notre PC vers celui du robot. Il permet de donner accès au ROS Master qui tourne sur le robot Ned2 sans exposer le port 11311 publiquement sur le réseau. Utiliser un tunnel SSH nous semblait être une bonne idée par sa facilité de mise en oeuvre.</p>
+                            
+                            <p>Le principe du tunnel SSH est le suivant. Il permet de dire via le PC :</p>
+                            <ul>
+                                <li>Ecoute localement sur le port 11311</li>
+                                <li>Transfère tout vers le port 11311 du robot</li>
+                            </ul>
+                            
+                            <p>Ce qui nous donne le schéma suivant :</p>
+                            
+                            <!-- FIGURE 125 -->
+                            <div class="border rounded bg-light p-2 d-flex align-items-center justify-content-center" style="height: 300px; margin-bottom: 1rem;">
+                                <img src="images/Figure125v2.png" class="img-fluid" style="max-height: 100%; object-fit: contain;" alt="Schéma montrant la communication entre le robot via le tunnel SSH">
+                            </div>
+                            <p class="text-center small mt-1">Figure 125 : Schéma montrant la communication entre le robot via le tunnel SSH</p>
+                            
+                            <p>Ainsi, même si le robot n'écoute 11311 que sur localhost, le PC peut y accéder comme si ROS Master était local.</p>
+                            
+                            <p>Avant de poursuivre il faut connaître les données réseau de nos outils :</p>
+                            
+                            <!-- TABLEAU 33 -->
+                            <div class="table-responsive">
+                                <table class="table table-bordered">
+                                    <thead class="table-primary">
+                                        <tr><th>Machine</th><th>IP</th></tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr><td class="fw-bold">Niryo Ned2</th><td>169.254.200.200</th>
+                                        </tr>
+                                        <tr><td class="fw-bold">PC (sous Ubuntu 20.04)</th><td>169.254.200.100</th>
+                                        </tr>
+                                        <tr><td class="fw-bold">Utilisateur SSH du robot</th><td>niryo</th>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                            <p class="text-center small mt-1">Tableau 33 : Tableau des données réseau du PC et du robot</p>
+                            
+                            <p>La méthodologie pour créer un tunnel SSH est décrite dans l'<strong><a href="#annexe13">Annexe 13</a></strong>.</p>
+                            
+                            <p>Après avoir créé le tunnel nous l'avons testé d'abord avec la commande rostopic list et nous avons obtenu la liste des topics dans le terminal. Pourtant, l'exécution de notre script MoveIt échouait et renvoyait le message d'erreur suivant :</p>
+                            <pre class="bg-dark text-white p-3 rounded"><code>Error in XmlRpcClient: write error (Connection refused)</code></pre>
+                            
+                            <p>Cela signifie que le tunnel ne redirigeait que le port 11311 (l'annuaire). MoveIt, lui, tente d'ouvrir des connexions sur des autres ports pour les données. Comme ces ports n'étaient pas redirigés, le PC essayait de se connecter sur lui-même et échouait. Notre tunnel SSH était opérationnel seulement pour le port 11311, d'où ce message lorsque nous voulons accéder aux autres ports pour faire des mouvements et autres.</p>
+                            
+                            <p>Prenons un exemple. Notre commande est de faire bouger le bras donc lors de l'exécution de notre programme, celui-ci dit au Master qu'il veut « parler » au groupe de mouvement arm. Le Master lui répond que pour cela il doit se connecter au nœud /move_group qui écoute sur l'IP 127.0.0.1 au port XXXX (différent de 11311). Donc le PC essaie de se connecter au port XXXX sur lui-même (puisqu'il voit 127.0.0.1). Mais comme notre tunnel concerne uniquement le port 11311, la connexion échoue car il ne peut pas accéder au nœud /move_group.</p>
+                            
+                            <p>Le lien envoyé par le support sert finalement à comprendre que pour faire du « Multi-Machine » (PC + Robot), on ne peut pas utiliser un tunnel ou rester en « localhost ». ROS a été conçu pour que chaque machine ait sa propre IP réelle.</p>
+                            
+                            <p>Nous n'avons donc pas poursuivi la piste du tunnel SSH. Ainsi, pour contourner l'isolation réseau sans modifier la configuration sensible du robot, nous avons opté pour la méthode embarquée.</p>
+                        </div>
+                        
+                        <div id="methode-embarquee">
+                            <h4 class="text-dark mt-3">e) La méthode embarquée : principe et protocole</h4>
+                            
+                            <p>Cette méthode est relativement simple à mettre en pratique. Dans celle-ci, on arrête de vouloir faire tourner le code sur l'ordinateur. On développe sur le PC, mais on exécute sur le robot. Dans ce cas, plus de problèmes de ports, le script est « à côté » du Master en localhost.</p>
+                            
+                            <p>Le principe est le suivant :</p>
+                            <ul>
+                                <li>On écrit le code de la même manière (sur le PC avec l'instruction gedit on rentre dans le script et on écrit)</li>
+                                <li>On envoie le fichier sur le robot avec la commande scp</li>
+                                <li>On l'exécute en SSH sur le robot</li>
+                                <li>Résultat : Le script est sur la même machine que le Master, plus besoin de tunnel, plus de port fermé, MoveIt fonctionne instantanément</li>
+                            </ul>
+                            
+                            <p>Pour la mettre en place, voici son protocole :</p>
+                            <ul>
+                                <li>Ouvrir un terminal du PC (crestic@...)</li>
+                                <li>Aller dans le répertoire où se situe votre script</li>
+                                <li>Taper la commande : <code class="text-dark">scp nom_du_script_a_exécuter.py niryo@169.254.200.200:~/</code></li>
+                                <li>Attendre que l'envoi soit à 100%</li>
+                                <li>Ouvrir un nouveau terminal</li>
+                                <li>Se connecter au ssh du robot : <code class="text-dark">ssh niryo@169.254.200.200</code> (mdp : robotics)</li>
+                                <li>Sourcer le terminal avec les commandes suivantes : <code class="text-dark">source /opt/ros/noetic/setup.bash</code> et <code class="text-dark">source setup.bash</code></li>
+                                <li>Lancer votre script : <code class="text-dark">python3 ~/test_moveit_commander.py</code></li>
+                            </ul>
+                            
+                            <p>Pour faire des modifications dans le script, il faut :</p>
+                            <ul>
+                                <li>se rendre sur le terminal du PC (crestic@...)</li>
+                                <li>Faire « gedit nom_du_script.py »</li>
+                                <li>Faire les modifications du script</li>
+                                <li>Enregistrer et envoyer à nouveau sur le robot</li>
+                                <li>Se rendre dans le terminal du robot et relancer le script</li>
+                            </ul>
+                            
+                            <strong>Remarques :</strong>
+                            <ul>
+                                <li>Ne pas fermer le terminal du robot ou couper la connexion SSH avec celui-ci est important car ça évite de sourcer de nouveau. 
+                                La commande d'envoi de document (scp) est une commande indépendante. Elle "toque à la porte" du robot et dépose le fichier. Elle n'oblige de fermer la session SSH.</li>
+                                <li>Quand tu renvoies le script avec le même nom, <strong>Linux remplace automatiquement l'ancien fichier par le nouveau</strong>.
+                                Il n'y a pas besoin de supprimer l'ancien ou de changer de version</li>
+                            </ul>
+
+                        </div>
+                        
+                        <div id="mise-place-embarquee">
+                            <h4 class="text-dark mt-3">f) Mise en place de la méthode embarquée</h4>
+                            
+                            <p>Lors de la mise en place de cette méthode et de notre premier programme qui consistait à faire bouger le bras en position « pos_cam » puis revenir en « home_position » nous avons rencontré deux problèmes. Nous avons d'abord vérifié que ces deux positions soient bien enregistrées dans la mémoire du robot. Mais lors de la première compilation de notre programme, nous avons eu le message d'erreur suivant :</p>
+                            <pre class="bg-dark text-white p-3 rounded"><code>ERROR]: The requested named target 'pos_cam' does not exist
+moveit_commander.exception.MoveItCommanderException: Unable to set target pos_cam</code></pre>
+                            
+                            <p>Les positions comme pos_cam et home_position n'étant pas définies dans le fichier de configuration SRDF du robot, MoveIt renvoyait cette erreur.</p>
+                            
+                            <p>Nous avons donc implémenté la ligne suivante pour savoir quelles positions MoveIt reconnaissait et nous avons observé qu'il n'y en avait seulement trois par défaut et qui ne provenaient pas de nos réalisations.</p>
+                            <pre class="bg-dark text-white p-3 rounded"><code>rospy.loginfo("Positions nommées disponibles : %s", group.get_named_targets())</code></pre>
+                            
+                            <p>Ces trois positions sont :</p>
+                            <ul>
+                                <li>resting</li>
+                                <li>straight_up</li>
+                                <li>straight_forward</li>
+                            </ul>
+                            
+                            <p>Le robot possède plusieurs couches logicielles :</p>
+                            <ul>
+                                <li>Couche Niryo : gère ta base de données de positions (ce que tu vois dans Niryo Studio)</li>
+                                <li>Couche MoveIt : gère la trajectoire mathématique (évitement de collisions)</li>
+                            </ul>
+                            
+                            <p>Nous avons donc conclu que nos positions enregistrées (pos_cam, home_position) se trouvent dans la couche Niryo et qu'il faut les fournir à MoveIt car cette dernière ne lit pas cette base de données au démarrage. Nous avons donc dû implémenter un service-client pour extraire les coordonnées réelles de la base de données Niryo et les fournir dans un format compatible avec MoveIt.</p>
+                            
+                            <p>Mais avant de récupérer les positions créées, il faut d'abord vérifier que notre programme est correct et que le robot bouge vraiment. On a donc remplacé « pos_cam » par « straight_up » dans notre script (via le terminal du PC).</p>
+                            
+                            <p>Après cette modification, un nouvel envoi sur le robot puis un lancement du script, on voit le robot bouger à la position demandée. À présent, nous pouvons récupérer les positions via le service Niryo en passant par « Pose Handler (GetPose) » de Niryo puis les fournir à MoveIt.</p>
+                            
+                            <p><strong>Remarque</strong> : les positions auxquelles MoveIt a directement accès ne sont pas recommandées car elles font aller le robot dans une position hors de portée sur le joint 3 (le coude) ce qui le fait forcer lorsqu'il arrive à sa position maximale.</p>
+                            
+                            <!-- TABLEAU 34 -->
+                            <div class="table-responsive">
+                                <table class="table table-bordered">
+                                    <thead class="table-primary">
+                                        <tr><th>Erreur</th><th>Explication</th></tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr><td><code class="text-dark">Boost.Python.ArgumentError: Python argument types in MoveGroupInterface.set_pose_target(MoveGroupInterface, NiryoPose, str) did not match C++ signature</code></th><td>La bibliothèque C++ sous-jacente de MoveIt attend une liste Python, pas un objet complexe NiryoPose</th>
+                                        </tr>
+                                        <tr><td><code class="text-dark">'NiryoPose' object has no attribute 'x'</code></th><td>L'objet NiryoPose est structuré par composition. Les attributs ne sont pas au premier niveau. La structure correcte est pose.position.x et pose.rpy.roll</th>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                            <p class="text-center small mt-1">Tableau 34 : Tableau récapitulatif des erreurs obtenues lors de la récupération de position enregistrées sur le robot</p>
+                            
+                            <p>Le code (situé à <strong><a href="#annexe14">Annexe 14</a></strong>) qui sert à la récupération des positions ainsi que leurs données (positions, orientation, angles des joints) s'appelle « niryo_positions.py ».</p>
+                            
+                            <p>Une fois créé il faut l'envoyer sur le robot : <code class="text-dark">scp niryo_positions.py niryo@169.254.200.200:~/</code></p>
+                            
+                            <p>Pour pouvoir l'utiliser dans nos codes, on l'implémente de cette façon :</p>
+                            <pre class="bg-dark text-white p-3 rounded"><code>from niryo_tools import get_niryo_joints # On importe la nouvelle fonction
+
+# ... dans le main() ...
+
+# --- Mouvement vers pos_cam via les JOINTS ---
+joints_cam = get_niryo_joints("pos_cam")
+
+if joints_cam:
+    rospy.loginfo(f"Déplacement articulaire vers pos_cam : {joints_cam}")
+    # Commande MoveIt pour les joints
+    group.go(joints_cam, wait=True)
+    group.stop()
+else:
+    rospy.logerr("Impossible de récupérer les joints de pos_cam")
+```</code></pre>
+
+                            <p>En effet, on relevait dans un premier les coordonnées x, y, z, roll, pitch, yaw pour les
+                            transmettre à MoveIt. Avec un rospy.loginfo(…) dans notre programme on pouvait voir les
+                            valeurs de coordonnées correspondant à la position désirée et après comparaison avec celles
+                            qu'on peut voir dans Niryo Studio on remarque aucune différence. Malgré ça, on avait un
+                            conflit de <strong>Référentiel (Frame)</strong> ou de <strong>Convention d'Euler</strong>. En effet, le robot prenait une position
+                            totalement différente et plusieurs raisons peut expliquer cela.</p>
+                            
+                            <ul>
+                                <li><strong>Raison A</strong> : Le Référentiel de planification (Planning Frame).<br>
+                                MoveIt interprète tes coordonnées par rapport à son origine interne.</li>
+                                <p>Dans Niryo Studio : Le point de référence est généralement le centre exact de la base du robot.
+                                Dans MoveIt : Le référentiel de planification peut être « base_link » ou « world ». Si MoveIt
+                                considère que l'origine est au niveau du sol (sous le robot) alors que Niryo Studio la considère
+                                au milieu du premier moteur, un décalage vertical constant apparaît.</p>
+                                <li><strong>Raison B</strong> : L'effecteur.</li>
+                                <p>Niryo Studio affiche souvent la position du TCP (Tool Center Point), c'est-à-dire le bout de la
+                                pince. Mais MoveIt, par défaut, planifie ce TCP au Joint 6. Ce qui implique que le robot envoie
+                                le Joint 6 là où devrait être le bout de sa pince.</p>
+                                <li><strong>Raison C</strong> : La Cinématique Inverse.</li>
+                                <p>Une position cartésienne peut être atteinte de plusieurs manières (ex: coude en haut ou coude
+                                en bas). MoveIt choisit la solution la plus optimale mathématiquement, qui n'est pas
+                                forcément celle faite manuellement dans Niryo Studio.</p>
+                            </ul>
+                            
+                            <p>Pour obtenir un positon identique à celle de Niryo Studio nous avons donc utiliser les Joints à
+                            la place des coordonnées. Contrairement aux coordonnées qui demandent au robot de
+                            calculer une solution mathématique (souvent multiple), le passage par l'espace articulaire
+                            évite les calculs de cinématique inverse qui peuvent parfois aboutir à des configurations de
+                            bras différentes de celles souhaitées ou à des erreurs de référentiel (mètres vs millimètres).
+                            Cela élimine tout problème de référentiel ou d'effecteur.</p>
+
+                            <strong>Programmes</strong>
+                            <p>Après ces modifications, le premier code opérationnel (situé à l'<strong><a href="#annexe15">Annexe 15</a></strong>) peut être envoyé au robot puis compilé. Celui-ci porte le nom « test_connexion_robot_rospy.py » et fait bouger le bras à la position pos_cam puis home_position après 2 secondes.</p>
+                            
+                            <p>Après le succès de ce programme, nous avons donc passé au contrôle du convoyeur et du capteur IR (<strong><a href="#annexe16">Annexe 16</a></strong>) puis le bras avec le convoyeur et le capteur IR pour faire un Pick & Place (<strong><a href="#annexe17">Annexe 17</a></strong>).</p>
+                            
+                            <p><strong>Déplacements des scripts dans un dossier sur le robot (et exécution)</strong></p>
+                            <p>Pour que tous soient facilement accessibles nous avons créé un dossier dans le robot pour y mettre tous nos scripts.</p>
+                            <pre class="bg-dark text-white p-3 rounded"><code>mkdir ~/scripts           # On crée le dossier
+mv ~/test_connexion_robot_rospy.py ~/niryo_tools.py ~/scripts/   # On déplace nos scripts</code></pre>
+                            
+                            <p><strong>Remarque</strong> : avant de lancer votre script il faut s'assurer que votre script a bien été envoyé au robot. (scp mon_script.py niryo@169.254.200.200:~/scripts/)</p>
+                            
+                            <p>Et pour pouvoir lancer les scripts (via le terminal du robot), deux possibilités sont possibles. Soit en étant dans le répertoire home (~) :</p>
+                            <pre class="bg-dark text-white p-3 rounded"><code>python3 ~/scripts/mon_script.py</code></pre>
+                            
+                            <p>Soit en se rendant dans le dossier scripts puis le lancer :</p>
+                            <pre class="bg-dark text-white p-3 rounded"><code>cd ~/scripts
+python3 mon_script.py</code></pre>
+                            
+                            <p><strong>ATTENTION</strong> : Si on lance le script depuis ~ (home) avec python3 ~/mes_scripts/mon_script.py, Python va chercher niryo_tools.py dans ~. Il ne le trouvera pas (car il est dans le sous-dossier) et renverra une ImportError. Pour éviter tout problème, on enchaîne les deux commandes sur une seule ligne avec un « && » pour dire que si la première condition est correcte, on peut faire la deuxième.</p>
+                            <pre class="bg-dark text-white p-3 rounded"><code>cd ~/mes_scripts && python3 mon_script.py</code></pre>
+                            
+                            <p>On peut voir dans le script de l'Annexe 16 une boucle de polling. La fonction « wait_for_ir_sensor » interroge le service « get_digital_io » en continu jusqu'à ce que la valeur passe à « 0 ».</p>
+                        </div>
+                        
+                        <div id="definitions">
+                            <h4 class="text-dark mt-3">g) Quelques définitions</h4>
+                            
+                            <p><strong>Localhost</strong></p>
+                            <p>Localhost = la machine elle-même.</p>
+                            <ul>
+                                <li>IP associée : 127.0.0.1</li>
+                                <li>Boucle locale</li>
+                                <li>Jamais accessible depuis une autre machine</li>
+                            </ul>
+                            
+                            <p>Donc :</p>
+                            <div class="table-responsive">
+                                <table class="table table-bordered">
+                                    <thead class="table-primary">
+                                        <tr><th>Depuis</th><th>Localhost désigne</th></tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr><td class="fw-bold">PC</th><td>Le PC</th>
+                                        </tr>
+                                        <tr><td class="fw-bold">Robot</th><td>Le robot</th>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                            
+                            <p>Lorsqu'on dit que le robot écoute uniquement en local, cela veut dire :</p>
+                            <ul>
+                                <li>Le ROS Master (port 11311) est lié à l'adresse IP : 127.0.0.1:11311</li>
+                                <li>Il n'écoute pas sur : 169.254.200.200</li>
+                            </ul>
+                            <p>Ce qui donne comme résultat que « rostopic list » fonctionne sur le robot mais pas depuis le PC. Le port 11311 est fermé pour une question de sécurité.</p>
+                            
+                            <p>Le rôle du tunnel SSH est donc de faire croire que localhost:11311 (PC) = localhost:11311 (Robot).</p>
+                            
+                            <p><strong>ROS_MASTER_URI</strong></p>
+                            <p>Cette fonction est utilisée de la manière suivante : « ROS_MASTER_URI=http://localhost:11311 ». Tous les nœuds ROS doivent donc dire au Master où sont les autres nœuds à cette adresse.</p>
+                            
+                            <p>Mais attention, le Master ne transporte pas les données (topics), il ne fait que :</p>
+                            <ul>
+                                <li>Enregistrer les nœuds</li>
+                                <li>Donner leurs adresses IP</li>
+                            </ul>
+                            
+                            <p><strong>ROS_IP / ROS_HOSTNAME</strong></p>
+                            <p>Savoir faire la différence entre les deux est primordiale. En effet, mélanger les deux est la cause majoritaire des bugs en multi-machine ROS.</p>
+                            
+                            <strong>ROS_IP :</strong>
+                            <p>Lorsque nous faisons la commande « export ROS_IP=169.254.200.200 » cela signifie qu'on donne l'adresse sur laquelle les autres machines doivent me joindre pour communiquer.<br>Donc :</p>
+                            
+                            <div class="table-responsive">
+                                <table class="table table-bordered">
+                                    <thead class="table-primary">
+                                        <tr><th>Machine</th><th>ROS_IP</th></tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr><td class="fw-bold">PC</td><td>169.254.200.100</td></tr>
+                                        <tr><td class="fw-bold">Robot</td><td>169.254.200.200</td></tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                            <p class="text-center small mt-1">Tableau 35 : Adresse IP du PC et Robot</p>
+                            
+                            <p>Quand un nœud ROS s'enregistre auprès du Master, il dit : « je suis joignable à cette IP + un port dynamique ».<br>
+                            La ROS_IP doit être une IP atteignable depuis l'autre machine.</p>
+                            
+                            <p><strong>ROS_HOSTNAME :</strong></p>
+                            <p>Lorsque nous faisons la commande « export ROS_HOSTNAME=169.254.200.200 » cela signifie qu'on donne le nom réseau que les autres machines doivent utiliser pour communiquer. ROS fera : hostname → résolution DNS → IP.</p>
+                            
+                            <p><strong>Remarque :</strong> Il est impératif de ne jamais définir ROS_IP et ROS_HOSTNAME en même temps. ROS privilégie par défaut ROS_HOSTNAME ce qui donnera un comportement imprévisible. Dans notre cas nous n'avons pas de DNS ni de nom de machine résolu, seulement des IP fixes. C'est pourquoi nous utilisons ROS_IP et (ROS_MASTER_URI).</p>
+                            
+                            <p>Le tableau qui suit est un tableau récapitulatif de cette sous-partie.</p>
+                            
+                            <div class="table-responsive">
+                                <table class="table table-bordered">
+                                    <thead class="table-primary">
+                                        <tr><th>Concept</th><th>Signification</th></td>
+                                    </thead>
+                                    <tbody>
+                                        <tr><td class="fw-bold">localhost</th><td>La machine elle-même</th>
+                                        </tr>
+                                        <tr><td class="fw-bold">« Le robot n'écoute qu'en local »</th><td>ROS Master visible uniquement depuis le robot</th>
+                                        </tr>
+                                        <tr><td class="fw-bold">ROS_MASTER_URI</th><td>Où se trouve l'annuaire ROS</th>
+                                        </tr>
+                                        <tr><td class="fw-bold">ROS_IP</th><td>Adresse à laquelle je suis joignable</th>
+                                        </tr>
+                                        <tr><td class="fw-bold">ROS_HOSTNAME</th><td>Nom du réseau à résoudre</th>
+                                        </tr>
+                                        <tr><td class="fw-bold">Tunnel SSH</th><td>Pont sécurisé entre deux localhost</th>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                            <p class="text-center small mt-1">Tableau 36 : Tableau récapitulatif des définitions</p>
+                        </div>
+                    </div>
+                    
+                    <!-- ============================================ -->
+                    <!-- ============================================ -->
+                    <!-- ANNEXES 08 à 17 -->
+                    <!-- ============================================ -->
+                    <div id="annexes" class="mt-5">
+                        <h3 class="text-dark">Annexes</h3>
+                        
+                        <!-- Annexe 08 -->
+                        <div id="annexe08" class="mt-4">
+                            <h4 class="text-primary">Annexe 08</h4>
+                            <p><strong>Définition de MoveIt</strong></p>
+                            <p>MoveIt est un framework ROS dédié à la manipulation robotique, dont le rôle principal est de transformer une intention de mouvement (ex. aller à cette position) en une trajectoire réalisable, sûre et conforme aux contraintes du robot.</p>
+                            <strong>Autrement dit :</strong>
+                            <ul>
+                                <li>tu ne commandes pas directement les moteurs,</li>
+                                <li>tu décris un objectif,</li>
+                                <li> MoveIt se charge de tout le raisonnement complexe.</li>
+                            </ul>
+
+                            <h5>Ce que MoveIt N'EST PAS</h5>
+                            <p>C'est important pour bien le situer.<br>MoveIt n'est pas :</p>
+                            <ul>
+                                <li>Un simulateur (ce rôle revient à Gazebo)</li>
+                                <li>Un driver matériel</li>
+                                <li>Un remplacement de ROS</li>
+                            </ul>
+                            
+                            <h5>Le problème que MoveIt résout</h5>
+                            <p>Sans MoveIt, pour déplacer un robot manipulateur, il faudrait :</p>
+                            <ul>
+                                <li>résoudre la cinématique inverse</li>
+                                <li>Gérer les limites articulaires</li>
+                                <li>éviter les collisions</li>
+                                <li>interpoler une trajectoire continue</li>
+                                <li>respecter les contraintes mécaniques</li>
+                                <li>gérer les singularités</li>
+                                <li>vérifier que le mouvement est physiquement réalisable</li>
+                            </ul>
+                            <p>Tout cela est long, complexe, très sujet aux erreurs.</p>
+                            <p>Donc MoveIt existe précisément pour abstraire cette complexité</p>
+                            
+                            <h5>Ce que fait MoveIt concrètement</h5>
+                            <p>On peut résumer MoveIt comme un pipeline de planification. Quand on écrit par exemple :</p>
+                            <code class="bg-dark text-white p-3 rounded d-block mb-3"><xmp>group.set_pose_target(pose)
+group.go()</xmp></code>
+
+                            <p>MoveIt effectue en réalité les étapes suivantes :</p>
+                            <ul>
+                                <ol>1. Interprétation de l'objectif<br>
+                                • position cartésienne ou valeurs articulaires</ol>
+                                <ol>2. Calcul de la cinématique inverse<br>
+                                • trouver des angles de joints compatibles</ol>
+                                <ol>3. Vérification des limites<br>
+                                • positions, vitesses, accélérations</ol>
+                                <ol>4. Détection de collisions<br>
+                                • robot / environnement / lui-même</ol>
+                                <ol>5. Planification de trajectoire<br>
+                                • via des planificateurs (OMPL, RRT, PRM…)</ol>
+                                <ol>6. Génération d'une trajectoire temporelle</ol>
+                                <ol>7. Exécution ou simulation du mouvement</ol>
+                            </ul>
+                            <p>Tout cela est transparent pour l'utilisateur.</p>
+        
+
+                            <h5>Les briques internes de MoveIt</h5>
+                            <p>MoveIt repose sur plusieurs composants clés :</p>
+                            <ul>
+                                <li><strong>URDF</strong> (modèle géométrique) : forme du robot, dimensions des liens, axes de rotation</li>
+                                <li><strong>SRDF</strong> (modèle sémantique) : groupes de joints ('arm'), end-effector, liens autorisés en collision</li>
+                                <li><strong>TF</strong> : gestion des repères ('base_link', 'tool_link', etc.)</li>
+                                <li><strong>Planning Scene</strong> : état courant du robot, obstacles, environnement</li>
+                                <li><strong>Planificateurs</strong> : OMPL (le plus courant), algorithmes probabilistes</li>
+                            </ul>
+
+                            <strong>Positionnement de MoveIt dans ROS</strong>
+
+                            <p>On peut résumer ainsi :</p>
+                            <!-- IMAGE Annexe 08 -->
+                            <div class="border rounded bg-light p-2 d-flex align-items-center justify-content-center" style="height: 350px; margin-bottom: 1rem;">
+                                <img src="images/Annexe_img_8.png" class="img-fluid" style="max-height: 100%; object-fit: contain;">
+                            </div>
+                            <p class="text-center small mt-1">Figure : Schéma résumé de MoveIt</p>
+
+                            <p>MoveIt ne parle jamais directement aux moteurs. Il passe toujours par ROS</p>
+                        </div>
+                        
+                        <!-- Annexe 09 -->
+                        <div id="annexe09" class="mt-4">
+                            <h4 class="text-primary">Annexe 09</h4>
+                            <code class="bg-dark text-white p-3 rounded d-block mb-3"><xmp>
+                                
+#!/usr/bin/env python3
+import sys
+import rospy
+import moveit_commander
+import geometry_msgs.msg
+from math import pi
+def simple_move():
+ # 1. INITIALISATION
+ # -----------------
+ # On initialise le "Commander" MoveIt
+ moveit_commander.roscpp_initialize(sys.argv)
+ # On initialise le nœud ROS
+ rospy.init_node('niryo_python_move', anonymous=True)
+
+ # 2. DÉFINITION DES GROUPES
+ # -------------------------
+ # Le robot est divisé en deux groupes de contrôle :
+ # - Le bras (pour bouger)
+ # - La pince (pour ouvrir/fermer)
+
+ # Noms des groupes standards pour le Ned2 : 'arm' et 'tools'
+ arm_group_name = "arm"
+ gripper_group_name = "tools"
+ move_group = moveit_commander.MoveGroupCommander(arm_group_name)
+ gripper_group = moveit_commander.MoveGroupCommander(gripper_group_name)
+ # Petit message pour dire qu'on est prêt
+ print("=== Prêt à bouger le robot ! ===")
+
+ # 3. MOUVEMENT 1 : Position Home Personnalisée
+ # --------------------------------------------
+ print("1. Allons à la position Home (Définie manuellement)")
+
+ # On définit les angles en radians pour une belle position d'attente
+ # [J1, J2, J3, J4, J5, J6]
+ # J5 = 0.0 -> Pour aligner la caméra avec le bras
+ # J6 = 1.57 -> Pour tourner la pince de 90° (si besoin selon votre montage)
+ home_joints = [0.0, 0.5, -1.2, 0.0, 0.0, 1.57]
+ move_group.set_joint_value_target(home_joints)
+  success = move_group.go(wait=True)
+ move_group.stop() # Sécurité
+ move_group.clear_pose_targets()
+
+ if success:
+ print(" -> Robot arrivé au Home !")
+ else:
+ print(" -> Échec du mouvement.")
+
+ rospy.sleep(1)
+
+ # 4. MOUVEMENT 2 : Simuler une approche (Aller vers le bas)
+ # ---------------------------------------------------------
+ print("2. Descente vers la zone de prise (Pick)")
+
+ # On récupère la position actuelle pour la modifier
+ current_pose = move_group.get_current_pose().pose
+
+ # On définit une nouvelle cible (Target)
+ target_pose = geometry_msgs.msg.Pose()
+ target_pose.orientation = current_pose.orientation # On garde la même orientation
+ target_pose.position.x = 0.25 # 25cm devant le robot
+ target_pose.position.y = 0.0 # Centré
+ target_pose.position.z = 0.15 # 15cm de hauteur (Z)
+ move_group.set_pose_target(target_pose)
+
+ # On bouge !
+ success = move_group.go(wait=True)
+ move_group.stop()
+ move_group.clear_pose_targets()
+ print(" Mouvement réussi ?", success)
+ rospy.sleep(1)
+
+ # 5. ACTION PINCE : Fermer la pince
+ # ---------------------------------
+ print("3. Fermeture de la pince")
+ # Pour le gripper, on peut utiliser des positions nommées comme "close" ou "open"
+ # Note : Sur certains modèles Niryo, il faut parfois définir les joints manuellement
+ try:
+ gripper_group.set_named_target("close")
+ gripper_group.go(wait=True)
+ except:
+ print(" (Pas de position 'close' trouvée, on continue sans pince)")
+
+ rospy.sleep(1)
+ 
+ # 6. MOUVEMENT 3 : Déposer ailleurs (Place)
+ # -----------------------------------------
+ print("4. On déplace l'objet vers une autre zone")
+
+
+ # ÉTAPE A : On lève l'objet (Sécurité)
+ # ------------------------------------
+ # On récupère la position actuelle pour juste changer Z
+ current_pose = move_group.get_current_pose().pose
+ target_pose = current_pose
+ target_pose.position.z = 0.30 # On monte à 30cm de haut
+
+ move_group.set_pose_target(target_pose)
+ move_group.go(wait=True)
+ move_group.stop()
+ move_group.clear_pose_targets()
+ rospy.sleep(0.5)
+
+ # ÉTAPE B : Rotation de la base (Joint 1)
+ # -------------------------------------
+ print(" -> Rotation de la base à 90 degrés...")
+
+ # On récupère les angles actuels des moteurs
+ current_joints = move_group.get_current_joint_values()
+
+ # On modifie juste le premier angle (Base / Joint 1)
+ # 1.57 radians = environ 90 degrés vers la gauche
+ # -1.57 radians = environ 90 degrés vers la droite
+ current_joints[0] = 1.57
+
+ move_group.set_joint_value_target(current_joints)
+ move_group.go(wait=True)
+ move_group.stop()
+ rospy.sleep(0.5)
+ # ÉTAPE C : On pose (On redescend)
+ # --------------------------------
+ print(" -> On pose l'objet")
+ # On reprend la position actuelle (qui est maintenant tournée)
+ target_pose = move_group.get_current_pose().pose
+ target_pose.position.z = 0.15 # On redescend à la hauteur de la table
+
+ move_group.set_pose_target(target_pose)
+ move_group.go(wait=True)
+ move_group.stop()
+ move_group.clear_pose_targets()
+ rospy.sleep(1)
+
+ # 7. RETOUR HOME
+  # --------------
+ print("5. Retour à la maison et ouverture pince")
+
+ # 1. Ouvrir la pince
+ # (Si "open" ne marche pas, on peut l'ignorer pour l'instant ou utiliser des joints)
+ try:
+ gripper_group.set_named_target("open")
+ gripper_group.go(wait=True)
+ except:
+ print(" (La commande 'open' n'est pas connue, on continue)")
+
+ # 2. Retourner à la position Home (MANUELLE)
+ # On réutilise les mêmes valeurs que tout à l'heure
+ # [Base, Épaule, Coude, Avant-bras, Poignet, Main]
+ home_joints = [0.0, 0.5, -1.2, 0.0, 0.0, 1.57]
+
+ move_group.set_joint_value_target(home_joints)
+ success = move_group.go(wait=True)
+
+ print("=== Terminé avec succès ! ===")
+
+ # Arrêt propre de MoveIt
+ moveit_commander.roscpp_shutdown()</xmp></code>
+                        </div>
+                        
+                        <!-- Annexe 10 -->
+                        <div id="annexe10" class="mt-4">
+                            <h4 class="text-primary">Annexe 10</h4>
+                            <p>Code du programme avec obstacle virtuel (obstacle_demo.py)</p>
+                            <code class="bg-dark text-white p-3 rounded d-block mb-3"><xmp>
+#!/usr/bin/env python3
+import sys
+import rospy
+import moveit_commander
+import geometry_msgs.msg
+def obstacle_avoidance():
+    # 1. INITIALISATION
+    moveit_commander.roscpp_initialize(sys.argv)
+    rospy.init_node('niryo_obstacle_mode', anonymous=True)
+    # Initialisation de la scène (pour les obstacles) et du robot
+    scene = moveit_commander.PlanningSceneInterface()
+    # robot = moveit_commander.RobotCommander()
+    # Vos groupes (vérifiés précédemment)
+    arm_group = moveit_commander.MoveGroupCommander("arm")
+    # Petit délai pour que la scène s'initialise
+    rospy.sleep(2)
+    # 2. SE METTRE EN POSITION DE DÉPART
+    print("--- 1. Position Départ ---")
+    # Une position à gauche
+    start_joints = [0.5, 0.5, -1.2, 0.0, 0.0, 0.0]
+    arm_group.set_joint_value_target(start_joints)
+    arm_group.go(wait=True)
+    arm_group.stop()
+    # 3. CRÉATION DE L'OBSTACLE (LE MUR)
+    print("--- 2. Ajout de l'obstacle ---")
+    # Définition de la pose de la boite
+    box_pose = geometry_msgs.msg.PoseStamped()
+    box_pose.header.frame_id = "world" # Référence au sol
+    # On place la boite entre la gauche (0.5 rad) et la droite (-0.5 rad)
+    box_pose.pose.position.x = 0.25
+    box_pose.pose.position.y = 0.0
+    box_pose.pose.position.z = 0.15 # Hauteur
+    box_pose.pose.orientation.w = 1.0
+    # On supprime l'obstacle qui peut être déjà présent
+    scene.remove_world_object(box_name)
+    rospy.sleep(1)
+    box_name = "boite_obstacle"
+    # Ajout d'une boite de 10cm x 40cm x 30cm
+    scene.add_box(box_name, box_pose, size=(0.1, 0.4, 0.3))
+    # IMPORTANT : Attendre que l'obstacle soit bien pris en compte
+    rospy.sleep(2)
+    print(" -> Obstacle ajouté ! Regarde dans RViz (bloc vert/violet)")
+    # 4. DÉPLACEMENT VERS L'ARRIVÉE
+    print("--- 3. Déplacement vers l'objectif ---")
+    # Une position à droite (symétrique au départ)
+    target_joints = [-0.5, 0.5, -1.2, 0.0, 0.0, 0.0]
+    arm_group.set_joint_value_target(target_joints)
+    # C'est ici que la magie opère : MoveIt va calculer le contournement
+    print(" -> Calcul de la trajectoire d'évitement...")
+    success = arm_group.go(wait=True)
+    if success:
+    print(" -> Mouvement réussi avec évitement !")
+    else:
+    print(" -> Échec (Obstacle trop gros ou inatteignable)")
+    arm_group.stop()
+    # 5. NETTOYAGE
+    print("--- 4. Suppression de l'obstacle ---")
+    scene.remove_world_object(box_name)
+    moveit_commander.roscpp_shutdown()
+
+if __name__ == '__main__':
+obstacle_avoidance()</xmp></code>
+                        </div>
+                        
+                        <!-- Annexe 11 -->
+                        <div id="annexe11" class="mt-4">
+                            <h4 class="text-primary">Annexe 11</h4>
+                            <p>Code du programme avec spawn de cube dans Gazebo (pick_and_place.py)</p>
+                            <code class="bg-dark text-white p-3 rounded d-block mb-3"><xmp>
+import sys
+import rospy
+import moveit_commander
+import geometry_msgs.msg
+from gazebo_msgs.srv import SpawnModel, DeleteModel
+from geometry_msgs.msg import Pose
+def spawn_cube():
+# Cube de 3cm
+# Afin de limiter le glissement du cube, une valeur de friction ‘mu' volontairement élevée a
+été définie, bien que celle-ci reste éloignée d'un comportement physique réaliste
+cube_xml = """<robot name="simple_box"><link name="my_box"><inertial><origin xyz="0
+0 0"/><mass value="0.05"/><inertia ixx="0.0001" ixy="0" ixz="0" iyy="0.0001" iyz="0"
+izz="0.0001"/></inertial><visual><origin xyz="0 0 0"/><geometry><box size="0.03 0.03
+0.03"/></geometry></visual><collision><origin xyz="0 0 0"/><geometry><box size="0.03
+0.03
+0.03"/></geometry><surface><friction><ode><mu>1000.0</mu><mu2>1000.0</mu2></o
+de></friction></surface></collision></link><gazebo
+reference="my_box"><material>Gazebo/Blue</material></gazebo></robot>"""
+rospy.wait_for_service("gazebo/spawn_urdf_model")
+try:
+spawn = rospy.ServiceProxy("gazebo/spawn_urdf_model", SpawnModel)
+pose = Pose()
+pose.position.x = 0.30
+pose.position.y = 0.0
+pose.position.z = 0.02
+spawn("blue_cube", cube_xml, "", pose, "world")
+except rospy.ServiceException as e:
+print("Erreur Spawn: ", e)
+def real_pick_and_place():
+moveit_commander.roscpp_initialize(sys.argv)
+rospy.init_node('niryo_robust_pick', anonymous=True)
+# SETUP
+arm_group = moveit_commander.MoveGroupCommander("arm",
+robot_description="robot_description", ns="/")
+arm_group.set_planning_time(10.0) # Plus de temps pour calculer
+arm_group.set_max_velocity_scaling_factor(0.6) # Plus lent = Plus précis
+try:
+gripper_group = moveit_commander.MoveGroupCommander("tool",
+robot_description="robot_description", ns="/")
+except:
+gripper_group = None
+# NETTOYAGE
+try:
+delete_model = rospy.ServiceProxy("gazebo/delete_model", DeleteModel)
+delete_model("blue_cube")
+rospy.sleep(0.5)
+except: pass
+spawn_cube()
+rospy.sleep(1.0)
+
+# 1. APPROCHE (JOINTS) - Pince verticale
+print("--- Approche ---")
+# J5 = -1.57 (Pince vers le bas)
+approach_joints = [0.0, 0.0, -0.5, 0.0, -0.8, 0.0]
+arm_group.set_joint_value_target(approach_joints)
+success = arm_group.go(wait=True)
+if not success:
+print("Echec approche.")
+return
+
+# 2. OUVERTURE
+if gripper_group:
+gripper_group.set_named_target("open")
+gripper_group.go(wait=True)
+
+# 3. DESCENTE (CARTESIEN)
+print("--- Descente ---")
+current_pose = arm_group.get_current_pose().pose
+grasp_pose = current_pose
+grasp_pose.position.z = 0.055 # Hauteur de saisie
+(plan, fraction) = arm_group.compute_cartesian_path([grasp_pose], 0.01)
+if fraction > 0.9:
+arm_group.execute(plan, wait=True)
+else:
+print("Plan cartésien échoué, utilisation standard")
+arm_group.set_pose_target(grasp_pose)
+arm_group.go(wait=True)
+
+# 4. FERMETURE (AVEC GESTION D'ERREUR)
+print("--- Fermeture ---")
+if gripper_group:
+try:
+# On lance la fermeture.
+# MoveIt va peut-être crier "TOLERANCE VIOLATED" car le cube bloque.
+# On s'en fiche, tant que c'est fermé.
+gripper_group.set_named_target("close")
+gripper_group.go(wait=True)
+except:
+print(">>> Pince bloquée par le cube (Succès !)")
+# Important : On force l'arrêt du moteur de la pince pour ne pas surchauffer (virtuellement)
+gripper_group.stop()
+rospy.sleep(1.0)
+
+# 5. LEVAGE
+print("--- Levage ---")
+# On remonte à la position d'approche
+arm_group.set_joint_value_target(approach_joints)
+success = arm_group.go(wait=True)
+if success:
+print("VICTOIRE : Cube soulevé !")
+else:
+print("Echec du levage")
+moveit_commander.roscpp_shutdown()
+if __name__ == '__main__':
+real_pick_and_place()
+                            </xmp></code>
+                        </div>
+                        
+                        <!-- Annexe 12 -->
+                        <div id="annexe12" class="mt-4">
+                            <h4 class="text-primary">Annexe 12</h4>
+                            <p>Code pour lister les positions enregistrées (lister_positions.py)</p>
+                            <code class="bg-dark text-white p-3 rounded d-block mb-3"><xmp>
+from pyniryo import *
+robot_ip = "169.254.200.200"
+print(f"--- Connexion au robot {robot_ip} ---")
+
+try:
+    robot = NiryoRobot(robot_ip)
+except Exception as e:
+    print(f"Erreur : {e}")
+    exit()
+
+    liste_noms = robot.get_pose_saved_names()
+
+print("\n=== LISTE DES POSITIONS ENREGISTRÉES ===")
+
+if not liste_noms:
+    print("Aucune position enregistrée dans la mémoire du robot.")
+
+    else:
+    for nom in liste_noms:
+        # 2. (Optionnel) Récupérer les détails de chaque position
+        details = robot.get_pose_saved(nom)
+        print(f" - Nom : '{nom}'")
+        print(f" Coords : {details}") # Affiche [x, y, z, roll, pitch, yaw]
+        print("-------------------------------")
+robot.close_connection()
+                            </xmp></code>
+                        </div>
+                        
+                        <!-- Annexe 13 -->
+                        <div id="annexe13" class="mt-4">
+                            <h4 class="text-primary">Annexe 13</h4>
+                            <p>Méthodologie de mise en place d'un tunnel SSH</p>
+                            
+                            <h5>Prérequis</h5>
+                            <p>• SSH accessible sur robot :<br>
+                            On branche le câble Ethernet entre le robot et le PC. Puis on vérifie la connexion :</p>
+                            <code class="bg-dark text-white p-2 rounded d-block mb-3"><xmp>ping 169.254.200.200
+# Ctrl+C pour arrêter</xmp></code>
+
+                            <p>• Si la connexion est bien faite, on peut se connecter au terminal SSH au robot :</p>
+                            <code class="bg-dark text-white p-2 rounded d-block mb-3"><xmp>ssh niryo@169.254.200.200
+# Password : robotics</xmp></code>
+        
+                            <p>Si la connexion est réussie, vous devriez voir ceci en début de ligne :</p>
+                            <!-- FIGURE 126 -->
+                            <div class="border rounded bg-light p-2 d-flex align-items-center justify-content-center" style="height: 80px; margin-bottom: 1rem;">
+                                <img src="images/Figure126.png" class="img-fluid" style="max-height: 100%; object-fit: contain;">
+                            </div>
+                            <p class="text-center small mt-1">Figure 126 : Début de ligne du terminal SSH (robot)</p>
+                            
+                            <h5>Créer le tunnel SSH</h5>
+                            <p>• Nouveau terminal mais pas SSH, ici c'est celui de l'environnement Ubuntu qu'on veut :</p>
+
+                            <!-- FIGURE 127 -->
+                            <div class="border rounded bg-light p-2 d-flex align-items-center justify-content-center" style="height: 80px; margin-bottom: 1rem;">
+                                <img src="images/Figure127.png" class="img-fluid" style="max-height: 100%; object-fit: contain;">
+                            </div>
+                            <p class="text-center small mt-1">Figure 127 : Début de ligne du terminal du PC</p>
+
+                            <p>• Saisir la commande :</p>
+                            <code class="bg-dark text-white p-3 rounded d-block mb-3"><xmp>ssh -f -N -L 11311:localhost:11311 niryo@169.254.200.200</xmp></code>
+                            
+                            <p>Les explications de cette commande sont les suivantes :</p>
+                            <div class="table-responsive">
+                                <table class="table table-bordered w-75">
+                                    <thead class="table-primary"><tr><th>Argument</th><th>Rôle</th></tr></thead>
+                                    <tbody>
+                                        <tr><td class="fw-bold">-f</th><td>Permet de laisser le tunnel actif en arrière-plan</th>
+                                        </tr>
+                                        <tr><td class="fw-bold">-N</th><td>"No Shell" – pas de session interactive, juste un tunnel</th>
+                                        </tr>
+                                        <tr><td class="fw-bold">-L 11311:localhost:11311</th><td>Redirige local 11311 → robot:11311</th>
+                                        </tr>
+                                        <tr><td class="fw-bold">niryo@169.254.200.200</th><td>Identifiants de connexion au robot</th>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                            <p class="text-center small mt-1">Tableau 37 : Tableau explicatif de la commande de construction d'un tunnel SSH</p>
+                            
+                            <p>Il ne faut pas fermer ce tunnel ou le relancer après un arrêt de l’ordinateur ou de terminal.
+                            Tant que le terminal est ouvert, le tunnel est actif.</p>
+
+                            <h5>Configuration ROS sur le PC</h5>
+                            <p>• Sur un nouveau terminal du PC (crestic@...) :</p>
+                            <code class="bg-dark text-white p-2 rounded d-block mb-3"><xmp>ss -tuln | grep 11311</xmp></code>
+
+                            <p>Cette commande doit renvoyer :</p>
+                            <!-- FIGURE 128 -->
+                            <div class="border rounded bg-light p-2 d-flex align-items-center justify-content-center" style="height: 80px; margin-bottom: 1rem;">
+                                <img src="images/Figure128.png" class="img-fluid" style="max-height: 100%; object-fit: contain;">
+                            </div>
+                            <p class="text-center small mt-1">Figure 128 : Vérification du port 11311</p>
+
+                            <p>Puis :</p>
+                            <code class="bg-dark text-white p-2 rounded d-block mb-3"><xmp>export ROS_MASTER_URI=http://localhost:11311
+export ROS_IP=127.0.0.1</xmp></code>
+                            
+                            <p>• On vérifie si ces commandes ont bien été prises en compte (optionnel) :</p>
+                            <div class="table-responsive">
+                                <table class="table table-bordered">
+                                    <thead class="table-primary"><tr><th>Commande à taper</th><th>Ce qu'elle doit renvoyer</th></tr></thead>
+                                    <tbody>
+                                        <tr><td class="fw-bold">echo $ROS_MASTER_URI</td><td>http://localhost:11311</td></tr>
+                                        <tr><td class="fw-bold">echo $ROS_IP</td><td>127.0.0.1</td></tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                            <p class="text-center small mt-1">Tableau 38 : Tableau de vérification de la prise en compte de ROS_MASTER_URI et ROS_IP sur le terminal du PC</p>
+                            
+                            <h5>Configurer ROS sur le robot (à ne pas faire avec le Ned2)</h5>
+                            <p>Dans un ROS multi-machine classique :</p>
+                            <ul>
+                                <li>chaque machine est un nœud ROS</li>
+                                <li>chacune doit connaître : le ROS Master et son IP réseau</li>
+                            </ul>
+                            <p>Mais dans notre cas :</p>
+                            <ul>
+                                <li>le Ned2 refuse le multi-machine</li>
+                                <li>il fonctionne en ROS localhost-only</li>
+                                <li>le tunnel SSH est un trucage réseau, pas une vraie connexion ROS</li>
+                            </ul>
+                            <p>On ferait des exports sur le robot uniquement si :</p>
+                            <ul>
+                                <li>le robot acceptait ROS multi-machine</li>
+                                <li>le port 11311 était ouvert sur le réseau</li>
+                                <li>le PC était un vrai nœud ROS distant</li>
+                            </ul>
+                            
+                            <p>Sur le terminal SSH du robot :</p>
+                            <code class="bg-dark text-white p-3 rounded d-block mb-3"><xmp>export ROS_MASTER_URI=http://localhost:11311
+export ROS_IP=169.254.200.200
+export ROS_HOSTNAME=169.254.200.200</xmp></code>
+    
+                            <p>On vérifie si ces commandes ont bien été prises en compte (optionnel) :</p>
+                            <div class="table-responsive">
+                                <table class="table table-bordered w-75">
+                                    <thead class="table-primary"><tr><th>Commande à taper</th><th>Ce qu'elle doit renvoyer</th></tr></thead>
+                                    <tbody>
+                                        <tr><td class="fw-bold">echo $ROS_MASTER_URI</th><td>http://localhost:11311</th>
+                                        </tr>
+                                        <tr><td class="fw-bold">echo $ROS_IP</th><td>169.254.200.200</th>
+                                        </tr>
+                                        <tr><td class="fw-bold">echo $ROS_HOSTNAME</th><td>169.254.200.200</th>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                            <p class="text-center small mt-1">Tableau 39 : Tableau de vérification de la prise en compte de ROS_MASTER_URI et ROS_IP sur le terminal du robot</p>
+                            
+                            <p>Si les nœuds ROS du robot s'exécutent via roslaunch / systemd / scripts, il faudra peut-être ajouter ces exports dans le fichier « .bashrc » ou dans le fichier de service.</p>
+                            
+                            <h5>Tester la connexion</h5>
+                            <p>Tester le tunnel SSH (depuis le terminal du PC « crestic@... ») :</p>
+                            <code class="bg-dark text-white p-3 rounded d-block mb-3"><xmp>telnet localhost 11311</xmp></code>
+                            <p>Si une connexion ouverte apparaît → tunnel Ok.</p>
+                            
+                            <p>Tester ROS :</p>
+                            <code class="bg-dark text-white p-3 rounded d-block mb-3"><xmp>rostopic list</xmp></code>
+                            
+                            <h5>Points d'attention</h5>
+                            <p>Le tunnel SSH doit rester ouvert. C'est pourquoi il est recommandé d'utiliser la commande :</p>
+                            <code class="bg-dark text-white p-3 rounded d-block mb-3"><xmp>ssh -f -N -L 11311:localhost:11311 niryo@169.254.200.200</xmp></code>
+                            <p>Pour pouvoir le mettre en tâche de fond, il est recommandé de mettre « -f ».</p>
+                            
+                            <h5>Méthodologie récapitulative pour le tunnel SSH :</h5>
+                            <ol>
+                                <li>ouvrir un terminal</li>
+                                <li>taper la commande : <code class="text-dark">ssh niryo@169.254.200.200</code> (mdp : robotics)</li>
+                                <li>ouvrir un nouveau terminal PC (crestic@...)</li>
+                                <li>taper la commande : <code class="text-dark">ssh -f -N -L 11311:localhost:11311 niryo@169.254.200.200</code></li>
+                                <li>ouvrir un nouveau terminal PC (crestic@...)</li>
+                                <li>taper les commandes :</li>
+                                <code class="bg-dark text-white p-2 rounded d-block mb-3"><xmp>export ROS_MASTER_URI=http://localhost:11311
+export ROS_HOSTNAME=127.0.0.1
+source /opt/ros/noetic/setup.bash
+source ~/niryo_ws/devel/setup.bash</xmp></code>
+                                <li>on peut essayer d'ouvrir RViz avec la commande suivante pour voir s'il n'y a pas de<br>problème avec MoveIt :
+                                <code class="text-dark">roslaunch niryo_robot_description display.launch</code></li>
+                                <li>taper : <code class="text-dark">rostopic list</code> <br>
+                                si une liste apparaît → le tunnel SSH fonctionne)</li>
+                                <li>lancer notre script<br>
+                                soit depuis « ~ » en donnant le chemin complet : ex
+                                soit depuis le répertoire dans lequel se situe le script et faire : python3
+                                <code class="text-dark">nom_du_script.py</code></li>
+                            </ol>
+                        </div>
+                        
+                        <!-- Annexe 14 -->
+                        <div id="annexe14" class="mt-4">
+                            <h4 class="text-primary">Annexe 14</h4>
+                            <code class="bg-dark text-white p-3 rounded d-block mb-3"><xmp>
+#!/usr/bin/env python3
+# -*- coding: utf-8 -*-
+
+import rospy
+from niryo_robot_poses_handlers.srv import GetPose
+
+def get_niryo_pose_as_list(pose_name):
+    """ Récupère la position cartésienne [x, y, z, r, p, y] """
+    service_name = '/niryo_robot_poses_handlers/get_pose'
+    rospy.wait_for_service(service_name, timeout=5)
+    try:
+        get_pose_srv = rospy.ServiceProxy(service_name, GetPose)
+        response = get_pose_srv(pose_name)
+        p = response.pose
+        return [p.position.x, p.position.y, p.position.z,
+            p.rpy.roll, p.rpy.pitch, p.rpy.yaw]
+    except Exception as e:
+        rospy.logerr(f"Erreur cartésienne '{pose_name}' : {e}")
+        return None
+
+def get_niryo_joints(pose_name):
+    """
+    Récupère les angles articulaires (J1 à J6) d'une pose.
+    """
+    service_name = '/niryo_robot_poses_handlers/get_pose'
+    rospy.wait_for_service(service_name, timeout=5)
+    try:
+        get_pose_srv = rospy.ServiceProxy(service_name, GetPose)
+        response = get_pose_srv(pose_name)
+
+        return response.pose.joints
+
+    except Exception as e:
+        rospy.logerr(f"Erreur joints '{pose_name}' : {e}")
+        return None
+                            </xmp></code>
+                        </div>
+                        
+                        <!-- Annexe 15 -->
+                        <div id="annexe15" class="mt-4">
+                            <h4 class="text-primary">Annexe 15</h4>
+                            <code class="bg-dark text-white p-3 rounded d-block mb-3"><xmp>
+#!/usr/bin/env python3
+import sys
+import rospy
+import moveit_commander
+from niryo_tools import get_niryo_joints
+def main():
+    # 1. Initialisation de l'interface MoveIt et du nœud ROS
+    moveit_commander.roscpp_initialize(sys.argv)
+    rospy.init_node("ned2_moveit_joint_control", anonymous=True)
+    
+    # 2. Instanciation des interfaces de contrôle
+    robot = moveit_commander.RobotCommander()
+    scene = moveit_commander.PlanningSceneInterface()
+
+    # Définition du groupe de planification pour le bras
+    group_name = "arm"
+    group = moveit_commander.MoveGroupCommander(group_name)
+    
+    # 3. Paramétrage de la vitesse (30% de la vitesse max)
+    group.set_max_velocity_scaling_factor(0.3)
+    group.set_max_acceleration_scaling_factor(0.3)
+    
+    rospy.loginfo("Connexion à MoveIt réussie. Début de la séquence articulaire.")
+
+    # ÉTAPE 1 : Déplacement vers 'pos_cam'
+    rospy.loginfo("Récupération des joints pour 'pos_cam'...")
+    joints_cam = get_niryo_joints("pos_cam")
+    
+    if joints_cam:
+        rospy.loginfo(f"Mouvement articulaire vers pos_cam : {joints_cam}")
+        # Commande de mouvement vers les angles cibles
+        success = group.go(joints_cam, wait=True)
+        group.stop() # Assure l'arrêt des moteurs
+
+        if success:
+            rospy.loginfo("Position 'pos_cam' atteinte avec succès.")
+        else:
+            rospy.logerr("Échec de la planification vers 'pos_cam'.")
+    else:
+        rospy.logerr("Impossible de récupérer les joints de 'pos_cam'. Vérifiez le nom dans
+Niryo Studio.")
+ 
+    rospy.sleep(2.0) # Temporisation entre les mouvements
+
+    # ÉTAPE 2 : Retour vers 'home_position'
+    rospy.loginfo("Récupération des joints pour 'home_position'...")
+    joints_home = get_niryo_joints("home_position")
+    
+    if joints_home:
+        rospy.loginfo(f"Mouvement articulaire vers home_position : {joints_home}")
+        success = group.go(joints_home, wait=True)
+        group.stop()
+
+        if success:
+            rospy.loginfo("Retour en 'home_position' terminé.")
+        else:
+            rospy.logerr("Échec du retour en 'home_position'.")
+    else:
+        rospy.logerr("Position 'home_position' introuvable.")
+    
+    # 4. Fermeture MoveIt
+    moveit_commander.roscpp_shutdown()
+    rospy.loginfo("Séquence terminée.")
+
+ if __name__ == "__main__":
+    try:
+        main()
+    except rospy.ROSInterruptException:
+    pass
+                            </xmp></code>
+                        </div>
+                        
+                        <!-- Annexe 16 -->
+                        <div id="annexe16" class="mt-4">
+                            <h4 class="text-primary">Annexe 16</h4>
+                            <p>« stop_conv_w_ir_rospy.py » : On arrête le convoyeur quand le capteur IR détecte un objet.</p>
+                            <code class="bg-dark text-white p-3 rounded d-block mb-3"><xmp>
+#!/usr/bin/env python3
+
+import sys
+import rospy
+import moveit_commander
+from niryo_tools import get_niryo_joints
+from niryo_robot_rpi.srv import GetDigitalIO
+from niryo_robot_programs_manager.srv import SetConveyor
+
+def control_conveyor(conveyor_id, action, speed=50):
+    """ Active ou arrête le convoyeur """
+    service_name = '/niryo_robot_programs_manager/control_conveyor'
+    rospy.wait_for_service(service_name)
+    try:
+        stop_conveyor = rospy.ServiceProxy(service_name, SetConveyor)
+        # action : True pour lancer, False pour arrêter
+        stop_conveyor(conveyor_id, action, speed, 1) # 1 = direction par défaut
+    except rospy.ServiceException as e:
+        rospy.logerr(f"Erreur convoyeur : {e}")
+
+def wait_for_ir_sensor(pin_id):
+    """ Boucle d'attente jusqu'à détection (passage à 0) """
+    service_name = '/niryo_robot_rpi/get_digital_io'
+    rospy.wait_for_service(service_name)
+    get_io = rospy.ServiceProxy(service_name, GetDigitalIO)
+
+    rospy.loginfo(f"Attente détection sur le port {pin_id}...")
+    while not rospy.is_shutdown():
+        res = get_io(pin_id)
+        if res.value == 0: # Détection (logique inverse)
+            rospy.loginfo("Objet détecté !")
+            break
+        rospy.sleep(0.1) # Évite de surcharger le processeur
+
+def main():
+    moveit_commander.roscpp_initialize(sys.argv)
+    rospy.init_node("conveyor_ir_control", anonymous=True)
+    group = moveit_commander.MoveGroupCommander("arm")
+
+    # ID du convoyeur (souvent 1 ou 2) et Port du capteur (DI5)
+    CONVEYOR_ID = 9
+    SENSOR_PIN = "DI5"
+
+    # 1. Lancer le convoyeur
+    rospy.loginfo("Lancement du convoyeur...")
+    control_conveyor(CONVEYOR_ID, True, speed=30)
+
+    # 2. Attendre que le capteur détecte l'objet
+    wait_for_ir_sensor(SENSOR_PIN)
+
+    # 3. Arrêter le convoyeur immédiatement
+    control_conveyor(CONVEYOR_ID, False)
+    rospy.loginfo("Convoyeur arrêté.")
+    
+    # 4. Déplacement du robot vers pos_cam pour la saisie ou l'inspection
+    joints_cam = get_niryo_joints("pos_cam")
+    if joints_cam:
+        rospy.loginfo("Déplacement vers pos_cam...")
+        group.go(joints_cam, wait=True)
+        group.stop()
+        rospy.loginfo("Robot en position.")
+
+    moveit_commander.roscpp_shutdown()
+
+if __name__ == "__main__":
+    main()
+
+                            </xmp></code>
+                        </div>
+                        
+                        <!-- Annexe 17 -->
+                        <div id="annexe17" class="mt-4">
+                            <h4 class="text-primary">Annexe 17</h4>
+                            <p>Pick_&_Place_rospy.py » : on fait un pick & place avec le convoyeur et le capteur IR.</p>>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

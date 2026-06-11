@@ -1,0 +1,464 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Modélisation Géométrique - Niryo Ned2</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.0/font/bootstrap-icons.css">
+</head>
+<body class="bg-light">
+
+    <div class="bg-white border-bottom shadow-sm mb-4">
+        <div class="container-fluid py-3 px-4">
+            <a href="index.html" class="btn btn-outline-primary btn-sm">
+                <i class="bi bi-arrow-left"></i> Accueil
+            </a>
+            <span class="ms-3 fs-5 fw-semibold text-primary">📐 MODÉLISATION GÉOMÉTRIQUE</span>
+        </div>
+    </div>
+
+    <div class="container-fluid px-0 px-md-3 mb-5">
+        <div class="row g-0 g-md-4 mx-0">
+            
+            <!-- side bar -->
+            <div class="col-md-3 ps-0 pe-0 pe-md-2">
+                <div class="bg-white rounded-3 shadow-sm p-3 me-0 me-md-2" style="position: sticky; top: 20px; max-height: calc(100vh - 40px); overflow-y: auto;">
+                    <h5 class="text-primary mb-3 pb-2 border-bottom">
+                        <i class="bi bi-list-ul"></i> Sommaire
+                    </h5>
+                    <nav class="nav flex-column">
+                        <a class="nav-link px-0 py-1 text-dark" href="#introduction"><i class="bi bi-book text-primary me-2"></i>1. Introduction</a>
+                        <a class="nav-link px-0 py-1 text-dark mt-2" href="#architectures"><i class="bi bi-diagram-3 text-primary me-2"></i>2. Principales architectures</a>
+                        <a class="nav-link px-0 py-1 text-dark mt-2" href="#changements-reperes"><i class="bi bi-arrow-left-right text-primary me-2"></i>3. Changements de repères</a>
+                        <a class="nav-link px-0 py-1 text-dark mt-2" href="#rotation-axe"><i class="bi bi-arrow-repeat text-primary me-2"></i>4. Rotation autour d'un seul axe</a>
+                        <a class="nav-link px-0 py-1 text-dark mt-2" href="#espaces"><i class="bi bi-grid-3x3-gap-fill text-primary me-2"></i>5. Espace vectoriel vs espace articulaire</a>
+                        <a class="nav-link px-0 py-1 text-dark mt-2" href="#mgd"><i class="bi bi-calculator-fill text-primary me-2"></i>6. Modélisation Géométrique Directe (MGD)</a>
+                        <a class="nav-link px-0 py-1 text-dark mt-2" href="#dh"><i class="bi bi-table text-primary me-2"></i>7. Convention de Denavit-Hartenberg (DH)</a>
+                        <a class="nav-link px-0 py-1 text-dark mt-2" href="#mgi"><i class="bi bi-arrow-return-left text-primary me-2"></i>8. Modélisation Géométrique Inverse (MGI)</a>
+                        <a class="nav-link px-0 py-1 text-dark mt-2" href="#etude-ned2"><i class="bi bi-robot text-primary me-2"></i>9. Étude géométrique du Niryo Ned2</a>
+                    </nav>
+                </div>
+            </div>
+
+            <!-- contenu principal -->
+            <div class="col-md-9 ps-0 ps-md-2 pe-0">
+                
+                <div id="modelisation" class="bg-white rounded-3 shadow-sm p-4 mb-4">
+                    <h2 class="text-primary border-bottom pb-2 mb-4"><i class="bi bi-graph-up"></i> MODÉLISATION GÉOMÉTRIQUE</h2>
+                    
+                    <!-- ============================================ -->
+                    <!-- 1. INTRODUCTION -->
+                    <!-- ============================================ -->
+                    <div id="introduction" class="mt-3">
+                        <h3 class="text-dark">1. Introduction</h3>
+                        <p>« Un robot est un système mécanique poly-articulé, mu par des actionneurs et commandé par un calculateur, qui est destiné à effectuer une grande variété de tâches.<br> » Un système poly-articulé est un ensemble de corps rigides (solides, segments) interconnectés entre eux par des liaisons mécaniques (articulations) contraignant leurs mouvements.<br> Lorsqu'un corps solide est libre de tout mouvement dans l'espace, ses mouvements peuvent être décrits selon 6 mouvements élémentaires appelés degrés de liberté (DDL) :</p>
+                        <ul>
+                            <li>Trois translations</li>
+                            <li>Trois rotations</li>
+                        </ul>
+                        <p>Un solide possède au maximum 6 DDL qui décroît à mesure que le mouvement est contraint par des articulations le liant à d'autres solides.</p>
+                        
+                        <h5 class="mt-3">Liaisons élémentaires utilisés en robotique</h5>
+                        <p>Contrairement en mécanique où on parle de pivot, glissière ou encore de rotule par exemple, en robotique on utilise que deux liaisons élémentaires :</p>
+                        
+                        <!-- FIGURE 34 -->
+                        <div class="border rounded bg-light p-2 d-flex align-items-center justify-content-center" style="height: 150px; margin-bottom: 1rem;">
+                            <img src="images/Figure34.png" class="img-fluid" style="max-height: 100%; object-fit: contain;">
+                        </div>
+                        <p class="text-center small mt-1">Figure 34 : Schéma d'une prismatique</p>
+                        <ul>
+                            <li><strong>Prismatique (≡ glissière) notée P :</strong> Seulement 1 DDL, valeur articulaire : q = longueur [m]</li>
+                        </ul>
+                        
+                        <!-- FIGURE 35 -->
+                        <div class="border rounded bg-light p-2 d-flex align-items-center justify-content-center" style="height: 150px; margin-bottom: 1rem;">
+                            <img src="images/Figure35.png" class="img-fluid" style="max-height: 100%; object-fit: contain;">
+                        </div>
+                        <p class="text-center small mt-1">Figure 35 : Schéma d'une rotoïde</p>
+                        <ul>
+                            <li><strong>Rotoïde (≡ Pivot) notée R :</strong> Seulement 1 DDL, valeur articulaire q = angle [rad ou °]</li>
+                        </ul>
+                        <p>Pour modéliser des articulations de DDL > 1, nous avons recours à une succession de P ou R.</p>
+                    </div>
+                    
+                    <!-- ============================================ -->
+                    <!-- 2. PRINCIPALES ARCHITECTURES -->
+                    <!-- ============================================ -->
+                    <div id="architectures" class="mt-5">
+                        <h3 class="text-dark">2. Principales architectures</h3>
+                        
+                        <!-- FIGURE 36 -->
+                        <div class="border rounded bg-light p-2 d-flex align-items-center justify-content-center" style="height: 300px; margin-bottom: 1rem;">
+                            <img src="images/Figure36.png" class="img-fluid" style="max-height: 100%; object-fit: contain;">
+                        </div>
+                        <p class="text-center small mt-1">Figure 36 : Architectures principales de différents bras robotisés</p>
+                    </div>
+                    
+                    <!-- ============================================ -->
+                    <!-- 3. CHANGEMENTS DE REPÈRES -->
+                    <!-- ============================================ -->
+                    <div id="changements-reperes" class="mt-5">
+                        <h3 class="text-dark">3. Changements de repères</h3>
+                        <p>En mathématique, pour changer de repère, on utilise la relation de Chasles, mais en robotique on utilise la relation suivante :</p>
+                        
+                        <!-- FIGURE 37 -->
+                        <div class="border rounded bg-light p-2 d-flex align-items-center justify-content-center" style="height: 100px; margin-bottom: 1rem;">
+                            <img src="images/Figure37.png" class="img-fluid" style="max-height: 100%; object-fit: contain;">
+                        </div>
+                        <p class="text-center small mt-1">Figure 37 : Schéma montrant le changement de repère</p>
+                        
+                        <p>L'équation ci-dessus sert à passer du repère 1 au repère 2. Mais si on souhaite passer du repère 2 à 1, par de simples manipulations mathématiques, on obtient :</p>
+                        
+                        <!-- FIGURE 38 -->
+                        <div class="border rounded bg-light p-2 d-flex align-items-center justify-content-center" style="height: 80px; margin-bottom: 1rem;">
+                            <img src="images/Figure38.png" class="img-fluid" style="max-height: 100%; object-fit: contain;">
+                        </div>
+                        <p class="text-center small mt-1">Figure 38 : Changement de repère</p>
+                        
+                        <!-- FIGURE 39 -->
+                        <div class="border rounded bg-light p-2 d-flex align-items-center justify-content-center" style="height: 80px; margin-bottom: 1rem;">
+                            <img src="images/Figure39.png" class="img-fluid" style="max-height: 100%; object-fit: contain;">
+                        </div>
+                        <p class="text-center small mt-1">Figure 39 : Matrice de rotation inverse dans le cas où R0 et R1 sont orthonormé</p>
+                        
+                        <p>Ces expressions sont toujours valables, cependant, quand on passe par un nombre élevé de repères, ça en devient compliqué.<br> C'est pourquoi on utilise la transformation homogène :</p>
+                        
+                        <!-- FIGURE 40 -->
+                        <div class="border rounded bg-light p-2 d-flex align-items-center justify-content-center" style="height: 80px; margin-bottom: 1rem;">
+                            <img src="images/Figure40.png" class="img-fluid" style="max-height: 100%; object-fit: contain;">
+                        </div>
+                        <p class="text-center small mt-1">Figure 40 : Équations permettant de calculer des changements de repères</p>
+                        
+                        <p>La matrice A<sub>i,i+1</sub> est appelée matrice de transformation homogène de taille 4*4.</p>
+                        
+                        <!-- FIGURE 41 -->
+                        <div class="border rounded bg-light p-2 d-flex align-items-center justify-content-center" style="height: 100px; margin-bottom: 1rem;">
+                            <img src="images/Figure41.png" class="img-fluid" style="max-height: 100%; object-fit: contain;">
+                        </div>
+                        <p class="text-center small mt-1">Figure 41 : Matrice de transformation homogène</p>
+                    </div>
+                    
+                    <!-- ============================================ -->
+                    <!-- 4. ROTATION AUTOUR D'UN SEUL AXE -->
+                    <!-- ============================================ -->
+                    <div id="rotation-axe" class="mt-5">
+                        <h3 class="text-dark">4. Rotation autour d'un seul axe</h3>
+                        
+                        <!-- FIGURE 42 -->
+                        <div class="border rounded bg-light p-2 d-flex align-items-center justify-content-center" style="height: 120px; margin-bottom: 1rem;">
+                            <img src="images/Figure42.png" class="img-fluid" style="max-height: 100%; object-fit: contain;">
+                        </div>
+                        <p class="text-center small mt-1">Figure 42 : Rotation autour d'un axe</p>
+                        
+                        <p>Pour calculer la matrice M<sub>01</sub> autour d'un seul axe, on peut utiliser les matrices préremplies suivantes :</p>
+                        
+                        <!-- FIGURE 43 -->
+                        <div class="border rounded bg-light p-2 d-flex align-items-center justify-content-center" style="height: 150px; margin-bottom: 1rem;">
+                            <img src="images/Figure43.png" class="img-fluid" style="max-height: 100%; object-fit: contain;">
+                        </div>
+                        <p class="text-center small mt-1">Figure 43 : Matrices de rotation autour d'un axe</p>
+                        
+                        <p>Cependant, l'orientation d'un repère par rapport à un autre peut être décrite de manière suffisante par 3 rotations successives.</p>
+                        
+                        <h5 class="mt-3">Angles d'Euler :</h5>
+                        <p>6 séquences disponibles :</p>
+                        
+                        <!-- FIGURE 44 -->
+                        <div class="border rounded bg-light p-2 d-flex align-items-center justify-content-center" style="height: 150px; margin-bottom: 1rem;">
+                            <img src="images/Figure44.png" class="img-fluid" style="max-height: 100%; object-fit: contain;">
+                        </div>
+                        <p class="text-center small mt-1">Figure 44 : Séquences d'Euler</p>
+                        
+                        <h5 class="mt-3">Angles de Bryant (autre convention) :</h5>
+                        <p>Dans cette convention, on utilise les termes Roulis, Tangage, Lacet.</p>
+                        
+                        <!-- FIGURE 45 -->
+                        <div class="border rounded bg-light p-2 d-flex align-items-center justify-content-center" style="height: 150px; margin-bottom: 1rem;">
+                            <img src="images/Figure45.png" class="img-fluid" style="max-height: 100%; object-fit: contain;">
+                        </div>
+                        <p class="text-center small mt-1">Figure 45 : Repère des angles de Bryant</p>
+                        
+                        <div class="alert alert-warning mt-3">
+                            <i class="bi bi-exclamation-triangle-fill"></i> <strong>ATTENTION :</strong>
+                            <ul class="mt-2 mb-0">
+                                <li>La combinaison de deux rotations successives n'est pas commutative.</li>
+                                <li>Par convention, les repères en robotique sont des tétraèdres directs.</li>
+                                <li>Convention des signes des angles de rotation autour d'un axe (+ ⇒ positif) :<br>
+                                    Autour de x : + de y → z<br>
+                                    Autour de y : + de z → x<br>
+                                    Autour de z : + de x → y
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                    
+<!-- ============================================ -->
+<!-- 5. ESPACE VECTORIEL VS ESPACE ARTICULAIRE -->
+<!-- ============================================ -->
+<div id="espaces" class="mt-5">
+    <h3 class="text-dark">5. Espace vectoriel vs espace articulaire</h3>
+    <div class="row g-3 mb-4">
+        <div class="col-md-6">
+            <div class="border rounded bg-light p-2 d-flex align-items-center justify-content-center" style="height: 240px;">
+                <p class="mb-0">On appelle « <strong>espace opérationnel</strong> » ou « <strong>espace utilisateur</strong> » l'espace dans lequel est représenté la position de l'effecteur.<br><br>
+                Dans ce cas, les coordonnées (cartésiennes, cylindriques ou sphériques) de l'effecteur (position et orientation) sont décrites dans un repère fixe appelé base (généralement lié au bâti).</p>
+            </div>
+        </div>
+        <div class="col-md-6">
+            <div class="border rounded bg-light p-2 d-flex align-items-center justify-content-center" style="height: 240px;">
+                <img src="images/Figure46.png" class="img-fluid" style="max-height: 100%; object-fit: contain;">
+            </div>
+            <p class="text-center small mt-1">Figure 46 : Schématique d'une pince articulée</p>
+        </div>
+    </div>
+    <div class="row g-3 mb-4">
+        <div class="col-md-6">
+            <div class="border rounded bg-light p-2 d-flex align-items-center justify-content-center" style="height: 240px;">
+                <p class="mb-0">On appelle « <strong>espace articulaire</strong> » ou « <strong>espace de configuration</strong> » d'un robot l'espace défini par l'ensemble des variables articulaires.<br>
+                On note <strong>q(t)</strong> les <strong>variables articulaires</strong>.<br><br>
+                On appelle « <strong>configuration articulaire</strong> » d'un robot l'état de l'ensemble de ses variables articulaires.<br><br>
+                <strong>Vecteur de configuration articulaire :</strong><br>
+                q(t) = [q₁(t) ··· qᵢ(t) ··· qₙ(t)]ᵀ</p>
+            </div>
+        </div>
+        <div class="col-md-6">
+            <div class="border rounded bg-light p-2 d-flex align-items-center justify-content-center" style="height: 240px;">
+                <img src="images/Figure47.png" class="img-fluid" style="max-height: 100%; object-fit: contain;">
+            </div>
+            <p class="text-center small mt-1">Figure 47 : Schématique d'une pince articulée</p>
+        </div>
+    </div>
+</div>
+<p class="text-center small mt-1">Tableau 21 : Tableau définissant un espace opérationnel et un espace articulaire.</p>
+                    
+                    <!-- ============================================ -->
+                    <!-- 6. MODÉLISATION GÉOMÉTRIQUE DIRECTE (MGD) -->
+                    <!-- ============================================ -->
+                    <div id="mgd" class="mt-5">
+                        <h3 class="text-dark">6. Modélisation Géométrique Directe (MGD)</h3>
+                        <p><strong>Modélisation Géométrique Directe (MGD) <-> Forward Kinematics</strong></p>
+                        <p><strong>Définition :</strong> le modèle géométrique direct permet de déterminer la configuration de l'effecteur (position, orientation) d'un robot en fonction de la configuration de ses liaisons.</p>
+                        <p class="fw-bold">X = f<sub>MGD</sub>(q, ζ)</p>
+                        <ul>
+                            <li>X : coordonnées opérationnelles de l'organe terminal</li>
+                            <li>q : vecteur de configuration articulaire</li>
+                            <li>ζ : paramètres géométriques du robot</li>
+                        </ul>
+                        <p>De manière moins formel : On part des articulations et on va jusqu'à l'effecteur.<br> On cherche à déterminer la position et l'orientation de l'effecteur final à partir des variables d'articulations.</p>
+                        <p>A partir de la matrice de transformation homogène on détermine les paramètres du MGD :</p>
+                        
+                        <!-- FIGURE 48 -->
+                        <div class="border rounded bg-light p-2 d-flex align-items-center justify-content-center" style="height: 80px; margin-bottom: 1rem;">
+                            <img src="images/Figure48.png" class="img-fluid" style="max-height: 100%; object-fit: contain;">
+                        </div>
+                        <p class="text-center small mt-1">Figure 48 : Matrice de transformation homogène</p>
+                        
+                        <p>Le MGD est utilisé pour caractériser le fonctionnement d'un bras manipulateur. Concrètement, il permet de calculer la configuration de l'effecteur du robot en fonction de la position de chaque moteur (liaison) du robot.</p>
+                        
+                        <h5 class="mt-3">La méthodologie d'obtention d'un modèle géométrique direct est la suivante :</h5>
+                        <ol>
+                            <li>Identifier les coordonnées articulaires</li>
+                            <li>Identifier les paramètres géométriques qui définissent le mécanisme</li>
+                            <li>Associer à chacune des articulations un repère</li>
+                            <li>Déterminer le positionnement de chaque repère par rapport au précédent</li>
+                            <li>Mettre ces changements de repères sous forme de matrices homogènes</li>
+                            <li>Calculer le MGD du mécanisme</li>
+                        </ol>
+                    </div>
+                    
+                    <!-- ============================================ -->
+                    <!-- 7. CONVENTION DE DENAVIT-HARTENBERG (DH) -->
+                    <!-- ============================================ -->
+                    <div id="dh" class="mt-5">
+                        <h3 class="text-dark">7. Convention de Denavit-Hartenberg (DH)</h3>
+                        <p>En robotique industrielle :</p>
+                        <ul>
+                            <li>Les liaisons considérées peuvent être décomposées en liaisons élémentaires</li>
+                            <li>Les segments sont supposés rigides</li>
+                        </ul>
+                        <p>→ Il est possible, par un placement de repères approprié, de décrire entre deux repères successifs par <strong>4 paramètres</strong> (au lieu de 6 habituellement).</p>
+                        
+                        <h5 class="mt-3">2 hypothèses sont faites :</h5>
+                        <ul>
+                            <li><strong>DH1 :</strong> l'axe x<sub>i</sub> est perpendiculaire à l'axe z<sub>i-1</sub></li>
+                            <li><strong>DH2 :</strong> l'axe x<sub>i</sub> intersecie z<sub>i-1</sub></li>
+                        </ul>
+                        
+                        <h5 class="mt-3">Les paramètres de DH sont :</h5>
+                        <ul>
+                            <li><strong>θ<sub>i</sub> :</strong> angle entre x<sub>i-1</sub> et x<sub>i</sub> (autour de z<sub>i-1</sub>)</li>
+                            <li><strong>d<sub>i</sub> :</strong> distance entre le plan (x<sub>i-1</sub>, y<sub>i-1</sub>) et x<sub>i</sub> (le long de z<sub>i-1</sub>)</li>
+                            <li><strong>a<sub>i</sub> :</strong> distance entre le plan (y<sub>i</sub>, z<sub>i</sub>) et z<sub>i-1</sub> (le long de x<sub>i</sub>)</li>
+                            <li><strong>α<sub>i</sub> :</strong> angle entre z<sub>i-1</sub> et z<sub>i</sub> (autour de x<sub>i</sub>)</li>
+                        </ul>
+                        
+                        <p>A l'aide du schéma suivant, on détermine les matrices de transformation élémentaires :</p>
+                        <!-- FIGURE 49 -->
+                        <div class="border rounded bg-light p-2 d-flex align-items-center justify-content-center" style="height: 150px; margin-bottom: 1rem;">
+                            <img src="images/Figure49.png" class="img-fluid" style="max-height: 100%; object-fit: contain;">
+                        </div>
+                        <p class="text-center small mt-1">Figure 49 : Schéma de changement de repère</p>
+                        
+                        <!-- FIGURE 50 -->
+                        <div class="border rounded bg-light p-2 d-flex align-items-center justify-content-center" style="height: 80px; margin-bottom: 1rem;">
+                            <img src="images/Figure50.png" class="img-fluid" style="max-height: 100%; object-fit: contain;">
+                        </div>
+                        <p class="text-center small mt-1">Figure 50 : Matrices de changements de repères</p>
+                        
+                        <p>Et on obtient la matrice de transformation homogène suivante :</p>
+                        
+                        <!-- FIGURE 51 -->
+                        <div class="border rounded bg-light p-2 d-flex align-items-center justify-content-center" style="height: 100px; margin-bottom: 1rem;">
+                            <img src="images/Figure51.png" class="img-fluid" style="max-height: 100%; object-fit: contain;">
+                        </div>
+                        <p class="text-center small mt-1">Figure 51 : Matrice de transformation homogène</p>
+                        
+                        <p>Pour une liaison élémentaire donnée (R ou P), <strong>un seul de ses quatre paramètres varie</strong>. Le placement de repères doit suivre trois règles précises :</p>
+                        <ul>
+                            <li>L'axe z<sub>i</sub> du repère R<sub>i</sub> fixé au segment i est placé sur l'axe de la liaison entre les segments i et i+1</li>
+                            <li>L'axe x<sub>i</sub> du repère R<sub>i</sub> est porté par la perpendiculaire commune aux axes z<sub>i-1</sub> et z<sub>i</sub></li>
+                            <li>Les axes y<sub>i</sub> de chacun des repères sont finalement placés de manière à former des tétraèdres directs</li>
+                        </ul>
+
+                        <h5 class="mt-3">La méthodologie d'obtention d'un modèle géométrique direct via DH est la suivante :</h5>
+                        <ol>
+                            <li>Identifier les segments et placer les repères selon les conventions de DH ;</li>
+                            <li>Identifier les variables articulaires et les paramètres géométriques ;</li>
+                            <li>Classer ces variables et paramètres dans un tableau ;</li>
+                            <li>Définir les matrices de transformation homogènes pour chaque articulation ;</li>
+                            <li>Mettre ces changements de repères sous forme de matrices homogènes</li>
+                            <li>Calculer le MGD.</li>
+                        </ol>
+                        
+                        <div class="table-responsive">
+                            <table class="table table-bordered">
+                                <thead class="table-primary"><tr><th>Liaison</th><th>θ<sub>i</sub></th><th>d<sub>i</sub></th><th>a<sub>i</sub></th><th>α<sub>i</sub></th></tr></thead>
+                                <tbody>
+                                    <tr><td></td><td></td><td></td><td></td><td></td></tr>
+                                    <tr><td></td><td></td><td></td><td></td><td></td></tr>
+                                </tbody>
+                            </table>
+                            <p class="text-center small mt-1">Tableau 22 : Tableau à remplir lorsqu'on utilise la convention de Denavit-Hartenberg.</p>
+                        </div>
+                        
+                        <p>Les équations sont des fonctions non-linéaires des variables des articulations. Dans l'étude du MGD (mais également du MGI), on utilise les conventions de DH afin de simplifier les calculs car on a plus que 4 paramètres au lieu de 6.</p>
+                        
+                        <!-- FIGURE 52 -->
+                        <div class="border rounded bg-light p-2 d-flex align-items-center justify-content-center" style="height: 150px; margin-bottom: 1rem;">
+                            <img src="images/Figure52.png" class="img-fluid" style="max-height: 100%; object-fit: contain;">
+                        </div>
+                        <p class="text-center small mt-1">Figure 52 : Schéma générique d'asservissement de position d'un robot avec le MGD</p>
+                        
+                        <p><strong>PROBLÈME :</strong> la loi de commande devrait permettre de fournir les signaux de commande aux moteurs de chacune des articulations du robot sur la base des seules coordonnées opérationnelles de l'organe terminal !<br>
+                        → Modélisation Géométrique Inverse MGI.</p>
+                       
+                    </div>
+                    
+                    <!-- ============================================ -->
+                    <!-- 8. MODÉLISATION GÉOMÉTRIQUE INVERSE (MGI) -->
+                    <!-- ============================================ -->
+                    <div id="mgi" class="mt-5">
+                        <h3 class="text-dark">8. Modélisation Géométrique Inverse (MGI)</h3>
+                        <p>Le MGI permet de déterminer la configuration des liaisons (coordonnées articulaires) d'un robot en fonction de la configuration de son effecteur (position, vitesse).</p>
+                        <p class="fw-bold">q = f<sub>MGD</sub>(X, ζ)</p>
+                        <ul>
+                            <li>X : coordonnées opérationnelles de l'organe terminal</li>
+                            <li>q : vecteur de configuration articulaire</li>
+                            <li>ζ : paramètres géométriques du robot</li>
+                        </ul>
+                        <p>Le MGI est obtenu par l'inversion du MGD : <strong>f<sub>MGI</sub> = f<sub>MGD</sub><sup>-1</sup></strong></p>
+                        <p>De manière moins formel : on part de la position et l'orientation souhaitées de l'effecteur et on remonte aux variables des articulations.</p>
+                        
+                        <div class="alert alert-warning">
+                            <i class="bi bi-exclamation-triangle-fill"></i> La MGI est plus difficile à résoudre que la MGD.
+                        </div>
+                        
+                        <p>Il se peut que la MGI n'ait pas de solution, une solution ou encore plusieurs solutions.<br>
+                        Mais pour pouvoir obtenir la MGI, on cherche à obtenir des formes fermées plutôt que des solutions
+                        numériques pour deux raisons : </p>
+                        <ul>
+                            <li>Dans certaines applications tel que le suivie d'une ligne de soudure par un système de vision, les équations du MGI peuvent être résolue à un taux rapide, toutes les 20ms et avoir une expression sous la forme fermée est mieux que de chercher une expression itérative.</li>
+                            <li>La MGI a en générale plusieurs solutions mais avoir des solutions sous forme fermée permet de développer des règles pour choisir une solution plutôt que plusieurs.</li>
+                        </ul>
+                        <p>Les solutions sous formes fermées sont plus rapides que les solutions numériques mais elles sont dépendantes du robot (non générales).</p>
+                        
+                        <p><strong>Problème :</strong> la modélisation géométrique n'est pas bijective. Les solutions <strong>q</strong> du MGI peuvent être multiples pour une configuration <strong>X</strong> de l'effecteur donnée.</p>
+                        
+                        <!-- FIGURE 53 -->
+                        <div class="border rounded bg-light p-2 d-flex align-items-center justify-content-center" style="height: 150px; margin-bottom: 1rem;">
+                            <img src="images/Figure53.png" class="img-fluid" style="max-height: 100%; object-fit: contain;">
+                        </div>
+                        <p class="text-center small mt-1">Figure 53 : Schéma générique d'asservissement de position d'un robot avec le MGI</p>
+                        
+                        <p>Dans ce cas, la synthèse du correcteur est plus facile car <strong>les variables en jeu</strong> dans la loi de commande <strong>appartiennent à l'espace articulaire.</strong></p>
+                        
+                        <p>Il n'existe pas de méthode systématique d'inversion du modèle géométrique direct.<br>
+                        Néanmoins, si elle existe, la forme explicite issue d'une inversion mathématique, qui donne toutes les solutions possibles au problème inverse constitue le modèle géomètre inverse.</p>
+                        
+                        <h5 class="mt-3">Méthodes pour calculer le MGI :</h5>
+                        <ul>
+                            <li><strong>Méthode analytique :</strong> très complexe</li>
+                            <li><strong>Méthode analytique de Paul :</strong> on décompose le MGD par les matrices de passages de chaque liaison et on déduit le MGI de manière itératives en partant de l'effecteur et en parcourant la chaîne cinématique jusqu'à la base.</li>
+                            <li><strong>Remarque :</strong> cette méthode convient à une majorité de robots industriels.</li>
+                            <li><strong>Méthodes numériques :</strong> si le MGI n'existe pas, on peut calculer une solution particulière du problème inverse par des procédures numériques (ex: méthode de Newton). Elles conduisent à une solution locale au sens où elle dépend des conditions initiales.</li>
+                            <li><strong>Méthodes de découplage :</strong> faire un découplage cinématique, c'est-à-dire considérer la position et l'orientation indépendamment. Utilisation d'une approche géométrique pour résoudre le problème de position puis les angles d'Euler pour l'orientation.</li>
+                        </ul>
+                        
+                        <p>L'extrait qui suit provient de la page 99 du document « Spong – RobotmodellingandControl_Hutchinson » :</p>
+                        
+                        <!-- FIGURE 54 -->
+                        <div class="border rounded bg-light p-2 d-flex align-items-center justify-content-center" style="height: 200px; margin-bottom: 1rem;">
+                            <img src="images/Figure54.png" class="img-fluid" style="max-height: 100%; object-fit: contain;">
+                        </div>
+                        <p class="text-center small mt-1">Figure 54 : Passage du document "Spong-RobotmodellingandControl_Hutchinson"</p>
+                        
+                        <p>Cet extrait explique que pour un robot 6 axes, comme le Niryo Ned2, on peut découper le problème de la MGI en deux points :</p>
+                        <ul>
+                            <li><strong>Modélisation inverse de position :</strong> les 3 premiers axes (base, épaule, coude) servent principalement à amener le centre du poignet (wrist center) à la bonne position.<br>
+                            Le centre du poignet est défini comme le point où se coupent les trois derniers axes (ceux du poignet).</li>
+                            <li><strong>Modélisation inverse d'orientation :</strong> une fois le poignet au bon endroit, les 3 derniers axes (poignet 1, poignet 2, poignet 3) permettent d'orienter l'effecteur où l'on souhaite.<br>
+                            Comme ces axes se coupent en un seul point, ils peuvent générer toutes les orientations possibles autour du centre du poignet (poignet sphérique). Sur le Ned2, ça sert à tourner, incliner ou faire pivoter la pince.</li>
+                        </ul>
+                        
+                        <p>Le schéma suivant montre où sont placé les articulations (base, épaule, etc.) et la partie position et orientation.</p>
+                        
+                        <!-- FIGURE 55 -->
+                        <div class="border rounded bg-light p-2 d-flex align-items-center justify-content-center" style="height: 200px; margin-bottom: 1rem;">
+                            <img src="images/Figure55.png" class="img-fluid" style="max-height: 100%; object-fit: contain;">
+                        </div>
+                        <p class="text-center small mt-1">Figure 55 : Schéma du robot Ned2 montrant ses articulations</p>
+                        
+                        <p>D'un point de vue contrôle, la MGI est indispensable si on veut contrôler l'effecteur en position/orientation – mais elle introduit des complexités (multiplicité de solution, singularités, coût computationnel).</p>
+                        <p>En général, on connaît la position finale de l'effecteur que l'on souhaite, donc en connaissant cela, on peut déterminer les variables des articulations du robot.<br>
+                        C'est pourquoi, d'un point de vue contrôle, il est préférable d'utiliser le MGI.</p>
+                        <p>Les MGD et MGI permettent de caractériser la structure géométrique d'un robot et d'implémenter des lois de commandes pour l'asservissement en position. En revanche, ils ne tiennent pas compte des vitesses articulaires et ne permettent pas d'analyser le robot en mouvement, de planifier ou de suivre des trajectoires complexes, de réaliser des asservissements en vitesse ou en retour d'état (position, vitesse, etc.).</p>
+                        <p class="fw-bold">→ MCD et MCI (diapo 89 à 92)</p>
+                    </div>
+                    
+                    <!-- ============================================ -->
+                    <!-- 9. ÉTUDE GÉOMÉTRIQUE DU NIRYO NED2 -->
+                    <!-- ============================================ -->
+                    <div id="etude-ned2" class="mt-5">
+                        <h3 class="text-dark">9. Étude géométrique du Niryo Ned2</h3>
+                        
+                        <!-- FIGURE 56 -->
+                        <div class="border rounded bg-light p-2 d-flex align-items-center justify-content-center" style="height: 300px; margin-bottom: 1rem;">
+                            <img src="images/Figure56.png" class="img-fluid" style="max-height: 100%; object-fit: contain;">
+                        </div>
+                        <p class="text-center small mt-1">Figure 56 : Modélisation du robot Niryo Ned2</p>
+                        
+                        <!-- FIGURE 57 -->
+                        <div class="border rounded bg-light p-2 d-flex align-items-center justify-content-center" style="height: 200px; margin-bottom: 1rem;">
+                            <img src="images/Figure57.png" class="img-fluid" style="max-height: 100%; object-fit: contain;">
+                        </div>
+                        <p class="text-center small mt-1">Figure 57 : Tableau de Denavit-Hartenberg</p>
+                    </div>
+                    
+                </div>
+            </div>
+        </div>
+    </div>
+
+</body>
+</html>

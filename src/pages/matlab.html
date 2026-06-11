@@ -1,0 +1,869 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Programmation MATLAB - Niryo Ned2</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.0/font/bootstrap-icons.css">
+</head>
+<body class="bg-light">
+
+    <div class="bg-white border-bottom shadow-sm mb-4">
+        <div class="container-fluid py-3 px-4">
+            <a href="index.html" class="btn btn-outline-primary btn-sm">
+                <i class="bi bi-arrow-left"></i> Accueil
+            </a>
+            <span class="ms-3 fs-5 fw-semibold text-primary">PROGRAMMATION MATLAB</span>
+        </div>
+    </div>
+
+    <div class="container-fluid px-0 px-md-3 mb-5">
+        <div class="row g-0 g-md-4 mx-0">
+            
+            <!-- side bar -->
+            <div class="col-md-3 ps-0 pe-0 pe-md-2">
+                <div class="bg-white rounded-3 shadow-sm p-3 me-0 me-md-2" style="position: sticky; top: 20px; max-height: calc(100vh - 40px); overflow-y: auto;">
+                    <h5 class="text-primary mb-3 pb-2 border-bottom">
+                        <i class="bi bi-list-ul"></i> Sommaire
+                    </h5>
+                    <nav class="nav flex-column">
+                        <a class="nav-link px-0 py-1 text-dark" href="#installation"><i class="bi bi-cloud-download text-primary me-2"></i>1. Installation NedROS sur MATLAB</a>
+                        <a class="nav-link px-0 py-1 text-dark mt-2" href="#premiere-utilisation"><i class="bi bi-play-circle text-primary me-2"></i>2. Première utilisation</a>
+                        <a class="nav-link px-0 py-1 text-dark mt-2" href="#simulation"><i class="bi bi-display text-primary me-2"></i>3. Simulation</a>
+                        <a class="nav-link px-0 py-1 text-dark mt-2" href="#hardware"><i class="bi bi-motherboard text-primary me-2"></i>4. Hardware</a>
+                        <a class="nav-link px-0 py-1 text-dark mt-2" href="#annexes"><i class="bi bi-paperclip text-primary me-2"></i>Annexes</a>
+                        <div class="ps-4">
+                            <a class="nav-link px-0 py-1 text-secondary small" href="#annexe1">Annexe 01</a>
+                            <a class="nav-link px-0 py-1 text-secondary small" href="#annexe2">Annexe 02</a>
+                            <a class="nav-link px-0 py-1 text-secondary small" href="#annexe3">Annexe 03</a>
+                            <a class="nav-link px-0 py-1 text-secondary small" href="#annexe4">Annexe 04</a>
+                            <a class="nav-link px-0 py-1 text-secondary small" href="#annexe5">Annexe 05</a>
+                            <a class="nav-link px-0 py-1 text-secondary small" href="#annexe6">Annexe 06</a>
+                            <a class="nav-link px-0 py-1 text-secondary small" href="#annexe7">Annexe 07</a>
+                        </div>
+                    </nav>
+                </div>
+            </div>
+
+            <!-- contenu principal -->
+            <div class="col-md-9 ps-0 ps-md-2 pe-0">
+                
+                <div id="matlab" class="bg-white rounded-3 shadow-sm p-4 mb-4">
+                    <h2 class="text-primary border-bottom pb-2 mb-4"><i class="bi bi-graph-up"></i> PROGRAMMATION MATLAB</h2>
+                    
+                    <!-- ============================================ -->
+                    <!-- 1. INSTALLATION NEDROS SUR MATLAB -->
+                    <!-- ============================================ -->
+                    <div id="installation" class="mt-3">
+                        <h3 class="text-dark">1. Installation NedROS sur MATLAB</h3>
+                        <p>Pour utiliser le robot Ned2 avec le logiciel MATLAB, on peut utiliser un projet MATLAB existant qui sert de tutoriel pour nos premiers pas. Il est disponible en open source sur GitHub, en suivant le lien suivant :<br>
+                        <a href="https://github.com/NiryoRobotics/matlab-support-for-niryo-ned2-robots">https://github.com/NiryoRobotics/matlab-support-for-niryo-ned2-robots</a></p>
+                        <p>Vous pouvez aussi y accéder via la documentation Niryo dans l'onglet API puis MATLAB :<br>
+                        <a href="https://docs.niryo.com/">https://docs.niryo.com/</a></p>
+                    </div>
+                    
+                    <!-- ============================================ -->
+                    <!-- 2. PREMIÈRE UTILISATION -->
+                    <!-- ============================================ -->
+                    <div id="premiere-utilisation" class="mt-5">
+                        <h3 class="text-dark">2. Première utilisation</h3>
+                        <p>Avant de s'intéresser au contenu du GitHub, plusieurs étapes sont à effectuer.</p>
+                        
+                        <ol>
+                            <li><strong>Installer l'ADD-ON MinGW64</strong><br>
+                            Cette étape peut être faite directement depuis MATLAB en cliquant sur : <strong>Add-On → Add-On Explorer</strong>, puis en sélectionnant <strong>MinGW64</strong>.</li>
+                            <li><strong>Installer python 3.10.x</strong> (MATLAB ne prend pas en compte les dernières versions)<br>
+                            Après l'installation : <strong>MATLAB puis Home → Settings → MATLAB Compiler → Sélectionner Python dans MATLAB Runtime Installer Location</strong>.</li>
+                            <li><strong>Installer Visual Studio 2022 et le paramétrer en tant que compilateur</strong><br>
+                            Pour télécharger l'installateur de Visual Studio 2022, il est inutile de passer par le site de Microsoft. Celui-ci pousse vers la version 2026 et ne propose plus directement les anciennes versions. Or, MATLAB ne prend pas en charge la version 2026.<br>
+                            Cependant, il est toujours possible de télécharger la version 2022 autrement. En suivant le lien suivant, vous trouverez un historique des différentes versions de Visual Studio 2022 Community :<br>
+                            <a href="https://learn.microsoft.com/en-us/visualstudio/releases/2022/release-history">https://learn.microsoft.com/en-us/visualstudio/releases/2022/release-history</a><br></li>
+                        </ol>
+                        
+                        <p>Une fois Visual Studio 2022 installé, ouvrir l'installateur pour finaliser l'installation :</p>
+
+                        <p><strong>Dans Workloads, cocher :</strong></p>
+                        <ul>
+                            <li>Développement Desktop en C++ (Desktop development with C++)</li>
+                            <li>Dans Composants individuels, sélectionner en plus des éléments par défaut :</li>
+                        </ul>
+  
+                        <div class="table-responsive">
+                            <table class="table table-bordered">
+                                <thead class="table-primary"><tr><th>Composant</th><th>Pourquoi</th></tr></thead>
+                                <tbody>
+                                    <tr><td class="fw-bold">MSVC v143 – Outils de build C++ (x64/x86)</th><td>Compilateur pour MATLAB et ROS</th>
+                                    </tr>
+                                    <tr><td class="fw-bold">Windows 10 SDK (10.0.xxxxx)</th><td>Nécessaire pour compiler sur Windows</th>
+                                    </tr>
+                                    <tr><td class="fw-bold">Windows Universal C Runtime</th><td>Requis pour certains fichiers DLL</th>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                        <p class="text-center small mt-1">Tableau 27 : Tableau des Composants Individuels dans Visual Studio Installer</p>
+                        
+                        <p>Enfin cliquer sur <strong>Modifier/Installer</strong>.</p>
+                        <p>Fermer MATLAB et redémarrer le PC afin que tous les chemins et variables d'environnement soient correctement mis à jour.</p>
+                        
+                        <div class="alert alert-info">
+                            <i class="bi bi-info-circle-fill"></i> <strong>Remarque :</strong> Visual Studio est un compilateur / environnement de développement.<br>
+                            Visual Studio Code est un éditeur de texte.
+                        </div>
+                        
+                        <p>Ensuite il ne vous reste plus qu'à lancer le fichier <strong>« FirstSetup.mlx »</strong> et à suivre les instructions.</p>
+                        <p>À la ligne 3, on vous demande de lancer la commande suivante :</p>
+                        <pre class="bg-dark text-white p-3 rounded"><code>mex -setup</code></pre>
+                        <p>→ Sélectionner <strong>Microsoft Visual C++ 2022</strong>.</p>
+                        
+                        <p>Avant d'effectuer la commande à la ligne 9 de ce script, qui génère un message ROS, une petite manipulation est nécessaire. Au même endroit que le fichier matlab-support-for-niryo-ned2-robot-main vous devez créer un nouveau document dans lequel vous allez copier le package « niryo_robot_msgs » présent dans le répertoire « ned_ros » que vous avez cloné avec la commande précédente. En effet, MATLAB n'aime pas générer un message dans un package qui comprend autre chose que des messages ou des services. Il faut donc changer la commande ligne 9, en passant de ça :</p>
+                        <pre class="bg-dark text-white p-3 rounded"><code>rosgenmsg("ned_ros")</code></pre>
+                        <p>À ça :</p>
+                        <pre class="bg-dark text-white p-3 rounded"><code>rosgenmsg("&lt;Chemin de votre fichier&gt;\&lt;le nom de votre fichier&gt;")</code></pre>
+                        
+                        <p>La ligne 10 est présente pour vous expliquer la manipulation que l'on a fait précédemment. Sans la manipulation, la commande « rosgenmsg » aurait généré un message pour tous les packages du fichier « ned_ros » or certains n'ont pas de fichier message dans le package et renvoie ainsi une erreur. Comme c'est le cas pour la commande :</p>
+                        <pre class="bg-dark text-white p-3 rounded"><code>rosgenmsg(fullfile("ned_ros","niryo_robot_hardware_stack"));</code></pre>
+                        <p>Pour ignorer cette commande et qu'elle ne pose plus de problème, il est possible de la supprimer ou la mettre en commentaire.</p>
+
+                        <!-- FIGURE 97 -->
+                        <div class="border rounded bg-light p-2 d-flex align-items-center justify-content-center" style="height: 200px; margin-bottom: 1rem;">
+                            <img src="images/Figure97.png" class="img-fluid" style="max-height: 100%; object-fit: contain;">
+                        </div>
+                        <p class="text-center small mt-1">Figure 97 : Créer un commentaire sur MATLAB</p>
+                        
+                        <p>Pour la partie 4 du script (intitulé <strong>4. Add the custom message folder to the MATLAB path</strong>), vous pouvez mettre en commentaire une bonne partie des commandes et ne laisser que :</p>
+                        <pre class="bg-dark text-white p-3 rounded"><code>addpath('&lt;!&gt;\MATLAB_msg_gen_ros1\win64\install\m')
+savepath</code></pre>
+                        <p>A la place de <strong>&lt;!&gt;</strong>, ajouté le chemin menant au fichier de message créé précédemment.</p>
+                        
+                        <!-- FIGURE 98 -->
+                        <div class="border rounded bg-light p-2 d-flex align-items-center justify-content-center" style="height: 300px; margin-bottom: 1rem;">
+                            <img src="images/Figure98.png" class="img-fluid" style="max-height: 100%; object-fit: contain;">
+                        </div>
+                        <p class="text-center small mt-1">Figure 98 : Utilisation de la commande « rosgenmsg() »</p>
+
+                        <!-- FIGURE 99 et 100 -->
+                        <div class="border rounded bg-light p-2 d-flex align-items-center justify-content-center" style="height: 150px; margin-bottom: 1rem;">
+                            <img src="images/Figure99.png" class="img-fluid" style="max-height: 100%; object-fit: contain;">
+                        </div>
+                        <p class="text-center small mt-1">Figure 99 : Lancement d'un programme</p>
+
+                        <p>Avec la commande ligne 18 du fichier FirstSetup.mlx, vous pouvez vous assurer que les
+                        messages présents dans « niryo-robot-msgs » sont bien utiliser. Ce sont tous les messages
+                        qui commencent par « niryo_robot_msgs ».</p>
+                        
+                        <div class="border rounded bg-light p-2 d-flex align-items-center justify-content-center" style="height: 300px; margin-bottom: 1rem;">
+                            <img src="images/Figure100.png" class="img-fluid" style="max-height: 100%; object-fit: contain;">
+                        </div>
+                        <p class="text-center small mt-1">Figure 100 : Listage des messages existant via la commande « rosmsg list »</p>
+
+                        <p>La suite des instructions ne devrait pas poser de problèmes.</p>
+
+                    </div>
+                    
+                    <!-- ============================================ -->
+                    <!-- 3. SIMULATION -->
+                    <!-- ============================================ -->
+                    <div id="simulation" class="mt-5">
+                        <h3 class="text-dark">3. Simulation</h3>
+                        <p>Après avoir terminé les instructions de « FirstSetup.mlx », vous pouvez lancer le fichier <strong>« Ned2_Simulation.mlx »</strong> afin de manipuler une simulation du robot dans un premier temps.</p>
+                        <p>Dans ce fichier, on lance une simulation numérique du robot que l'on manipule de différentes manières. On peut :</p>
+                        <ul>
+                            <li>Manipuler le robot joint par joint</li>
+                            <li>Faire une trajectoire au robot avec une durée déterminée</li>
+                            <li>Manipuler le robot avec sa position XYZ et ses angles Roll, Pitch et Yaw grâce au modèle cinématique inverse</li>
+                            <li>Fermer la pince du robot (le gripper)</li>
+                            <li>Ouvrir la pince du robot</li>
+                        </ul>
+                        
+                        <!-- FIGURE 101 et 102 -->
+
+                        <div class="row g-3 mb-4">
+                            <div class="col-md-6">
+                                <div class="border rounded bg-light p-2 d-flex align-items-center justify-content-center" style="height: 300px; margin-bottom: 1rem;">
+                                    <img src="images/Figure101.png" class="img-fluid" style="max-height: 100%; object-fit: contain;">
+                                </div>
+                                <p class="text-center small mt-1">Figure 101 : Interface de la simulation</p>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="border rounded bg-light p-2 d-flex align-items-center justify-content-center" style="height: 300px; margin-bottom: 1rem;">
+                                    <img src="images/Figure102.png" class="img-fluid" style="max-height: 100%; object-fit: contain;">
+                                </div>
+                                <p class="text-center small mt-1">Figure 102 : Interface de simulation pendant une trajectoire</p>
+                            </div>
+                        </div>
+
+                        
+                        <!-- FIGURE 103 et 104 -->
+                        <div class="border rounded bg-light p-2 d-flex align-items-center justify-content-center" style="height: 400px; margin-bottom: 1rem;">
+                            <img src="images/Figure103.png" class="img-fluid" style="max-height: 100%; object-fit: contain;">
+                        </div>
+                        <p class="text-center small mt-1">Figure 103 : Interface du panneau de contrôle de la simulation (1)</p>
+                        
+                        <div class="border rounded bg-light p-2 d-flex align-items-center justify-content-center" style="height: 400px; margin-bottom: 1rem;">
+                            <img src="images/Figure104.png" class="img-fluid" style="max-height: 100%; object-fit: contain;">
+                        </div>
+                        <p class="text-center small mt-1">Figure 104 : Interface du panneau de contrôle de la simulation (2)</p>
+                        
+                        <p>Vous remarquerez que les instructions MATLAB pour les différentes actions sont toutes écrites et pourront vous resservir lors de l'écriture de votre propre script MATLAB.</p>
+                        
+                        <!-- FIGURE 105 -->
+                        <div class="border rounded bg-light p-2 d-flex align-items-center justify-content-center" style="height: 450px; margin-bottom: 1rem;">
+                            <img src="images/Figure105.png" class="img-fluid" style="max-height: 100%; object-fit: contain;">
+                        </div>
+                        <p class="text-center small mt-1">Figure 105 : Utilisation de la commande « help »</p>
+                        
+                        <p>Vous pouvez directement accéder à l'ensemble de la documentation MATLAB, en cliquant <a href="https://fr.mathworks.com/help/releases/R2025b/?s_tid=user_nav_help">ici</a>.<br>
+                        Maintenant que nous avons pu utiliser la simulation MATLAB depuis le script fourni par le GitHub, il est temps de créer notre propre script .m permettant de contrôler le robot en simulation.</p>
+                        
+                        <!-- FIGURE 106 -->
+                        <div class="border rounded bg-light p-2 d-flex align-items-center justify-content-center" style="height: 300px; margin-bottom: 1rem;">
+                            <img src="images/Figure106.png" class="img-fluid" style="max-height: 100%; object-fit: contain;">
+                        </div>
+                        <p class="text-center small mt-1">Figure 106 : Bras Ned2 avec la commande « .show() »</p>
+                        
+                        <p>Pour simuler le robot, nous avons utilisé <strong>Ned2Sim.m</strong> ainsi que la commande <strong>.show()</strong> pour faire apparaître le robot et visionner les actions que nous lui faisions faire. Le script Ned2Sim est en réalité une classe dans laquelle on définit toutes les actions que l'on peut effectuer avec la simulation du robot. Ces actions peuvent être des déplacements du robot, l'affichage du robot, ou la récupération de la position et de l'orientation du TCP.</p>
+                        
+                        <p>Cependant, nous avons apporté quelques modifications au script Ned2Sim.m avant d'y ajouter de nouvelles fonctions. En effet, le code brut qui nous a été fourni par le GitHub n'a pas fonctionné dès les premiers essais, notamment à cause d'erreurs de dimensionnements des variables.</p>
+                        <p>Pour rappel, MATLAB manipule des matrices : une variable qui a pour valeur 5, par exemple, est en fait une matrice 1x1 qui a pour valeur 5.</p>
+                        <p>Après de nombreuses vérifications, nous obtenons le code disponible en <strong><a href="#annexe1">Annexe 01</a></strong>.</p>
+                        
+                        <p>Pour développer les possibilités de notre robot, nous avons ajouté des fonctions dans la classe Ned2Sim :</p>
+                        <ul>
+                            <li>La fonction <strong>MoveLinear()</strong>, qui demande au robot de déplacer la pince de façon linéaire. Disponible en <strong><a href="#annexe2">Annexe 02</a></strong>.</li>
+                            <li>La fonction <strong>MoveCircular()</strong>, qui demande au robot de déplacer la pince de façon circulaire. Disponible en <strong><a href="#annexe3">Annexe 03</a></strong>.</li>
+                            <li>La fonction <strong>getFK()</strong> qui renvoie la matrice homogène de cinématique directe entre la base du robot et la pince. Disponible en <strong><a href="#annexe4">Annexe 04</a></strong>.</li>
+                            <li>La fonction <strong>getTCP()</strong>, qui renvoie la position et l'orientation du TCP (Tool Center Point). Disponible en <strong><a href="#annexe5">Annexe 05</a></strong>.</li>
+                            <li>La fonction <strong>drawTCP()</strong> qui dessine un repère TCP sur la figure. Disponible en <strong><a href="#annexe6">Annexe 06</a></strong>.</li>
+                        </ul>
+                        <p>Remarque : Ces fonctions sont à ajouter dans la partie « methods » du fichier Ned2Sim.m.</p>
+                        
+                        <p>Une fois toutes ces fonctions ajoutées, nous pouvons écrire un code rapide qui va devoir réaliser les étapes suivantes :</p>
+                        <ul>
+                            <li>Se déplacer en position [0.25 0 0.25] (.Move())</li>
+                            <li>Renvoyer le TCP ( .getTCP() )</li>
+                            <li>Se déplacer en ligne de [0.25 0 0.25] à [0.20 0.20 0.30] ( .MoveLinear() )</li>
+                            <li>Renvoyer la matrice homogène base → pince ( .getFK() )</li>
+                            <li>Faire un mouvement circulaire ( .MoveCircular() )</li>
+                            <li>Dessiner le repère TCP ( .drawTCP() )</li>
+                        </ul>
+
+                        <p>On obtient alors le code suivant :</p>
+
+                        <pre class="bg-dark text-white p-3 rounded"><code>nedSim = Ned2Sim();
+nedSim.show();
+pause(1)
+
+disp('Déplacement du robot ...')
+nedSim.Move([0.25 0 0.25],[0 0 0],3);
+disp('Coordonnées du robot')
+[pos,rpy] = nedSim.getTCP();
+disp('Position du robot:')
+fprintf('X: %f, Y: %f, Z: %f\n',pos)
+disp(' ')
+disp('Orientation du robot:')
+fprintf('Roll: %f, Pitch: %f, Yaw: %f\n',rpy)
+disp(' ')
+
+disp('Déplacement du robot en ligne ...')
+P1 = [0.25 0.00 0.25];
+P2 = [0.20 0.20 0.30];
+nedSim.MoveLinear(P1, P2, [0 0 0], 4);
+T = nedSim.getFK();
+disp('Matrice de transformation du robot:')
+disp(T)
+
+disp('Déplacement du robot en cercle ...')
+P1 = [0.20 0.00 0.30];
+P2 = [0.25 0.10 0.35];
+P3 = [0.20 0.20 0.30];
+nedSim.MoveCircular(P1, P2, P3, [0 0 0], 5, 80);
+nedSim.drawTCP();
+% Retrieve and display the final position and orientation of the robot
+finalPos = nedSim.getTCP();
+disp('Position finale du robot:')
+fprintf('X: %f, Y: %f, Z: %f\n',finalPos)
+</code></pre>
+
+                        <div class="alert alert-info">
+                            <i class="bi bi-info-circle-fill"></i> <strong>Remarque :</strong> Les fonctions disp et fprintf servent à afficher un message ou une variable dans la console de commande. Elles permettent de savoir à quel endroit du code le robot est en train d'effectuer une action. La différence entre les deux est que disp accepte un seul argument d'entrée, là où fprintf peut en accepter plusieurs.
+                        </div>
+                        
+                        <p>La console nous renvoie les informations suivantes :</p>
+                        <pre class="bg-dark text-white p-3 rounded"><code>Déplacement du robot ...
+Coordonnées du robot
+Position du robot:
+X: 0.250000, Y: 0.000000, Z: 0.250000
+Orientation du robot:
+Roll: 0.000000, Pitch: 0.000000, Yaw: -0.000000
+
+Déplacement du robot en ligne ...
+Matrice de transformation du robot:
+    1.0000 -0.0000 -0.0000 0.2000
+    0.0000  1.0000 -0.0000 0.2000
+    0.0000  0.0000  1.0000 0.3000
+         0       0       0 1.0000
+
+Déplacement du robot en cercle ...
+Position finale du robot:
+X: 0.200000, Y: 0.200000, Z: 0.300000</code></pre>
+                        
+                        <p>Sur la figure qui est apparu représentant le robot on retrouve le repère TCP dessiné :</p>
+                        <!-- FIGURE 107 -->
+                        <div class="border rounded bg-light p-2 d-flex align-items-center justify-content-center" style="height: 300px; margin-bottom: 1rem;">
+                            <img src="images/Figure107.png" class="img-fluid" style="max-height: 100%; object-fit: contain;">
+                        </div>
+                        <p class="text-center small mt-1">Figure 107 : Image du Ned2 à la fin du programme</p>
+
+                        <p>On remarque cependant que la pince garde toujours la même position (vers le haut, le long de
+                        l’axe z) et cela même si le robot bouge. Elle n’est d’ailleurs pas alignée avec le Joint censé
+                        contrôler sa rotation. De plus, le Joint 6 contrôlant la rotation de la pince semble bloqué ou ne
+                        pas fonctionner.
+                        </p>
+                        
+                        <!-- FIGURE 108 et 109 -->
+                      
+                        <div class="border rounded bg-light p-2 d-flex align-items-center justify-content-center" style="height: 250px;">
+                            <img src="images/Figure108.png" class="img-fluid" style="max-height: 100%; object-fit: contain;">
+                        </div>
+                        <p class="text-center small mt-1">Figure 108 : Pince du robot mal positionné</p>
+                          
+                        <p>Pour résoudre ce problème, il faut se rendre dans le fichier <strong>urdf</strong> du robot. 
+                        Ce fichier permet la représentation visuelle du robot dans la simulation. En réalité, il est divisé en plusieurs 
+                        fichiers, chacun d'entre eux gérant une partie différente du robot. Le fichier qui nous intéresse et celui qui est 
+                        appelé dans la classe Ned2Sim.m à la ligne 38.</p>
+
+                        <pre class="bg-dark text-white p-3 rounded"><code>rbt = importrobot("niryo_ned2_gripper1_n_camera.urdf.xacro");</code></pre>
+                        
+                        <p>Ce fichier contrôle la position et l'orientation de la pince du robot dans l'état initial ou lors de mouvement du robot.</p>
+                        <p>La partie à modifier est la suivante :</p>
+                        <pre class="bg-dark text-white p-3 rounded"><code>&lt;!-- Joint from tool_link to base_gripper --&gt;
+&lt;joint name="joint_to_gripper" type="fixed"&gt;
+    &lt;parent link="tool_link"/&gt;
+    &lt;child link="base_gripper_1"/&gt;
+    &lt;origin xyz="-0.007 0 0.003" rpy="${-PI/2} 0 0"/&gt;
+&lt;/joint&gt;</code></pre>
+                        <p>Il faut modifier la valeur du <strong>pitch</strong> (en rouge sur l'élément de code ci-dessus) de l'origine et le changer en <strong>${PI/2}</strong>.<br>
+                        Après ces changements, vous devriez avoir une pince qui suit les déplacements et rotations du bras robotique.</p>
+                    </div>
+
+                    <p>Pour tester ces changements nous allons reprendre une partie du code utilisé précédemment:</p>
+
+                    <pre class="bg-dark text-white p-3 rounded"><code>nedSim = Ned2Sim();
+nedSim.show();
+disp('Initialisation du simulateur terminée.');
+
+disp('Déplacement du robot ...')
+nedSim.Move([0.25 0 0.25],[0 0.95 0.4],3);
+disp('Coordonnées du robot')
+[pos,rpy] = nedSim.getTCP();
+disp('Position du robot:')
+fprintf('X: %f, Y: %f, Z: %f\n',pos)
+disp(' ')
+disp('Orientation du robot:')
+fprintf('Roll: %f, Pitch: %f, Yaw: %f\n',rpy)
+disp(' ')
+
+                    </code></pre>
+
+                    <p>Nous avons changé les valeurs rpy pour effectuer une rotation avec nedSim.Move(…).On obtient :</p>
+
+                    <div class="border rounded bg-light p-2 d-flex align-items-center justify-content-center" style="height: 250px;">
+                        <img src="images/Figure109.png" class="img-fluid" style="max-height: 100%; object-fit: contain;">
+                    </div>
+                    <p class="text-center small mt-1">Figure 109 : Pince du robot bien positionné</p>
+                    
+                    <!-- ============================================ -->
+                    <!-- 4. HARDWARE -->
+                    <!-- ============================================ -->
+                    <div id="hardware" class="mt-5">
+                        <h3 class="text-dark">4. Hardware</h3>
+                        <p>Enfin, ce projet vous propose aussi de vous connecter directement au robot avec le fichier <strong>« Ned2_Hardware.mlx »</strong>.</p>
+                        <div class="alert alert-warning">
+                            <i class="bi bi-exclamation-triangle-fill"></i> <strong>Remarque :</strong> La première instruction du script vous proposera peut-être un message d'erreur malgré le fait que vous avez bien suivi les instructions du petit encart présent au début du fichier.
+                        </div>
+                        <p>Le robot connecte son ROS Master sur le port <strong>127.0.0.1</strong>, or l'IP du robot est <strong>169.254.200.200</strong> et c'est sur cette adresse que l'on souhaite se connecter. Mais mettre l'adresse 127.0.0.1 à la place de Ned2 dans l'instruction ne fonctionne pas. En effet, celle-ci est une adresse par défaut utilisée pour les connexions Ethernet dans tous les appareils possédant une connexion Ethernet. Il faut donc changer cette adresse par défaut au sein même du robot.</p>
+                        <p>En réalité c'est la valeur de <strong>$ROS_MASTER_URI</strong> que vous devez modifier avec l'adresse IP du robot. Pour vérifier la valeur de ce dernier, vous pouvez taper la commande suivante dans un terminal de commande ssh du robot disponible sur NiryoStudio :</p>
+                        <pre class="bg-dark text-white p-3 rounded"><code>echo $ROS_MASTER_URI</code></pre>
+                        <p>Il faut aussi s'assurer que le robot n'utilise pas ROS en local et qu'il puisse discuter avec un appareil extérieur qui n'est pas connecté à sa Raspberry PI.</p>
+                        <p>Une fois que vous vous êtes assuré que le ROS pouvait être utilisé depuis votre appareil et que le ROS Master était bien configuré sur la bonne adresse IP, nous pouvons tester le code suivant :</p>
+                        <pre class="bg-dark text-white p-3 rounded"><code>ned = Ned2("169.254.200.200");
+ned.showRobot()</code></pre>
+                        <p>Or MATLAB doit se connecter au ROS Master pour communiquer avec le robot. Nous allons donc d'abord l'initialiser. On va modifier le code de la façon suivante :</p>
+                        <pre class="bg-dark text-white p-3 rounded"><code>rosshutdown;
+setenv('ROS_MASTER_URI','http://169.254.200.200:11311');
+setenv('ROS_IP','169.254.200.100');
+rosinit;
+ned = Ned2("169.254.200.200");
+ned.goHome();</code></pre>
+                        <p>La première ligne ferme tous les ROS Masters déjà ouverts. Elle ne sert pas vraiment lors de la première utilisation du code mais lorsque vous réexécuterez le code, elle fermera ceux ouverts précédemment afin d'éviter les erreurs. Les deux lignes qui suivent permettent de déclarer des variables systèmes. Ici, on déclare l'adresse IP du ROS Master, c'est-à-dire l'adresse du robot avec le bon port, ainsi que l'adresse du PC que l'on utilise.</p>
+                        <p>On initialise ensuite le Ros Master avec <strong>rosinit</strong>, qui prendra en compte les variables systèmes déclarées précédemment. Il est donc important que leur nom soit exactement <strong>ROS_MASTER_URI</strong> et <strong>ROS_IP</strong>.</p>
+                        <p>On déclare ensuite un élément de la classe Ned2. Cette dernière est déjà créée dans les fichiers du GitHub. Vous pouvez la retrouvez avec le chemin suivant :</p>
+                        <p><a href="https://github.com/mathworks-robotics/matlab-support-for-niryo-ned2-robots/tree/main/classes">https://github.com/mathworks-robotics/matlab-support-for-niryo-ned2-robots/tree/main/classes</a></p>
+                        
+                        <p>Maintenant, en lançant ce programme, vous devriez rencontrer avec un message d’erreur
+                        lorsque le programme tente d’exécuter la dernière ligne. Cette dernière demande au robot de
+                        se déplacer en position Home.</p>
+
+                        <!-- FIGURE 110, 111, 112 -->
+                        <div class="border rounded bg-light p-2 d-flex align-items-center justify-content-center" style="height: 200px; margin-bottom: 1rem;">
+                            <img src="images/Figure110.png" class="img-fluid" style="max-height: 100%; object-fit: contain;">
+                        </div>
+                        <p class="text-center small mt-1">Figure 110 : Bras en position Home</p>
+                        
+                        <p>Or, MATLAB va tenter de faire appel à un message compris dans le dossier <strong>niryo_robot_tool_commander</strong>, 
+                        et ces messages n'existent pas dans le GitHub. En regardant dans le firmware du robot, 
+                        nous avons constaté qu'ils n'existent pas non plus dans le robot.<br>
+                        On recherche ToolGal.msg et ToolState.msg.</p>
+                        
+                        <div class="border rounded bg-light p-2 d-flex align-items-center justify-content-center" style="height: 100px; margin-bottom: 1rem;">
+                            <img src="images/Figure111.png" class="img-fluid" style="max-height: 100%; object-fit: contain;">
+                        </div>
+                        <p class="text-center small mt-1">Figure 111 : Message compris dans niryo_robot_tools_commander</p>
+
+                        <p>On recherche dans le robot un fichier action qui pourrait générer les messages que l’on
+                        souhaite. Nous avons fini par les trouver à l’aide de la commande suivante : </p>
+                        <pre class="bg-dark text-white p-3 rounded"><code>find ~/catkin_ws/src -name "*.action"</code></pre>
+                        
+                        <div class="border rounded bg-light p-2 d-flex align-items-center justify-content-center" style="height: 150px; margin-bottom: 1rem;">
+                            <img src="images/Figure112.png" class="img-fluid" style="max-height: 100%; object-fit: contain;">
+                        </div>
+                        <p class="text-center small mt-1">Figure 112 : Recherche de ToolGoal.msg, ToolState.msg et des fichiers action</p>
+                        
+                        <p>On remarque d'ailleurs, qu'en utilisant la même commande pour ToolGoal.msg et ToolState.msg, on ne trouve aucun dossier ni fichier.</p>
+                        <p>Il va maintenant falloir modifier la classe Ned2 pour qu'elle ne fasse plus appel aux mauvais messages. Nous aurions aussi pu mettre à jour le firmware, mais cela aurait fait entièrement redémarrer le robot, nous faisant perdre l'intégralité de notre progression.</p>
+                        <p>Pour le moment, nous allons réduire la classe Ned2 au code disponible en l'<strong><a href="#annexe7">Annexe 07</a></strong>.</p>
+                        <p>Dans ce code, nous avons supprimé un certain nombre de parties afin de garder l'essentiel : que le ROS Master s'initialise, puis que l'on fasse un simple mouvement (aller en position Home).</p>
+                        <div class="alert alert-info">
+                            <i class="bi bi-info-circle-fill"></i> <strong>Remarque :</strong> Nous avons copié le code de la classe Ned2 originelle dans un document texte afin de pouvoir le retrouver rapidement et de réutiliser certaines parties. Cette façon de procéder va nous permettre de déboguer petit à petit les fonctions de cette classe Ned2.
+                        </div>
+                    </div>
+                    
+                    <!-- ============================================ -->
+                    <!-- ANNEXES -->
+                    <!-- ============================================ -->
+                    <div id="annexes" class="mt-5">
+                        <h3 class="text-dark">Annexes</h3>
+                        
+                        <div id="annexe1" class="mt-4">
+                            <h4 class="text-primary">Annexe 01</h4>
+                            <code class="bg-dark text-white p-3 rounded d-block mb-3"><xmp>
+classdef Ned2Sim < handle
+    properties (SetAccess = private)
+        RigidBodyTree
+        IK
+        Weight
+        sampleRate = 20
+        robotAxes = []
+        HomeConfiguration
+        NumJoints
+        NumArmJoints
+        NumGripperJoints
+        end
+        properties (SetAccess = public)
+        plotTraj = false
+        recordTraj = false
+        RecordedPoses = []
+    end
+
+    properties (SetObservable = true)
+        CurrentConfiguration % 1 x NumArmJoints
+        GripperConfiguration % 1 x NumGripperJoints
+    end
+
+    methods
+        function ned = Ned2Sim(args)
+            arguments
+                args.Tool = 'Gripper'
+            end
+
+            % === Charger le robot ===
+            if ~exist('niryo_ned2_gripper1_n_camera.mat','file')
+                rbt = importrobot("niryo_ned2_gripper1_n_camera.urdf.xacro");
+                save('niryo_ned2_gripper1_n_camera.mat','rbt');
+            else
+                S = load('niryo_ned2_gripper1_n_camera.mat');
+                rbt = S.rbt;
+            end
+            ned.RigidBodyTree = rbt;
+            ned.RigidBodyTree.DataFormat = 'row';
+
+            % === Détection auto des joints ===
+            ned.NumJoints = numel(ned.RigidBodyTree.homeConfiguration);
+
+            ned.NumArmJoints = 6; % Ned2 = 6 axes bras
+            ned.NumGripperJoints = ned.NumJoints - ned.NumArmJoints;
+
+            % === Configurations ===
+            ned.HomeConfiguration = zeros(1, ned.NumJoints);
+            ned.CurrentConfiguration = zeros(1, ned.NumArmJoints);
+            ned.GripperConfiguration = zeros(1, ned.NumGripperJoints);
+
+            % === IK ===
+            ned.IK = inverseKinematics("RigidBodyTree", ned.RigidBodyTree);
+            ned.IK.SolverParameters.AllowRandomRestart = false;
+            ned.Weight = [1 1 1 1 1 1];
+
+            % === Listeners ===
+            addlistener(ned,'CurrentConfiguration','PostSet',@ned.configurationChanged);
+            addlistener(ned,'GripperConfiguration','PostSet',@ned.configurationChanged);
+        end
+ 
+        % ========================
+        function configurationChanged(ned,~,~)
+            if ned.recordTraj
+                ned.RecordedPoses = [ned.RecordedPoses; ...
+                    [ned.CurrentConfiguration ned.GripperConfiguration]];
+            end
+            if ned.isRobotShown()
+                ned.show();
+            end
+        end
+        % ========================
+        function goHome(ned, duration)
+            arguments
+                ned
+                duration = 3
+            end
+            ned.PlanTrajectory([[ned.CurrentConfiguration ned.GripperConfiguration]; ...
+                    ned.HomeConfiguration], duration);
+        end
+        % ========================
+        function PlanTrajectory(ned, waypoints, duration, method)
+            arguments
+                ned
+                waypoints
+                duration = 3
+                method = 'trapveltraj'
+            end
+
+            tvec = 0:1/ned.sampleRate:duration;
+            numSamples = length(tvec);
+            waypoints = waypoints';
+
+            switch method
+                case 'trapveltraj'
+                    [q, ~] = trapveltraj(waypoints,numSamples);
+                case 'minjerkpolytraj'
+                    [q, ~] = minjerkpolytraj(waypoints, ...
+                        linspace(0,duration,size(waypoints,2)), numSamples);
+                otherwise
+                    [q, ~] = trapveltraj(waypoints,numSamples);
+            end
+
+            rc = rateControl(ned.sampleRate);
+            for idx = 1:numSamples
+                qi = q(:,idx)';
+                ned.CurrentConfiguration = qi(1:ned.NumArmJoints);
+                ned.GripperConfiguration = qi(ned.NumArmJoints+1:end);
+                waitfor(rc);
+            end
+        end
+
+        % ========================
+        function Move(ned, Position, RPY, duration)
+            arguments
+                ned
+                Position (1,3) double
+                RPY (1,3) double
+                duration = 3
+            end
+
+            se = se3(flip(RPY),"eul","ZYX", Position);
+            curConf = [ned.CurrentConfiguration ned.GripperConfiguration];
+            sol = ned.IK("tool_link", se.tform, ned.Weight, curConf);
+            ned.PlanTrajectory([curConf; sol], duration);
+        end
+       
+        % ========================
+        function SetPose(ned, Pose)
+            Pose = Pose(:)';
+            ned.CurrentConfiguration = Pose(1:ned.NumArmJoints);
+            ned.GripperConfiguration = Pose(ned.NumArmJoints+1:ned.NumJoints);
+        end
+       
+        % ========================
+
+        function show(ned)
+            config = ned.HomeConfiguration;
+            config(1:ned.NumArmJoints) = ned.CurrentConfiguration;
+            config(ned.NumArmJoints+1:end) = ned.GripperConfiguration;
+
+            if ~ned.isRobotShown()
+                ned.clearFigure();
+            else
+                show(ned.RigidBodyTree, config, ...
+                    'PreservePlot', false, ...
+                    'FastUpdate', true, ...
+                    'Frames','off', ...
+                    'Parent',ned.robotAxes);
+            end
+            drawnow;
+        end
+
+        % ========================
+        function clearFigure(ned)
+            config = ned.HomeConfiguration;
+            config(1:ned.NumArmJoints) = ned.CurrentConfiguration;
+            config(ned.NumArmJoints+1:end) = ned.GripperConfiguration;
+
+            if ned.isRobotShown
+                cla(ned.robotAxes);
+                show(ned.RigidBodyTree, config, ...
+                    'PreservePlot', false, ...
+                    'FastUpdate', true, ...
+                    'Frames','off', ...
+                    'Parent',ned.robotAxes);
+            else
+                ned.robotAxes = show(ned.RigidBodyTree, config, ...
+                    'PreservePlot', false, ...
+                    'FastUpdate', true, ...
+                    'Frames','off');
+            end
+            set(ned.robotAxes.Parent,'WindowStyle','docked');
+            xlim(ned.robotAxes,[-0.5 0.5])
+            ylim(ned.robotAxes,[-0.5 0.5])
+            zlim(ned.robotAxes,[-0.1 0.8])
+        end
+
+        % ========================
+        function val = isRobotShown(ned)
+            val = ~isempty(ned.robotAxes) && isvalid(ned.robotAxes);
+        end
+
+        % ========================
+        function openGripper(ned)
+            ned.GripperConfiguration = zeros(1,ned.NumGripperJoints);
+        end
+
+        function closeGripper(ned)
+            ned.GripperConfiguration = -0.01*ones(1,ned.NumGripperJoints);
+        end
+
+        % ========================
+        function img = snapshot(ned)
+            img = [];
+            if ned.isRobotShown()
+                frame = getframe(ned.robotAxes.Parent);
+                img = frame.cdata;
+            else
+                warning('Robot non affiché – snapshot impossible.');
+            end
+        end
+    end
+end
+
+                            </xmp></code>
+
+                        </div>
+                        
+                        <div id="annexe2" class="mt-4">
+                            <h4 class="text-primary">Annexe 02</h4>
+                            <code class="bg-dark text-white p-3 rounded d-block mb-3"><xmp>
+function MoveLinear(ned, Pstart, Pend, RPY, duration, nPoints)
+    arguments
+        ned
+        Pstart (1,3) double
+        Pend (1,3) double
+        RPY (1,3) double
+        duration = 3
+        nPoints = 50
+    end
+
+    % Interpolation linéaire en XYZ
+    x = linspace(Pstart(1), Pend(1), nPoints);
+    y = linspace(Pstart(2), Pend(2), nPoints);
+    z = linspace(Pstart(3), Pend(3), nPoints);
+
+    curConf = [ned.CurrentConfiguration ned.GripperConfiguration];
+    traj = zeros(nPoints, ned.NumJoints);
+
+    for i = 1:nPoints
+        pos = [x(i) y(i) z(i)];
+        se = se3(flip(RPY),"eul","ZYX", pos);
+        sol = ned.IK("tool_link", se.tform, ned.Weight, curConf);
+
+        traj(i,:) = sol;
+        curConf = sol; % warm start IK
+    end
+
+    % Exécuter la trajectoire
+    ned.PlanTrajectory(traj, duration);
+end
+
+                            </xmp></code>
+                        </div>
+                        
+                        <div id="annexe3" class="mt-4">
+                            <h4 class="text-primary">Annexe 03</h4>
+                            <code class="bg-dark text-white p-3 rounded d-block mb-3"><xmp>
+function MoveCircular(ned, Pstart, Pvia, Pend, RPY, duration, nPoints)
+    arguments
+        ned
+        Pstart (1,3) double
+        Pvia (1,3) double
+        Pend (1,3) double
+        RPY (1,3) double
+        duration = 3
+        nPoints = 60
+    end
+
+    % --- Calcul du cercle passant par 3 points ---
+    A = Pstart(:); B = Pvia(:); C = Pend(:);
+
+    % Vecteurs du plan
+    AB = B - A;
+    AC = C - A;
+    n = cross(AB, AC);
+    n = n / norm(n);
+
+    % Base locale du cercle
+    ex = AB / norm(AB);
+    ey = cross(n, ex);
+
+    % Coordonnées locales
+    xB = dot(AB, ex);
+    yB = dot(AB, ey);
+    xC = dot(AC, ex);
+    yC = dot(AC, ey);
+
+    % Centre du cercle en 2D
+    d = 2*(xB*yC - yB*xC);
+    if abs(d) < 1e-6
+        error("Points presque alignés → cercle impossible");
+    end
+    ux = ( (xB^2 + yB^2)*yC - (xC^2 + yC^2)*yB ) / d;
+    uy = ( (xC^2 + yC^2)*xB - (xB^2 + yB^2)*xC ) / d;
+
+    % Centre 3D
+    O = A + ux*ex + uy*ey;
+
+    % Angles
+    vA = A - O;
+    vB = B - O;
+    vC = C - O;
+
+    thetaA = 0;
+    thetaB = atan2(dot(vB,ey), dot(vB,ex));
+    thetaC = atan2(dot(vC,ey), dot(vC,ex));
+
+    % Choix du bon sens (A→B→C)
+    if ~(thetaA < thetaB && thetaB < thetaC) && ...
+        ~(thetaA > thetaB && thetaB > thetaC)
+        if thetaC > thetaA
+            thetaC = thetaC - 2*pi;
+        else
+            thetaC = thetaC + 2*pi;
+        end
+    end
+
+    theta = linspace(thetaA, thetaC, nPoints);
+
+    % Générer trajectoire cartésienne
+    traj = zeros(nPoints,3);
+    for i = 1:nPoints
+        traj(i,:) = (O + cos(theta(i))*ex*norm(vA) + sin(theta(i))*ey*norm(vA))';
+    end
+
+    % IK point par point
+    curConf = [ned.CurrentConfiguration ned.GripperConfiguration];
+    jointTraj = zeros(nPoints, ned.NumJoints);
+
+    for i = 1:nPoints
+        se = se3(flip(RPY),"eul","ZYX", traj(i,:));
+        sol = ned.IK("tool_link", se.tform, ned.Weight, curConf);
+        jointTraj(i,:) = sol;
+        curConf = sol;
+    end
+    
+    % Exécuter
+    ned.PlanTrajectory(jointTraj, duration);
+end
+
+                            </xmp></code>
+                        </div>
+                        
+                        <div id="annexe4" class="mt-4">
+                            <h4 class="text-primary">Annexe 04</h4>
+                            <code class="bg-dark text-white p-3 rounded d-block mb-3"><xmp>
+function T = getFK(ned)
+    % Renvoie la matrice homogène base_link -> tool_link
+    config = ned.HomeConfiguration;
+    config(1:ned.NumArmJoints) = ned.CurrentConfiguration;
+    config(ned.NumArmJoints+1:end) = ned.GripperConfiguration;
+    
+    T = getTransform(ned.RigidBodyTree, config, "tool_link",
+"base_link");
+end
+
+
+                            </xmp></code>
+                        </div>
+                        
+                        <div id="annexe5" class="mt-4">
+                            <h4 class="text-primary">Annexe 05</h4>
+                            <code class="bg-dark text-white p-3 rounded d-block mb-3"><xmp>
+function [pos, rpy] = getTCP(ned)
+    % Renvoie position + orientation (RPY) du TCP
+    T = ned.getFK();
+    pos = T(1:3,4)';
+    rpy = rotm2eul(T(1:3,1:3),'ZYX');
+end
+
+                            </xmp></code>
+                        </div>
+                        
+                        <div id="annexe6" class="mt-4">
+                            <h4 class="text-primary">Annexe 06</h4>
+                            <code class="bg-dark text-white p-3 rounded d-block mb-3"><xmp>
+function drawTCP(ned)
+    % Dessine un repère TCP dans la figure
+    if ~ned.isRobotShown()
+        return
+    end
+    T = ned.getFK();
+    p = T(1:3,4);
+    R = T(1:3,1:3);
+
+    hold(ned.robotAxes,'on')
+
+quiver3(ned.robotAxes,p(1),p(2),p(3),R(1,1),R(2,1),R(3,1),0.05,'r','LineWidth',2
+)
+
+quiver3(ned.robotAxes,p(1),p(2),p(3),R(1,2),R(2,2),R(3,2),0.05,'g','LineWidth',2
+)
+
+quiver3(ned.robotAxes,p(1),p(2),p(3),R(1,3),R(2,3),R(3,3),0.05,'b','LineWidth',2
+)
+    hold(ned.robotAxes,'off')
+end
+
+                            </xmp></code>
+                        </div>
+                        
+                        <div id="annexe7" class="mt-4">
+                            <h4 class="text-primary">Annexe 07</h4>
+                            <code class="bg-dark text-white p-3 rounded d-block mb-3"><xmp>
+classdef Ned2 < handle
+    properties (SetAccess = private)
+        RigidBodyTree;
+        CmdAction;
+        ArmCmdAction;
+        GripAction;
+        CamTopic;
+        JointNames;
+        IK;
+        Weight;
+        UseRos logical = true;
+        JointStates;
+
+                            </xmp></code>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

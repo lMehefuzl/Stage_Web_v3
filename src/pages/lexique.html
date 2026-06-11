@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lexique - Niryo Ned2</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.0/font/bootstrap-icons.css">
+</head>
+<body class="bg-light">
+
+    <div class="bg-white border-bottom shadow-sm mb-4">
+        <div class="container-fluid py-3 px-4">
+            <a href="index.html" class="btn btn-outline-primary btn-sm">
+                <i class="bi bi-arrow-left"></i> Accueil
+            </a>
+            <span class="ms-3 fs-5 fw-semibold text-primary">📖 LEXIQUE</span>
+        </div>
+    </div>
+
+    <div class="container-fluid px-0 px-md-3 mb-5">
+        <div class="row g-0 g-md-4 mx-0">
+            
+            <!-- side bar -->
+            <div class="col-md-3 ps-0 pe-0 pe-md-2">
+                <div class="bg-white rounded-3 shadow-sm p-3 me-0 me-md-2" style="position: sticky; top: 20px; max-height: calc(100vh - 40px); overflow-y: auto;">
+                    <h5 class="text-primary mb-3 pb-2 border-bottom">
+                        <i class="bi bi-list-ul"></i> Sommaire
+                    </h5>
+                    <nav class="nav flex-column">
+                        <a class="nav-link px-0 py-1 text-dark" href="#modbus"><i class="bi bi-diagram-3 text-primary me-2"></i>Modbus</a>
+                        <a class="nav-link px-0 py-1 text-dark mt-2" href="#tcp"><i class="bi bi-globe text-primary me-2"></i>TCP</a>
+                        <a class="nav-link px-0 py-1 text-dark mt-2" href="#ip"><i class="bi bi-code-square text-primary me-2"></i>IP</a>
+                        <a class="nav-link px-0 py-1 text-dark mt-2" href="#tcp-ip"><i class="bi bi-diagram-2-fill text-primary me-2"></i>TCP/IP</a>
+                        <a class="nav-link px-0 py-1 text-dark mt-2" href="#plc"><i class="bi bi-motherboard text-primary me-2"></i>PLC / API</a>
+                        <a class="nav-link px-0 py-1 text-dark mt-2" href="#soc"><i class="bi bi-cpu text-primary me-2"></i>SoC</a>
+                        <a class="nav-link px-0 py-1 text-dark mt-2" href="#scada"><i class="bi bi-graph-up text-primary me-2"></i>SCADA</a>
+                        <a class="nav-link px-0 py-1 text-dark mt-2" href="#ssh"><i class="bi bi-shield-lock-fill text-primary me-2"></i>SSH</a>
+                        <a class="nav-link px-0 py-1 text-dark mt-2" href="#terminal-ssh"><i class="bi bi-terminal text-primary me-2"></i>Terminal SSH</a>
+                    </nav>
+                </div>
+            </div>
+
+            <!-- contenu principal -->
+            <div class="col-md-9 ps-0 ps-md-2 pe-0">
+                
+                <div id="lexique" class="bg-white rounded-3 shadow-sm p-4 mb-4">
+                    <h2 class="text-primary border-bottom pb-2 mb-4"><i class="bi bi-book-half"></i> LEXIQUE</h2>
+                    
+                    <!-- ============================================ -->
+                    <!-- MODBUS -->
+                    <!-- ============================================ -->
+                    <div id="modbus" class="mt-3">
+                        <h3 class="text-dark">Modbus</h3>
+                        <p>Protocole de communication industriel client/serveur (créé en 1979 par Modicon). Sert à échanger des données entre automates, capteurs, actionneurs et superviseurs.</p>
+                        <p><a href="https://fr.wikipedia.org/wiki/Modbus" target="_blank" rel="noopener noreferrer">https://fr.wikipedia.org/wiki/Modbus</a></p>
+                    </div>
+                    
+                    <!-- ============================================ -->
+                    <!-- TCP -->
+                    <!-- ============================================ -->
+                    <div id="tcp" class="mt-5">
+                        <h3 class="text-dark">TCP</h3>
+                        <p>Transmission Control Protocol entre un serveur et un client. Protocole de communication via le réseau internet. Il est conçu pour s'assurer que les paquets de données arrivent correctement (dans le bon ordre et sans pertes de données). Utilisé par Modbus TCP.</p>
+                        <p><a href="https://www.fortinet.com/fr/resources/cyberglossary/tcp-ip#:~:text=Le%20protocole%20TCP%20(Transmission%20Control,des%20messages%20sur%20les%20r%C3%A9seaux" target="_blank" rel="noopener noreferrer">https://www.fortinet.com/fr/resources/cyberglossary/tcp-ip</a></p>
+                    </div>
+                    
+                    <!-- ============================================ -->
+                    <!-- IP -->
+                    <!-- ============================================ -->
+                    <div id="ip" class="mt-5">
+                        <h3 class="text-dark">IP</h3>
+                        <p>Internet Protocol. Protocole d'adressage des machines dans un réseau.</p>
+                        <p><a href="https://dictionnaire.lerobert.com/definition/ip" target="_blank" rel="noopener noreferrer">https://dictionnaire.lerobert.com/definition/ip</a></p>
+                    </div>
+                    
+                    <!-- ============================================ -->
+                    <!-- TCP/IP -->
+                    <!-- ============================================ -->
+                    <div id="tcp-ip" class="mt-5">
+                        <h3 class="text-dark">TCP/IP</h3>
+                        <p>Un ensemble de règles normalisées permettant aux ordinateurs de communiquer sur un réseau tel qu'Internet.</p>
+                        <p><a href="https://www.avast.com/fr-fr/c-what-is-tcp-ip#:~:text=TCP%2FIP%20signifie%20Transmission%20Control,un%20r%C3%A9seau%20tel%20qu'Internet" target="_blank" rel="noopener noreferrer">https://www.avast.com/fr-fr/c-what-is-tcp-ip</a></p>
+                    </div>
+                    
+                    <!-- ============================================ -->
+                    <!-- PLC / API -->
+                    <!-- ============================================ -->
+                    <div id="plc" class="mt-5">
+                        <h3 class="text-dark">PLC / API</h3>
+                        <p>Programmable Logic Controller (en) / Automate Programmable Industriel (FR). Ordinateur robuste dédié au contrôle de processus industriels (machines, lignes de production). Il exécute des programmes logiques (ladder, grafcet, etc.) en temps réel. Exemple : le Ned2 possède une API Python (pyniryo) pour envoyer des commandes au robot.</p>
+                        <p><a href="https://fr.wikipedia.org/wiki/Automate_programmable_industriel" target="_blank" rel="noopener noreferrer">https://fr.wikipedia.org/wiki/Automate_programmable_industriel</a></p>
+                    </div>
+                    
+                    <!-- ============================================ -->
+                    <!-- SoC -->
+                    <!-- ============================================ -->
+                    <div id="soc" class="mt-5">
+                        <h3 class="text-dark">SoC</h3>
+                        <p>System on a Chip ou Système sur une Puce en français. Circuit intégré qui regroupe plusieurs composants d'un ordinateur : processeur, mémoire, GPU, etc.</p>
+                        <p><a href="https://fr.wikipedia.org/wiki/Syst%C3%A8me_sur_une_puce" target="_blank" rel="noopener noreferrer">https://fr.wikipedia.org/wiki/Système_sur_une_puce</a></p>
+                    </div>
+                    
+                    <!-- ============================================ -->
+                    <!-- SCADA -->
+                    <!-- ============================================ -->
+                    <div id="scada" class="mt-5">
+                        <h3 class="text-dark">SCADA</h3>
+                        <p>Supervisory Control And Data Acquisition. Logiciel de supervision industrielle. Sert à visualiser, contrôler et enregistrer l'état des machines ou de procédés industriels. Communique souvent via Modbus TCP avec des API ou des robots.</p>
+                        <p><a href="https://fr.wikipedia.org/wiki/Syst%C3%A8me_de_contr%C3%B4le_et_d%27acquisition_de_donn%C3%A9es" target="_blank" rel="noopener noreferrer">https://fr.wikipedia.org/wiki/Système_de_contrôle_et_d'acquisition_de_données</a></p>
+                    </div>
+                    
+                    <!-- ============================================ -->
+                    <!-- SSH -->
+                    <!-- ============================================ -->
+                    <div id="ssh" class="mt-5">
+                        <h3 class="text-dark">SSH</h3>
+                        <p>Secure Shell. C'est un protocole de communication sécurisé qui permet de se connecter à distance à un système Linux (ici, le Raspberry Pi 4).</p>
+                        <p><a href="https://fr.wikipedia.org/wiki/Secure_Shell" target="_blank" rel="noopener noreferrer">https://fr.wikipedia.org/wiki/Secure_Shell</a></p>
+                    </div>
+                    
+                    <!-- ============================================ -->
+                    <!-- TERMINAL SSH -->
+                    <!-- ============================================ -->
+                    <div id="terminal-ssh" class="mt-5">
+                        <h3 class="text-dark">Terminal SSH</h3>
+                        <p>Porte d'accès Linux/ROS directement à l'intérieur du Ned2, via le réseau.</p>
+                        <p><a href="https://docs.niryo.com/niryostudio/interface/terminal/" target="_blank" rel="noopener noreferrer">https://docs.niryo.com/niryostudio/interface/terminal/</a></p>
+                    </div>
+                    
+                </div>
+            </div>
+        </div>
+    </div>
+
+</body>
+</html>

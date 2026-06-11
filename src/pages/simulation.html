@@ -1,0 +1,297 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Simulation de NiryoStudio - Niryo Ned2</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.0/font/bootstrap-icons.css">
+</head>
+<body class="bg-light">
+
+    <div class="bg-white border-bottom shadow-sm mb-4">
+        <div class="container-fluid py-3 px-4">
+            <a href="index.html" class="btn btn-outline-primary btn-sm">
+                <i class="bi bi-arrow-left"></i> Accueil
+            </a>
+            <span class="ms-3 fs-5 fw-semibold text-primary">SIMULATION DE NIRYOSTUDIO</span>
+        </div>
+    </div>
+
+    <div class="container-fluid px-0 px-md-3 mb-5">
+        <div class="row g-0 g-md-4 mx-0">
+            
+            <!-- side bar -->
+            <div class="col-md-3 ps-0 pe-0 pe-md-2">
+                <div class="bg-white rounded-3 shadow-sm p-3 me-0 me-md-2" style="position: sticky; top: 20px; max-height: calc(100vh - 40px); overflow-y: auto;">
+                    <h5 class="text-primary mb-3 pb-2 border-bottom">
+                        <i class="bi bi-list-ul"></i> Sommaire
+                    </h5>
+                    <nav class="nav flex-column">
+                        <a class="nav-link px-0 py-1 text-dark" href="#generalites"><i class="bi bi-info-circle text-primary me-2"></i>1. Généralités</a>
+                        <a class="nav-link px-0 py-1 text-dark mt-2" href="#installation"><i class="bi bi-cloud-download text-primary me-2"></i>2. Installation</a>
+                        <a class="nav-link px-0 py-1 text-dark mt-2" href="#demarrer-arrer"><i class="bi bi-play-circle text-primary me-2"></i>3. Démarrer et arrêter la simulation</a>
+                        <a class="nav-link px-0 py-1 text-dark mt-2" href="#utilisation-simulation"><i class="bi bi-display text-primary me-2"></i>4. Utilisation de la simulation</a>
+                        <a class="nav-link px-0 py-1 text-dark mt-2" href="#utilisation-robot"><i class="bi bi-robot text-primary me-2"></i>5. Utilisation du robot</a>
+                        <a class="nav-link px-0 py-1 text-dark mt-2" href="#blocs-couleurs"><i class="bi bi-square-fill text-primary me-2"></i>6. Utilisation des blocs de couleurs</a>
+                        <a class="nav-link px-0 py-1 text-dark mt-2" href="#espaces-travail"><i class="bi bi-grid-3x3-gap-fill text-primary me-2"></i>7. Utilisation des espaces de travail et cadres utilisateurs</a>
+                        <a class="nav-link px-0 py-1 text-dark mt-2" href="#limites"><i class="bi bi-exclamation-triangle text-primary me-2"></i>8. Limites</a>
+                        <a class="nav-link px-0 py-1 text-dark mt-2" href="#depannages"><i class="bi bi-wrench text-primary me-2"></i>9. Dépannages</a>
+                    </nav>
+                </div>
+            </div>
+
+            <!-- contenu principal -->
+            <div class="col-md-9 ps-0 ps-md-2 pe-0">
+                
+                <div id="simulation" class="bg-white rounded-3 shadow-sm p-4 mb-4">
+                    <h2 class="text-primary border-bottom pb-2 mb-4"><i class="bi bi-play-circle"></i> SIMULATION DE NIRYOSTUDIO</h2>
+                    
+                    <!-- ============================================ -->
+                    <!-- 1. GÉNÉRALITÉS -->
+                    <!-- ============================================ -->
+                    <div id="generalites" class="mt-3">
+                        <h3 class="text-dark">1. Généralités</h3>
+                        <p>Pour utiliser la simulation sur NiryoStudio, certaines exigences doivent être respectées.</p>
+                        
+                        <div class="table-responsive">
+                            <table class="table table-bordered">
+                                <thead class="table-primary"><tr><th>Paramètre</th><th>Donnée</th></tr></thead>
+                                <tbody>
+                                    <tr><td class="fw-bold">Système opérateur</td><td><ul><li>Windows 10 et versions ultérieures avec WSL 2.0 installé.</li>
+                                    <li>MacOs 10.15 (Catalina) ou version ultérieure.</li></ul></td></tr>
+                                    <tr><td class="fw-bold">Matériel</td><td><ul><li>16 Go ou plus de RAM pour une simulation 3D fluide</li>
+                                    <li>Processeur multicœur moderne (Intel Core i5/i7, Apple Silicon M1/M2/M3 ou équivalent)</li>
+                                    <li>Un GPU dédié est recommandé pour de meilleures performances 3D</li>
+                                    <li>18 Go minimum d'espace libre sur le disque dur</li></ul></td></tr>
+                                    <tr><td class="fw-bold">Logiciel</td><td>NiryoStudio 1.11.0 et versions ultérieures</td></tr>
+                                    <tr><td class="fw-bold">Réseau</td><td><ul><li>port 9090 doit être ouvert et disponible sur la machine hôte pour que la simulation communique avec NiryoStudio</li><li>le port 40001 doit être ouvert et disponible sur la machine pour utiliser la simulation avec PyNiryo</li><li>la connexion internet n'est requise qu'au premier lancement (pour télécharger et installer les packages de simulation)</li><li>après la première configuration, la simulation s'exécute entièrement hors ligne</li></ul></td></tr>
+                                </tbody>
+                            </table>
+                        </div>
+                        <p class="text-center small mt-1">Tableau 26 : Tableau récapitulatif des recommandations informatiques pour la simulation du robot via Niryo Studio</p>
+
+                        <p>Il existe une version gratuite déjà présente sur le logiciel lorsqu'on le télécharge mais celle-ci ne peut simuler qu'un maximum de 10 instructions.<br>
+                        Si on souhaite simuler plus d'instruction, il faut payer une licence qui nous permet de pouvoir simuler une infinité d'instruction.</p>
+
+                        
+                        <p>Le processus d'installation est le même pour la version gratuite et la version sous licence de la simulation.</p>
+                        
+                        <div class="alert alert-danger">
+                            <i class="bi bi-exclamation-octagon-fill"></i> <strong>ATTENTION :</strong> vous ne pouvez pas vous connecter simultanément à une simulation <strong>ET</strong> un robot physique.<br>
+                            Dès que vous vous connectez à un robot physique, la simulation s'arrête automatiquement.
+                        </div>
+                    </div>
+                    
+                    <!-- ============================================ -->
+                    <!-- 2. INSTALLATION -->
+                    <!-- ============================================ -->
+                    <div id="installation" class="mt-5">
+                        <h3 class="text-dark">2. Installation</h3>
+                        
+                        <!-- FIGURE 86 -->
+                        <div class="border rounded bg-light p-2 d-flex align-items-center justify-content-center" style="height: 300px; margin-bottom: 1rem;">
+                            <img src="images/Figure86.png" class="img-fluid" style="max-height: 100%; object-fit: contain;">
+                        </div>
+                        <p class="text-center small mt-1">Figure 86 : Lancer une simulation</p>
+                        
+                        <p>Cliquer sur <strong>« Lancer la simulation »</strong> si vous avez un abonnement actif au module de simulation ou <strong>« Essayer gratuitement »</strong> pour tester la version gratuite limitée à 10 instructions.</p>
+                        <p>La simulation commencera par le téléchargement et l'installation de toutes les dépendances nécessaires.<br>
+                        Ce processus peut prendre un certain temps, selon la vitesse de votre réseau et les performances de la machine hôte.</p>
+                        
+                        <!-- FIGURE 87 -->
+                        <div class="border rounded bg-light p-2 d-flex align-items-center justify-content-center" style="height: 300px; margin-bottom: 1rem;">
+                            <img src="images/Figure87.png" class="img-fluid" style="max-height: 100%; object-fit: contain;">
+                        </div>
+                        <p class="text-center small mt-1">Figure 87 : Interface de simulation</p>
+                        
+                        <p>Une fois l'installation terminée, la simulation se lancera automatiquement et affichera une vue 3D d'un Niryo Discovery Bundle.</p>
+                    </div>
+
+                    <!-- ============================================ -->
+                    <!-- 3. DÉMARRER ET ARRÊTER LA SIMULATION -->
+                    <!-- ============================================ -->
+                    <div id="demarrer-arrer" class="mt-5">
+                        <h3 class="text-dark">3. Démarrer et arrêter la simulation</h3>
+                        
+                        <p>Pour démarrer la simulation, cliquez sur le bouton <strong>« Simulation »</strong> puis sélectionnez <strong>« Lancer la simulation »</strong>.</p>
+                        
+                        <!-- FIGURE 88 -->
+                        <div class="border rounded bg-light p-2 d-flex align-items-center justify-content-center" style="height: 200px; margin-bottom: 1rem;">
+                            <img src="images/Figure88.png" class="img-fluid" style="max-height: 100%; object-fit: contain;">
+                        </div>
+                        <p class="text-center small mt-1">Figure 88 : Démarrer une simulation</p>
+                        
+                        <p>Pour arrêter la simulation, cliquez sur <strong>« Déconnecter »</strong>. La simulation s'arrêtera automatiquement.<br>
+                        En cas de problème rencontrée lors de l'utilisation de la simulation, on peut la redémarrer en cliquant sur <strong>« Reboot »</strong>.</p>
+                        
+                    </div>
+
+                    <!-- ============================================ -->
+                    <!-- 4. UTILISATION DE LA SIMULATION -->
+                    <!-- ============================================ -->
+                    <div id="utilisation-simulation" class="mt-5">
+                        <h3 class="text-dark">4. Utilisation de la simulation</h3>
+                        <p>Contrairement à la connexion à un robot physique, la simulation inclut des éléments supplémentaires dans la scène 3D du robot, vous permettant de commencer immédiatement vos expérimentations sans configuration supplémentaire.</p>
+                        <p>Elle est fournie avec le Bundle Discovery préinstallé (pince, éléments de l'espace de travail, set Vision, blocs, etc.) mais sans la pompe à vide.</p>
+                       
+                        <!-- FIGURE 89 -->
+                        <div class="border rounded bg-light p-2 d-flex align-items-center justify-content-center" style="height: 200px; margin-bottom: 1rem;">
+                            <img src="images/Figure89.png" class="img-fluid" style="max-height: 100%; object-fit: contain;">
+                        </div>
+                        <p class="text-center small mt-1">Figure 89 : Arrêter une simulation</p>
+
+                        <p>Cette configuration est conçue pour vous permettre d'explorer immédiatement les cas d'utilisation les plus courants,
+                        tels que le <strong>Pick&Place, Triage de pièce via le set Vision et le workspace</strong> directement dans l'environnement virtuel.</p>
+                        
+                        <p>L'interface 3D View est composée des éléments suivants :</p>
+                        
+                        <!-- FIGURE 90 -->
+                        <div class="border rounded bg-light p-2 d-flex align-items-center justify-content-center" style="height: 300px; margin-bottom: 1rem;">
+                            <img src="images/Figure90.png" class="img-fluid" style="max-height: 100%; object-fit: contain;">
+                        </div>
+                        <p class="text-center small mt-1">Figure 90 : Interface 3D View en simulation</p>
+                        
+                        <!-- FIGURE 91 -->
+                        <div class="border rounded bg-light p-2 d-flex align-items-center justify-content-center" style="height: 500px; margin-bottom: 1rem;">
+                            <img src="images/Figure91.png" class="img-fluid" style="max-height: 100%; object-fit: contain;">
+                        </div>
+                        <p class="text-center small mt-1">Figure 91 : Liste d'action possible sur la simulation</p>
+                        
+                        <h5 class="mt-3">Le contrôle de la caméra se fait de la manière suivante :</h5>
+                        <ul>
+                            <li><strong>Faire pivoter la caméra :</strong> maintenir le bouton gauche de la souris enfoncé</li>
+                            <li><strong>Zoom caméra :</strong> utilisez la molette de la souris ou maintenez le bouton droit de la souris enfoncé et faites glisser la souris</li>
+                            <li><strong>Traduire la caméra :</strong> maintenez le bouton central de la souris enfoncé ou utilisez « CTRL + Clique gauche »</li>
+                        </ul>
+                        <p>Une sphère rouge apparaît au centre de l'écran pendant le mouvement de la caméra pour faciliter la localisation et le zoom de la scène.</p>
+                    </div>
+
+                    <!-- ============================================ -->
+                    <!-- 5. UTILISATION DU ROBOT -->
+                    <!-- ============================================ -->
+                    <div id="utilisation-robot" class="mt-5">
+                        <h3 class="text-dark">5. Utilisation du robot</h3>
+                        <p>Une fois la simulation lancée et connectée, vous pouvez contrôler et programmer le Ned2 virtuel comme la version physique de celui-ci.</p>
+                        <p>Vous pouvez déplacer et interagir avec le robot simulé grâce aux méthodes suivantes :</p>
+                        <ul>
+                            <li><strong>Déplacement direct :</strong> déplacer manuellement les articulations ou le point central de l'outil (TCP) à l'aide du panneau « Déplacement direct »</li>
+                            <li><strong>Programmation :</strong> créer des programmes à l'aide de Blockly (blocs visuels par glisser-déposer) ou écrivez des scripts Python pour un contrôle avancé</li>
+                            <li><strong>Mouvement libre :</strong> cliquer sur le robot dans la scène 3D et utilisez la « boule Gizmo » pour le déplacer librement</li>
+                        </ul>
+                        
+                        <!-- FIGURE 92 -->
+                        <div class="border rounded bg-light p-2 d-flex align-items-center justify-content-center" style="height: 300px; margin-bottom: 1rem;">
+                            <img src="images/Figure92.png" class="img-fluid" style="max-height: 100%; object-fit: contain;">
+                        </div>
+                        <p class="text-center small mt-1">Figure 92 : Image de déplacement du robot en simulation</p>
+                    </div>
+
+                    <!-- ============================================ -->
+                    <!-- 6. UTILISATION DES BLOCS DE COULEURS -->
+                    <!-- ============================================ -->
+                    <div id="blocs-couleurs" class="mt-5">
+                        <h3 class="text-dark">6. Utilisation des blocs de couleurs</h3>
+                        <p>Le <strong>« Bundle Discovery »</strong> contient une zone d'instanciation de bloc :</p>
+                        
+                        <!-- FIGURE 93 -->
+                        <div class="border rounded bg-light p-2 d-flex align-items-center justify-content-center" style="height: 200px; margin-bottom: 1rem;">
+                            <img src="images/Figure93.png" class="img-fluid" style="max-height: 100%; object-fit: contain;">
+                        </div>
+                        <p class="text-center small mt-1">Figure 93 : Zone d'instanciation sur la simulation</p>
+                        
+                        <p>Pour installer un bloc, cliquez dessus et un gadget vous permettant de le déplacer dans la scène apparaîtra.</p>
+                        
+                        <!-- FIGURE 94 -->
+                        <div class="border rounded bg-light p-2 d-flex align-items-center justify-content-center" style="height: 200px; margin-bottom: 1rem;">
+                            <img src="images/Figure94.png" class="img-fluid" style="max-height: 100%; object-fit: contain;">
+                        </div>
+                        <p class="text-center small mt-1">Figure 94 : Déplacement d'un bloc dans la scène de simulation</p>
+                        
+                        <p>Pour supprimer un bloc instancié, cliquez dessus et appuyez sur la touche « Suppr » de votre clavier.</p>
+                    </div>
+
+                    <!-- ============================================ -->
+                    <!-- 7. UTILISATION DES ESPACES DE TRAVAIL ET CADRES UTILISATEURS -->
+                    <!-- ============================================ -->
+                    <div id="espaces-travail" class="mt-5">
+                        <h3 class="text-dark">7. Utilisation des espaces de travail et de cadres utilisateurs</h3>
+                        <p>La simulation est fournie avec <strong>WorkSpace</strong> préconfigurés et des <strong>UserFrames</strong> correspondant à la scène 3D.</p>
+                        <p>Deux UserFrames sont disponibles par défaut :</p>
+                        <ul>
+                            <li>alpha_zone_userframe</li>
+                            <li>beta_zone_userframe</li>
+                        </ul>
+                        
+                        <!-- FIGURE 95 -->
+                        <div class="border rounded bg-light p-2 d-flex align-items-center justify-content-center" style="height: 200px; margin-bottom: 1rem;">
+                            <img src="images/Figure95.png" class="img-fluid" style="max-height: 100%; object-fit: contain;">
+                        </div>
+                        <p class="text-center small mt-1">Figure 95 : Position des UserFrames sur la scène de simulation</p>
+                        
+                        <p>Deux WorkSpace sont également disponibles :</p>
+                        <ul>
+                            <li>bundle_workspace</li>
+                            <li>conveyor_workspace</li>
+                        </ul>
+                        
+                        <!-- FIGURE 96 -->
+                        <div class="border rounded bg-light p-2 d-flex align-items-center justify-content-center" style="height: 200px; margin-bottom: 1rem;">
+                            <img src="images/Figure96.png" class="img-fluid" style="max-height: 100%; object-fit: contain;">
+                        </div>
+                        <p class="text-center small mt-1">Figure 96 : Position des WorkSpace sur la scène de simulation</p>
+                    </div>
+
+                    <!-- ============================================ -->
+                    <!-- 8. LIMITES -->
+                    <!-- ============================================ -->
+                    <div id="limites" class="mt-5">
+                        <h3 class="text-dark">8. Limites</h3>
+                        <ul>
+                            <li>L'état de la simulation n'est pas enregistré entre les sessions, chaque lancement démarre à partir d'un nouvel état.</li>
+                            <li><strong>Les collisions</strong> avec les objets de la scène ne sont pas prises en compte (pas d'interaction basée sur la physique).</li>
+                            <li>Seul un nombre <strong>limité de blocs</strong> peut être instancié dans la scène (5 par type/couleur).</li>
+                        </ul>
+                    </div>
+
+                    <!-- ============================================ -->
+                    <!-- 9. DÉPANNAGES -->
+                    <!-- ============================================ -->
+                    <div id="depannages" class="mt-5">
+                        <h3 class="text-dark">9. Dépannages</h3>
+                        <p>Si vous rencontrez des problèmes lors de l'utilisation de la simulation Ned2, essayez les étapes suivantes :</p>
+                        
+                        <h5 class="mt-3">a) Redémarrer la simulation</h5>
+                        <p>• Cliquez sur <strong>« Redémarrer »</strong> dans NiryoStudio pour redémarrer l'environnement de simulation.</p>
+                        <p>• Cela résout la plupart des problèmes temporaires de connexion ou de chargement.</p>
+                        
+                        <h5 class="mt-3">b) Vérifiez la connexion internet (première connexion uniquement)</h5>
+                        <p>• Assurez-vous que votre ordinateur était connecté à internet lors du <strong>premier lancement</strong> pour permettre le téléchargement de toutes les dépendances.</p>
+                        <p>• Après la première configuration, la simulation peut s'exécuter entièrement hors ligne.</p>
+                        
+                        <h5 class="mt-3">c) Vérifiez la disponibilité du port</h5>
+                        <p>• Assurez-vous que le <strong>port 9090</strong> est ouvert et non utilisé par une autre application sur votre machine.</p>
+                        <p>• Si le port est bloqué, NiryoStudio ne pourra pas se connecter à la simulation.</p>
+                        
+                        <h5 class="mt-3">d) Déconnectez-vous des robots physiques</h5>
+                        <p>• Vous ne pouvez pas vous connecter à une simulation et à un robot physique en même temps.</p>
+                        <p>• Si vous vous connectez à un vrai robot, la simulation s'arrêtera automatiquement.</p>
+                        
+                        <h5 class="mt-3">e) Fermez et relancez NiryoStudio</h5>
+                        <p>• Si les problèmes persistent, fermez complètement NiryoStudio et relancez-le avant de tenter de vous connecter à nouveau à la simulation.</p>
+                        
+                        <h5 class="mt-3">f) Vérifiez les performances de votre système</h5>
+                        <p>• Assurez-vous que votre ordinateur répond aux <strong>exigences minimales</strong> (RAM, CPU, GPU).</p>
+                        <p>• Des ralentissements ou des blocages peuvent se produire sur des machines à faible spécification ou lors de l'exécution simultanée d'autres applications lourdes.</p>
+                        
+                        <h5 class="mt-3">g) Vérifiez les autorisations utilisateurs</h5>
+                        <p>• Assurez-vous d'avoir les droits nécessaires sur votre ordinateur (des droits d'administrateur peuvent être requis pour permettre à NiryoStudio d'ouvrir des ports et d'exécuter la simulation).</p>
+                        <p>• Si vous utilisez un ordinateur d'entreprise ou scolaire, contactez votre administrateur informatique pour confirmer que les autorisations sont correctement définies.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</body>
+</html>

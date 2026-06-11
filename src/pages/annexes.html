@@ -1,0 +1,1293 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Annexes - Niryo Ned2</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.0/font/bootstrap-icons.css">
+</head>
+<body class="bg-light">
+
+    <div class="bg-white border-bottom shadow-sm mb-4">
+        <div class="container-fluid py-3 px-4">
+            <a href="index.html" class="btn btn-outline-primary btn-sm">
+                <i class="bi bi-arrow-left"></i> Accueil
+            </a>
+            <span class="ms-3 fs-5 fw-semibold text-primary">📎 ANNEXES</span>
+        </div>
+    </div>
+
+    <div class="container-fluid px-0 px-md-3 mb-5">
+        <div class="row g-0 g-md-4 mx-0">
+            
+            <!-- side bar -->
+            <div class="col-md-3 ps-0 pe-0 pe-md-2">
+                <div class="bg-white rounded-3 shadow-sm p-3 me-0 me-md-2" style="position: sticky; top: 20px; max-height: calc(100vh - 40px); overflow-y: auto;">
+                    <h5 class="text-primary mb-3 pb-2 border-bottom">
+                        <i class="bi bi-list-ul"></i> Sommaire
+                    </h5>
+                    <nav class="nav flex-column">
+                        <a class="nav-link px-0 py-1 text-dark" href="#annexe01"><i class="bi bi-file-code text-primary me-2"></i>Annexe 01</a>
+                        <a class="nav-link px-0 py-1 text-dark mt-2" href="#annexe02"><i class="bi bi-file-code text-primary me-2"></i>Annexe 02</a>
+                        <a class="nav-link px-0 py-1 text-dark mt-2" href="#annexe03"><i class="bi bi-file-code text-primary me-2"></i>Annexe 03</a>
+                        <a class="nav-link px-0 py-1 text-dark mt-2" href="#annexe04"><i class="bi bi-file-code text-primary me-2"></i>Annexe 04</a>
+                        <a class="nav-link px-0 py-1 text-dark mt-2" href="#annexe05"><i class="bi bi-file-code text-primary me-2"></i>Annexe 05</a>
+                        <a class="nav-link px-0 py-1 text-dark mt-2" href="#annexe06"><i class="bi bi-file-code text-primary me-2"></i>Annexe 06</a>
+                        <a class="nav-link px-0 py-1 text-dark mt-2" href="#annexe07"><i class="bi bi-file-code text-primary me-2"></i>Annexe 07</a>
+                        <a class="nav-link px-0 py-1 text-dark mt-2" href="#annexe08"><i class="bi bi-file-code text-primary me-2"></i>Annexe 08</a>
+                        <a class="nav-link px-0 py-1 text-dark mt-2" href="#annexe09"><i class="bi bi-file-code text-primary me-2"></i>Annexe 09</a>
+                        <a class="nav-link px-0 py-1 text-dark mt-2" href="#annexe10"><i class="bi bi-file-code text-primary me-2"></i>Annexe 10</a>
+                        <a class="nav-link px-0 py-1 text-dark mt-2" href="#annexe11"><i class="bi bi-file-code text-primary me-2"></i>Annexe 11</a>
+                        <a class="nav-link px-0 py-1 text-dark mt-2" href="#annexe12"><i class="bi bi-file-code text-primary me-2"></i>Annexe 12</a>
+                        <a class="nav-link px-0 py-1 text-dark mt-2" href="#annexe13"><i class="bi bi-file-code text-primary me-2"></i>Annexe 13</a>
+                        <a class="nav-link px-0 py-1 text-dark mt-2" href="#annexe14"><i class="bi bi-file-code text-primary me-2"></i>Annexe 14</a>
+                        <a class="nav-link px-0 py-1 text-dark mt-2" href="#annexe15"><i class="bi bi-file-code text-primary me-2"></i>Annexe 15</a>
+                        <a class="nav-link px-0 py-1 text-dark mt-2" href="#annexe16"><i class="bi bi-file-code text-primary me-2"></i>Annexe 16</a>
+                        <a class="nav-link px-0 py-1 text-dark mt-2" href="#annexe17"><i class="bi bi-file-code text-primary me-2"></i>Annexe 17</a>
+                    </nav>
+                </div>
+            </div>
+
+            <!-- contenu principal -->
+            <div class="col-md-9 ps-0 ps-md-2 pe-0">
+                
+                <div id="annexes" class="bg-white rounded-3 shadow-sm p-4 mb-4">
+                    <h2 class="text-primary border-bottom pb-2 mb-4"><i class="bi bi-paperclip"></i> ANNEXES</h2>
+                    
+                        <div id="annexe01" class="mt-4">
+                            <h4 class="text-primary">Annexe 01</h4>
+                            <code class="bg-dark text-white p-3 rounded d-block mb-3"><xmp>
+classdef Ned2Sim < handle
+    properties (SetAccess = private)
+        RigidBodyTree
+        IK
+        Weight
+        sampleRate = 20
+        robotAxes = []
+        HomeConfiguration
+        NumJoints
+        NumArmJoints
+        NumGripperJoints
+        end
+        properties (SetAccess = public)
+        plotTraj = false
+        recordTraj = false
+        RecordedPoses = []
+    end
+
+    properties (SetObservable = true)
+        CurrentConfiguration % 1 x NumArmJoints
+        GripperConfiguration % 1 x NumGripperJoints
+    end
+
+    methods
+        function ned = Ned2Sim(args)
+            arguments
+                args.Tool = 'Gripper'
+            end
+
+            % === Charger le robot ===
+            if ~exist('niryo_ned2_gripper1_n_camera.mat','file')
+                rbt = importrobot("niryo_ned2_gripper1_n_camera.urdf.xacro");
+                save('niryo_ned2_gripper1_n_camera.mat','rbt');
+            else
+                S = load('niryo_ned2_gripper1_n_camera.mat');
+                rbt = S.rbt;
+            end
+            ned.RigidBodyTree = rbt;
+            ned.RigidBodyTree.DataFormat = 'row';
+
+            % === Détection auto des joints ===
+            ned.NumJoints = numel(ned.RigidBodyTree.homeConfiguration);
+
+            ned.NumArmJoints = 6; % Ned2 = 6 axes bras
+            ned.NumGripperJoints = ned.NumJoints - ned.NumArmJoints;
+
+            % === Configurations ===
+            ned.HomeConfiguration = zeros(1, ned.NumJoints);
+            ned.CurrentConfiguration = zeros(1, ned.NumArmJoints);
+            ned.GripperConfiguration = zeros(1, ned.NumGripperJoints);
+
+            % === IK ===
+            ned.IK = inverseKinematics("RigidBodyTree", ned.RigidBodyTree);
+            ned.IK.SolverParameters.AllowRandomRestart = false;
+            ned.Weight = [1 1 1 1 1 1];
+
+            % === Listeners ===
+            addlistener(ned,'CurrentConfiguration','PostSet',@ned.configurationChanged);
+            addlistener(ned,'GripperConfiguration','PostSet',@ned.configurationChanged);
+        end
+ 
+        % ========================
+        function configurationChanged(ned,~,~)
+            if ned.recordTraj
+                ned.RecordedPoses = [ned.RecordedPoses; ...
+                    [ned.CurrentConfiguration ned.GripperConfiguration]];
+            end
+            if ned.isRobotShown()
+                ned.show();
+            end
+        end
+        % ========================
+        function goHome(ned, duration)
+            arguments
+                ned
+                duration = 3
+            end
+            ned.PlanTrajectory([[ned.CurrentConfiguration ned.GripperConfiguration]; ...
+                    ned.HomeConfiguration], duration);
+        end
+        % ========================
+        function PlanTrajectory(ned, waypoints, duration, method)
+            arguments
+                ned
+                waypoints
+                duration = 3
+                method = 'trapveltraj'
+            end
+
+            tvec = 0:1/ned.sampleRate:duration;
+            numSamples = length(tvec);
+            waypoints = waypoints';
+
+            switch method
+                case 'trapveltraj'
+                    [q, ~] = trapveltraj(waypoints,numSamples);
+                case 'minjerkpolytraj'
+                    [q, ~] = minjerkpolytraj(waypoints, ...
+                        linspace(0,duration,size(waypoints,2)), numSamples);
+                otherwise
+                    [q, ~] = trapveltraj(waypoints,numSamples);
+            end
+
+            rc = rateControl(ned.sampleRate);
+            for idx = 1:numSamples
+                qi = q(:,idx)';
+                ned.CurrentConfiguration = qi(1:ned.NumArmJoints);
+                ned.GripperConfiguration = qi(ned.NumArmJoints+1:end);
+                waitfor(rc);
+            end
+        end
+
+        % ========================
+        function Move(ned, Position, RPY, duration)
+            arguments
+                ned
+                Position (1,3) double
+                RPY (1,3) double
+                duration = 3
+            end
+
+            se = se3(flip(RPY),"eul","ZYX", Position);
+            curConf = [ned.CurrentConfiguration ned.GripperConfiguration];
+            sol = ned.IK("tool_link", se.tform, ned.Weight, curConf);
+            ned.PlanTrajectory([curConf; sol], duration);
+        end
+       
+        % ========================
+        function SetPose(ned, Pose)
+            Pose = Pose(:)';
+            ned.CurrentConfiguration = Pose(1:ned.NumArmJoints);
+            ned.GripperConfiguration = Pose(ned.NumArmJoints+1:ned.NumJoints);
+        end
+       
+        % ========================
+
+        function show(ned)
+            config = ned.HomeConfiguration;
+            config(1:ned.NumArmJoints) = ned.CurrentConfiguration;
+            config(ned.NumArmJoints+1:end) = ned.GripperConfiguration;
+
+            if ~ned.isRobotShown()
+                ned.clearFigure();
+            else
+                show(ned.RigidBodyTree, config, ...
+                    'PreservePlot', false, ...
+                    'FastUpdate', true, ...
+                    'Frames','off', ...
+                    'Parent',ned.robotAxes);
+            end
+            drawnow;
+        end
+
+        % ========================
+        function clearFigure(ned)
+            config = ned.HomeConfiguration;
+            config(1:ned.NumArmJoints) = ned.CurrentConfiguration;
+            config(ned.NumArmJoints+1:end) = ned.GripperConfiguration;
+
+            if ned.isRobotShown
+                cla(ned.robotAxes);
+                show(ned.RigidBodyTree, config, ...
+                    'PreservePlot', false, ...
+                    'FastUpdate', true, ...
+                    'Frames','off', ...
+                    'Parent',ned.robotAxes);
+            else
+                ned.robotAxes = show(ned.RigidBodyTree, config, ...
+                    'PreservePlot', false, ...
+                    'FastUpdate', true, ...
+                    'Frames','off');
+            end
+            set(ned.robotAxes.Parent,'WindowStyle','docked');
+            xlim(ned.robotAxes,[-0.5 0.5])
+            ylim(ned.robotAxes,[-0.5 0.5])
+            zlim(ned.robotAxes,[-0.1 0.8])
+        end
+
+        % ========================
+        function val = isRobotShown(ned)
+            val = ~isempty(ned.robotAxes) && isvalid(ned.robotAxes);
+        end
+
+        % ========================
+        function openGripper(ned)
+            ned.GripperConfiguration = zeros(1,ned.NumGripperJoints);
+        end
+
+        function closeGripper(ned)
+            ned.GripperConfiguration = -0.01*ones(1,ned.NumGripperJoints);
+        end
+
+        % ========================
+        function img = snapshot(ned)
+            img = [];
+            if ned.isRobotShown()
+                frame = getframe(ned.robotAxes.Parent);
+                img = frame.cdata;
+            else
+                warning('Robot non affiché – snapshot impossible.');
+            end
+        end
+    end
+end
+
+                            </xmp></code>
+
+                        </div>
+                        
+                        <div id="annexe02" class="mt-4">
+                            <h4 class="text-primary">Annexe 02</h4>
+                            <code class="bg-dark text-white p-3 rounded d-block mb-3"><xmp>
+function MoveLinear(ned, Pstart, Pend, RPY, duration, nPoints)
+    arguments
+        ned
+        Pstart (1,3) double
+        Pend (1,3) double
+        RPY (1,3) double
+        duration = 3
+        nPoints = 50
+    end
+
+    % Interpolation linéaire en XYZ
+    x = linspace(Pstart(1), Pend(1), nPoints);
+    y = linspace(Pstart(2), Pend(2), nPoints);
+    z = linspace(Pstart(3), Pend(3), nPoints);
+
+    curConf = [ned.CurrentConfiguration ned.GripperConfiguration];
+    traj = zeros(nPoints, ned.NumJoints);
+
+    for i = 1:nPoints
+        pos = [x(i) y(i) z(i)];
+        se = se3(flip(RPY),"eul","ZYX", pos);
+        sol = ned.IK("tool_link", se.tform, ned.Weight, curConf);
+
+        traj(i,:) = sol;
+        curConf = sol; % warm start IK
+    end
+
+    % Exécuter la trajectoire
+    ned.PlanTrajectory(traj, duration);
+end
+
+                            </xmp></code>
+                        </div>
+                        
+                        <div id="annexe03" class="mt-4">
+                            <h4 class="text-primary">Annexe 03</h4>
+                            <code class="bg-dark text-white p-3 rounded d-block mb-3"><xmp>
+function MoveCircular(ned, Pstart, Pvia, Pend, RPY, duration, nPoints)
+    arguments
+        ned
+        Pstart (1,3) double
+        Pvia (1,3) double
+        Pend (1,3) double
+        RPY (1,3) double
+        duration = 3
+        nPoints = 60
+    end
+
+    % --- Calcul du cercle passant par 3 points ---
+    A = Pstart(:); B = Pvia(:); C = Pend(:);
+
+    % Vecteurs du plan
+    AB = B - A;
+    AC = C - A;
+    n = cross(AB, AC);
+    n = n / norm(n);
+
+    % Base locale du cercle
+    ex = AB / norm(AB);
+    ey = cross(n, ex);
+
+    % Coordonnées locales
+    xB = dot(AB, ex);
+    yB = dot(AB, ey);
+    xC = dot(AC, ex);
+    yC = dot(AC, ey);
+
+    % Centre du cercle en 2D
+    d = 2*(xB*yC - yB*xC);
+    if abs(d) < 1e-6
+        error("Points presque alignés → cercle impossible");
+    end
+    ux = ( (xB^2 + yB^2)*yC - (xC^2 + yC^2)*yB ) / d;
+    uy = ( (xC^2 + yC^2)*xB - (xB^2 + yB^2)*xC ) / d;
+
+    % Centre 3D
+    O = A + ux*ex + uy*ey;
+
+    % Angles
+    vA = A - O;
+    vB = B - O;
+    vC = C - O;
+
+    thetaA = 0;
+    thetaB = atan2(dot(vB,ey), dot(vB,ex));
+    thetaC = atan2(dot(vC,ey), dot(vC,ex));
+
+    % Choix du bon sens (A→B→C)
+    if ~(thetaA < thetaB && thetaB < thetaC) && ...
+        ~(thetaA > thetaB && thetaB > thetaC)
+        if thetaC > thetaA
+            thetaC = thetaC - 2*pi;
+        else
+            thetaC = thetaC + 2*pi;
+        end
+    end
+
+    theta = linspace(thetaA, thetaC, nPoints);
+
+    % Générer trajectoire cartésienne
+    traj = zeros(nPoints,3);
+    for i = 1:nPoints
+        traj(i,:) = (O + cos(theta(i))*ex*norm(vA) + sin(theta(i))*ey*norm(vA))';
+    end
+
+    % IK point par point
+    curConf = [ned.CurrentConfiguration ned.GripperConfiguration];
+    jointTraj = zeros(nPoints, ned.NumJoints);
+
+    for i = 1:nPoints
+        se = se3(flip(RPY),"eul","ZYX", traj(i,:));
+        sol = ned.IK("tool_link", se.tform, ned.Weight, curConf);
+        jointTraj(i,:) = sol;
+        curConf = sol;
+    end
+    
+    % Exécuter
+    ned.PlanTrajectory(jointTraj, duration);
+end
+
+                            </xmp></code>
+                        </div>
+                        
+                        <div id="annexe04" class="mt-4">
+                            <h4 class="text-primary">Annexe 04</h4>
+                            <code class="bg-dark text-white p-3 rounded d-block mb-3"><xmp>
+function T = getFK(ned)
+    % Renvoie la matrice homogène base_link -> tool_link
+    config = ned.HomeConfiguration;
+    config(1:ned.NumArmJoints) = ned.CurrentConfiguration;
+    config(ned.NumArmJoints+1:end) = ned.GripperConfiguration;
+    
+    T = getTransform(ned.RigidBodyTree, config, "tool_link",
+"base_link");
+end
+
+
+                            </xmp></code>
+                        </div>
+                        
+                        <div id="annex05" class="mt-4">
+                            <h4 class="text-primary">Annexe 05</h4>
+                            <code class="bg-dark text-white p-3 rounded d-block mb-3"><xmp>
+function [pos, rpy] = getTCP(ned)
+    % Renvoie position + orientation (RPY) du TCP
+    T = ned.getFK();
+    pos = T(1:3,4)';
+    rpy = rotm2eul(T(1:3,1:3),'ZYX');
+end
+
+                            </xmp></code>
+                        </div>
+                        
+                        <div id="annexe06" class="mt-4">
+                            <h4 class="text-primary">Annexe 06</h4>
+                            <code class="bg-dark text-white p-3 rounded d-block mb-3"><xmp>
+function drawTCP(ned)
+    % Dessine un repère TCP dans la figure
+    if ~ned.isRobotShown()
+        return
+    end
+    T = ned.getFK();
+    p = T(1:3,4);
+    R = T(1:3,1:3);
+
+    hold(ned.robotAxes,'on')
+
+quiver3(ned.robotAxes,p(1),p(2),p(3),R(1,1),R(2,1),R(3,1),0.05,'r','LineWidth',2
+)
+
+quiver3(ned.robotAxes,p(1),p(2),p(3),R(1,2),R(2,2),R(3,2),0.05,'g','LineWidth',2
+)
+
+quiver3(ned.robotAxes,p(1),p(2),p(3),R(1,3),R(2,3),R(3,3),0.05,'b','LineWidth',2
+)
+    hold(ned.robotAxes,'off')
+end
+
+                            </xmp></code>
+                        </div>
+                        
+                        <div id="annexe07" class="mt-4">
+                            <h4 class="text-primary">Annexe 07</h4>
+                            <code class="bg-dark text-white p-3 rounded d-block mb-3"><xmp>
+classdef Ned2 < handle
+    properties (SetAccess = private)
+        RigidBodyTree;
+        CmdAction;
+        ArmCmdAction;
+        GripAction;
+        CamTopic;
+        JointNames;
+        IK;
+        Weight;
+        UseRos logical = true;
+        JointStates;
+
+                            </xmp></code>
+                        </div>
+
+                        <!-- Annexe 08 -->
+                        <div id="annexe08" class="mt-4">
+                            <h4 class="text-primary">Annexe 08</h4>
+                            <p><strong>Définition de MoveIt</strong></p>
+                            <p>MoveIt est un framework ROS dédié à la manipulation robotique, dont le rôle principal est de transformer une intention de mouvement (ex. aller à cette position) en une trajectoire réalisable, sûre et conforme aux contraintes du robot.</p>
+                            <strong>Autrement dit :</strong>
+                            <ul>
+                                <li>tu ne commandes pas directement les moteurs,</li>
+                                <li>tu décris un objectif,</li>
+                                <li> MoveIt se charge de tout le raisonnement complexe.</li>
+                            </ul>
+
+                            <h5>Ce que MoveIt N'EST PAS</h5>
+                            <p>C'est important pour bien le situer.<br>MoveIt n'est pas :</p>
+                            <ul>
+                                <li>Un simulateur (ce rôle revient à Gazebo)</li>
+                                <li>Un driver matériel</li>
+                                <li>Un remplacement de ROS</li>
+                            </ul>
+                            
+                            <h5>Le problème que MoveIt résout</h5>
+                            <p>Sans MoveIt, pour déplacer un robot manipulateur, il faudrait :</p>
+                            <ul>
+                                <li>résoudre la cinématique inverse</li>
+                                <li>Gérer les limites articulaires</li>
+                                <li>éviter les collisions</li>
+                                <li>interpoler une trajectoire continue</li>
+                                <li>respecter les contraintes mécaniques</li>
+                                <li>gérer les singularités</li>
+                                <li>vérifier que le mouvement est physiquement réalisable</li>
+                            </ul>
+                            <p>Tout cela est long, complexe, très sujet aux erreurs.</p>
+                            <p>Donc MoveIt existe précisément pour abstraire cette complexité</p>
+                            
+                            <h5>Ce que fait MoveIt concrètement</h5>
+                            <p>On peut résumer MoveIt comme un pipeline de planification. Quand on écrit par exemple :</p>
+                            <code class="bg-dark text-white p-3 rounded d-block mb-3"><xmp>group.set_pose_target(pose)
+group.go()</xmp></code>
+
+                            <p>MoveIt effectue en réalité les étapes suivantes :</p>
+                            <ul>
+                                <ol>1. Interprétation de l'objectif<br>
+                                • position cartésienne ou valeurs articulaires</ol>
+                                <ol>2. Calcul de la cinématique inverse<br>
+                                • trouver des angles de joints compatibles</ol>
+                                <ol>3. Vérification des limites<br>
+                                • positions, vitesses, accélérations</ol>
+                                <ol>4. Détection de collisions<br>
+                                • robot / environnement / lui-même</ol>
+                                <ol>5. Planification de trajectoire<br>
+                                • via des planificateurs (OMPL, RRT, PRM…)</ol>
+                                <ol>6. Génération d'une trajectoire temporelle</ol>
+                                <ol>7. Exécution ou simulation du mouvement</ol>
+                            </ul>
+                            <p>Tout cela est transparent pour l'utilisateur.</p>
+        
+
+                            <h5>Les briques internes de MoveIt</h5>
+                            <p>MoveIt repose sur plusieurs composants clés :</p>
+                            <ul>
+                                <li><strong>URDF</strong> (modèle géométrique) : forme du robot, dimensions des liens, axes de rotation</li>
+                                <li><strong>SRDF</strong> (modèle sémantique) : groupes de joints ('arm'), end-effector, liens autorisés en collision</li>
+                                <li><strong>TF</strong> : gestion des repères ('base_link', 'tool_link', etc.)</li>
+                                <li><strong>Planning Scene</strong> : état courant du robot, obstacles, environnement</li>
+                                <li><strong>Planificateurs</strong> : OMPL (le plus courant), algorithmes probabilistes</li>
+                            </ul>
+
+                            <strong>Positionnement de MoveIt dans ROS</strong>
+
+                            <p>On peut résumer ainsi :</p>
+                            <!-- IMAGE Annexe 08 -->
+                            <div class="border rounded bg-light p-2 d-flex align-items-center justify-content-center" style="height: 350px; margin-bottom: 1rem;">
+                                <img src="images/Annexe_img_8.png" class="img-fluid" style="max-height: 100%; object-fit: contain;">
+                            </div>
+                            <p class="text-center small mt-1">Figure : Schéma résumé de MoveIt</p>
+
+                            <p>MoveIt ne parle jamais directement aux moteurs. Il passe toujours par ROS</p>
+                        </div>
+
+                        <!-- Annexe 09 -->
+                        <div id="annexe09" class="mt-4">
+                            <h4 class="text-primary">Annexe 09</h4>
+                            <code class="bg-dark text-white p-3 rounded d-block mb-3"><xmp>
+                                
+#!/usr/bin/env python3
+import sys
+import rospy
+import moveit_commander
+import geometry_msgs.msg
+from math import pi
+def simple_move():
+ # 1. INITIALISATION
+ # -----------------
+ # On initialise le "Commander" MoveIt
+ moveit_commander.roscpp_initialize(sys.argv)
+ # On initialise le nœud ROS
+ rospy.init_node('niryo_python_move', anonymous=True)
+
+ # 2. DÉFINITION DES GROUPES
+ # -------------------------
+ # Le robot est divisé en deux groupes de contrôle :
+ # - Le bras (pour bouger)
+ # - La pince (pour ouvrir/fermer)
+
+ # Noms des groupes standards pour le Ned2 : 'arm' et 'tools'
+ arm_group_name = "arm"
+ gripper_group_name = "tools"
+ move_group = moveit_commander.MoveGroupCommander(arm_group_name)
+ gripper_group = moveit_commander.MoveGroupCommander(gripper_group_name)
+ # Petit message pour dire qu'on est prêt
+ print("=== Prêt à bouger le robot ! ===")
+
+ # 3. MOUVEMENT 1 : Position Home Personnalisée
+ # --------------------------------------------
+ print("1. Allons à la position Home (Définie manuellement)")
+
+ # On définit les angles en radians pour une belle position d'attente
+ # [J1, J2, J3, J4, J5, J6]
+ # J5 = 0.0 -> Pour aligner la caméra avec le bras
+ # J6 = 1.57 -> Pour tourner la pince de 90° (si besoin selon votre montage)
+ home_joints = [0.0, 0.5, -1.2, 0.0, 0.0, 1.57]
+ move_group.set_joint_value_target(home_joints)
+  success = move_group.go(wait=True)
+ move_group.stop() # Sécurité
+ move_group.clear_pose_targets()
+
+ if success:
+ print(" -> Robot arrivé au Home !")
+ else:
+ print(" -> Échec du mouvement.")
+
+ rospy.sleep(1)
+
+ # 4. MOUVEMENT 2 : Simuler une approche (Aller vers le bas)
+ # ---------------------------------------------------------
+ print("2. Descente vers la zone de prise (Pick)")
+
+ # On récupère la position actuelle pour la modifier
+ current_pose = move_group.get_current_pose().pose
+
+ # On définit une nouvelle cible (Target)
+ target_pose = geometry_msgs.msg.Pose()
+ target_pose.orientation = current_pose.orientation # On garde la même orientation
+ target_pose.position.x = 0.25 # 25cm devant le robot
+ target_pose.position.y = 0.0 # Centré
+ target_pose.position.z = 0.15 # 15cm de hauteur (Z)
+ move_group.set_pose_target(target_pose)
+
+ # On bouge !
+ success = move_group.go(wait=True)
+ move_group.stop()
+ move_group.clear_pose_targets()
+ print(" Mouvement réussi ?", success)
+ rospy.sleep(1)
+
+ # 5. ACTION PINCE : Fermer la pince
+ # ---------------------------------
+ print("3. Fermeture de la pince")
+ # Pour le gripper, on peut utiliser des positions nommées comme "close" ou "open"
+ # Note : Sur certains modèles Niryo, il faut parfois définir les joints manuellement
+ try:
+ gripper_group.set_named_target("close")
+ gripper_group.go(wait=True)
+ except:
+ print(" (Pas de position 'close' trouvée, on continue sans pince)")
+
+ rospy.sleep(1)
+ 
+ # 6. MOUVEMENT 3 : Déposer ailleurs (Place)
+ # -----------------------------------------
+ print("4. On déplace l'objet vers une autre zone")
+
+
+ # ÉTAPE A : On lève l'objet (Sécurité)
+ # ------------------------------------
+ # On récupère la position actuelle pour juste changer Z
+ current_pose = move_group.get_current_pose().pose
+ target_pose = current_pose
+ target_pose.position.z = 0.30 # On monte à 30cm de haut
+
+ move_group.set_pose_target(target_pose)
+ move_group.go(wait=True)
+ move_group.stop()
+ move_group.clear_pose_targets()
+ rospy.sleep(0.5)
+
+ # ÉTAPE B : Rotation de la base (Joint 1)
+ # -------------------------------------
+ print(" -> Rotation de la base à 90 degrés...")
+
+ # On récupère les angles actuels des moteurs
+ current_joints = move_group.get_current_joint_values()
+
+ # On modifie juste le premier angle (Base / Joint 1)
+ # 1.57 radians = environ 90 degrés vers la gauche
+ # -1.57 radians = environ 90 degrés vers la droite
+ current_joints[0] = 1.57
+
+ move_group.set_joint_value_target(current_joints)
+ move_group.go(wait=True)
+ move_group.stop()
+ rospy.sleep(0.5)
+ # ÉTAPE C : On pose (On redescend)
+ # --------------------------------
+ print(" -> On pose l'objet")
+ # On reprend la position actuelle (qui est maintenant tournée)
+ target_pose = move_group.get_current_pose().pose
+ target_pose.position.z = 0.15 # On redescend à la hauteur de la table
+
+ move_group.set_pose_target(target_pose)
+ move_group.go(wait=True)
+ move_group.stop()
+ move_group.clear_pose_targets()
+ rospy.sleep(1)
+
+ # 7. RETOUR HOME
+  # --------------
+ print("5. Retour à la maison et ouverture pince")
+
+ # 1. Ouvrir la pince
+ # (Si "open" ne marche pas, on peut l'ignorer pour l'instant ou utiliser des joints)
+ try:
+ gripper_group.set_named_target("open")
+ gripper_group.go(wait=True)
+ except:
+ print(" (La commande 'open' n'est pas connue, on continue)")
+
+ # 2. Retourner à la position Home (MANUELLE)
+ # On réutilise les mêmes valeurs que tout à l'heure
+ # [Base, Épaule, Coude, Avant-bras, Poignet, Main]
+ home_joints = [0.0, 0.5, -1.2, 0.0, 0.0, 1.57]
+
+ move_group.set_joint_value_target(home_joints)
+ success = move_group.go(wait=True)
+
+ print("=== Terminé avec succès ! ===")
+
+ # Arrêt propre de MoveIt
+ moveit_commander.roscpp_shutdown()</xmp></code>
+                        </div>
+                        
+                        <!-- Annexe 10 -->
+                        <div id="annexe10" class="mt-4">
+                            <h4 class="text-primary">Annexe 10</h4>
+                            <p>Code du programme avec obstacle virtuel (obstacle_demo.py)</p>
+                            <code class="bg-dark text-white p-3 rounded d-block mb-3"><xmp>
+#!/usr/bin/env python3
+import sys
+import rospy
+import moveit_commander
+import geometry_msgs.msg
+def obstacle_avoidance():
+    # 1. INITIALISATION
+    moveit_commander.roscpp_initialize(sys.argv)
+    rospy.init_node('niryo_obstacle_mode', anonymous=True)
+    # Initialisation de la scène (pour les obstacles) et du robot
+    scene = moveit_commander.PlanningSceneInterface()
+    # robot = moveit_commander.RobotCommander()
+    # Vos groupes (vérifiés précédemment)
+    arm_group = moveit_commander.MoveGroupCommander("arm")
+    # Petit délai pour que la scène s'initialise
+    rospy.sleep(2)
+    # 2. SE METTRE EN POSITION DE DÉPART
+    print("--- 1. Position Départ ---")
+    # Une position à gauche
+    start_joints = [0.5, 0.5, -1.2, 0.0, 0.0, 0.0]
+    arm_group.set_joint_value_target(start_joints)
+    arm_group.go(wait=True)
+    arm_group.stop()
+    # 3. CRÉATION DE L'OBSTACLE (LE MUR)
+    print("--- 2. Ajout de l'obstacle ---")
+    # Définition de la pose de la boite
+    box_pose = geometry_msgs.msg.PoseStamped()
+    box_pose.header.frame_id = "world" # Référence au sol
+    # On place la boite entre la gauche (0.5 rad) et la droite (-0.5 rad)
+    box_pose.pose.position.x = 0.25
+    box_pose.pose.position.y = 0.0
+    box_pose.pose.position.z = 0.15 # Hauteur
+    box_pose.pose.orientation.w = 1.0
+    # On supprime l'obstacle qui peut être déjà présent
+    scene.remove_world_object(box_name)
+    rospy.sleep(1)
+    box_name = "boite_obstacle"
+    # Ajout d'une boite de 10cm x 40cm x 30cm
+    scene.add_box(box_name, box_pose, size=(0.1, 0.4, 0.3))
+    # IMPORTANT : Attendre que l'obstacle soit bien pris en compte
+    rospy.sleep(2)
+    print(" -> Obstacle ajouté ! Regarde dans RViz (bloc vert/violet)")
+    # 4. DÉPLACEMENT VERS L'ARRIVÉE
+    print("--- 3. Déplacement vers l'objectif ---")
+    # Une position à droite (symétrique au départ)
+    target_joints = [-0.5, 0.5, -1.2, 0.0, 0.0, 0.0]
+    arm_group.set_joint_value_target(target_joints)
+    # C'est ici que la magie opère : MoveIt va calculer le contournement
+    print(" -> Calcul de la trajectoire d'évitement...")
+    success = arm_group.go(wait=True)
+    if success:
+    print(" -> Mouvement réussi avec évitement !")
+    else:
+    print(" -> Échec (Obstacle trop gros ou inatteignable)")
+    arm_group.stop()
+    # 5. NETTOYAGE
+    print("--- 4. Suppression de l'obstacle ---")
+    scene.remove_world_object(box_name)
+    moveit_commander.roscpp_shutdown()
+
+if __name__ == '__main__':
+obstacle_avoidance()</xmp></code>
+                        </div>
+                        
+                        <!-- Annexe 11 -->
+                        <div id="annexe11" class="mt-4">
+                            <h4 class="text-primary">Annexe 11</h4>
+                            <p>Code du programme avec spawn de cube dans Gazebo (pick_and_place.py)</p>
+                            <code class="bg-dark text-white p-3 rounded d-block mb-3"><xmp>
+import sys
+import rospy
+import moveit_commander
+import geometry_msgs.msg
+from gazebo_msgs.srv import SpawnModel, DeleteModel
+from geometry_msgs.msg import Pose
+def spawn_cube():
+# Cube de 3cm
+# Afin de limiter le glissement du cube, une valeur de friction ‘mu' volontairement élevée a
+été définie, bien que celle-ci reste éloignée d'un comportement physique réaliste
+cube_xml = """<robot name="simple_box"><link name="my_box"><inertial><origin xyz="0
+0 0"/><mass value="0.05"/><inertia ixx="0.0001" ixy="0" ixz="0" iyy="0.0001" iyz="0"
+izz="0.0001"/></inertial><visual><origin xyz="0 0 0"/><geometry><box size="0.03 0.03
+0.03"/></geometry></visual><collision><origin xyz="0 0 0"/><geometry><box size="0.03
+0.03
+0.03"/></geometry><surface><friction><ode><mu>1000.0</mu><mu2>1000.0</mu2></o
+de></friction></surface></collision></link><gazebo
+reference="my_box"><material>Gazebo/Blue</material></gazebo></robot>"""
+rospy.wait_for_service("gazebo/spawn_urdf_model")
+try:
+spawn = rospy.ServiceProxy("gazebo/spawn_urdf_model", SpawnModel)
+pose = Pose()
+pose.position.x = 0.30
+pose.position.y = 0.0
+pose.position.z = 0.02
+spawn("blue_cube", cube_xml, "", pose, "world")
+except rospy.ServiceException as e:
+print("Erreur Spawn: ", e)
+def real_pick_and_place():
+moveit_commander.roscpp_initialize(sys.argv)
+rospy.init_node('niryo_robust_pick', anonymous=True)
+# SETUP
+arm_group = moveit_commander.MoveGroupCommander("arm",
+robot_description="robot_description", ns="/")
+arm_group.set_planning_time(10.0) # Plus de temps pour calculer
+arm_group.set_max_velocity_scaling_factor(0.6) # Plus lent = Plus précis
+try:
+gripper_group = moveit_commander.MoveGroupCommander("tool",
+robot_description="robot_description", ns="/")
+except:
+gripper_group = None
+# NETTOYAGE
+try:
+delete_model = rospy.ServiceProxy("gazebo/delete_model", DeleteModel)
+delete_model("blue_cube")
+rospy.sleep(0.5)
+except: pass
+spawn_cube()
+rospy.sleep(1.0)
+
+# 1. APPROCHE (JOINTS) - Pince verticale
+print("--- Approche ---")
+# J5 = -1.57 (Pince vers le bas)
+approach_joints = [0.0, 0.0, -0.5, 0.0, -0.8, 0.0]
+arm_group.set_joint_value_target(approach_joints)
+success = arm_group.go(wait=True)
+if not success:
+print("Echec approche.")
+return
+
+# 2. OUVERTURE
+if gripper_group:
+gripper_group.set_named_target("open")
+gripper_group.go(wait=True)
+
+# 3. DESCENTE (CARTESIEN)
+print("--- Descente ---")
+current_pose = arm_group.get_current_pose().pose
+grasp_pose = current_pose
+grasp_pose.position.z = 0.055 # Hauteur de saisie
+(plan, fraction) = arm_group.compute_cartesian_path([grasp_pose], 0.01)
+if fraction > 0.9:
+arm_group.execute(plan, wait=True)
+else:
+print("Plan cartésien échoué, utilisation standard")
+arm_group.set_pose_target(grasp_pose)
+arm_group.go(wait=True)
+
+# 4. FERMETURE (AVEC GESTION D'ERREUR)
+print("--- Fermeture ---")
+if gripper_group:
+try:
+# On lance la fermeture.
+# MoveIt va peut-être crier "TOLERANCE VIOLATED" car le cube bloque.
+# On s'en fiche, tant que c'est fermé.
+gripper_group.set_named_target("close")
+gripper_group.go(wait=True)
+except:
+print(">>> Pince bloquée par le cube (Succès !)")
+# Important : On force l'arrêt du moteur de la pince pour ne pas surchauffer (virtuellement)
+gripper_group.stop()
+rospy.sleep(1.0)
+
+# 5. LEVAGE
+print("--- Levage ---")
+# On remonte à la position d'approche
+arm_group.set_joint_value_target(approach_joints)
+success = arm_group.go(wait=True)
+if success:
+print("VICTOIRE : Cube soulevé !")
+else:
+print("Echec du levage")
+moveit_commander.roscpp_shutdown()
+if __name__ == '__main__':
+real_pick_and_place()
+                            </xmp></code>
+                        </div>
+                        
+                        <!-- Annexe 12 -->
+                        <div id="annexe12" class="mt-4">
+                            <h4 class="text-primary">Annexe 12</h4>
+                            <p>Code pour lister les positions enregistrées (lister_positions.py)</p>
+                            <code class="bg-dark text-white p-3 rounded d-block mb-3"><xmp>
+from pyniryo import *
+robot_ip = "169.254.200.200"
+print(f"--- Connexion au robot {robot_ip} ---")
+
+try:
+    robot = NiryoRobot(robot_ip)
+except Exception as e:
+    print(f"Erreur : {e}")
+    exit()
+
+    liste_noms = robot.get_pose_saved_names()
+
+print("\n=== LISTE DES POSITIONS ENREGISTRÉES ===")
+
+if not liste_noms:
+    print("Aucune position enregistrée dans la mémoire du robot.")
+
+    else:
+    for nom in liste_noms:
+        # 2. (Optionnel) Récupérer les détails de chaque position
+        details = robot.get_pose_saved(nom)
+        print(f" - Nom : '{nom}'")
+        print(f" Coords : {details}") # Affiche [x, y, z, roll, pitch, yaw]
+        print("-------------------------------")
+robot.close_connection()
+                            </xmp></code>
+                        </div>
+                        
+                        <!-- Annexe 13 -->
+                        <div id="annexe13" class="mt-4">
+                            <h4 class="text-primary">Annexe 13</h4>
+                            <p>Méthodologie de mise en place d'un tunnel SSH</p>
+                            
+                            <h5>Prérequis</h5>
+                            <p>• SSH accessible sur robot :<br>
+                            On branche le câble Ethernet entre le robot et le PC. Puis on vérifie la connexion :</p>
+                            <code class="bg-dark text-white p-2 rounded d-block mb-3"><xmp>ping 169.254.200.200
+# Ctrl+C pour arrêter</xmp></code>
+
+                            <p>• Si la connexion est bien faite, on peut se connecter au terminal SSH au robot :</p>
+                            <code class="bg-dark text-white p-2 rounded d-block mb-3"><xmp>ssh niryo@169.254.200.200
+# Password : robotics</xmp></code>
+        
+                            <p>Si la connexion est réussie, vous devriez voir ceci en début de ligne :</p>
+                            <!-- FIGURE 126 -->
+                            <div class="border rounded bg-light p-2 d-flex align-items-center justify-content-center" style="height: 80px; margin-bottom: 1rem;">
+                                <img src="images/Figure126.png" class="img-fluid" style="max-height: 100%; object-fit: contain;">
+                            </div>
+                            <p class="text-center small mt-1">Figure 126 : Début de ligne du terminal SSH (robot)</p>
+                            
+                            <h5>Créer le tunnel SSH</h5>
+                            <p>• Nouveau terminal mais pas SSH, ici c'est celui de l'environnement Ubuntu qu'on veut :</p>
+
+                            <!-- FIGURE 127 -->
+                            <div class="border rounded bg-light p-2 d-flex align-items-center justify-content-center" style="height: 80px; margin-bottom: 1rem;">
+                                <img src="images/Figure127.png" class="img-fluid" style="max-height: 100%; object-fit: contain;">
+                            </div>
+                            <p class="text-center small mt-1">Figure 127 : Début de ligne du terminal du PC</p>
+
+                            <p>• Saisir la commande :</p>
+                            <code class="bg-dark text-white p-3 rounded d-block mb-3"><xmp>ssh -f -N -L 11311:localhost:11311 niryo@169.254.200.200</xmp></code>
+                            
+                            <p>Les explications de cette commande sont les suivantes :</p>
+                            <div class="table-responsive">
+                                <table class="table table-bordered w-75">
+                                    <thead class="table-primary"><tr><th>Argument</th><th>Rôle</th></tr></thead>
+                                    <tbody>
+                                        <tr><td class="fw-bold">-f</th><td>Permet de laisser le tunnel actif en arrière-plan</th>
+                                        </tr>
+                                        <tr><td class="fw-bold">-N</th><td>"No Shell" – pas de session interactive, juste un tunnel</th>
+                                        </tr>
+                                        <tr><td class="fw-bold">-L 11311:localhost:11311</th><td>Redirige local 11311 → robot:11311</th>
+                                        </tr>
+                                        <tr><td class="fw-bold">niryo@169.254.200.200</th><td>Identifiants de connexion au robot</th>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                            <p class="text-center small mt-1">Tableau 37 : Tableau explicatif de la commande de construction d'un tunnel SSH</p>
+                            
+                            <p>Il ne faut pas fermer ce tunnel ou le relancer après un arrêt de l’ordinateur ou de terminal.
+                            Tant que le terminal est ouvert, le tunnel est actif.</p>
+
+                            <h5>Configuration ROS sur le PC</h5>
+                            <p>• Sur un nouveau terminal du PC (crestic@...) :</p>
+                            <code class="bg-dark text-white p-2 rounded d-block mb-3"><xmp>ss -tuln | grep 11311</xmp></code>
+
+                            <p>Cette commande doit renvoyer :</p>
+                            <!-- FIGURE 128 -->
+                            <div class="border rounded bg-light p-2 d-flex align-items-center justify-content-center" style="height: 80px; margin-bottom: 1rem;">
+                                <img src="images/Figure128.png" class="img-fluid" style="max-height: 100%; object-fit: contain;">
+                            </div>
+                            <p class="text-center small mt-1">Figure 128 : Vérification du port 11311</p>
+
+                            <p>Puis :</p>
+                            <code class="bg-dark text-white p-2 rounded d-block mb-3"><xmp>export ROS_MASTER_URI=http://localhost:11311
+export ROS_IP=127.0.0.1</xmp></code>
+                            
+                            <p>• On vérifie si ces commandes ont bien été prises en compte (optionnel) :</p>
+                            <div class="table-responsive">
+                                <table class="table table-bordered">
+                                    <thead class="table-primary"><tr><th>Commande à taper</th><th>Ce qu'elle doit renvoyer</th></tr></thead>
+                                    <tbody>
+                                        <tr><td class="fw-bold">echo $ROS_MASTER_URI</td><td>http://localhost:11311</td></tr>
+                                        <tr><td class="fw-bold">echo $ROS_IP</td><td>127.0.0.1</td></tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                            <p class="text-center small mt-1">Tableau 38 : Tableau de vérification de la prise en compte de ROS_MASTER_URI et ROS_IP sur le terminal du PC</p>
+                            
+                            <h5>Configurer ROS sur le robot (à ne pas faire avec le Ned2)</h5>
+                            <p>Dans un ROS multi-machine classique :</p>
+                            <ul>
+                                <li>chaque machine est un nœud ROS</li>
+                                <li>chacune doit connaître : le ROS Master et son IP réseau</li>
+                            </ul>
+                            <p>Mais dans notre cas :</p>
+                            <ul>
+                                <li>le Ned2 refuse le multi-machine</li>
+                                <li>il fonctionne en ROS localhost-only</li>
+                                <li>le tunnel SSH est un trucage réseau, pas une vraie connexion ROS</li>
+                            </ul>
+                            <p>On ferait des exports sur le robot uniquement si :</p>
+                            <ul>
+                                <li>le robot acceptait ROS multi-machine</li>
+                                <li>le port 11311 était ouvert sur le réseau</li>
+                                <li>le PC était un vrai nœud ROS distant</li>
+                            </ul>
+                            
+                            <p>Sur le terminal SSH du robot :</p>
+                            <code class="bg-dark text-white p-3 rounded d-block mb-3"><xmp>export ROS_MASTER_URI=http://localhost:11311
+export ROS_IP=169.254.200.200
+export ROS_HOSTNAME=169.254.200.200</xmp></code>
+    
+                            <p>On vérifie si ces commandes ont bien été prises en compte (optionnel) :</p>
+                            <div class="table-responsive">
+                                <table class="table table-bordered w-75">
+                                    <thead class="table-primary"><tr><th>Commande à taper</th><th>Ce qu'elle doit renvoyer</th></tr></thead>
+                                    <tbody>
+                                        <tr><td class="fw-bold">echo $ROS_MASTER_URI</th><td>http://localhost:11311</th>
+                                        </tr>
+                                        <tr><td class="fw-bold">echo $ROS_IP</th><td>169.254.200.200</th>
+                                        </tr>
+                                        <tr><td class="fw-bold">echo $ROS_HOSTNAME</th><td>169.254.200.200</th>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                            <p class="text-center small mt-1">Tableau 39 : Tableau de vérification de la prise en compte de ROS_MASTER_URI et ROS_IP sur le terminal du robot</p>
+                            
+                            <p>Si les nœuds ROS du robot s'exécutent via roslaunch / systemd / scripts, il faudra peut-être ajouter ces exports dans le fichier « .bashrc » ou dans le fichier de service.</p>
+                            
+                            <h5>Tester la connexion</h5>
+                            <p>Tester le tunnel SSH (depuis le terminal du PC « crestic@... ») :</p>
+                            <code class="bg-dark text-white p-3 rounded d-block mb-3"><xmp>telnet localhost 11311</xmp></code>
+                            <p>Si une connexion ouverte apparaît → tunnel Ok.</p>
+                            
+                            <p>Tester ROS :</p>
+                            <code class="bg-dark text-white p-3 rounded d-block mb-3"><xmp>rostopic list</xmp></code>
+                            
+                            <h5>Points d'attention</h5>
+                            <p>Le tunnel SSH doit rester ouvert. C'est pourquoi il est recommandé d'utiliser la commande :</p>
+                            <code class="bg-dark text-white p-3 rounded d-block mb-3"><xmp>ssh -f -N -L 11311:localhost:11311 niryo@169.254.200.200</xmp></code>
+                            <p>Pour pouvoir le mettre en tâche de fond, il est recommandé de mettre « -f ».</p>
+                            
+                            <h5>Méthodologie récapitulative pour le tunnel SSH :</h5>
+                            <ol>
+                                <li>ouvrir un terminal</li>
+                                <li>taper la commande : <code class="text-dark">ssh niryo@169.254.200.200</code> (mdp : robotics)</li>
+                                <li>ouvrir un nouveau terminal PC (crestic@...)</li>
+                                <li>taper la commande : <code class="text-dark">ssh -f -N -L 11311:localhost:11311 niryo@169.254.200.200</code></li>
+                                <li>ouvrir un nouveau terminal PC (crestic@...)</li>
+                                <li>taper les commandes :</li>
+                                <code class="bg-dark text-white p-2 rounded d-block mb-3"><xmp>export ROS_MASTER_URI=http://localhost:11311
+export ROS_HOSTNAME=127.0.0.1
+source /opt/ros/noetic/setup.bash
+source ~/niryo_ws/devel/setup.bash</xmp></code>
+                                <li>on peut essayer d'ouvrir RViz avec la commande suivante pour voir s'il n'y a pas de<br>problème avec MoveIt :
+                                <code class="text-dark">roslaunch niryo_robot_description display.launch</code></li>
+                                <li>taper : <code class="text-dark">rostopic list</code> <br>
+                                si une liste apparaît → le tunnel SSH fonctionne)</li>
+                                <li>lancer notre script<br>
+                                soit depuis « ~ » en donnant le chemin complet : ex
+                                soit depuis le répertoire dans lequel se situe le script et faire : python3
+                                <code class="text-dark">nom_du_script.py</code></li>
+                            </ol>
+                        </div>
+                        
+                        <!-- Annexe 14 -->
+                        <div id="annexe14" class="mt-4">
+                            <h4 class="text-primary">Annexe 14</h4>
+                            <code class="bg-dark text-white p-3 rounded d-block mb-3"><xmp>
+#!/usr/bin/env python3
+# -*- coding: utf-8 -*-
+
+import rospy
+from niryo_robot_poses_handlers.srv import GetPose
+
+def get_niryo_pose_as_list(pose_name):
+    """ Récupère la position cartésienne [x, y, z, r, p, y] """
+    service_name = '/niryo_robot_poses_handlers/get_pose'
+    rospy.wait_for_service(service_name, timeout=5)
+    try:
+        get_pose_srv = rospy.ServiceProxy(service_name, GetPose)
+        response = get_pose_srv(pose_name)
+        p = response.pose
+        return [p.position.x, p.position.y, p.position.z,
+            p.rpy.roll, p.rpy.pitch, p.rpy.yaw]
+    except Exception as e:
+        rospy.logerr(f"Erreur cartésienne '{pose_name}' : {e}")
+        return None
+
+def get_niryo_joints(pose_name):
+    """
+    Récupère les angles articulaires (J1 à J6) d'une pose.
+    """
+    service_name = '/niryo_robot_poses_handlers/get_pose'
+    rospy.wait_for_service(service_name, timeout=5)
+    try:
+        get_pose_srv = rospy.ServiceProxy(service_name, GetPose)
+        response = get_pose_srv(pose_name)
+
+        return response.pose.joints
+
+    except Exception as e:
+        rospy.logerr(f"Erreur joints '{pose_name}' : {e}")
+        return None
+                            </xmp></code>
+                        </div>
+                        
+                        <!-- Annexe 15 -->
+                        <div id="annexe15" class="mt-4">
+                            <h4 class="text-primary">Annexe 15</h4>
+                            <code class="bg-dark text-white p-3 rounded d-block mb-3"><xmp>
+#!/usr/bin/env python3
+import sys
+import rospy
+import moveit_commander
+from niryo_tools import get_niryo_joints
+def main():
+    # 1. Initialisation de l'interface MoveIt et du nœud ROS
+    moveit_commander.roscpp_initialize(sys.argv)
+    rospy.init_node("ned2_moveit_joint_control", anonymous=True)
+    
+    # 2. Instanciation des interfaces de contrôle
+    robot = moveit_commander.RobotCommander()
+    scene = moveit_commander.PlanningSceneInterface()
+
+    # Définition du groupe de planification pour le bras
+    group_name = "arm"
+    group = moveit_commander.MoveGroupCommander(group_name)
+    
+    # 3. Paramétrage de la vitesse (30% de la vitesse max)
+    group.set_max_velocity_scaling_factor(0.3)
+    group.set_max_acceleration_scaling_factor(0.3)
+    
+    rospy.loginfo("Connexion à MoveIt réussie. Début de la séquence articulaire.")
+
+    # ÉTAPE 1 : Déplacement vers 'pos_cam'
+    rospy.loginfo("Récupération des joints pour 'pos_cam'...")
+    joints_cam = get_niryo_joints("pos_cam")
+    
+    if joints_cam:
+        rospy.loginfo(f"Mouvement articulaire vers pos_cam : {joints_cam}")
+        # Commande de mouvement vers les angles cibles
+        success = group.go(joints_cam, wait=True)
+        group.stop() # Assure l'arrêt des moteurs
+
+        if success:
+            rospy.loginfo("Position 'pos_cam' atteinte avec succès.")
+        else:
+            rospy.logerr("Échec de la planification vers 'pos_cam'.")
+    else:
+        rospy.logerr("Impossible de récupérer les joints de 'pos_cam'. Vérifiez le nom dans
+Niryo Studio.")
+ 
+    rospy.sleep(2.0) # Temporisation entre les mouvements
+
+    # ÉTAPE 2 : Retour vers 'home_position'
+    rospy.loginfo("Récupération des joints pour 'home_position'...")
+    joints_home = get_niryo_joints("home_position")
+    
+    if joints_home:
+        rospy.loginfo(f"Mouvement articulaire vers home_position : {joints_home}")
+        success = group.go(joints_home, wait=True)
+        group.stop()
+
+        if success:
+            rospy.loginfo("Retour en 'home_position' terminé.")
+        else:
+            rospy.logerr("Échec du retour en 'home_position'.")
+    else:
+        rospy.logerr("Position 'home_position' introuvable.")
+    
+    # 4. Fermeture MoveIt
+    moveit_commander.roscpp_shutdown()
+    rospy.loginfo("Séquence terminée.")
+
+ if __name__ == "__main__":
+    try:
+        main()
+    except rospy.ROSInterruptException:
+    pass
+                            </xmp></code>
+                        </div>
+                        
+                        <!-- Annexe 16 -->
+                        <div id="annexe16" class="mt-4">
+                            <h4 class="text-primary">Annexe 16</h4>
+                            <p>« stop_conv_w_ir_rospy.py » : On arrête le convoyeur quand le capteur IR détecte un objet.</p>
+                            <code class="bg-dark text-white p-3 rounded d-block mb-3"><xmp>
+#!/usr/bin/env python3
+
+import sys
+import rospy
+import moveit_commander
+from niryo_tools import get_niryo_joints
+from niryo_robot_rpi.srv import GetDigitalIO
+from niryo_robot_programs_manager.srv import SetConveyor
+
+def control_conveyor(conveyor_id, action, speed=50):
+    """ Active ou arrête le convoyeur """
+    service_name = '/niryo_robot_programs_manager/control_conveyor'
+    rospy.wait_for_service(service_name)
+    try:
+        stop_conveyor = rospy.ServiceProxy(service_name, SetConveyor)
+        # action : True pour lancer, False pour arrêter
+        stop_conveyor(conveyor_id, action, speed, 1) # 1 = direction par défaut
+    except rospy.ServiceException as e:
+        rospy.logerr(f"Erreur convoyeur : {e}")
+
+def wait_for_ir_sensor(pin_id):
+    """ Boucle d'attente jusqu'à détection (passage à 0) """
+    service_name = '/niryo_robot_rpi/get_digital_io'
+    rospy.wait_for_service(service_name)
+    get_io = rospy.ServiceProxy(service_name, GetDigitalIO)
+
+    rospy.loginfo(f"Attente détection sur le port {pin_id}...")
+    while not rospy.is_shutdown():
+        res = get_io(pin_id)
+        if res.value == 0: # Détection (logique inverse)
+            rospy.loginfo("Objet détecté !")
+            break
+        rospy.sleep(0.1) # Évite de surcharger le processeur
+
+def main():
+    moveit_commander.roscpp_initialize(sys.argv)
+    rospy.init_node("conveyor_ir_control", anonymous=True)
+    group = moveit_commander.MoveGroupCommander("arm")
+
+    # ID du convoyeur (souvent 1 ou 2) et Port du capteur (DI5)
+    CONVEYOR_ID = 9
+    SENSOR_PIN = "DI5"
+
+    # 1. Lancer le convoyeur
+    rospy.loginfo("Lancement du convoyeur...")
+    control_conveyor(CONVEYOR_ID, True, speed=30)
+
+    # 2. Attendre que le capteur détecte l'objet
+    wait_for_ir_sensor(SENSOR_PIN)
+
+    # 3. Arrêter le convoyeur immédiatement
+    control_conveyor(CONVEYOR_ID, False)
+    rospy.loginfo("Convoyeur arrêté.")
+    
+    # 4. Déplacement du robot vers pos_cam pour la saisie ou l'inspection
+    joints_cam = get_niryo_joints("pos_cam")
+    if joints_cam:
+        rospy.loginfo("Déplacement vers pos_cam...")
+        group.go(joints_cam, wait=True)
+        group.stop()
+        rospy.loginfo("Robot en position.")
+
+    moveit_commander.roscpp_shutdown()
+
+if __name__ == "__main__":
+    main()
+
+                            </xmp></code>
+                        </div>
+                        
+                        <!-- Annexe 17 -->
+                        <div id="annexe17" class="mt-4">
+                            <h4 class="text-primary">Annexe 17</h4>
+                            <p>Pick_&_Place_rospy.py » : on fait un pick & place avec le convoyeur et le capteur IR.</p>>
+                        </div>
+
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
