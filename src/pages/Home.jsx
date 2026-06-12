@@ -3,7 +3,7 @@ import { Container, Row, Col, Card } from 'react-bootstrap';
 
 const pages = [
   { path: '/robot', title: 'ROBOT NIRYO NED 2' },
-  { path: '/capteurs', title: 'CAPTEURS ET INSTRUMENTATION' },
+  { path: '/Modelisation_matlab', title: 'MODÉLISATION GÉOMÉTRIQUE & PROGRAMMATION MATLAB' },
   { path: '/modelisation', title: 'MODÉLISATION GÉOMÉTRIQUE' },
   { path: '/environnements', title: 'ENVIRONNEMENTS DE PROGRAMMATION' },
   { path: '/logiciels', title: 'LOGICIELS DE PROGRAMMATION' },

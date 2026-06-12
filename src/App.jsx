@@ -1,7 +1,9 @@
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import Layout from './components/Layout/Layout';
 import Home from './pages/Home';
-import Robot from './pages/Robot';  // ← AJOUTER CETTE LIGNE
+import Robot from './pages/Robot';
+import Testing from './pages/testing';  // ← IMPORTANT
+import Modelisation_matlab from './pages/Modelisation_matlab';
 
 function App() {
   return (
@@ -9,7 +11,9 @@ function App() {
       <Routes>
         <Route path="/" element={<Layout />}>
           <Route index element={<Home />} />
-          <Route path="robot" element={<Robot />} />  {/* ← AJOUTER CETTE LIGNE */}
+          <Route path="robot" element={<Robot />} />
+          <Route path="testing" element={<Testing />} />  {/* ← IMPORTANT */}
+          <Route path="Modelisation_matlab" element={<Modelisation_matlab />} />
         </Route>
       </Routes>
     </BrowserRouter>

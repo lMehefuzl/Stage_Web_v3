@@ -1,4 +1,4 @@
-export default function testing() {
+export default function Testing() {
   return (
     <>
       <div className="container-fluid px-0 px-md-3 mb-5">
