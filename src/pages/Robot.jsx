@@ -1,9 +1,9 @@
+import React from 'react';
+
 export default function Robot() {
   return (
-    <>
       <div className="container-fluid px-0 px-md-3 mb-5">
         <div className="row g-0 g-md-4 mx-0">
-
           {/* side bar */}
           <div className="col-md-3 ps-0 pe-0 pe-md-2">
             <div className="bg-white rounded-3 shadow-sm p-3 me-0 me-md-2" style={{ position: 'sticky', top: '20px', maxHeight: 'calc(100vh - 40px)', overflowY: 'auto' }}>
@@ -11,41 +11,113 @@ export default function Robot() {
                 <i className="bi bi-list-ul"></i> Sommaire
               </h5>
               <nav className="nav flex-column">
-                <a className="nav-link px-0 py-1 text-dark" href="#description"><i className="bi bi-info-circle text-primary me-2"></i>1. Description du robot</a>
-                <div className="ps-4">
-                  <a className="nav-link px-0 py-1 text-secondary small" href="#generalites">a) Généralités</a>
-                  <a className="nav-link px-0 py-1 text-secondary small" href="#connectiques">b) Connectiques</a>
-                  <a className="nav-link px-0 py-1 text-secondary small" href="#architecture">c) Architecture électrique</a>
-                  <a className="nav-link px-0 py-1 text-secondary small" href="#alimentation">d) Alimentation</a>
-                  <a className="nav-link px-0 py-1 text-secondary small" href="#modes">e) Mode opératoire</a>
+                
+                {/* ============================================ */}
+                {/* 1. DESCRIPTION DU ROBOT */}
+                {/* ============================================ */}
+                <div className="mb-2">
+                  <a className="nav-link px-0 py-1 text-dark d-flex justify-content-between align-items-center" 
+                    data-bs-toggle="collapse" data-bs-target="#collapseRobot" aria-expanded="false" style={{ cursor: 'pointer' }}>
+                    <span><i className="bi bi-info-circle text-primary me-2"></i>1. Description du robot</span>
+                    <i className="bi bi-chevron-down small"></i>
+                  </a>
+                  <div className="collapse ps-4" id="collapseRobot">
+                    <a className="nav-link px-0 py-1 text-secondary small" href="#description">Description du robot</a>
+                    <a className="nav-link px-0 py-1 text-secondary small" href="#generalites">Généralités</a>
+                    <a className="nav-link px-0 py-1 text-secondary small" href="#connectiques">Connectiques</a>
+                    <a className="nav-link px-0 py-1 text-secondary small" href="#architecture">Architecture électrique</a>
+                    <a className="nav-link px-0 py-1 text-secondary small" href="#alimentation">Alimentation</a>
+                    <a className="nav-link px-0 py-1 text-secondary small" href="#modes">Mode opératoire</a>
+                  </div>
                 </div>
-                <a className="nav-link px-0 py-1 text-dark mt-2" href="#accessoires"><i className="bi bi-tools text-primary me-2"></i>2. Les accessoires</a>
-                <div className="ps-4">
-                  <a className="nav-link px-0 py-1 text-secondary small" href="#grippers">a) Grippers</a>
-                  <a className="nav-link px-0 py-1 text-secondary small" href="#electroaimant">b) Électroaimant</a>
-                  <a className="nav-link px-0 py-1 text-secondary small" href="#pompe">c) Pompe à vide</a>
+                
+                {/* ============================================ */}
+                {/* 2. LES ACCESSOIRES */}
+                {/* ============================================ */}
+                <div className="mb-2">
+                  <a className="nav-link px-0 py-1 text-dark d-flex justify-content-between align-items-center" 
+                    data-bs-toggle="collapse" data-bs-target="#collapseAccessoires" aria-expanded="false" style={{ cursor: 'pointer' }}>
+                    <span><i className="bi bi-tools text-primary me-2"></i>2. Les accessoires</span>
+                    <i className="bi bi-chevron-down small"></i>
+                  </a>
+                  <div className="collapse ps-4" id="collapseAccessoires">
+                    <a className="nav-link px-0 py-1 text-secondary small" href="#accessoires">Les accessoires</a>
+                    <a className="nav-link px-0 py-1 text-secondary small" href="#grippers">Grippers</a>
+                    <a className="nav-link px-0 py-1 text-secondary small" href="#electroaimant">Électroaimant</a>
+                    <a className="nav-link px-0 py-1 text-secondary small" href="#pompe">Pompe à vide</a>
+                  </div>
                 </div>
-                <a className="nav-link px-0 py-1 text-dark mt-2" href="#boutons"><i className="bi bi-grid-3x3-gap-fill text-primary me-2"></i>3. Les boutons</a>
-                <div className="ps-4">
-                  <a className="nav-link px-0 py-1 text-secondary small" href="#bouton-wifi">a) Bouton Wi-Fi</a>
-                  <a className="nav-link px-0 py-1 text-secondary small" href="#bouton-sup">b) Bouton supérieur</a>
-                  <a className="nav-link px-0 py-1 text-secondary small" href="#panneau">c) Panneau de contrôle</a>
+                
+                {/* ============================================ */}
+                {/* 3. LES BOUTONS */}
+                {/* ============================================ */}
+                <div className="mb-2">
+                  <a className="nav-link px-0 py-1 text-dark d-flex justify-content-between align-items-center" 
+                    data-bs-toggle="collapse" data-bs-target="#collapseBoutons" aria-expanded="false" style={{ cursor: 'pointer' }}>
+                    <span><i className="bi bi-grid-3x3-gap-fill text-primary me-2"></i>3. Les boutons</span>
+                    <i className="bi bi-chevron-down small"></i>
+                  </a>
+                  <div className="collapse ps-4" id="collapseBoutons">
+                    <a className="nav-link px-0 py-1 text-secondary small" href="#boutons">Les boutons</a>
+                    <a className="nav-link px-0 py-1 text-secondary small" href="#bouton-wifi">Bouton Wi-Fi</a>
+                    <a className="nav-link px-0 py-1 text-secondary small" href="#bouton-sup">Bouton supérieur</a>
+                    <a className="nav-link px-0 py-1 text-secondary small" href="#panneau">Panneau de contrôle</a>
+                  </div>
                 </div>
-                <a className="nav-link px-0 py-1 text-dark mt-2" href="#securite"><i className="bi bi-shield-lock-fill text-primary me-2"></i>4. Sécurité</a>
-                <a className="nav-link px-0 py-1 text-dark mt-2" href="#anneau-led"><i className="bi bi-lightbulb-fill text-primary me-2"></i>5. Indications anneau LED</a>
-                <a className="nav-link px-0 py-1 text-dark mt-2" href="#capteurs"><i className="bi bi-motherboard text-primary me-2"></i>6. Capteurs et instrumentation</a>
-                <div className="ps-4">
-                  <a className="nav-link px-0 py-1 text-secondary small" href="#raspberry">a) Raspberry Pi 4</a>
-                  <a className="nav-link px-0 py-1 text-secondary small" href="#servomoteur">b) Servomoteur XL330</a>
-                  <a className="nav-link px-0 py-1 text-secondary small" href="#camera">c) Caméra IMX322</a>
-                  <a className="nav-link px-0 py-1 text-secondary small" href="#capteur-ir">d) Capteur IR E18 D80NK</a>
-                  <a className="nav-link px-0 py-1 text-secondary small" href="#convoyeur">e) Convoyeur v2</a>
-                  <a className="nav-link px-0 py-1 text-secondary small" href="#set-vision">f) Set Vision</a>
+                
+                {/* ============================================ */}
+                {/* 4. SÉCURITÉ */}
+                {/* ============================================ */}
+                <a className="nav-link px-0 py-1 text-dark" href="#securite">
+                  <i className="bi bi-shield-lock-fill text-primary me-2"></i>4. Sécurité
+                </a>
+                
+                {/* ============================================ */}
+                {/* 5. INDICATIONS ANNEAU LED */}
+                {/* ============================================ */}
+                <a className="nav-link px-0 py-1 text-dark" href="#anneau-led">
+                  <i className="bi bi-lightbulb-fill text-primary me-2"></i>5. Indications anneau LED
+                </a>
+                
+                {/* ============================================ */}
+                {/* 6. MAINTENANCE ET MISES À JOUR */}
+                {/* ============================================ */}
+                <a className="nav-link px-0 py-1 text-dark" href="#maintenance">
+                  <i className="bi bi-gear-fill text-primary me-2"></i>6. Maintenance et mises à jour
+                </a>
+                
+                {/* ============================================ */}
+                {/* 7. CAPTEURS ET INSTRUMENTATION */}
+                {/* ============================================ */}
+                <div className="mb-2">
+                  <a className="nav-link px-0 py-1 text-dark d-flex justify-content-between align-items-center" 
+                    data-bs-toggle="collapse" data-bs-target="#collapseCapteurs" aria-expanded="false" style={{ cursor: 'pointer' }}>
+                    <span><i className="bi bi-motherboard text-primary me-2"></i>7. Capteurs et instrumentation</span>
+                    <i className="bi bi-chevron-down small"></i>
+                  </a>
+                  <div className="collapse ps-4" id="collapseCapteurs">
+                    <a className="nav-link px-0 py-1 text-secondary small" href="#capteurs">Capteurs et instrumentation</a>
+                    <a className="nav-link px-0 py-1 text-secondary small" href="#raspberry">Raspberry Pi 4</a>
+                    <a className="nav-link px-0 py-1 text-secondary small" href="#servomoteur">Servomoteur XL330</a>
+                    <a className="nav-link px-0 py-1 text-secondary small" href="#camera">Caméra IMX322</a>
+                    <a className="nav-link px-0 py-1 text-secondary small" href="#capteur-ir">Capteur IR E18 D80NK</a>
+                    <a className="nav-link px-0 py-1 text-secondary small" href="#convoyeur">Convoyeur v2</a>
+                    <a className="nav-link px-0 py-1 text-secondary small" href="#set-vision">Set Vision</a>
+                  </div>
                 </div>
-
-                <div className="border-top mt-3 pt-2">
-                  <p className="text-primary fw-semibold small mb-1"><i className="bi bi-image text-primary me-1"></i> Figures :</p>
-                  <div className="ps-3">
+                
+                {/* ============================================ */}
+                {/* FIGURES */}
+                {/* ============================================ */}
+                <div className="border-top mt-3 pt-2"></div>
+                
+                <div className="mb-2">
+                  <a className="nav-link px-0 py-1 text-dark d-flex justify-content-between align-items-center" 
+                    data-bs-toggle="collapse" data-bs-target="#collapseFigures" aria-expanded="false" style={{ cursor: 'pointer' }}>
+                    <span><i className="bi bi-image text-primary me-2"></i>Figures</span>
+                    <i className="bi bi-chevron-down small"></i>
+                  </a>
+                  <div className="collapse ps-4" id="collapseFigures">
                     <a className="nav-link px-0 py-1 text-secondary small" href="#figure1">Figure 1</a>
                     <a className="nav-link px-0 py-1 text-secondary small" href="#figure2">Figure 2</a>
                     <a className="nav-link px-0 py-1 text-secondary small" href="#figure3">Figure 3</a>
@@ -78,10 +150,17 @@ export default function Robot() {
                     <a className="nav-link px-0 py-1 text-secondary small" href="#figure33">Figure 33</a>
                   </div>
                 </div>
-
-                <div className="border-top mt-3 pt-2">
-                  <p className="text-primary fw-semibold small mb-1"><i className="bi bi-table text-primary me-1"></i> Tableaux :</p>
-                  <div className="ps-3">
+                
+                {/* ============================================ */}
+                {/* TABLEAUX */}
+                {/* ============================================ */}
+                <div className="mb-2">
+                  <a className="nav-link px-0 py-1 text-dark d-flex justify-content-between align-items-center" 
+                    data-bs-toggle="collapse" data-bs-target="#collapseTableaux" aria-expanded="false" style={{ cursor: 'pointer' }}>
+                    <span><i className="bi bi-table text-primary me-2"></i>Tableaux</span>
+                    <i className="bi bi-chevron-down small"></i>
+                  </a>
+                  <div className="collapse ps-4" id="collapseTableaux">
                     <a className="nav-link px-0 py-1 text-secondary small" href="#tableau1">Tableau 1</a>
                     <a className="nav-link px-0 py-1 text-secondary small" href="#tableau2">Tableau 2</a>
                     <a className="nav-link px-0 py-1 text-secondary small" href="#tableau3">Tableau 3</a>
@@ -134,7 +213,7 @@ export default function Robot() {
               </div>
 
               <div id="generalites">
-                <h3 className="text-dark fw-bold">a) Généralités</h3>
+                <h3 className="text-dark fw-bold">Généralités</h3>
                 <div id="tableau1" className="table-responsive">
                   <table className="table table-bordered">
                     <thead className="table-primary"><tr><th>Paramètre</th><th>Valeur</th></tr></thead>
@@ -164,17 +243,17 @@ export default function Robot() {
               </div>
 
               <div id="connectiques" className="mt-5">
-                <h3 className="text-dark fw-bold">b) Connectiques</h3>
+                <h3 className="text-dark fw-bold">Connectiques</h3>
                 <div className="row g-3 mb-4">
                   <div className="col-md-6">
                     <div id="figure3" className="border rounded bg-light p-2 d-flex align-items-center justify-content-center" style={{ height: '240px' }}>
-                      <img src="images/Figure3.png" className="img-fluid" style={{ maxHeight: '100%', objectFit: 'contain' }} alt="Caractéristiques du panneau" />
+                      <img src="images/Figure3.png" className="img-fluid" style={{ maxHeight: '100%', objectFit: 'contain' }} alt="Caractéristiques du panneau arrière" />
                     </div>
                     <p className="text-center small mt-1">Figure 3 : Caractéristiques du panneau arrière de la base</p>
                   </div>
                   <div className="col-md-6">
                     <div id="figure4" className="border rounded bg-light p-2 d-flex align-items-center justify-content-center" style={{ height: '240px' }}>
-                      <img src="images/Figure4.png" className="img-fluid" style={{ maxHeight: '100%', objectFit: 'contain' }} alt="Panneau arrière" />
+                      <img src="images/Figure4.png" className="img-fluid" style={{ maxHeight: '100%', objectFit: 'contain' }} alt="Panneau arrière de la base" />
                     </div>
                     <p className="text-center small mt-1">Figure 4 : Panneau arrière de la base</p>
                   </div>
@@ -187,7 +266,7 @@ export default function Robot() {
                     <thead className="table-primary"><tr><th>Connecteur</th><th>Paramètre</th><th>Min</th><th>Max</th><th>Unité</th></tr></thead>
                     <tbody>
                       <tr className="table-secondary fw-bold"><td>Entrée numérique : type → NPN</td><td></td><td></td><td></td><td></td></tr>
-                      <tr><td className="fw-bold">[DI1 - DI2 - DI3]</td><td class="fw-bold">Tension</td><td>0</td><td>5</td><td>V</td></tr>
+                      <tr><td className="fw-bold">[DI1 - DI2 - DI3]</td><td className="fw-bold">Tension</td><td>0</td><td>5</td><td>V</td></tr>
                       <tr><td></td><td className="fw-bold">Courant</td><td>0</td><td>5</td><td>mA</td></tr>
                     </tbody>
                   </table>
@@ -195,7 +274,7 @@ export default function Robot() {
                 <p className="text-center small mt-1">Tableau 2 : Tableau récapitulatif des entrées numériques du robot Niryo Ned2</p>
                 <p>L'illustration ci-dessous montre comment connecter un bouton à l'entrée numérique.</p>
                 <div id="figure5" className="border rounded bg-light p-2 d-flex align-items-center justify-content-center mb-1" style={{ height: '150px' }}>
-                  <img src="images/Figure5.png" className="img-fluid" style={{ maxHeight: '100%', objectFit: 'contain' }} alt="Connexion bouton" />
+                  <img src="images/Figure5.png" className="img-fluid" style={{ maxHeight: '100%', objectFit: 'contain' }} alt="Schéma connexion bouton" />
                 </div>
                 <p className="text-center small mt-1">Figure 5 : Schéma de connexion d'un bouton sur une entrée numérique</p>
 
@@ -214,7 +293,7 @@ export default function Robot() {
                 <p className="text-center small mt-1">Tableau 3 : Tableau récapitulatif des sorties numériques du robot Niryo Ned2</p>
                 <p>L'illustration ci-dessous montre comment connecter une charge à contrôler à une sortie numérique.</p>
                 <div id="figure6" className="border rounded bg-light p-2 d-flex align-items-center justify-content-center mb-1" style={{ height: '150px' }}>
-                  <img src="images/Figure6.png" className="img-fluid" style={{ maxHeight: '100%', objectFit: 'contain' }} alt="Connexion charge" />
+                  <img src="images/Figure6.png" className="img-fluid" style={{ maxHeight: '100%', objectFit: 'contain' }} alt="Schéma connexion charge" />
                 </div>
                 <p className="text-center small mt-1">Figure 6 : Schéma de connexion d'une charge sur une sortie numérique</p>
 
@@ -234,7 +313,7 @@ export default function Robot() {
                 <p className="text-center small mt-1">Tableau 4 : Tableau récapitulatif des entrées analogiques du robot Niryo Ned2</p>
                 <p>L'illustration ci-dessous montre comment connecter un potentiomètre pour lire des tensions entre 0 et 5V.</p>
                 <div id="figure7" className="border rounded bg-light p-2 d-flex align-items-center justify-content-center mb-1" style={{ height: '150px' }}>
-                  <img src="images/Figure7.png" className="img-fluid" style={{ maxHeight: '100%', objectFit: 'contain' }} alt="Connexion potentiomètre" />
+                  <img src="images/Figure7.png" className="img-fluid" style={{ maxHeight: '100%', objectFit: 'contain' }} alt="Schéma connexion potentiomètre" />
                 </div>
                 <p className="text-center small mt-1">Figure 7 : Schéma de connexion d'un potentiomètre sur une entrée analogique</p>
 
@@ -254,24 +333,24 @@ export default function Robot() {
                 <p className="text-center small mt-1">Tableau 5 : Tableau récapitulatif des sorties analogiques du robot Niryo Ned2</p>
                 <p>L'illustration ci-dessous montre comment connecter une charge à contrôler depuis une sortie analogique.</p>
                 <div id="figure8" className="border rounded bg-light p-2 d-flex align-items-center justify-content-center mb-1" style={{ height: '150px' }}>
-                  <img src="images/Figure8.png" className="img-fluid" style={{ maxHeight: '100%', objectFit: 'contain' }} alt="Connexion charge AO" />
+                  <img src="images/Figure8.png" className="img-fluid" style={{ maxHeight: '100%', objectFit: 'contain' }} alt="Schéma connexion sortie analogique" />
                 </div>
                 <p className="text-center small mt-1">Figure 8 : Schéma de connexion d'une charge à contrôler sur une sortie analogique</p>
               </div>
 
               <div id="architecture" className="mt-5">
-                <h3 className="text-dark fw-bold">c) Architecture électrique du cobot Ned2</h3>
+                <h3 className="text-dark fw-bold">Architecture électrique du cobot Ned2</h3>
                 <div id="figure9" className="border rounded bg-light p-2 d-flex align-items-center justify-content-center mb-1" style={{ height: '300px' }}>
-                  <img src="images/Figure9.png" className="img-fluid" style={{ maxHeight: '100%', objectFit: 'contain' }} alt="Architecture électrique" />
+                  <img src="images/Figure9.png" className="img-fluid" style={{ maxHeight: '100%', objectFit: 'contain' }} alt="Architecture électrique Ned2" />
                 </div>
                 <p className="text-center small mt-1">Figure 9 : Architecture électrique du robot Ned2</p>
               </div>
 
               <div id="alimentation" className="mt-5">
-                <h3 className="text-dark fw-bold">d) Alimentation du robot et de ses composants</h3>
+                <h3 className="text-dark fw-bold">Alimentation du robot et de ses composants</h3>
                 <p>L'alimentation du robot se fait via la connectique numéro 15 visible sur la figure 4. Le schéma électrique de cette connectique est le suivant :</p>
                 <div id="figure10" className="border rounded bg-light p-2 d-flex align-items-center justify-content-center mb-1" style={{ height: '200px' }}>
-                  <img src="images/Figure10.png" className="img-fluid" style={{ maxHeight: '100%', objectFit: 'contain' }} alt="Schéma alimentation" />
+                  <img src="images/Figure10.png" className="img-fluid" style={{ maxHeight: '100%', objectFit: 'contain' }} alt="Schéma d'alimentation" />
                 </div>
                 <p className="text-center small mt-1">Figure 10 : Schéma d'alimentation du robot</p>
                 <p>Et ses paramètres d'entrées sont :</p>
@@ -292,7 +371,7 @@ export default function Robot() {
               </div>
 
               <div id="modes" className="mt-5">
-                <h3 className="text-dark fw-bold">e) Mode opératoire du robot</h3>
+                <h3 className="text-dark fw-bold">Mode opératoire du robot</h3>
                 <p>Le robot dispose de 3 modes opératoires :</p>
                 <ul>
                   <li><strong>Mode Manuel – Calibration du robot :</strong> le robot définit automatiquement les positions Zéro de chaque axe</li>
@@ -319,7 +398,7 @@ export default function Robot() {
               </ul>
 
               <div id="grippers" className="mb-4">
-                <h3 className="text-dark fw-bold">a) Grippers</h3>
+                <h3 className="text-dark fw-bold">Grippers</h3>
                 <div className="row g-3 mb-3">
                   <div className="col-md-6">
                     <div id="figure12" className="border rounded bg-light p-2 d-flex align-items-center justify-content-center" style={{ height: '180px' }}>
@@ -329,7 +408,7 @@ export default function Robot() {
                   </div>
                   <div className="col-md-6">
                     <div id="figure13" className="border rounded bg-light p-2 d-flex align-items-center justify-content-center" style={{ height: '180px' }}>
-                      <img src="images/Figure13.png" className="img-fluid" style={{ maxHeight: '100%', objectFit: 'contain' }} alt="Cotes pince Custom" />
+                      <img src="images/Figure13.png" className="img-fluid" style={{ maxHeight: '100%', objectFit: 'contain' }} alt="Cotes Pince Custom" />
                     </div>
                     <p className="text-center small mt-1">Figure 13 : Cotes de la pince Custom</p>
                   </div>
@@ -395,7 +474,7 @@ export default function Robot() {
               </div>
 
               <div id="electroaimant" className="mb-4">
-                <h3 className="text-dark fw-bold">b) Électroaimant</h3>
+                <h3 className="text-dark fw-bold">Électroaimant</h3>
                 <div id="figure17" className="border rounded bg-light p-2 d-flex align-items-center justify-content-center mb-1" style={{ height: '180px' }}>
                   <img src="images/Figure17.png" className="img-fluid" style={{ maxHeight: '100%', objectFit: 'contain' }} alt="Électroaimant" />
                 </div>
@@ -417,13 +496,13 @@ export default function Robot() {
                 <p className="text-center small mt-1">Tableau 9 : Description de l'électroaimant</p>
                 <p>L'électroaimant est connecté de la façon suivante sur le panneau de contrôle :</p>
                 <div id="figure18" className="border rounded bg-light p-2 d-flex align-items-center justify-content-center mb-1" style={{ height: '180px' }}>
-                  <img src="images/Figure18.png" className="img-fluid" style={{ maxHeight: '100%', objectFit: 'contain' }} alt="Connectique électroaimant" />
+                  <img src="images/Figure18.png" className="img-fluid" style={{ maxHeight: '100%', objectFit: 'contain' }} alt="Connectique de l'électroaimant" />
                 </div>
                 <p className="text-center small mt-1">Figure 18 : Connectique de l'électroaimant</p>
               </div>
 
               <div id="pompe">
-                <h3 className="text-dark fw-bold">c) Pompe à vide</h3>
+                <h3 className="text-dark fw-bold">Pompe à vide</h3>
                 <div id="figure19" className="border rounded bg-light p-2 d-flex align-items-center justify-content-center mb-1" style={{ height: '180px' }}>
                   <img src="images/Figure19.png" className="img-fluid" style={{ maxHeight: '100%', objectFit: 'contain' }} alt="Pompe à vide" />
                 </div>
@@ -445,7 +524,7 @@ export default function Robot() {
                 </div>
                 <p className="text-center small mt-1">Tableau 10 : Description de la pompe à vide</p>
                 <div id="figure20" className="border rounded bg-light p-2 d-flex align-items-center justify-content-center mb-1" style={{ height: '180px' }}>
-                  <img src="images/Figure20.png" className="img-fluid" style={{ maxHeight: '100%', objectFit: 'contain' }} alt="Câblage pompe" />
+                  <img src="images/Figure20.png" className="img-fluid" style={{ maxHeight: '100%', objectFit: 'contain' }} alt="Câblage de la pompe" />
                 </div>
                 <p className="text-center small mt-1">Figure 20 : Câblage de la pompe à vide</p>
               </div>
@@ -459,7 +538,7 @@ export default function Robot() {
               <p>Le robot possède sur lui 6 boutons. Le bouton d'allumage et un bouton wifi, tous les deux présents sur le derrière de la base (Figure 21), un bouton multitâche sur le haut de la base, et les trois boutons du panneau de contrôle présents sur la Figure 23.</p>
 
               <div id="bouton-wifi" className="mb-4">
-                <h3 className="text-dark fw-bold">a) Bouton Wi-Fi</h3>
+                <h3 className="text-dark fw-bold">Bouton Wi-Fi</h3>
                 <div id="figure21" className="border rounded bg-light p-2 d-flex align-items-center justify-content-center mb-1" style={{ height: '150px' }}>
                   <img src="images/Figure21.png" className="img-fluid" style={{ maxHeight: '100%', objectFit: 'contain' }} alt="Bouton wifi" />
                 </div>
@@ -474,11 +553,11 @@ export default function Robot() {
                     </tbody>
                   </table>
                 </div>
-                <p className="text-center small mt-1">Tableau 11 : Tableau répertoriant l'usage du bouton "wifi"</p>
+                <p className="text-center small mt-1">Tableau 11 : Tableau répertoriant l'usage du bouton &quot;wifi&quot;</p>
               </div>
 
               <div id="bouton-sup" className="mb-4">
-                <h3 className="text-dark fw-bold">b) Bouton supérieur</h3>
+                <h3 className="text-dark fw-bold">Bouton supérieur</h3>
                 
                 <div id="tableau13" className="table-responsive">
                   <table className="table table-bordered">
@@ -499,7 +578,7 @@ export default function Robot() {
               </div>
 
               <div id="panneau">
-                <h3 className="text-dark fw-bold">c) Panneau de contrôle</h3>
+                <h3 className="text-dark fw-bold">Panneau de contrôle</h3>
                 <div id="figure23" className="border rounded bg-light p-2 d-flex align-items-center justify-content-center mb-1" style={{ height: '150px' }}>
                   <img src="images/Figure23.png" className="img-fluid" style={{ maxHeight: '100%', objectFit: 'contain' }} alt="Panneau de contrôle" />
                 </div>
@@ -529,7 +608,7 @@ export default function Robot() {
               </div>
               <p><strong>Un bouton d'Arrêt d'Urgence (AU)</strong> est fourni avec le robot. Il doit toujours être branché au robot.</p>
               <div id="figure24" className="border rounded bg-light p-2 d-flex align-items-center justify-content-center mb-1" style={{ height: '150px' }}>
-                <img src="images/Figure24.png" className="img-fluid" style={{ maxHeight: '100%', objectFit: 'contain' }} alt="Bouton AU" />
+                <img src="images/Figure24.png" className="img-fluid" style={{ maxHeight: '100%', objectFit: 'contain' }} alt="Bouton d'Arrêt d'Urgence" />
               </div>
               <p className="text-center small mt-1">Figure 24 : Bouton d'Arrêt d'Urgence (AU)</p>
               <strong>Mise en tension :</strong>
@@ -539,7 +618,7 @@ export default function Robot() {
                 <li>Avant d'allumer, s'assurer que le robot est correctement fixé et qu'aucun obstacle ne se trouve à proximité (la calibration automatique va le faire bouger).</li>
               </ul>
               <div id="figure25" className="border rounded bg-light p-2 d-flex align-items-center justify-content-center mb-1" style={{ height: '200px' }}>
-                <img src="images/Figure25.png" className="img-fluid" style={{ maxHeight: '100%', objectFit: 'contain' }} alt="Avertissement" />
+                <img src="images/Figure25.png" className="img-fluid" style={{ maxHeight: '100%', objectFit: 'contain' }} alt="Avertissement d'installation" />
               </div>
               <p className="text-center small mt-1">Figure 25 : Avertissement d'installation</p>
               <div id="figure26" className="border rounded bg-light p-2 d-flex align-items-center justify-content-center mb-1" style={{ height: '450px' }}>
@@ -635,7 +714,7 @@ export default function Robot() {
             {/* 7. CAPTEURS ET INSTRUMENTATION */}
             {/* ============================================ */}
             <div id="capteurs" className="bg-white rounded-3 shadow-sm p-4 mb-4">
-              <h2 className="text-primary border-bottom pb-2 mb-4"><i className="bi bi-motherboard-fill"></i> 6. CAPTEURS ET INSTRUMENTATION</h2>
+              <h2 className="text-primary border-bottom pb-2 mb-4"><i className="bi bi-motherboard-fill"></i> 7. CAPTEURS ET INSTRUMENTATION</h2>
               <p>Le Niryo Ned2 intègre un Raspberry Pi 4 et peut être équipé de capteurs, notamment le Set Vision et un convoyeur.</p>
 
               <strong>Le Set Vision se compose de :</strong>
@@ -648,7 +727,7 @@ export default function Robot() {
               <p>Ce set confère à Ned2 la possibilité de détecter des objets et de sélectionner ceux avec lesquels il veut interagir. Celui-ci permet d'étudier des sujets comme le traitement d'image, le Machine Learning ou encore l'intelligence artificielle.</p>
 
               <div id="raspberry" className="mt-5">
-                <h3 className="text-dark fw-bold">a) Raspberry Pi 4</h3>
+                <h3 className="text-dark fw-bold">Raspberry Pi 4</h3>
                 <p>Le Raspberry Pi 4 (un micro-ordinateur), intégré dans la base du robot, exécute ROS Noetic et les logiciels Niryo.
                 Il reçoit les commandes (Python, Modbus, NiryoStudio, etc.) et pilote les moteurs et capteurs.</p>
 
@@ -659,7 +738,7 @@ export default function Robot() {
                       <tr><td className="fw-bold">Processeur</td><td>Broadcom BCM 2711, quad-core ARM Cortex-A72 (ARM v8) SoC 64 bits - 1.5GHz</td></tr>
                       <tr><td className="fw-bold">Mémoire RAM</td><td>4 Go</td></tr>
                       <tr><td className="fw-bold">Connectique</td><td>2.4GHz et 5GHz IEEE, 2 ports USB 3.0, 2 ports USB 2.0, Port Ethernet (Gigabit), Wifi, Bluetooth 5.0, BLE</td></tr>
-                      <tr><td className="fw-bold">Vidéo & Son</td><td>2 ports micro-HDMI (jusqu'à 4K pris en charge), Port d'affichage MIPI DSI 2 voies, Port d'appareil photo MIPI CSI 2 voies, Port audio stéréo 4 pôles et port vidéo composite</td></tr>
+                      <tr><td className="fw-bold">Vidéo &amp; Son</td><td>2 ports micro-HDMI (jusqu'à 4K pris en charge), Port d'affichage MIPI DSI 2 voies, Port d'appareil photo MIPI CSI 2 voies, Port audio stéréo 4 pôles et port vidéo composite</td></tr>
                       <tr><td className="fw-bold">GPIO</td><td>Embase GPIO 40 broches standard (branchement des capteurs, moteurs, etc.)</td></tr>
                       <tr><td className="fw-bold">Stockage</td><td>Carte microSD (pour le stockage et le chargement du système d'exploitation)</td></tr>
                       <tr><td className="fw-bold">Alimentation</td><td>5V (3A minimum)</td></tr>
@@ -670,13 +749,13 @@ export default function Robot() {
                 </div>
                 <p className="text-center small mt-1">Tableau 15 : Tableau descriptif de la carte Raspberry Pi 4 du robot</p>
                 <div id="figure30" className="border rounded bg-light p-2 d-flex align-items-center justify-content-center mb-1" style={{ height: '400px' }}>
-                  <img src="images/Figure30.png" className="img-fluid" style={{ maxHeight: '100%', objectFit: 'contain' }} alt="Raspberry Pi" />
+                  <img src="images/Figure30.png" className="img-fluid" style={{ maxHeight: '100%', objectFit: 'contain' }} alt="Raspberry PI 4" />
                 </div>
                 <p className="text-center small mt-1">Figure 30 : Schéma fonctionnel simplifié montrant le rôle du Raspberry Pi 4 dans le robot Ned2</p>
               </div>
 
               <div id="servomoteur" className="mt-5">
-                <h3 className="text-dark fw-bold">b) Servomoteur XL330</h3>
+                <h3 className="text-dark fw-bold">Servomoteur XL330</h3>
                 <div id="tableau17" className="table-responsive">
                   <table className="table table-bordered">
                     <thead className="table-primary"><tr><th>Paramètre</th><th>Donnée</th></tr></thead>
@@ -707,7 +786,7 @@ export default function Robot() {
               </div>
 
               <div id="camera" className="mt-5">
-                <h3 className="text-dark fw-bold">c) Caméra IMX322</h3>
+                <h3 className="text-dark fw-bold">Caméra IMX322</h3>
                 <div id="tableau18" className="table-responsive">
                   <table className="table table-bordered">
                     <thead className="table-primary"><tr><th>Paramètre</th><th>Donnée</th></tr></thead>
@@ -723,12 +802,12 @@ export default function Robot() {
                       <tr><td className="fw-bold">Sensibilité</td><td>5.0V / lux-seconde</td></tr>
                       <tr><td className="fw-bold">Éclairage minimale</td><td>0.01 lux</td></tr>
                       <tr><td className="fw-bold">Température de fonctionnement</td><td>-20 ~ 85 °C</td></tr>
-                      <tr><td className="fw-bold">Formats compressés</td><td>H264 & MJPEG</td></tr>
+                      <tr><td className="fw-bold">Formats compressés</td><td>H264 &amp; MJPEG</td></tr>
                       <tr><td className="fw-bold">Plage dynamique</td><td>86 dB</td></tr>
                       <tr><td className="fw-bold">Rapport Signal/Bruit</td><td>42 dB</td></tr>
                       <tr><td className="fw-bold">Configuration requise pour les systèmes d'exploitation</td><td>Windows 7 ou supérieur<br />Linux 2 ou supérieur<br />Android 4.0 ou supérieur</td></tr>
                       <tr><td className="fw-bold">Méthodes de contrôle</td><td>NiryoStudio, API Python, TCP/IP</td></tr>
-                      <tr><td className="fw-bold">Type de connexion</td><td>USB 2.0 High Speed - Plug & Play</td></tr>
+                      <tr><td className="fw-bold">Type de connexion</td><td>USB 2.0 High Speed - Plug &amp; Play</td></tr>
                       <tr><td className="fw-bold">Capteur d'image</td><td>CMOS rétroéclairé</td></tr>
                       <tr><td className="fw-bold">Limites</td><td>Bruit de lecture, Rolling shutter (distorsion si objet rapide)</td></tr>
                       <tr><td className="fw-bold">Données envoyées au PC</td><td>Envoie un flux numérique (USB ou Ethernet selon module) et le logiciel (ex: NiryoStudio, ou ROS, ...) reçoit une image matricielle</td></tr>
@@ -737,14 +816,14 @@ export default function Robot() {
                 </div>
                 <p className="text-center small mt-1">Tableau 17 : Description de la caméra IMX322 implémenter sur le robot</p>
                 <p><strong>Plage dynamique (DR)</strong> : Elle mesure l'écart entre les zones les plus sombres et les plus brillantes d'une image. 
-                Calculée en décibels DR(dB) = 20 · log₁₀(Vsat / Vnoise), elle peut aussi s'exprimer en &quot;stops&quot;. Avec 86 dB (soit 14,3 stops), 
+                Calculée en décibels <strong>DR(dB) = 20 · log₁₀(Vsat / Vnoise)</strong>, elle peut aussi s'exprimer en &quot;stops&quot;. Avec 86 dB (soit 14,3 stops), 
                 la caméra dépasse largement les capteurs industriels standards (environ 80 dB), ce qui est amplement suffisant.</p>
 
                 <p><a href="https://www.baslerweb.com/fr-fr/learning/yuv-color-coding/">Format brut YUV</a>: Ce codage couleur sépare la luminosité (Y) des informations de couleur (U et V), ce qui permet de réduire la quantité de données à traiter.</p>
               </div>
 
               <div id="capteur-ir" className="mt-5">
-                <h3 className="text-dark fw-bold">d) Capteur IR E18 D80NK</h3>
+                <h3 className="text-dark fw-bold">Capteur IR E18 D80NK</h3>
                 <div id="tableau19" className="table-responsive">
                   <table className="table table-bordered">
                     <thead className="table-primary"><tr><th>Paramètre</th><th>Donnée</th></tr></thead>
@@ -768,13 +847,13 @@ export default function Robot() {
                 <p>Émetteur LED infrarouge + photodiode réceptrice. Mesure basée sur la réflexion de la lumière IR sur un objet (surface de l'objet). Si la lumière réfléchie dépasse un seuil → détection activée (sortie logique).</p>
                 <p>La figure suivante montre comment câbler le capteur au robot.</p>
                 <div id="figure31" className="border rounded bg-light p-2 d-flex align-items-center justify-content-center mb-1" style={{ height: '200px' }}>
-                  <img src="images/Figure31.png" className="img-fluid" style={{ maxHeight: '100%', objectFit: 'contain' }} alt="Câblage capteur IR" />
+                  <img src="images/Figure31.png" className="img-fluid" style={{ maxHeight: '100%', objectFit: 'contain' }} alt="Câblage Capteur IR" />
                 </div>
                 <p className="text-center small mt-1">Figure 31 : Schéma de câblage du capteur IR</p>
               </div>
 
               <div id="convoyeur" className="mt-5">
-                <h3 className="text-dark fw-bold">e) Convoyeur v2</h3>
+                <h3 className="text-dark fw-bold">Convoyeur v2</h3>
                 <div id="figure32" className="border rounded bg-light p-2 d-flex align-items-center justify-content-center mb-1" style={{ height: '150px' }}>
                   <img src="images/Figure32.png" className="img-fluid" style={{ maxHeight: '100%', objectFit: 'contain' }} alt="Convoyeur" />
                 </div>
@@ -798,7 +877,7 @@ export default function Robot() {
               </div>
 
               <div id="set-vision" className="mt-5">
-                <h3 className="text-dark fw-bold">f) Set Vision</h3>
+                <h3 className="text-dark fw-bold">Set Vision</h3>
                 <div id="figure33" className="border rounded bg-light p-2 d-flex align-items-center justify-content-center mb-1" style={{ height: '200px' }}>
                   <img src="images/Figure33.png" className="img-fluid" style={{ maxHeight: '100%', objectFit: 'contain' }} alt="Set Vision" />
                 </div>
@@ -832,6 +911,5 @@ export default function Robot() {
           </div>
         </div>
       </div>
-    </>
   );
 }
