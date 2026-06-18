@@ -1,16 +1,41 @@
-import React from 'react'
+import React from 'react';
 
-const Navbar = () => {
+const Navbar = ({ setPage, currentPage }) => {
+  // Cette fonction détermine le titre à afficher selon la page active
+  const getTitle = () => {
+    switch (currentPage) {
+      case 'documentation_technique': 
+        return 'DOCUMENTATION TECHNIQUE';
+      case 'programmation': 
+        return 'LOGICIELS DE PROGRAMMATION';
+      case 'communication': 
+        return 'COMMUNICATION LOGICIELLE';
+      case 'jumeau_numérique': 
+        return 'JUMEAU NUMÉRIQUE';
+      case 'théorie': 
+        return 'MODÉLISATION GÉOMÉTRIQUE & PROGRAMMATION';
+      case 'ressources': 
+        return 'RESSOURCES';
+      default: 
+        return 'GUIDE NIRYO NED 2';
+    }
+  };
+
   return (
-    <div class="bg-white border-bottom shadow-sm mb-4">
-        <div class="container-fluid py-3 px-4">
-            <a href="index.html" class="btn btn-outline-primary btn-sm">
-                <i class="bi bi-arrow-left"></i> Accueil
-            </a>
-            <span class="ms-3 fs-5 fw-semibold text-primary">DOCUMENTATION TECHNIQUE</span>
-        </div>
+    <div className="bg-white border-bottom shadow-sm mb-4">
+      <div className="container-fluid py-3 px-4 d-flex align-items-center">
+        {/* Le bouton retour s'affiche uniquement si on n'est pas sur l'accueil */}
+        {currentPage !== 'home' && (
+          <button onClick={() => setPage('home')} className="btn btn-outline-primary btn-sm">
+            <i className="bi bi-arrow-left"></i> Accueil
+          </button>
+        )}
+        <span className="ms-3 fs-5 fw-semibold text-primary">
+          {getTitle()}
+        </span>
+      </div>
     </div>
-  )
-}
+  );
+};
 
-export default Navbar
+export default Navbar;

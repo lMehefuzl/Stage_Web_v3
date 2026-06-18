@@ -1,4 +1,5 @@
 import React from 'react'
+import Quiz from '../components/Quiz'
 
 const documentation_technique = () => {
   return (
@@ -89,7 +90,7 @@ const documentation_technique = () => {
               <a className="nav-link px-0 py-1 text-secondary small" href="#raspberry">a) Raspberry Pi 4</a>
               <a className="nav-link px-0 py-1 text-secondary small" href="#servomoteur">b) Servomoteur XL330</a>
               <a className="nav-link px-0 py-1 text-secondary small" href="#camera">c) Caméra IMX322</a>
-              <a className="nav-link px-0 py-1 text-secondary small" href="#capteur-ir">d) Capteur IR E18 D80NK</a>
+              <a className="nav-link px-0 py-1 text-secondary small" href="#capteur">d) Capteur IR E18 D80NK</a>
               <a className="nav-link px-0 py-1 text-secondary small" href="#convoyeur">e) Convoyeur v2</a>
               <a className="nav-link px-0 py-1 text-secondary small" href="#set-vision">f) Set Vision</a>
             </div>
@@ -774,7 +775,7 @@ const documentation_technique = () => {
             la caméra dépasse largement les capteurs industriels standards (environ 80 dB), ce qui est amplement suffisant.</p>
           <p><a href="https://www.baslerweb.com/fr-fr/learning/yuv-color-coding/">Format brut YUV</a>: Ce codage couleur sépare la luminosité (Y) des informations de couleur (U et V), ce qui permet de réduire la quantité de données à traiter.</p>
         </div>
-        <div id="capteur-ir" className="mt-5">
+        <div id="capteur" className="mt-5">
           <h3 className="text-dark fw-bold">d) Capteur IR E18 D80NK</h3>
           <div id="tableau19" className="table-responsive">
             <table className="table table-bordered">
@@ -857,10 +858,13 @@ const documentation_technique = () => {
           <p className="text-center small mt-1">Tableau 20 : Tableau répertoriant les accessoires fournit dans le kit vision</p>
         </div>
       </div>
+      <div id="quiz" className="bg-white rounded-3 shadow-sm p-4 mb-4">
+        <h2 className="text-primary border-bottom pb-2 mb-4"><i className="bi bi-info-circle-fill" /> Je teste mes connaissances</h2>
+        <Quiz />
+      </div>
     </div>
   </div>
 </div>
-
   )
 }
 

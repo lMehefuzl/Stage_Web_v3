@@ -8,8 +8,11 @@ import documentation_technique from './pages/documentation_technique';
 import programmation from './pages/programmation';
 import communication from './pages/communication';
 import jumeau_numérique from './pages/jumeau_numérique';
-import théorie from './pages/théorie'; // Corrigé ici : pointe vers théorie.jsx
+import théorie from './pages/théorie';
 import ressources from './pages/ressources';
+//quiz testing phase
+import Quiz from './components/Quiz';
+
 
 const App = () => {
   const [currentPage, setCurrentPage] = useState('home');
@@ -24,7 +27,7 @@ const App = () => {
         return React.createElement(communication);
       case 'jumeau_numérique':
         return React.createElement(jumeau_numérique);
-      case 'théorie': // Corrigé ici
+      case 'théorie':
         return React.createElement(théorie); 
       case 'ressources':
         return React.createElement(ressources);
@@ -34,6 +37,7 @@ const App = () => {
           <>
             <Hero />
             <HomeCards setPage={setCurrentPage} />
+            <quiz />
           </>
         );
     }
