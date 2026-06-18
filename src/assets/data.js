@@ -41,4 +41,12 @@ export const data = [
       option4: "Pen Drive",
       ans: 2,
     },
+    {
+      question: "do u know da we?",
+      option1: "uganda",
+      option2: "knuckles",
+      option3: "Sitemap",
+      option4: "Pen Drive",
+      ans: 2,
+    },
   ];

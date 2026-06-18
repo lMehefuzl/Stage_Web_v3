@@ -46,6 +46,7 @@ const App = () => {
   return (
     <div className="bg-light min-h-screen">
       <Navbar setPage={setCurrentPage} currentPage={currentPage} />
+      {/*  <div style={{ paddingTop: '0px' }}></div>  pour que des parties ne sont pas overlap par navbar car je vais utiliser sticky*/}
       {renderPage()}
     </div>
   );

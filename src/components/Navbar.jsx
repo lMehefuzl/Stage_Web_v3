@@ -22,7 +22,7 @@ const Navbar = ({ setPage, currentPage }) => {
   };
 
   return (
-    <div className="bg-white border-bottom shadow-sm mb-4">
+    <div className="bg-white border-bottom shadow-sm mb-4 sticky-top">
       <div className="container-fluid py-3 px-4 d-flex align-items-center">
         {/* Le bouton retour s'affiche uniquement si on n'est pas sur l'accueil */}
         {currentPage !== 'home' && (
