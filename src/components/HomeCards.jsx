@@ -95,6 +95,21 @@ const HomeCards = ({ setPage }) => {
           </div>
         </div>
 
+        {/* ia */}
+        <div className="col-md-6 col-lg-4">
+          <div 
+            onClick={() => setPage('ia')} 
+            className="card h-100 border-primary border-2 rounded-4 shadow-sm text-decoration-none d-block"
+            style={{ cursor: 'pointer' }}
+          >
+            <div className="card-body text-center p-4">
+              <i className="bi bi-folder-symlink-fill fs-1 text-primary"></i>
+              <h5 className="card-title text-primary mt-3 fw-bold">BENCHMARKS</h5>
+              <p className="card-text text-muted">ia • reienforcement learning</p>
+            </div>
+          </div>
+        </div>
+
       </div>
     </div>
   );

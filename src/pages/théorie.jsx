@@ -15,10 +15,12 @@ const théorie = () => {
           {/* 1. MODÉLISATION GÉOMÉTRIQUE */}
           {/* ============================================ */}
           <div className="mb-2">
-            <a className="nav-link px-0 py-1 text-dark d-flex justify-content-between align-items-center" data-bs-toggle="collapse" data-bs-target="#collapseModelisation" aria-expanded="false" style={{cursor: 'pointer'}}>
-              <span><i className="bi bi-graph-up text-primary me-2" />Modélisation géométrique</span>
-              <i className="bi bi-chevron-down small" />
-            </a>
+            <div className="nav-link px-0 py-1 text-dark d-flex justify-content-between align-items-center">
+              <a href="#modelisation" className="text-dark text-decoration-none" style={{cursor: 'pointer'}}>
+                <i className="bi bi-graph-up text-primary me-2" />Modélisation géométrique
+              </a>
+              <i className="bi bi-chevron-down small" data-bs-toggle="collapse" data-bs-target="#collapseModelisation" aria-expanded="false" style={{cursor: 'pointer'}} />
+            </div>
             <div className="collapse ps-4" id="collapseModelisation">
               <a className="nav-link px-0 py-1 text-secondary small" href="#introduction">1. Introduction</a>
               <a className="nav-link px-0 py-1 text-secondary small" href="#architectures">2. Principales architectures</a>
@@ -31,14 +33,17 @@ const théorie = () => {
               <a className="nav-link px-0 py-1 text-secondary small" href="#etude-ned2">9. Étude géométrique du Niryo Ned2</a>
             </div>
           </div>
+          
           {/* ============================================ */}
           {/* 2. RÉSUMÉ ROS */}
           {/* ============================================ */}
           <div className="mb-2">
-            <a className="nav-link px-0 py-1 text-dark d-flex justify-content-between align-items-center" data-bs-toggle="collapse" data-bs-target="#collapseResumeRos" aria-expanded="false" style={{cursor: 'pointer'}}>
-              <span><i className="bi bi-diagram-3 text-primary me-2" />Résumé ROS</span>
-              <i className="bi bi-chevron-down small" />
-            </a>
+            <div className="nav-link px-0 py-1 text-dark d-flex justify-content-between align-items-center">
+              <a href="#resume-ros" className="text-dark text-decoration-none" style={{cursor: 'pointer'}}>
+                <i className="bi bi-diagram-3 text-primary me-2" />Résumé ROS
+              </a>
+              <i className="bi bi-chevron-down small" data-bs-toggle="collapse" data-bs-target="#collapseResumeRos" aria-expanded="false" style={{cursor: 'pointer'}} />
+            </div>
             <div className="collapse ps-4" id="collapseResumeRos">
               <a className="nav-link px-0 py-1 text-secondary small" href="#objectifs-philosophie">1. Objectifs et Philosophie de ROS</a>
               <a className="nav-link px-0 py-1 text-secondary small ps-3" href="#objectifs">a) Objectifs Principaux</a>
@@ -58,15 +63,18 @@ const théorie = () => {
               <a className="nav-link px-0 py-1 text-secondary small" href="#cours">5. Lien vers un cours complet ROS</a>
             </div>
           </div>
+          
           {/* ============================================ */}
           {/* FIGURES */}
           {/* ============================================ */}
           <div className="border-top mt-3 pt-2" />
           <div className="mb-2">
-            <a className="nav-link px-0 py-1 text-dark d-flex justify-content-between align-items-center" data-bs-toggle="collapse" data-bs-target="#collapseFigures" aria-expanded="false" style={{cursor: 'pointer'}}>
-              <span><i className="bi bi-image text-primary me-2" />Figures</span>
-              <i className="bi bi-chevron-down small" />
-            </a>
+            <div className="nav-link px-0 py-1 text-dark d-flex justify-content-between align-items-center">
+              <span style={{cursor: 'default'}}>
+                <i className="bi bi-image text-primary me-2" />Figures
+              </span>
+              <i className="bi bi-chevron-down small" data-bs-toggle="collapse" data-bs-target="#collapseFigures" aria-expanded="false" style={{cursor: 'pointer'}} />
+            </div>
             <div className="collapse ps-4" id="collapseFigures">
               <a className="nav-link px-0 py-1 text-secondary small" href="#figure34">Figure 34</a>
               <a className="nav-link px-0 py-1 text-secondary small" href="#figure35">Figure 35</a>
@@ -94,14 +102,17 @@ const théorie = () => {
               <a className="nav-link px-0 py-1 text-secondary small" href="#figure57">Figure 57</a>
             </div>
           </div>
+          
           {/* ============================================ */}
           {/* TABLEAUX */}
           {/* ============================================ */}
           <div className="mb-2">
-            <a className="nav-link px-0 py-1 text-dark d-flex justify-content-between align-items-center" data-bs-toggle="collapse" data-bs-target="#collapseTableaux" aria-expanded="false" style={{cursor: 'pointer'}}>
-              <span><i className="bi bi-table text-primary me-2" />Tableaux</span>
-              <i className="bi bi-chevron-down small" />
-            </a>
+            <div className="nav-link px-0 py-1 text-dark d-flex justify-content-between align-items-center">
+              <span style={{cursor: 'default'}}>
+                <i className="bi bi-table text-primary me-2" />Tableaux
+              </span>
+              <i className="bi bi-chevron-down small" data-bs-toggle="collapse" data-bs-target="#collapseTableaux" aria-expanded="false" style={{cursor: 'pointer'}} />
+            </div>
             <div className="collapse ps-4" id="collapseTableaux">
               <a className="nav-link px-0 py-1 text-secondary small" href="#tableau21">Tableau 21</a>
               <a className="nav-link px-0 py-1 text-secondary small" href="#tableau22">Tableau 22</a>

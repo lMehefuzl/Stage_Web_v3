@@ -16,94 +16,107 @@ const documentation_technique = () => {
           {/* 1. DESCRIPTION DU ROBOT */}
           {/* ============================================ */}
           <div className="mb-2">
-            <a className="nav-link px-0 py-1 text-dark d-flex justify-content-between align-items-center" data-bs-toggle="collapse" data-bs-target="#collapseRobot" aria-expanded="false" style={{cursor: 'pointer'}}>
-              <span><i className="bi bi-info-circle text-primary me-2" />1. Description du robot</span>
-              <i className="bi bi-chevron-down small" />
-            </a>
+            <div className="nav-link px-0 py-1 text-dark d-flex justify-content-between align-items-center">
+              <a href="#description" className="text-dark text-decoration-none" style={{cursor: 'pointer'}}>
+                <i className="bi bi-info-circle text-primary me-2" />1. Description du robot
+              </a>
+              <i className="bi bi-chevron-down small" data-bs-toggle="collapse" data-bs-target="#collapseRobot" aria-expanded="false" style={{cursor: 'pointer'}} />
+            </div>
             <div className="collapse ps-4" id="collapseRobot">
-              <a className="nav-link px-0 py-1 text-secondary small" href="#description">Description du robot</a>
-              <a className="nav-link px-0 py-1 text-secondary small" href="#generalites"> Généralités</a>
-              <a className="nav-link px-0 py-1 text-secondary small" href="#connectiques"> Connectiques</a>
-              <a className="nav-link px-0 py-1 text-secondary small" href="#architecture"> Architecture électrique</a>
-              <a className="nav-link px-0 py-1 text-secondary small" href="#alimentation"> Alimentation</a>
-              <a className="nav-link px-0 py-1 text-secondary small" href="#modes"> Mode opératoire</a>
+              <a className="nav-link px-0 py-1 text-secondary small" href="#generalites">Généralités</a>
+              <a className="nav-link px-0 py-1 text-secondary small" href="#connectiques">Connectiques</a>
+              <a className="nav-link px-0 py-1 text-secondary small" href="#architecture">Architecture électrique</a>
+              <a className="nav-link px-0 py-1 text-secondary small" href="#alimentation">Alimentation</a>
+              <a className="nav-link px-0 py-1 text-secondary small" href="#modes">Mode opératoire</a>
             </div>
           </div>
+          
           {/* ============================================ */}
           {/* 2. LES ACCESSOIRES */}
           {/* ============================================ */}
           <div className="mb-2">
-            <a className="nav-link px-0 py-1 text-dark d-flex justify-content-between align-items-center" data-bs-toggle="collapse" data-bs-target="#collapseAccessoires" aria-expanded="false" style={{cursor: 'pointer'}}>
-              <span><i className="bi bi-tools text-primary me-2" />2. Les accessoires</span>
-              <i className="bi bi-chevron-down small" />
-            </a>
+            <div className="nav-link px-0 py-1 text-dark d-flex justify-content-between align-items-center">
+              <a href="#accessoires" className="text-dark text-decoration-none" style={{cursor: 'pointer'}}>
+                <i className="bi bi-tools text-primary me-2" />2. Les accessoires
+              </a>
+              <i className="bi bi-chevron-down small" data-bs-toggle="collapse" data-bs-target="#collapseAccessoires" aria-expanded="false" style={{cursor: 'pointer'}} />
+            </div>
             <div className="collapse ps-4" id="collapseAccessoires">
-              <a className="nav-link px-0 py-1 text-secondary small" href="#accessoires">Les accessoires</a>
-              <a className="nav-link px-0 py-1 text-secondary small" href="#grippers"> Grippers</a>
-              <a className="nav-link px-0 py-1 text-secondary small" href="#electroaimant"> Électroaimant</a>
-              <a className="nav-link px-0 py-1 text-secondary small" href="#pompe"> Pompe à vide</a>
+              <a className="nav-link px-0 py-1 text-secondary small" href="#grippers">Grippers</a>
+              <a className="nav-link px-0 py-1 text-secondary small" href="#electroaimant">Électroaimant</a>
+              <a className="nav-link px-0 py-1 text-secondary small" href="#pompe">Pompe à vide</a>
             </div>
           </div>
+          
           {/* ============================================ */}
           {/* 3. LES BOUTONS */}
           {/* ============================================ */}
           <div className="mb-2">
-            <a className="nav-link px-0 py-1 text-dark d-flex justify-content-between align-items-center" data-bs-toggle="collapse" data-bs-target="#collapseBoutons" aria-expanded="false" style={{cursor: 'pointer'}}>
-              <span><i className="bi bi-grid-3x3-gap-fill text-primary me-2" />3. Les boutons</span>
-              <i className="bi bi-chevron-down small" />
-            </a>
+            <div className="nav-link px-0 py-1 text-dark d-flex justify-content-between align-items-center">
+              <a href="#boutons" className="text-dark text-decoration-none" style={{cursor: 'pointer'}}>
+                <i className="bi bi-grid-3x3-gap-fill text-primary me-2" />3. Les boutons
+              </a>
+              <i className="bi bi-chevron-down small" data-bs-toggle="collapse" data-bs-target="#collapseBoutons" aria-expanded="false" style={{cursor: 'pointer'}} />
+            </div>
             <div className="collapse ps-4" id="collapseBoutons">
-              <a className="nav-link px-0 py-1 text-secondary small" href="#boutons">Les boutons</a>
-              <a className="nav-link px-0 py-1 text-secondary small" href="#bouton-wifi"> Bouton Wi-Fi</a>
-              <a className="nav-link px-0 py-1 text-secondary small" href="#bouton-sup"> Bouton supérieur</a>
-              <a className="nav-link px-0 py-1 text-secondary small" href="#panneau"> Panneau de contrôle</a>
+              <a className="nav-link px-0 py-1 text-secondary small" href="#bouton-wifi">Bouton Wi-Fi</a>
+              <a className="nav-link px-0 py-1 text-secondary small" href="#bouton-sup">Bouton supérieur</a>
+              <a className="nav-link px-0 py-1 text-secondary small" href="#panneau">Panneau de contrôle</a>
             </div>
           </div>
+          
           {/* ============================================ */}
           {/* 4. SÉCURITÉ */}
           {/* ============================================ */}
           <a className="nav-link px-0 py-1 text-dark" href="#securite">
             <i className="bi bi-shield-lock-fill text-primary me-2" />4. Sécurité
           </a>
+          
           {/* ============================================ */}
           {/* 5. INDICATIONS ANNEAU LED */}
           {/* ============================================ */}
           <a className="nav-link px-0 py-1 text-dark" href="#anneau-led">
             <i className="bi bi-lightbulb-fill text-primary me-2" />5. Indications anneau LED
           </a>
+          
           {/* ============================================ */}
           {/* 6. MAINTENANCE ET MISES À JOUR */}
           {/* ============================================ */}
           <a className="nav-link px-0 py-1 text-dark" href="#maintenance">
             <i className="bi bi-gear-fill text-primary me-2" />6. Maintenance et mises à jour
           </a>
+          
           {/* ============================================ */}
           {/* 7. CAPTEURS ET INSTRUMENTATION */}
           {/* ============================================ */}
           <div className="mb-2">
-            <a className="nav-link px-0 py-1 text-dark d-flex justify-content-between align-items-center" data-bs-toggle="collapse" data-bs-target="#collapseCapteurs" aria-expanded="false" style={{cursor: 'pointer'}}>
-              <span><i className="bi bi-motherboard text-primary me-2" />7. Capteurs et instrumentation</span>
-              <i className="bi bi-chevron-down small" />
-            </a>
+            <div className="nav-link px-0 py-1 text-dark d-flex justify-content-between align-items-center">
+              <a href="#capteurs" className="text-dark text-decoration-none" style={{cursor: 'pointer'}}>
+                <i className="bi bi-motherboard text-primary me-2" />7. Capteurs et instrumentation
+              </a>
+              <i className="bi bi-chevron-down small" data-bs-toggle="collapse" data-bs-target="#collapseCapteurs" aria-expanded="false" style={{cursor: 'pointer'}} />
+            </div>
             <div className="collapse ps-4" id="collapseCapteurs">
-              <a className="nav-link px-0 py-1 text-secondary small" href="#capteurs">Capteurs et instrumentation</a>
-              <a className="nav-link px-0 py-1 text-secondary small" href="#raspberry"> Raspberry Pi 4</a>
-              <a className="nav-link px-0 py-1 text-secondary small" href="#servomoteur"> Servomoteur XL330</a>
-              <a className="nav-link px-0 py-1 text-secondary small" href="#camera"> Caméra IMX322</a>
-              <a className="nav-link px-0 py-1 text-secondary small" href="#capteur"> Capteur IR E18 D80NK</a>
-              <a className="nav-link px-0 py-1 text-secondary small" href="#convoyeur"> Convoyeur v2</a>
-              <a className="nav-link px-0 py-1 text-secondary small" href="#set-vision"> Set Vision</a>
+              <a className="nav-link px-0 py-1 text-secondary small" href="#raspberry">Raspberry Pi 4</a>
+              <a className="nav-link px-0 py-1 text-secondary small" href="#servomoteur">Servomoteur XL330</a>
+              <a className="nav-link px-0 py-1 text-secondary small" href="#camera">Caméra IMX322</a>
+              <a className="nav-link px-0 py-1 text-secondary small" href="#capteur">Capteur IR E18 D80NK</a>
+              <a className="nav-link px-0 py-1 text-secondary small" href="#convoyeur">Convoyeur v2</a>
+              <a className="nav-link px-0 py-1 text-secondary small" href="#set-vision">Set Vision</a>
             </div>
           </div>
+          
           {/* ============================================ */}
           {/* FIGURES */}
           {/* ============================================ */}
           <div className="border-top mt-3 pt-2" />
           <div className="mb-2">
-            <a className="nav-link px-0 py-1 text-dark d-flex justify-content-between align-items-center" data-bs-toggle="collapse" data-bs-target="#collapseFigures" aria-expanded="false" style={{cursor: 'pointer'}}>
-              <span><i className="bi bi-image text-primary me-2" />Figures</span>
-              <i className="bi bi-chevron-down small" />
-            </a>
+            <div className="nav-link px-0 py-1 text-dark d-flex justify-content-between align-items-center">
+              <span style={{cursor: 'default'}}>
+                <i className="bi bi-image text-primary me-2" />Figures
+              </span>
+              <i className="bi bi-chevron-down small" data-bs-toggle="collapse" data-bs-target="#collapseFigures" aria-expanded="false" style={{cursor: 'pointer'}} />
+            </div>
             <div className="collapse ps-4" id="collapseFigures">
               <a className="nav-link px-0 py-1 text-secondary small" href="#figure1">Figure 1</a>
               <a className="nav-link px-0 py-1 text-secondary small" href="#figure2">Figure 2</a>
@@ -137,14 +150,17 @@ const documentation_technique = () => {
               <a className="nav-link px-0 py-1 text-secondary small" href="#figure33">Figure 33</a>
             </div>
           </div>
+          
           {/* ============================================ */}
           {/* TABLEAUX */}
           {/* ============================================ */}
           <div className="mb-2">
-            <a className="nav-link px-0 py-1 text-dark d-flex justify-content-between align-items-center" data-bs-toggle="collapse" data-bs-target="#collapseTableaux" aria-expanded="false" style={{cursor: 'pointer'}}>
-              <span><i className="bi bi-table text-primary me-2" />Tableaux</span>
-              <i className="bi bi-chevron-down small" />
-            </a>
+            <div className="nav-link px-0 py-1 text-dark d-flex justify-content-between align-items-center">
+              <span style={{cursor: 'default'}}>
+                <i className="bi bi-table text-primary me-2" />Tableaux
+              </span>
+              <i className="bi bi-chevron-down small" data-bs-toggle="collapse" data-bs-target="#collapseTableaux" aria-expanded="false" style={{cursor: 'pointer'}} />
+            </div>
             <div className="collapse ps-4" id="collapseTableaux">
               <a className="nav-link px-0 py-1 text-secondary small" href="#tableau1">Tableau 1</a>
               <a className="nav-link px-0 py-1 text-secondary small" href="#tableau2">Tableau 2</a>
@@ -171,6 +187,7 @@ const documentation_technique = () => {
         </nav>
       </div>
     </div>
+
     {/* contenu principal */}
     <div className="col-md-9 ps-0 ps-md-2 pe-0">
       {/* ============================================ */}

@@ -7,15 +7,17 @@ const Navbar = ({ setPage, currentPage }) => {
       case 'documentation_technique': 
         return 'DOCUMENTATION TECHNIQUE';
       case 'programmation': 
-        return 'LOGICIELS DE PROGRAMMATION';
+        return 'PROGRAMMATION';
       case 'communication': 
         return 'COMMUNICATION LOGICIELLE';
       case 'jumeau_numérique': 
         return 'JUMEAU NUMÉRIQUE';
       case 'théorie': 
-        return 'MODÉLISATION GÉOMÉTRIQUE & PROGRAMMATION';
+        return 'FONDAMENTAUX THÉORIQUES';
       case 'ressources': 
         return 'RESSOURCES';
+        case 'ia': 
+        return 'BENCHMARKS';
       default: 
         return 'GUIDE NIRYO NED 2';
     }

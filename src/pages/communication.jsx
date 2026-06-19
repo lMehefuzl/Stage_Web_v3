@@ -6,7 +6,7 @@ const communication = () => {
   <div className="row g-0 g-md-4 mx-0">
     {/* side bar */}
     <div className="col-md-3 ps-0 pe-0 pe-md-2">
-      <div className="bg-white rounded-3 shadow-sm p-3 me-0 me-md-2" style={{position: 'sticky', top: 20, maxHeight: 'calc(100vh - 40px)', overflowY: 'auto'}}>
+      <div className="bg-white rounded-3 shadow-sm p-3 me-0 me-md-2" style={{position: 'sticky', top: 87, maxHeight: 'calc(100vh - 40px)', overflowY: 'auto'}}>
         <h5 className="text-primary mb-3 pb-2 border-bottom">
           <i className="bi bi-list-ul" /> Sommaire
         </h5>

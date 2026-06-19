@@ -10,6 +10,7 @@ import communication from './pages/communication';
 import jumeau_numérique from './pages/jumeau_numérique';
 import théorie from './pages/théorie';
 import ressources from './pages/ressources';
+import ia from './pages/ia';
 //quiz testing phase
 import Quiz from './components/Quiz';
 
@@ -31,6 +32,8 @@ const App = () => {
         return React.createElement(théorie); 
       case 'ressources':
         return React.createElement(ressources);
+      case 'ia':
+        return React.createElement(ia);
       case 'home':
       default:
         return (

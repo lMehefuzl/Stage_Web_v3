@@ -16,10 +16,12 @@ const programmation = () => {
           {/* 1. NIRYO NED2 ET NIRYOSTUDIO */}
           {/* ============================================ */}
           <div className="mb-2">
-            <a className="nav-link px-0 py-1 text-dark d-flex justify-content-between align-items-center" data-bs-toggle="collapse" data-bs-target="#collapseNiryoStudio" aria-expanded="false" style={{cursor: 'pointer'}}>
-              <span><i className="bi bi-display text-primary me-2" />NiryoStudio</span>
-              <i className="bi bi-chevron-down small" />
-            </a>
+            <div className="nav-link px-0 py-1 text-dark d-flex justify-content-between align-items-center">
+              <a href="#nirystudio" className="text-dark text-decoration-none" style={{cursor: 'pointer'}}>
+                <i className="bi bi-display text-primary me-2" />NiryoStudio
+              </a>
+              <i className="bi bi-chevron-down small" data-bs-toggle="collapse" data-bs-target="#collapseNiryoStudio" aria-expanded="false" style={{cursor: 'pointer'}} />
+            </div>
             <div className="collapse ps-4" id="collapseNiryoStudio">
               <a className="nav-link px-0 py-1 text-secondary small" href="#utilisation-seul">1. Utilisation du robot seul</a>
               <a className="nav-link px-0 py-1 text-secondary small" href="#configuration-initiale">2. Configuration initiale</a>
@@ -34,14 +36,17 @@ const programmation = () => {
               <a className="nav-link px-0 py-1 text-secondary small" href="#utilisation">7. Utilisation du robot</a>
             </div>
           </div>
+          
           {/* ============================================ */}
           {/* 2. PROGRAMMATION */}
           {/* ============================================ */}
           <div className="mb-2">
-            <a className="nav-link px-0 py-1 text-dark d-flex justify-content-between align-items-center" data-bs-toggle="collapse" data-bs-target="#collapseProgrammation" aria-expanded="false" style={{cursor: 'pointer'}}>
-              <span><i className="bi bi-code-square text-primary me-2" />Programmation</span>
-              <i className="bi bi-chevron-down small" />
-            </a>
+            <div className="nav-link px-0 py-1 text-dark d-flex justify-content-between align-items-center">
+              <a href="#logiciels" className="text-dark text-decoration-none" style={{cursor: 'pointer'}}>
+                <i className="bi bi-code-square text-primary me-2" />Programmation
+              </a>
+              <i className="bi bi-chevron-down small" data-bs-toggle="collapse" data-bs-target="#collapseProgrammation" aria-expanded="false" style={{cursor: 'pointer'}} />
+            </div>
             <div className="collapse ps-4" id="collapseProgrammation">
               <a className="nav-link px-0 py-1 text-secondary small" href="#blockly">1. Blockly</a>
               <a className="nav-link px-0 py-1 text-secondary small ps-3" href="#creer-programme">a) Créer un programme</a>
@@ -58,28 +63,34 @@ const programmation = () => {
               <a className="nav-link px-0 py-1 text-secondary small" href="#node-red">4. Node-RED</a>
             </div>
           </div>
+          
           {/* ============================================ */}
           {/* 3. INSTALLATION DES LIBRAIRIES */}
           {/* ============================================ */}
           <div className="mb-2">
-            <a className="nav-link px-0 py-1 text-dark d-flex justify-content-between align-items-center" data-bs-toggle="collapse" data-bs-target="#collapseLibrairies" aria-expanded="false" style={{cursor: 'pointer'}}>
-              <span><i className="bi bi-book text-primary me-2" />Installation des librairies</span>
-              <i className="bi bi-chevron-down small" />
-            </a>
+            <div className="nav-link px-0 py-1 text-dark d-flex justify-content-between align-items-center">
+              <a href="#librairies" className="text-dark text-decoration-none" style={{cursor: 'pointer'}}>
+                <i className="bi bi-book text-primary me-2" />Installation des librairies
+              </a>
+              <i className="bi bi-chevron-down small" data-bs-toggle="collapse" data-bs-target="#collapseLibrairies" aria-expanded="false" style={{cursor: 'pointer'}} />
+            </div>
             <div className="collapse ps-4" id="collapseLibrairies">
               <a className="nav-link px-0 py-1 text-secondary small" href="#pyniryo">1. PyNiryo</a>
               <a className="nav-link px-0 py-1 text-secondary small" href="#pymodbus">2. PyModbus</a>
               <a className="nav-link px-0 py-1 text-secondary small" href="#matlab-librarie">3. Librairies MATLAB</a>
             </div>
           </div>
+          
           {/* ============================================ */}
           {/* 4. PROGRAMMATION MATLAB */}
           {/* ============================================ */}
           <div className="mb-2">
-            <a className="nav-link px-0 py-1 text-dark d-flex justify-content-between align-items-center" data-bs-toggle="collapse" data-bs-target="#collapseMatlab" aria-expanded="false" style={{cursor: 'pointer'}}>
-              <span><i className="bi bi-graph-up text-primary me-2" />Programmation MATLAB</span>
-              <i className="bi bi-chevron-down small" />
-            </a>
+            <div className="nav-link px-0 py-1 text-dark d-flex justify-content-between align-items-center">
+              <a href="#matlab" className="text-dark text-decoration-none" style={{cursor: 'pointer'}}>
+                <i className="bi bi-graph-up text-primary me-2" />Programmation MATLAB
+              </a>
+              <i className="bi bi-chevron-down small" data-bs-toggle="collapse" data-bs-target="#collapseMatlab" aria-expanded="false" style={{cursor: 'pointer'}} />
+            </div>
             <div className="collapse ps-4" id="collapseMatlab">
               <a className="nav-link px-0 py-1 text-secondary small" href="#matlab-installation">1. Installation NedROS</a>
               <a className="nav-link px-0 py-1 text-secondary small" href="#matlab-premiere-utilisation">2. Première utilisation</a>
@@ -87,14 +98,17 @@ const programmation = () => {
               <a className="nav-link px-0 py-1 text-secondary small" href="#matlab-hardware">4. Hardware</a>
             </div>
           </div>
+          
           {/* ============================================ */}
           {/* 5. PROGRAMMATION ROS */}
           {/* ============================================ */}
           <div className="mb-2">
-            <a className="nav-link px-0 py-1 text-dark d-flex justify-content-between align-items-center" data-bs-toggle="collapse" data-bs-target="#collapseProgrammationRos" aria-expanded="false" style={{cursor: 'pointer'}}>
-              <span><i className="bi bi-terminal text-primary me-2" />Programmation ROS</span>
-              <i className="bi bi-chevron-down small" />
-            </a>
+            <div className="nav-link px-0 py-1 text-dark d-flex justify-content-between align-items-center">
+              <a href="#programmation-ros" className="text-dark text-decoration-none" style={{cursor: 'pointer'}}>
+                <i className="bi bi-terminal text-primary me-2" />Programmation ROS
+              </a>
+              <i className="bi bi-chevron-down small" data-bs-toggle="collapse" data-bs-target="#collapseProgrammationRos" aria-expanded="false" style={{cursor: 'pointer'}} />
+            </div>
             <div className="collapse ps-4" id="collapseProgrammationRos">
               <a className="nav-link px-0 py-1 text-secondary small" href="#preambule">1. Préambule</a>
               <a className="nav-link px-0 py-1 text-secondary small ps-3" href="#commandes-bases">a) Commandes de bases</a>
@@ -124,57 +138,137 @@ const programmation = () => {
               <a className="nav-link px-0 py-1 text-secondary small ps-3" href="#definitions">g) Définitions</a>
             </div>
           </div>
+          
           {/* ============================================ */}
-          {/* 6. ANNEXES */}
+          {/* 6. Exemples */}
           {/* ============================================ */}
           <div className="mb-2">
-            <a className="nav-link px-0 py-1 text-dark d-flex justify-content-between align-items-center" data-bs-toggle="collapse" data-bs-target="#collapseAnnexes" aria-expanded="false" style={{cursor: 'pointer'}}>
-              <span><i className="bi bi-paperclip text-primary me-2" />Annexes</span>
-              <i className="bi bi-chevron-down small" />
-            </a>
-            <div className="collapse ps-4" id="collapseAnnexes">
-              <a className="nav-link px-0 py-1 text-secondary small" href="#annexe1">Annexe 01</a>
-              <a className="nav-link px-0 py-1 text-secondary small" href="#annexe2">Annexe 02</a>
-              <a className="nav-link px-0 py-1 text-secondary small" href="#annexe3">Annexe 03</a>
-              <a className="nav-link px-0 py-1 text-secondary small" href="#annexe4">Annexe 04</a>
-              <a className="nav-link px-0 py-1 text-secondary small" href="#annexe5">Annexe 05</a>
-              <a className="nav-link px-0 py-1 text-secondary small" href="#annexe6">Annexe 06</a>
-              <a className="nav-link px-0 py-1 text-secondary small" href="#annexe7">Annexe 07</a>
-              <a className="nav-link px-0 py-1 text-secondary small" href="#annexe08">Annexe 08</a>
-              <a className="nav-link px-0 py-1 text-secondary small" href="#annexe09">Annexe 09</a>
-              <a className="nav-link px-0 py-1 text-secondary small" href="#annexe10">Annexe 10</a>
-              <a className="nav-link px-0 py-1 text-secondary small" href="#annexe11">Annexe 11</a>
-              <a className="nav-link px-0 py-1 text-secondary small" href="#annexe12">Annexe 12</a>
-              <a className="nav-link px-0 py-1 text-secondary small" href="#annexe13">Annexe 13</a>
-              <a className="nav-link px-0 py-1 text-secondary small" href="#annexe14">Annexe 14</a>
-              <a className="nav-link px-0 py-1 text-secondary small" href="#annexe15">Annexe 15</a>
-              <a className="nav-link px-0 py-1 text-secondary small" href="#annexe16">Annexe 16</a>
-              <a className="nav-link px-0 py-1 text-secondary small" href="#annexe17">Annexe 17</a>
+            <div className="nav-link px-0 py-1 text-dark d-flex justify-content-between align-items-center">
+              <a href="#Exemples" className="text-dark text-decoration-none" style={{cursor: 'pointer'}}>
+                <i className="bi bi-paperclip text-primary me-2" />Exemples
+              </a>
+              <i className="bi bi-chevron-down small" data-bs-toggle="collapse" data-bs-target="#collapseExemples" aria-expanded="false" style={{cursor: 'pointer'}} />
+            </div>
+            <div className="collapse ps-4" id="collapseExemples">
+              <a className="nav-link px-0 py-1 text-secondary small" href="#exemple1">Exemple 01</a>
+              <a className="nav-link px-0 py-1 text-secondary small" href="#exemple2">Exemple 02</a>
+              <a className="nav-link px-0 py-1 text-secondary small" href="#exemple3">Exemple 03</a>
+              <a className="nav-link px-0 py-1 text-secondary small" href="#exemple4">Exemple 04</a>
+              <a className="nav-link px-0 py-1 text-secondary small" href="#exemple5">Exemple 05</a>
+              <a className="nav-link px-0 py-1 text-secondary small" href="#exemple6">Exemple 06</a>
+              <a className="nav-link px-0 py-1 text-secondary small" href="#exemple7">Exemple 07</a>
+              <a className="nav-link px-0 py-1 text-secondary small" href="#exemple08">Exemple 08</a>
+              <a className="nav-link px-0 py-1 text-secondary small" href="#exemple09">Exemple 09</a>
+              <a className="nav-link px-0 py-1 text-secondary small" href="#exemple10">Exemple 10</a>
+              <a className="nav-link px-0 py-1 text-secondary small" href="#exemple11">Exemple 11</a>
+              <a className="nav-link px-0 py-1 text-secondary small" href="#exemple12">Exemple 12</a>
+              <a className="nav-link px-0 py-1 text-secondary small" href="#exemple13">Exemple 13</a>
+              <a className="nav-link px-0 py-1 text-secondary small" href="#exemple14">Exemple 14</a>
+              <a className="nav-link px-0 py-1 text-secondary small" href="#exemple15">Exemple 15</a>
+              <a className="nav-link px-0 py-1 text-secondary small" href="#exemple16">Exemple 16</a>
+              <a className="nav-link px-0 py-1 text-secondary small" href="#exemple17">Exemple 17</a>
             </div>
           </div>
+          
           {/* ============================================ */}
           {/* FIGURES */}
           {/* ============================================ */}
           <div className="border-top mt-3 pt-2" />
           <div className="mb-2">
-            <a className="nav-link px-0 py-1 text-dark d-flex justify-content-between align-items-center" data-bs-toggle="collapse" data-bs-target="#collapseFigures" aria-expanded="false" style={{cursor: 'pointer'}}>
-              <span><i className="bi bi-image text-primary me-2" />Figures</span>
-              <i className="bi bi-chevron-down small" />
-            </a>
+            <div className="nav-link px-0 py-1 text-dark d-flex justify-content-between align-items-center">
+              <span style={{cursor: 'default'}}>
+                <i className="bi bi-image text-primary me-2" />Figures
+              </span>
+              <i className="bi bi-chevron-down small" data-bs-toggle="collapse" data-bs-target="#collapseFigures" aria-expanded="false" style={{cursor: 'pointer'}} />
+            </div>
             <div className="collapse ps-4" id="collapseFigures">
-              {/* Toutes les figures */}
+              <a className="nav-link px-0 py-1 text-secondary small" href="#figure58">Figure 58</a>
+              <a className="nav-link px-0 py-1 text-secondary small" href="#figure59">Figure 59</a>
+              <a className="nav-link px-0 py-1 text-secondary small" href="#figure60">Figure 60</a>
+              <a className="nav-link px-0 py-1 text-secondary small" href="#figure61">Figure 61</a>
+              <a className="nav-link px-0 py-1 text-secondary small" href="#figure62">Figure 62</a>
+              <a className="nav-link px-0 py-1 text-secondary small" href="#figure63">Figure 63</a>
+              <a className="nav-link px-0 py-1 text-secondary small" href="#figure64">Figure 64</a>
+              <a className="nav-link px-0 py-1 text-secondary small" href="#figure65">Figure 65</a>
+              <a className="nav-link px-0 py-1 text-secondary small" href="#figure66">Figure 66</a>
+              <a className="nav-link px-0 py-1 text-secondary small" href="#figure67">Figure 67</a>
+              <a className="nav-link px-0 py-1 text-secondary small" href="#figure69">Figure 69</a>
+              <a className="nav-link px-0 py-1 text-secondary small" href="#figure70">Figure 70</a>
+              <a className="nav-link px-0 py-1 text-secondary small" href="#figure71">Figure 71</a>
+              <a className="nav-link px-0 py-1 text-secondary small" href="#figure72">Figure 72</a>
+              <a className="nav-link px-0 py-1 text-secondary small" href="#figure73">Figure 73</a>
+              <a className="nav-link px-0 py-1 text-secondary small" href="#figure74">Figure 74</a>
+              <a className="nav-link px-0 py-1 text-secondary small" href="#figure75">Figure 75</a>
+              <a className="nav-link px-0 py-1 text-secondary small" href="#figure76">Figure 76</a>
+              <a className="nav-link px-0 py-1 text-secondary small" href="#figure77">Figure 77</a>
+              <a className="nav-link px-0 py-1 text-secondary small" href="#figure78">Figure 78</a>
+              <a className="nav-link px-0 py-1 text-secondary small" href="#figure79">Figure 79</a>
+              <a className="nav-link px-0 py-1 text-secondary small" href="#figure80">Figure 80</a>
+              <a className="nav-link px-0 py-1 text-secondary small" href="#figure81">Figure 81</a>
+              <a className="nav-link px-0 py-1 text-secondary small" href="#figure82">Figure 82</a>
+              <a className="nav-link px-0 py-1 text-secondary small" href="#figure83">Figure 83</a>
+              <a className="nav-link px-0 py-1 text-secondary small" href="#figure84">Figure 84</a>
+              <a className="nav-link px-0 py-1 text-secondary small" href="#figure85">Figure 85</a>
+              <a className="nav-link px-0 py-1 text-secondary small" href="#figure97">Figure 97</a>
+              <a className="nav-link px-0 py-1 text-secondary small" href="#figure98">Figure 98</a>
+              <a className="nav-link px-0 py-1 text-secondary small" href="#figure99">Figure 99</a>
+              <a className="nav-link px-0 py-1 text-secondary small" href="#figure100">Figure 100</a>
+              <a className="nav-link px-0 py-1 text-secondary small" href="#figure101">Figure 101</a>
+              <a className="nav-link px-0 py-1 text-secondary small" href="#figure102">Figure 102</a>
+              <a className="nav-link px-0 py-1 text-secondary small" href="#figure103">Figure 103</a>
+              <a className="nav-link px-0 py-1 text-secondary small" href="#figure104">Figure 104</a>
+              <a className="nav-link px-0 py-1 text-secondary small" href="#figure105">Figure 105</a>
+              <a className="nav-link px-0 py-1 text-secondary small" href="#figure106">Figure 106</a>
+              <a className="nav-link px-0 py-1 text-secondary small" href="#figure107">Figure 107</a>
+              <a className="nav-link px-0 py-1 text-secondary small" href="#figure108">Figure 108</a>
+              <a className="nav-link px-0 py-1 text-secondary small" href="#figure109">Figure 109</a>
+              <a className="nav-link px-0 py-1 text-secondary small" href="#figure110">Figure 110</a>
+              <a className="nav-link px-0 py-1 text-secondary small" href="#figure111">Figure 111</a>
+              <a className="nav-link px-0 py-1 text-secondary small" href="#figure112">Figure 112</a>
+              <a className="nav-link px-0 py-1 text-secondary small" href="#figure113">Figure 113</a>
+              <a className="nav-link px-0 py-1 text-secondary small" href="#figure114">Figure 114</a>
+              <a className="nav-link px-0 py-1 text-secondary small" href="#figure115">Figure 115</a>
+              <a className="nav-link px-0 py-1 text-secondary small" href="#figure116">Figure 116</a>
+              <a className="nav-link px-0 py-1 text-secondary small" href="#figure117">Figure 117</a>
+              <a className="nav-link px-0 py-1 text-secondary small" href="#figure118">Figure 118</a>
+              <a className="nav-link px-0 py-1 text-secondary small" href="#figure119">Figure 119</a>
+              <a className="nav-link px-0 py-1 text-secondary small" href="#figure120">Figure 120</a>
+              <a className="nav-link px-0 py-1 text-secondary small" href="#figure121">Figure 121</a>
+              <a className="nav-link px-0 py-1 text-secondary small" href="#figure122">Figure 122</a>
+              <a className="nav-link px-0 py-1 text-secondary small" href="#figure123">Figure 123</a>
+              <a className="nav-link px-0 py-1 text-secondary small" href="#figure124">Figure 124</a>
+              <a className="nav-link px-0 py-1 text-secondary small" href="#figure125">Figure 125</a>
+              <a className="nav-link px-0 py-1 text-secondary small" href="#figure126">Figure 126</a>
+              <a className="nav-link px-0 py-1 text-secondary small" href="#figure127">Figure 127</a>
+              <a className="nav-link px-0 py-1 text-secondary small" href="#figure128">Figure 128</a>
             </div>
           </div>
+          
           {/* ============================================ */}
           {/* TABLEAUX */}
           {/* ============================================ */}
           <div className="mb-2">
-            <a className="nav-link px-0 py-1 text-dark d-flex justify-content-between align-items-center" data-bs-toggle="collapse" data-bs-target="#collapseTableaux" aria-expanded="false" style={{cursor: 'pointer'}}>
-              <span><i className="bi bi-table text-primary me-2" />Tableaux</span>
-              <i className="bi bi-chevron-down small" />
-            </a>
+            <div className="nav-link px-0 py-1 text-dark d-flex justify-content-between align-items-center">
+              <span style={{cursor: 'default'}}>
+                <i className="bi bi-table text-primary me-2" />Tableaux
+              </span>
+              <i className="bi bi-chevron-down small" data-bs-toggle="collapse" data-bs-target="#collapseTableaux" aria-expanded="false" style={{cursor: 'pointer'}} />
+            </div>
             <div className="collapse ps-4" id="collapseTableaux">
-              {/* Tous les tableaux */}
+              <a className="nav-link px-0 py-1 text-secondary small" href="#tableau23">Tableau 23</a>
+              <a className="nav-link px-0 py-1 text-secondary small" href="#tableau27">Tableau 27</a>
+              <a className="nav-link px-0 py-1 text-secondary small" href="#tableau28">Tableau 28</a>
+              <a className="nav-link px-0 py-1 text-secondary small" href="#tableau29">Tableau 29</a>
+              <a className="nav-link px-0 py-1 text-secondary small" href="#tableau30">Tableau 30</a>
+              <a className="nav-link px-0 py-1 text-secondary small" href="#tableau31">Tableau 31</a>
+              <a className="nav-link px-0 py-1 text-secondary small" href="#tableau32">Tableau 32</a>
+              <a className="nav-link px-0 py-1 text-secondary small" href="#tableau33">Tableau 33</a>
+              <a className="nav-link px-0 py-1 text-secondary small" href="#tableau34">Tableau 34</a>
+              <a className="nav-link px-0 py-1 text-secondary small" href="#tableau35">Tableau 35</a>
+              <a className="nav-link px-0 py-1 text-secondary small" href="#tableau36">Tableau 36</a>
+              <a className="nav-link px-0 py-1 text-secondary small" href="#tableau37">Tableau 37</a>
+              <a className="nav-link px-0 py-1 text-secondary small" href="#tableau38">Tableau 38</a>
+              <a className="nav-link px-0 py-1 text-secondary small" href="#tableau39">Tableau 39</a>
             </div>
           </div>
         </nav>
@@ -840,14 +934,14 @@ savepath</code></pre>
             La commande <code className="text-dark">.show()</code> affiche le robot.</p>
           <p>Le code GitHub d'origine a dû être corrigé (erreurs de dimensionnement des variables). 
             Pour rappel, MATLAB manipule des matrices : une variable qui a pour valeur 5, par exemple, est en fait une matrice 1x1 qui a pour valeur 5.</p>
-          <p>Après de nombreuses vérifications, nous obtenons le code disponible en <strong><a href="#annexe1">Annexe 01</a></strong>.</p>
+          <p>Après de nombreuses vérifications, nous obtenons le code disponible en <strong><a href="#exemple1">Exemple 01</a></strong>.</p>
           <p>Pour développer les possibilités de notre robot, nous avons ajouté des fonctions dans la classe Ned2Sim :</p>
           <ul>
-            <li>La fonction <strong>MoveLinear()</strong>, qui demande au robot de déplacer la pince de façon linéaire. Disponible en <strong><a href="#annexe2">Annexe 02</a></strong>.</li>
-            <li>La fonction <strong>MoveCircular()</strong>, qui demande au robot de déplacer la pince de façon circulaire. Disponible en <strong><a href="#annexe3">Annexe 03</a></strong>.</li>
-            <li>La fonction <strong>getFK()</strong> qui renvoie la matrice homogène de cinématique directe entre la base du robot et la pince. Disponible en <strong><a href="#annexe4">Annexe 04</a></strong>.</li>
-            <li>La fonction <strong>getTCP()</strong>, qui renvoie la position et l'orientation du TCP (Tool Center Point). Disponible en <strong><a href="#annexe5">Annexe 05</a></strong>.</li>
-            <li>La fonction <strong>drawTCP()</strong> qui dessine un repère TCP sur la figure. Disponible en <strong><a href="#annexe6">Annexe 06</a></strong>.</li>
+            <li>La fonction <strong>MoveLinear()</strong>, qui demande au robot de déplacer la pince de façon linéaire. Disponible en <strong><a href="#exemple2">Exemple 02</a></strong>.</li>
+            <li>La fonction <strong>MoveCircular()</strong>, qui demande au robot de déplacer la pince de façon circulaire. Disponible en <strong><a href="#exemple3">Exemple 03</a></strong>.</li>
+            <li>La fonction <strong>getFK()</strong> qui renvoie la matrice homogène de cinématique directe entre la base du robot et la pince. Disponible en <strong><a href="#exemple4">Exemple 04</a></strong>.</li>
+            <li>La fonction <strong>getTCP()</strong>, qui renvoie la position et l'orientation du TCP (Tool Center Point). Disponible en <strong><a href="#exemple5">Exemple 05</a></strong>.</li>
+            <li>La fonction <strong>drawTCP()</strong> qui dessine un repère TCP sur la figure. Disponible en <strong><a href="#exemple6">Exemple 06</a></strong>.</li>
           </ul>
           <p>Remarque : Ces fonctions sont à ajouter dans la partie « methods » du fichier Ned2Sim.m.</p>
           <p>Une fois toutes ces fonctions ajoutées, nous pouvons écrire un code rapide qui va devoir réaliser les étapes suivantes :</p>
@@ -1030,7 +1124,7 @@ ned.goHome();</code></pre>
           <p className="text-center small mt-1">Figure 112 : Recherche de ToolGoal.msg, ToolState.msg et des fichiers action</p>
           <p>Les fichiers <code className="text-dark">ToolGoal.msg</code> et <code className="text-dark">ToolState.msg</code> sont introuvables. 
             Plutôt que de mettre à jour le firmware (qui ferait tout perdre), la classe <strong>Ned2</strong> a été modifiée pour ne plus faire appel à ces mauvais messages. 
-            La version réduite (initialisation ROS + mouvement Home) est disponible en <strong><a href="#annexe7">Annexe 07</a></strong>.</p>
+            La version réduite (initialisation ROS + mouvement Home) est disponible en <strong><a href="#exemple7">Exemple 07</a></strong>.</p>
           <div className="alert alert-info">
             <i className="bi bi-info-circle-fill" /> <strong>Remarque :</strong> Nous avons copié le code de la classe Ned2 originelle dans un document texte afin de pouvoir le retrouver rapidement et de réutiliser certaines parties. Cette façon de procéder va nous permettre de déboguer petit à petit les fonctions de cette classe Ned2.
           </div>
@@ -1277,7 +1371,7 @@ roslaunch demo_gazebo.launch hardware_version:=ned2</code></pre>
               en respectant les contraintes mécaniques, les limites articulaires et les collisions. 
               Il agit comme une couche d'abstraction entre l'utilisateur et le robot, 
               permettant une programmation sûre et identique en simulation ou sur le robot réel. 
-              Voir <a href="#annexe08">Annexe 08</a>.</p>
+              Voir <a href="#exemple08">Exemple 08</a>.</p>
             <p><strong>Le robot réel (Current State / RobotModel) :</strong><br />
               C'est la représentation la plus importante : elle correspond à la réalité physique actuelle de
               votre robot (ou à sa simulation exacte dans Gazebo).</p>
@@ -1712,7 +1806,7 @@ gedit test_1.py</code></pre>
               <p>Pour des programmes simples, le wrapper <code className="text-dark">pyniryo</code> peut suffire. 
                 En revanche, pour des scénarios complexes (planification, collisions, obstacles virtuels), l'utilisation directe de <code className="text-dark">moveit_commander</code> est recommandée.</p>
               <p>Pour utiliser le wrapper, installez la bibliothèque <code className="text-dark">pyniryo</code> : <code className="text-dark">pip3 install pyniryo</code></p>
-              <p>Notre code présent dans 'test_1.py' est présent en <strong><a href="#annexe09">Annexe 09</a></strong>.</p>
+              <p>Notre code présent dans 'test_1.py' est présent en <strong><a href="#exemple09">Exemple 09</a></strong>.</p>
               <p>Pour lancer cette simulation, et avoir la meilleure visualisation, quelques prérequis doivent être faits :</p>
               <ul>
                 <li>Lancer Gazebo et RViz : « demo_gazebo.launch » dans un terminal</li>
@@ -1728,7 +1822,7 @@ gedit test_1.py</code></pre>
               <p>Voici les étapes effectuées pour la conception de cet exercice :</p>
               <ul>
                 <li>Création du fichier « obstacle_demo.py » dans le répertoire « scripts_python »</li>
-                <li>Le code du script Python est celui de l'<strong><a href="#annexe10">Annexe 10</a></strong></li>
+                <li>Le code du script Python est celui de l'<strong><a href="#exemple10">Exemple 10</a></strong></li>
               </ul>
               <p>L'obstacle ajouté est intégré dans la scène de planification de MoveIt et est pris en compte par l'algorithme de planification lors du calcul de la trajectoire.</p>
               <p>Dans RViz, un bloc va apparaître. Le robot, au lieu de faire une ligne droite (qui traverserait le bloc), va lever le bras ou passer par-dessus pour atteindre l'autre côté.</p>
@@ -1739,7 +1833,7 @@ gedit test_1.py</code></pre>
                 Voici les étapes effectuées pour la conception de cet exercice :</p>
               <ul>
                 <li>Création du fichier « pick_and_place.py » dans le répertoire « scripts_python »</li>
-                <li>Le code du script Python est celui de l'<strong><a href="#annexe11">Annexe 11</a></strong></li>
+                <li>Le code du script Python est celui de l'<strong><a href="#exemple11">Exemple 11</a></strong></li>
               </ul>
               {/* FIGURE 122 */}
               <div id="figure122" className="border rounded bg-light p-2 d-flex align-items-center justify-content-center" style={{height: 300, marginBottom: '1rem'}}>
@@ -1954,7 +2048,7 @@ spawn_urdf("work_table", table_xml, "", Pose(position=Point(0.5, 0, -0.35)), "wo
               <ul>
                 <li>Créer un fichier « lister_positions.py » dans le répertoire « src » ou un sous-répertoire</li>
                 <li>Donner l'autorisation avec « chmod +x lister_positions.py »</li>
-                <li>Ecrire le code de l'<strong><a href="#annexe12">Annexe 12</a></strong> (avec la commande « gedit lister_positions.py »)</li>
+                <li>Ecrire le code de l'<strong><a href="#exemple12">Exemple 12</a></strong> (avec la commande « gedit lister_positions.py »)</li>
               </ul>
               <p>L'utilisation du wrapper Python permet notamment d'interroger le robot afin de récupérer dynamiquement la liste des positions enregistrées. Cette approche s'avère particulièrement utile pour automatiser des séquences de mouvements ou vérifier l'existence de positions avant leur utilisation dans un programme.</p>
             </div>
@@ -2062,7 +2156,7 @@ spawn_urdf("work_table", table_xml, "", Pose(position=Point(0.5, 0, -0.35)), "wo
                 </table>
               </div>
               <p className="text-center small mt-1">Tableau 33 : Tableau des données réseau du PC et du robot</p>
-              <p>La méthodologie pour créer un tunnel SSH est décrite dans l'<strong><a href="#annexe13">Annexe 13</a></strong>.</p>
+              <p>La méthodologie pour créer un tunnel SSH est décrite dans l'<strong><a href="#exemple13">Exemple 13</a></strong>.</p>
               <p>Après avoir créé le tunnel nous l'avons testé d'abord avec la commande rostopic list et nous avons obtenu la liste des topics dans le terminal. Pourtant, l'exécution de notre script MoveIt échouait et renvoyait le message d'erreur suivant :</p>
               <pre className="bg-dark text-white p-3 rounded"><code>Error in XmlRpcClient: write error (Connection refused)</code></pre>
               <p>Le tunnel ne redirigeait que le port 11311 (l'annuaire). 
@@ -2154,7 +2248,7 @@ moveit_commander.exception.MoveItCommanderException: Unable to set target pos_ca
                 </table>
               </div>
               <p className="text-center small mt-1">Tableau 34 : Tableau récapitulatif des erreurs obtenues lors de la récupération de position enregistrées sur le robot</p>
-              <p>Le code (situé à <strong><a href="#annexe14">Annexe 14</a></strong>) qui sert à la récupération des positions ainsi que leurs données (positions, orientation, angles des joints) s'appelle « niryo_positions.py ».</p>
+              <p>Le code (situé à <strong><a href="#exemple14">Exemple 14</a></strong>) qui sert à la récupération des positions ainsi que leurs données (positions, orientation, angles des joints) s'appelle « niryo_positions.py ».</p>
               <p>Une fois créé il faut l'envoyer sur le robot : <code className="text-dark">scp niryo_positions.py niryo@169.254.200.200:~/</code></p>
               <p>Pour pouvoir l'utiliser dans nos codes, on l'implémente de cette façon :</p>
               <pre className="bg-dark text-white p-3 rounded"><code>from niryo_tools import get_niryo_joints # On importe la nouvelle fonction{"\n"}
@@ -2189,12 +2283,12 @@ else:{"\n"}
               </ul>
               <p>Pour obtenir une position identique à celle de Niryo Studio, nous avons utilisé les joints plutôt que les coordonnées. 
                 Le passage par l'espace articulaire évite les calculs de cinématique inverse et les erreurs de référentiel (mètres vs millimètres).</p>
-              <p>Après ces modifications, le premier code opérationnel (<strong><a href="#annexe15">Annexe 15</a></strong>) a été envoyé au robot. 
+              <p>Après ces modifications, le premier code opérationnel (<strong><a href="#exemple15">Exemple 15</a></strong>) a été envoyé au robot. 
                 Nommé <code className="text-dark">test_connexion_robot_rospy.py</code>, 
                 il déplace le bras vers <code className="text-dark">pos_cam</code> puis <code className="text-dark">home_position</code> après 2 secondes.</p>
               <p>Suite à ce succès, nous avons contrôlé le convoyeur et le capteur IR 
-                (<strong><a href="#annexe16">Annexe 16</a></strong>), puis réalisé un Pick &amp; Place complet 
-                (<strong><a href="#annexe17">Annexe 17</a></strong>).</p>
+                (<strong><a href="#exemple16">Exemple 16</a></strong>), puis réalisé un Pick &amp; Place complet 
+                (<strong><a href="#exemple17">Exemple 17</a></strong>).</p>
               <p><strong>Déplacements des scripts dans un dossier sur le robot (et exécution)</strong></p>
               <p>Pour que tous soient facilement accessibles nous avons créé un dossier dans le robot pour y mettre tous nos scripts.</p>
               <pre className="bg-dark text-white p-3 rounded"><code>mkdir ~/scripts{"           "}# On crée le dossier{"\n"}
@@ -2207,7 +2301,7 @@ mv ~/test_connexion_robot_rospy.py ~/niryo_tools.py ~/scripts/{"   "}# On dépla
 python3 mon_script.py</code></pre>
               <p><strong>ATTENTION</strong> : Si on lance le script depuis ~ (home) avec python3 ~/mes_scripts/mon_script.py, Python va chercher niryo_tools.py dans ~. Il ne le trouvera pas (car il est dans le sous-dossier) et renverra une ImportError. Pour éviter tout problème, on enchaîne les deux commandes sur une seule ligne avec un « &amp;&amp; » pour dire que si la première condition est correcte, on peut faire la deuxième.</p>
               <pre className="bg-dark text-white p-3 rounded"><code>cd ~/mes_scripts &amp;&amp; python3 mon_script.py</code></pre>
-              <p>On peut voir dans le script de l'Annexe 16 une boucle de polling. La fonction « wait_for_ir_sensor » interroge le service « get_digital_io » en continu jusqu'à ce que la valeur passe à « 0 ».</p>
+              <p>On peut voir dans le script de l'Exemple 16 une boucle de polling. La fonction « wait_for_ir_sensor » interroge le service « get_digital_io » en continu jusqu'à ce que la valeur passe à « 0 ».</p>
             </div>
             <div id="definitions">
               <h4 className="fw-bold mt-3">g) Quelques définitions</h4>
@@ -2285,10 +2379,10 @@ python3 mon_script.py</code></pre>
             </div>
           </div>
         </div>
-        <div id="annexes" className="bg-white rounded-3 shadow-sm p-4 mb-4">
-          <h2 className="text-primary border-bottom pb-2 mb-4"><i className="bi bi-info" /> Annexes</h2>
-          <div id="annexe1" className="mt-4">
-            <h4 className="text-primary fw-bold">Annexe 01</h4>
+        <div id="Exemples" className="bg-white rounded-3 shadow-sm p-4 mb-4">
+          <h2 className="text-primary border-bottom pb-2 mb-4"><i className="bi bi-info" /> Exemples</h2>
+          <div id="exemple1" className="mt-4">
+            <h4 className="text-primary fw-bold">Exemple 01</h4>
             <pre className="bg-dark text-white p-3 rounded"><code>{"\n"}
 classdef Ned2Sim &lt; handle{"\n"}
 {"    "}properties (SetAccess = private){"\n"}
@@ -2497,8 +2591,8 @@ end{"\n"}
 {"\n"}
 {"                            "}</code></pre>
           </div>
-          <div id="annexe2" className="mt-4">
-            <h4 className="text-primary fw-bold">Annexe 02</h4>
+          <div id="exemple2" className="mt-4">
+            <h4 className="text-primary fw-bold">Exemple 02</h4>
             <pre className="bg-dark text-white p-3 rounded"><code>{"\n"}
 function MoveLinear(ned, Pstart, Pend, RPY, duration, nPoints){"\n"}
 {"    "}arguments{"\n"}
@@ -2533,8 +2627,8 @@ end{"\n"}
 {"\n"}
 {"                            "}</code></pre>
           </div>
-          <div id="annexe3" className="mt-4">
-            <h4 className="text-primary fw-bold">Annexe 03</h4>
+          <div id="exemple3" className="mt-4">
+            <h4 className="text-primary fw-bold">Exemple 03</h4>
             <pre className="bg-dark text-white p-3 rounded"><code>{"\n"}
 function MoveCircular(ned, Pstart, Pvia, Pend, RPY, duration, nPoints){"\n"}
 {"    "}arguments{"\n"}
@@ -2621,8 +2715,8 @@ end{"\n"}
 {"\n"}
 {"                            "}</code></pre>
           </div>
-          <div id="annexe4" className="mt-4">
-            <h4 className="text-primary fw-bold">Annexe 04</h4>
+          <div id="exemple4" className="mt-4">
+            <h4 className="text-primary fw-bold">Exemple 04</h4>
             <pre className="bg-dark text-white p-3 rounded"><code>{"\n"}
 function T = getFK(ned){"\n"}
 {"    "}% Renvoie la matrice homogène base_link -&gt; tool_link{"\n"}
@@ -2636,8 +2730,8 @@ end{"\n"}
 {"\n"}
 {"                            "}</code></pre>
           </div>
-          <div id="annexe5" className="mt-4">
-            <h4 className="text-primary fw-bold">Annexe 05</h4>
+          <div id="exemple5" className="mt-4">
+            <h4 className="text-primary fw-bold">Exemple 05</h4>
             <pre className="bg-dark text-white p-3 rounded"><code>{"\n"}
 function [pos, rpy] = getTCP(ned){"\n"}
 {"    "}% Renvoie position + orientation (RPY) du TCP{"\n"}
@@ -2648,8 +2742,8 @@ end{"\n"}
 {"\n"}
 {"                            "}</code></pre>
           </div>
-          <div id="annexe6" className="mt-4">
-            <h4 className="text-primary fw-bold">Annexe 06</h4>
+          <div id="exemple6" className="mt-4">
+            <h4 className="text-primary fw-bold">Exemple 06</h4>
             <pre className="bg-dark text-white p-3 rounded"><code>{"\n"}
 function drawTCP(ned){"\n"}
 {"    "}% Dessine un repère TCP dans la figure{"\n"}
@@ -2675,8 +2769,8 @@ end{"\n"}
 {"\n"}
 {"                            "}</code></pre>
           </div>
-          <div id="annexe7" className="mt-4">
-            <h4 className="text-primary fw-bold">Annexe 07</h4>
+          <div id="exemple7" className="mt-4">
+            <h4 className="text-primary fw-bold">Exemple 07</h4>
             <pre className="bg-dark text-white p-3 rounded"><code>{"\n"}
 classdef Ned2 &lt; handle{"\n"}
 {"    "}properties (SetAccess = private){"\n"}
@@ -2693,9 +2787,9 @@ classdef Ned2 &lt; handle{"\n"}
 {"\n"}
 {"                            "}</code></pre>
           </div>
-          {/* Annexe 08 */}
-          <div id="annexe08" className="mt-4">
-            <h4 className="text-primary fw-bold">Annexe 08</h4>
+          {/* Exemple 08 */}
+          <div id="exemple08" className="mt-4">
+            <h4 className="text-primary fw-bold">Exemple 08</h4>
             <p><strong>Définition de MoveIt</strong></p>
             <p>MoveIt est un framework ROS dédié à la manipulation robotique, dont le rôle principal est de transformer une intention de mouvement (ex. aller à cette position) en une trajectoire réalisable, sûre et conforme aux contraintes du robot.</p>
             <strong>Autrement dit :</strong>
@@ -2755,16 +2849,16 @@ group.go()</code></pre>
             </ul>
             <strong>Positionnement de MoveIt dans ROS</strong>
             <p>On peut résumer ainsi :</p>
-            {/* IMAGE Annexe 08 */}
+            {/* IMAGE Exemple 08 */}
             <div className="border rounded bg-light p-2 d-flex align-items-center justify-content-center" style={{height: 350, marginBottom: '1rem'}}>
-              <img src="images/Annexe_img_8.png" className="img-fluid" style={{maxHeight: '100%', objectFit: 'contain'}} />
+              <img src="images/Exemple_img_8.png" className="img-fluid" style={{maxHeight: '100%', objectFit: 'contain'}} />
             </div>
             <p className="text-center small mt-1">Figure : Schéma résumé de MoveIt</p>
             <p>MoveIt ne parle jamais directement aux moteurs. Il passe toujours par ROS</p>
           </div>
-          {/* Annexe 09 */}
-          <div id="annexe09" className="mt-4">
-            <h4 className="text-primary fw-bold">Annexe 09</h4>
+          {/* Exemple 09 */}
+          <div id="exemple09" className="mt-4">
+            <h4 className="text-primary fw-bold">Exemple 09</h4>
             <pre className="bg-dark text-white p-3 rounded"><code>{"\n"}
 {"                                "}{"\n"}
 #!/usr/bin/env python3{"\n"}
@@ -2925,9 +3019,9 @@ def simple_move():{"\n"}
 {"\n"}
 {"                        "}</code></pre>
           </div>
-          {/* Annexe 10 */}
-          <div id="annexe10" className="mt-4">
-            <h4 className="text-primary fw-bold">Annexe 10</h4>
+          {/* Exemple 10 */}
+          <div id="exemple10" className="mt-4">
+            <h4 className="text-primary fw-bold">Exemple 10</h4>
             <p>Code du programme avec obstacle virtuel (obstacle_demo.py)</p>
             <pre className="bg-dark text-white p-3 rounded"><code>{"\n"}
 #!/usr/bin/env python3{"\n"}
@@ -2994,9 +3088,9 @@ if __name__ == '__main__':{"\n"}
 obstacle_avoidance(){"\n"}
 {"                    "}</code></pre>
           </div>
-          {/* Annexe 11 */}
-          <div id="annexe11" className="mt-4">
-            <h4 className="text-primary fw-bold">Annexe 11</h4>
+          {/* Exemple 11 */}
+          <div id="exemple11" className="mt-4">
+            <h4 className="text-primary fw-bold">Exemple 11</h4>
             <p>Code du programme avec spawn de cube dans Gazebo (pick_and_place.py)</p>
             <pre className="bg-dark text-white p-3 rounded"><code>{"\n"}
 import sys{"\n"}
@@ -3106,9 +3200,9 @@ if __name__ == '__main__':{"\n"}
 real_pick_and_place(){"\n"}
 {"                            "}</code></pre>
           </div>
-          {/* Annexe 12 */}
-          <div id="annexe12" className="mt-4">
-            <h4 className="text-primary fw-bold">Annexe 12</h4>
+          {/* Exemple 12 */}
+          <div id="exemple12" className="mt-4">
+            <h4 className="text-primary fw-bold">Exemple 12</h4>
             <p>Code pour lister les positions enregistrées (lister_positions.py)</p>
             <pre className="bg-dark text-white p-3 rounded"><code>{"\n"}
 from pyniryo import *{"\n"}
@@ -3138,9 +3232,9 @@ if not liste_noms:{"\n"}
 robot.close_connection(){"\n"}
 {"                            "}</code></pre>
           </div>
-          {/* Annexe 13 */}
-          <div id="annexe13" className="mt-4">
-            <h4 className="text-primary fw-bold">Annexe 13</h4>
+          {/* Exemple 13 */}
+          <div id="exemple13" className="mt-4">
+            <h4 className="text-primary fw-bold">Exemple 13</h4>
             <p>Méthodologie de mise en place d'un tunnel SSH</p>
             <h5>Prérequis</h5>
             <p>• SSH accessible sur robot :<br />
@@ -3270,9 +3364,9 @@ source ~/niryo_ws/devel/setup.bash</code></pre>
                 <code className="text-dark">nom_du_script.py</code></li>
             </ol>
           </div>
-          {/* Annexe 14 */}
-          <div id="annexe14" className="mt-4">
-            <h4 className="text-primary fw-bold">Annexe 14</h4>
+          {/* Exemple 14 */}
+          <div id="exemple14" className="mt-4">
+            <h4 className="text-primary fw-bold">Exemple 14</h4>
             <pre className="bg-dark text-white p-3 rounded"><code>{"\n"}
 #!/usr/bin/env python3{"\n"}
 # -*- coding: utf-8 -*-{"\n"}
@@ -3311,9 +3405,9 @@ def get_niryo_joints(pose_name):{"\n"}
 {"        "}return None{"\n"}
 {"                            "}</code></pre>
           </div>
-          {/* Annexe 15 */}
-          <div id="annexe15" className="mt-4">
-            <h4 className="text-primary fw-bold">Annexe 15</h4>
+          {/* Exemple 15 */}
+          <div id="exemple15" className="mt-4">
+            <h4 className="text-primary fw-bold">Exemple 15</h4>
             <pre className="bg-dark text-white p-3 rounded"><code>{"\n"}
 #!/usr/bin/env python3{"\n"}
 import sys{"\n"}
@@ -3386,9 +3480,9 @@ Niryo Studio."){"\n"}
 {"    "}pass{"\n"}
 {"                            "}</code></pre>
           </div>
-          {/* Annexe 16 */}
-          <div id="annexe16" className="mt-4">
-            <h4 className="text-primary fw-bold">Annexe 16</h4>
+          {/* Exemple 16 */}
+          <div id="exemple16" className="mt-4">
+            <h4 className="text-primary fw-bold">Exemple 16</h4>
             <p>« stop_conv_w_ir_rospy.py » : On arrête le convoyeur quand le capteur IR détecte un objet.</p>
             <pre className="bg-dark text-white p-3 rounded"><code>{"\n"}
 #!/usr/bin/env python3{"\n"}
@@ -3460,9 +3554,9 @@ if __name__ == "__main__":{"\n"}
 {"\n"}
 {"                            "}</code></pre>
           </div>
-          {/* Annexe 17 */}
-          <div id="annexe17" className="mt-4">
-            <h4 className="text-primary fw-bold">Annexe 17</h4>
+          {/* Exemple 17 */}
+          <div id="exemple17" className="mt-4">
+            <h4 className="text-primary fw-bold">Exemple 17</h4>
             <p>Pick_&amp;_Place_rospy.py » : on fait un pick &amp; place avec le convoyeur et le capteur IR.</p>
           </div>
         </div>

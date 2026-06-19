@@ -15,23 +15,28 @@ const jumeau_numérique = () => {
           {/* 1. INSTALLATION DE NIRYOSTUDIO */}
           {/* ============================================ */}
           <div className="mb-2">
-            <a className="nav-link px-0 py-1 text-dark d-flex justify-content-between align-items-center" data-bs-toggle="collapse" data-bs-target="#collapseInstallation" aria-expanded="false" style={{cursor: 'pointer'}}>
-              <span><i className="bi bi-cloud-download text-primary me-2" />Installation NiryoStudio</span>
-              <i className="bi bi-chevron-down small" />
-            </a>
+            <div className="nav-link px-0 py-1 text-dark d-flex justify-content-between align-items-center">
+              <a href="#installation" className="text-dark text-decoration-none" style={{cursor: 'pointer'}}>
+                <i className="bi bi-cloud-download text-primary me-2" />Installation NiryoStudio
+              </a>
+              <i className="bi bi-chevron-down small" data-bs-toggle="collapse" data-bs-target="#collapseInstallation" aria-expanded="false" style={{cursor: 'pointer'}} />
+            </div>
             <div className="collapse ps-4" id="collapseInstallation">
               <a className="nav-link px-0 py-1 text-secondary small" href="#prerequis">1. Prérequis</a>
               <a className="nav-link px-0 py-1 text-secondary small" href="#telechargement">2. Téléchargement</a>
             </div>
           </div>
+          
           {/* ============================================ */}
           {/* 2. SIMULATION NIRYOSTUDIO */}
           {/* ============================================ */}
           <div className="mb-2">
-            <a className="nav-link px-0 py-1 text-dark d-flex justify-content-between align-items-center" data-bs-toggle="collapse" data-bs-target="#collapseSimulation" aria-expanded="false" style={{cursor: 'pointer'}}>
-              <span><i className="bi bi-play-circle text-primary me-2" />Simulation NiryoStudio</span>
-              <i className="bi bi-chevron-down small" />
-            </a>
+            <div className="nav-link px-0 py-1 text-dark d-flex justify-content-between align-items-center">
+              <a href="#simulation-niryostudio" className="text-dark text-decoration-none" style={{cursor: 'pointer'}}>
+                <i className="bi bi-play-circle text-primary me-2" />Simulation NiryoStudio
+              </a>
+              <i className="bi bi-chevron-down small" data-bs-toggle="collapse" data-bs-target="#collapseSimulation" aria-expanded="false" style={{cursor: 'pointer'}} />
+            </div>
             <div className="collapse ps-4" id="collapseSimulation">
               <a className="nav-link px-0 py-1 text-secondary small" href="#sim-generalites">3. Généralités</a>
               <a className="nav-link px-0 py-1 text-secondary small" href="#sim-installation">4. Installation</a>
@@ -44,14 +49,17 @@ const jumeau_numérique = () => {
               <a className="nav-link px-0 py-1 text-secondary small" href="#sim-depannages">11. Dépannages</a>
             </div>
           </div>
+          
           {/* ============================================ */}
           {/* 3. ENVIRONNEMENTS DE PROGRAMMATION */}
           {/* ============================================ */}
           <div className="mb-2">
-            <a className="nav-link px-0 py-1 text-dark d-flex justify-content-between align-items-center" data-bs-toggle="collapse" data-bs-target="#collapseEnvironnements" aria-expanded="false" style={{cursor: 'pointer'}}>
-              <span><i className="bi bi-window-desktop text-primary me-2" />Environnements</span>
-              <i className="bi bi-chevron-down small" />
-            </a>
+            <div className="nav-link px-0 py-1 text-dark d-flex justify-content-between align-items-center">
+              <a href="#environnements" className="text-dark text-decoration-none" style={{cursor: 'pointer'}}>
+                <i className="bi bi-window-desktop text-primary me-2" />Environnements
+              </a>
+              <i className="bi bi-chevron-down small" data-bs-toggle="collapse" data-bs-target="#collapseEnvironnements" aria-expanded="false" style={{cursor: 'pointer'}} />
+            </div>
             <div className="collapse ps-4" id="collapseEnvironnements">
               <a className="nav-link px-0 py-1 text-secondary small" href="#linux-windows">12. Linux / Windows</a>
               <a className="nav-link px-0 py-1 text-secondary small ps-3" href="#linux">a) Linux</a>
@@ -59,14 +67,17 @@ const jumeau_numérique = () => {
               <a className="nav-link px-0 py-1 text-secondary small" href="#rviz">13. RViz</a>
             </div>
           </div>
+          
           {/* ============================================ */}
           {/* 4. GAZEBO */}
           {/* ============================================ */}
           <div className="mb-2">
-            <a className="nav-link px-0 py-1 text-dark d-flex justify-content-between align-items-center" data-bs-toggle="collapse" data-bs-target="#collapseGazebo" aria-expanded="false" style={{cursor: 'pointer'}}>
-              <span><i className="bi bi-display text-primary me-2" />Gazebo</span>
-              <i className="bi bi-chevron-down small" />
-            </a>
+            <div className="nav-link px-0 py-1 text-dark d-flex justify-content-between align-items-center">
+              <a href="#gazebo" className="text-dark text-decoration-none" style={{cursor: 'pointer'}}>
+                <i className="bi bi-display text-primary me-2" />Gazebo
+              </a>
+              <i className="bi bi-chevron-down small" data-bs-toggle="collapse" data-bs-target="#collapseGazebo" aria-expanded="false" style={{cursor: 'pointer'}} />
+            </div>
             <div className="collapse ps-4" id="collapseGazebo">
               <a className="nav-link px-0 py-1 text-secondary small" href="#gazebo-presentation">14. Présentation</a>
               <a className="nav-link px-0 py-1 text-secondary small" href="#gazebo-choix">b) Un choix évident</a>
@@ -77,29 +88,35 @@ const jumeau_numérique = () => {
               <a className="nav-link px-0 py-1 text-secondary small" href="#gazebo-limites">d) Limites</a>
             </div>
           </div>
+          
           {/* ============================================ */}
           {/* 5. WEBOTS */}
           {/* ============================================ */}
           <div className="mb-2">
-            <a className="nav-link px-0 py-1 text-dark d-flex justify-content-between align-items-center" data-bs-toggle="collapse" data-bs-target="#collapseWebots" aria-expanded="false" style={{cursor: 'pointer'}}>
-              <span><i className="bi bi-globe text-primary me-2" />Webots</span>
-              <i className="bi bi-chevron-down small" />
-            </a>
+            <div className="nav-link px-0 py-1 text-dark d-flex justify-content-between align-items-center">
+              <a href="#webots" className="text-dark text-decoration-none" style={{cursor: 'pointer'}}>
+                <i className="bi bi-globe text-primary me-2" />Webots
+              </a>
+              <i className="bi bi-chevron-down small" data-bs-toggle="collapse" data-bs-target="#collapseWebots" aria-expanded="false" style={{cursor: 'pointer'}} />
+            </div>
             <div className="collapse ps-4" id="collapseWebots">
               <a className="nav-link px-0 py-1 text-secondary small" href="#webots-presentation">15. Présentation</a>
               <a className="nav-link px-0 py-1 text-secondary small" href="#webots-caracteristiques">b) Caractéristiques</a>
               <a className="nav-link px-0 py-1 text-secondary small" href="#webots-limites">c) Limites avec Niryo</a>
             </div>
           </div>
+          
           {/* ============================================ */}
           {/* FIGURES */}
           {/* ============================================ */}
           <div className="border-top mt-3 pt-2" />
           <div className="mb-2">
-            <a className="nav-link px-0 py-1 text-dark d-flex justify-content-between align-items-center" data-bs-toggle="collapse" data-bs-target="#collapseFigures" aria-expanded="false" style={{cursor: 'pointer'}}>
-              <span><i className="bi bi-image text-primary me-2" />Figures</span>
-              <i className="bi bi-chevron-down small" />
-            </a>
+            <div className="nav-link px-0 py-1 text-dark d-flex justify-content-between align-items-center">
+              <span style={{cursor: 'default'}}>
+                <i className="bi bi-image text-primary me-2" />Figures
+              </span>
+              <i className="bi bi-chevron-down small" data-bs-toggle="collapse" data-bs-target="#collapseFigures" aria-expanded="false" style={{cursor: 'pointer'}} />
+            </div>
             <div className="collapse ps-4" id="collapseFigures">
               <a className="nav-link px-0 py-1 text-secondary small" href="#figure86">Figure 86</a>
               <a className="nav-link px-0 py-1 text-secondary small" href="#figure87">Figure 87</a>
@@ -115,14 +132,17 @@ const jumeau_numérique = () => {
               <a className="nav-link px-0 py-1 text-secondary small" href="#webot1">Webots</a>
             </div>
           </div>
+          
           {/* ============================================ */}
           {/* TABLEAUX */}
           {/* ============================================ */}
           <div className="mb-2">
-            <a className="nav-link px-0 py-1 text-dark d-flex justify-content-between align-items-center" data-bs-toggle="collapse" data-bs-target="#collapseTableaux" aria-expanded="false" style={{cursor: 'pointer'}}>
-              <span><i className="bi bi-table text-primary me-2" />Tableaux</span>
-              <i className="bi bi-chevron-down small" />
-            </a>
+            <div className="nav-link px-0 py-1 text-dark d-flex justify-content-between align-items-center">
+              <span style={{cursor: 'default'}}>
+                <i className="bi bi-table text-primary me-2" />Tableaux
+              </span>
+              <i className="bi bi-chevron-down small" data-bs-toggle="collapse" data-bs-target="#collapseTableaux" aria-expanded="false" style={{cursor: 'pointer'}} />
+            </div>
             <div className="collapse ps-4" id="collapseTableaux">
               <a className="nav-link px-0 py-1 text-secondary small" href="#tableau24">Tableau 24</a>
               <a className="nav-link px-0 py-1 text-secondary small" href="#tableau25">Tableau 25</a>
@@ -132,6 +152,7 @@ const jumeau_numérique = () => {
         </nav>
       </div>
     </div>
+
     {/* contenu principal */}
     <div className="col-md-9 ps-0 ps-md-2 pe-0">
       {/* ============================================ */}
