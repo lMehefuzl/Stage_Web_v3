@@ -26,10 +26,10 @@ const programmation = () => {
               <a className="nav-link px-0 py-1 text-secondary small" href="#utilisation-seul">1. Utilisation du robot seul</a>
               <a className="nav-link px-0 py-1 text-secondary small" href="#configuration-initiale">2. Configuration initiale</a>
               <a className="nav-link px-0 py-1 text-secondary small" href="#connexion">3. Connexion au robot</a>
-              <a className="nav-link px-0 py-1 text-secondary small ps-3" href="#mode-point-acces">a) Mode point d'accès</a>
-              <a className="nav-link px-0 py-1 text-secondary small ps-3" href="#mode-wifi">b) Mode Wi-Fi</a>
-              <a className="nav-link px-0 py-1 text-secondary small ps-3" href="#mode-ethernet">c) Mode Ethernet</a>
-              <a className="nav-link px-0 py-1 text-secondary small ps-3" href="#mode-ethernet-direct">d) Mode Ethernet Direct</a>
+              <a className="nav-link px-0 py-1 text-secondary small ps-3" href="#mode-point-acces"> Mode point d'accès</a>
+              <a className="nav-link px-0 py-1 text-secondary small ps-3" href="#mode-wifi"> Mode Wi-Fi</a>
+              <a className="nav-link px-0 py-1 text-secondary small ps-3" href="#mode-ethernet"> Mode Ethernet</a>
+              <a className="nav-link px-0 py-1 text-secondary small ps-3" href="#mode-ethernet-direct"> Mode Ethernet Direct</a>
               <a className="nav-link px-0 py-1 text-secondary small" href="#calibration">4. Calibration du robot</a>
               <a className="nav-link px-0 py-1 text-secondary small" href="#interface">5. Interface de NiryoStudio</a>
               <a className="nav-link px-0 py-1 text-secondary small" href="#tableau-bord">6. Tableau de bord</a>
@@ -49,16 +49,16 @@ const programmation = () => {
             </div>
             <div className="collapse ps-4" id="collapseProgrammation">
               <a className="nav-link px-0 py-1 text-secondary small" href="#blockly">1. Blockly</a>
-              <a className="nav-link px-0 py-1 text-secondary small ps-3" href="#creer-programme">a) Créer un programme</a>
-              <a className="nav-link px-0 py-1 text-secondary small ps-3" href="#enregistrer-programme">b) Enregistrer</a>
-              <a className="nav-link px-0 py-1 text-secondary small ps-3" href="#mouvements">c) Mouvements</a>
-              <a className="nav-link px-0 py-1 text-secondary small ps-3" href="#jouer-programme">d) Jouer un programme</a>
-              <a className="nav-link px-0 py-1 text-secondary small ps-3" href="#ouvrir-programme">e) Ouvrir un programme</a>
-              <a className="nav-link px-0 py-1 text-secondary small ps-3" href="#importer-exporter">f) Importer/Exporter</a>
+              <a className="nav-link px-0 py-1 text-secondary small ps-3" href="#creer-programme"> Créer un programme</a>
+              <a className="nav-link px-0 py-1 text-secondary small ps-3" href="#enregistrer-programme"> Enregistrer</a>
+              <a className="nav-link px-0 py-1 text-secondary small ps-3" href="#mouvements"> Mouvements</a>
+              <a className="nav-link px-0 py-1 text-secondary small ps-3" href="#jouer-programme"> Jouer un programme</a>
+              <a className="nav-link px-0 py-1 text-secondary small ps-3" href="#ouvrir-programme">Ouvrir un programme</a>
+              <a className="nav-link px-0 py-1 text-secondary small ps-3" href="#importer-exporter">Importer/Exporter</a>
               <a className="nav-link px-0 py-1 text-secondary small" href="#pyniryo-logiciel">2. Pyniryo</a>
-              <a className="nav-link px-0 py-1 text-secondary small ps-3" href="#description-pyniryo">a) Description</a>
-              <a className="nav-link px-0 py-1 text-secondary small ps-3" href="#jouer-pyniryo">b) Jouer un programme</a>
-              <a className="nav-link px-0 py-1 text-secondary small ps-3" href="#importer-exporter-pyniryo">c) Importer/Exporter</a>
+              <a className="nav-link px-0 py-1 text-secondary small ps-3" href="#description-pyniryo"> Description</a>
+              <a className="nav-link px-0 py-1 text-secondary small ps-3" href="#jouer-pyniryo"> Jouer un programme</a>
+              <a className="nav-link px-0 py-1 text-secondary small ps-3" href="#importer-exporter-pyniryo"> Importer/Exporter</a>
               <a className="nav-link px-0 py-1 text-secondary small" href="#matlab">3. MATLAB / Simulink</a>
               <a className="nav-link px-0 py-1 text-secondary small" href="#node-red">4. Node-RED</a>
             </div>
@@ -111,31 +111,31 @@ const programmation = () => {
             </div>
             <div className="collapse ps-4" id="collapseProgrammationRos">
               <a className="nav-link px-0 py-1 text-secondary small" href="#preambule">1. Préambule</a>
-              <a className="nav-link px-0 py-1 text-secondary small ps-3" href="#commandes-bases">a) Commandes de bases</a>
-              <a className="nav-link px-0 py-1 text-secondary small ps-3" href="#commandes-ros">b) Commandes ROS fréquentes</a>
-              <a className="nav-link px-0 py-1 text-secondary small ps-3" href="#commandes-compilation">c) Commandes de compilation</a>
+              <a className="nav-link px-0 py-1 text-secondary small ps-3" href="#commandes-bases"> Commandes de bases</a>
+              <a className="nav-link px-0 py-1 text-secondary small ps-3" href="#commandes-ros"> Commandes ROS fréquentes</a>
+              <a className="nav-link px-0 py-1 text-secondary small ps-3" href="#commandes-compilation"> Commandes de compilation</a>
               <a className="nav-link px-0 py-1 text-secondary small" href="#simulation-gazebo-rviz">2. Simulation</a>
-              <a className="nav-link px-0 py-1 text-secondary small ps-3" href="#generalites-simulation">a) Généralités</a>
-              <a className="nav-link px-0 py-1 text-secondary small ps-3" href="#modeles-robot-rviz">b) Les différents modèles de robot dans Rviz</a>
+              <a className="nav-link px-0 py-1 text-secondary small ps-3" href="#generalites-simulation"> Généralités</a>
+              <a className="nav-link px-0 py-1 text-secondary small ps-3" href="#modeles-robot-rviz"> Les différents modèles de robot dans Rviz</a>
               <a className="nav-link px-0 py-1 text-secondary small" href="#ros">3. ROS</a>
-              <a className="nav-link px-0 py-1 text-secondary small ps-3" href="#methodologie-ros">a) Méthodologie</a>
+              <a className="nav-link px-0 py-1 text-secondary small ps-3" href="#methodologie-ros"> Méthodologie</a>
               <a className="nav-link px-0 py-1 text-secondary small" href="#creation-programmes">4. Création et Lancement de programme</a>
-              <a className="nav-link px-0 py-1 text-secondary small ps-3" href="#commandes-utiles">a) Où trouver les commandes ?</a>
-              <a className="nav-link px-0 py-1 text-secondary small ps-3" href="#commandes-utiles-liste">b) Les commandes utiles</a>
-              <a className="nav-link px-0 py-1 text-secondary small ps-3" href="#structure-programme">c) Structure d'un programme</a>
-              <a className="nav-link px-0 py-1 text-secondary small ps-3" href="#simulation-programmes">d) Simulation</a>
-              <a className="nav-link px-0 py-1 text-secondary small ps-3" href="#defaut-trajectoire">e) Défaut de trajectoire</a>
-              <a className="nav-link px-0 py-1 text-secondary small ps-3" href="#debug-warn">f) Méthodologie de débogage [WARN]</a>
-              <a className="nav-link px-0 py-1 text-secondary small ps-3" href="#plateformes-simulation">g) Ajouter des plateformes</a>
-              <a className="nav-link px-0 py-1 text-secondary small ps-3" href="#conclusion-simulation">h) Conclusion</a>
+              <a className="nav-link px-0 py-1 text-secondary small ps-3" href="#commandes-utiles"> Où trouver les commandes ?</a>
+              <a className="nav-link px-0 py-1 text-secondary small ps-3" href="#commandes-utiles-liste"> Les commandes utiles</a>
+              <a className="nav-link px-0 py-1 text-secondary small ps-3" href="#structure-programme"> Structure d'un programme</a>
+              <a className="nav-link px-0 py-1 text-secondary small ps-3" href="#simulation-programmes"> Simulation</a>
+              <a className="nav-link px-0 py-1 text-secondary small ps-3" href="#defaut-trajectoire">Défaut de trajectoire</a>
+              <a className="nav-link px-0 py-1 text-secondary small ps-3" href="#debug-warn">Méthodologie de débogage [WARN]</a>
+              <a className="nav-link px-0 py-1 text-secondary small ps-3" href="#plateformes-simulation"> Ajouter des plateformes</a>
+              <a className="nav-link px-0 py-1 text-secondary small ps-3" href="#conclusion-simulation">Conclusion</a>
               <a className="nav-link px-0 py-1 text-secondary small" href="#programmation-reel">5. Programmation du robot réel</a>
-              <a className="nav-link px-0 py-1 text-secondary small ps-3" href="#commande-reel">a) Commande du robot réel</a>
-              <a className="nav-link px-0 py-1 text-secondary small ps-3" href="#limites-connexion">b) Limites rencontrées</a>
-              <a className="nav-link px-0 py-1 text-secondary small ps-3" href="#analyse-cause">c) Analyse de la cause</a>
-              <a className="nav-link px-0 py-1 text-secondary small ps-3" href="#solution-mise-oeuvre">d) Solution mise en œuvre</a>
-              <a className="nav-link px-0 py-1 text-secondary small ps-3" href="#methode-embarquee">e) La méthode embarquée</a>
-              <a className="nav-link px-0 py-1 text-secondary small ps-3" href="#mise-place-embarquee">f) Mise en place</a>
-              <a className="nav-link px-0 py-1 text-secondary small ps-3" href="#definitions">g) Définitions</a>
+              <a className="nav-link px-0 py-1 text-secondary small ps-3" href="#commande-reel"> Commande du robot réel</a>
+              <a className="nav-link px-0 py-1 text-secondary small ps-3" href="#limites-connexion"> Limites rencontrées</a>
+              <a className="nav-link px-0 py-1 text-secondary small ps-3" href="#analyse-cause"> Analyse de la cause</a>
+              <a className="nav-link px-0 py-1 text-secondary small ps-3" href="#solution-mise-oeuvre"> Solution mise en œuvre</a>
+              <a className="nav-link px-0 py-1 text-secondary small ps-3" href="#methode-embarquee">La méthode embarquée</a>
+              <a className="nav-link px-0 py-1 text-secondary small ps-3" href="#mise-place-embarquee">Mise en place</a>
+              <a className="nav-link px-0 py-1 text-secondary small ps-3" href="#definitions"> Définitions</a>
             </div>
           </div>
           
@@ -346,7 +346,7 @@ const programmation = () => {
           <h3 className="text-dark fw-bold">3. Connexion au robot</h3>
           <p>Il existe plusieurs possibilités pour connecter le logiciel NiryoStudio.</p>
           <div id="mode-point-acces">
-            <h4 className="fw-bold mt-3">a) Mode point d'accès</h4>
+            <h4 className="fw-bold mt-3"> Mode point d'accès</h4>
             <p>Chaque robot possède son propre réseau <strong>Wi-Fi (SSID)</strong>. Ce dernier est sous la forme <strong>Niryo Hotspot XX-XXX-XXX</strong>. L'adresse complète le robot est visible sous la base du robot.</p>
             <p>Il faut ensuite suivre les étapes suivantes :</p>
             <ul>
@@ -384,7 +384,7 @@ const programmation = () => {
             <p>Une fois connecté, NiryoStudio affiche l'état de la connexion sur la barre supérieure de l'interface et une vue 3D du robot.</p>
           </div>
           <div id="mode-wifi">
-            <h4 className="fw-bold mt-3">b) Mode Wi-Fi</h4>
+            <h4 className="fw-bold mt-3"> Mode Wi-Fi</h4>
             <p>Pour activer le mode Wi-Fi, le robot doit être d'abord connecté en mode point d'accès. <br />
               Une fois connecté au Ned2, allez dans <strong>« Mon robot » → « Paramètres »</strong> puis cliquer sur 
               <strong>« Modifier »</strong> dans la section <strong>« Connexion au robot »</strong>.</p>
@@ -420,7 +420,7 @@ const programmation = () => {
             <p className="text-center small mt-1">Figure 78 : Activation du mode de connexion Wi-Fi</p>
           </div>
           <div id="mode-ethernet">
-            <h4 className="fw-bold mt-3">c) Mode Ethernet</h4>
+            <h4 className="fw-bold mt-3"> Mode Ethernet</h4>
             <p>Le robot peut être connecté à un réseau à l'aide du <strong>port Ethernet</strong> situé sur le panneau arrière. 
               Une fois le robot connecté au <strong>réseau via Ethernet</strong>, on peut se connecter au Ned2 en suivant les étapes ci-dessous :</p>
             <ul>
@@ -429,7 +429,7 @@ const programmation = () => {
               <li><strong>Sélectionner</strong> son robot, puis se <strong>connecter</strong> avec Ethernet</li>
             </ul>
             <div id="mode-ethernet-direct">
-              <h4 className="fw-bold mt-3">d) Mode Ethernet Direct</h4>
+              <h4 className="fw-bold mt-3"> Mode Ethernet Direct</h4>
               <p>On peut aussi utiliser un câble Ethernet pour connecter physiquement le robot avec
                 l'ordinateur. Cependant le robot doit déjà être utiliser en mode point d'accès ou en mode WiFi.<br />
                 On a ensuite quelque étape à suivre :</p>
@@ -590,7 +590,7 @@ const programmation = () => {
           <p>Pour en savoir plus sur chaque partie de ce deuxième panneau latéral, cliquez sur le lien suivant et allez dans la section que vous voulez :<br />
             <a href="https ://docs.niryo.com/api/blockly/article/#section-header-two-5s53j"> https ://docs.niryo.com/api/blockly/article/#section-header-two-5s53j</a>
           </p><div id="creer-programme">
-            <h4 className="fw-bold mt-3">a) Créer un nouveau programme</h4>
+            <h4 className="fw-bold mt-3"> Créer un nouveau programme</h4>
             <p>Dans l'onglet <strong>Blockly</strong>, saisissez un <strong>nom unique</strong> (si le nom existe déjà, NiryoStudio proposera de l'écraser) et une <strong>description facultative</strong>. 
               Cliquez sur <strong>« Créer »</strong> pour ouvrir un nouveau programme Blockly vide.</p>
             {/* FIGURE 60 */}
@@ -600,7 +600,7 @@ const programmation = () => {
             <p className="text-center small mt-1">Figure 60 : Création d'un nouveau programme Blockly</p>
           </div>
           <div id="enregistrer-programme">
-            <h4 className="fw-bold mt-3">b) Enregistrer un programme</h4>
+            <h4 className="fw-bold mt-3"> Enregistrer un programme</h4>
             <p>On peut enregistrer son programme manuellement en cliquant sur le bouton Enregistrer, ou activer l'enregistrement automatique (Autosave) pour permettre à NiryoStudio d'enregistrer automatiquement votre programme à chaque modification.</p>
             {/* FIGURE 61 */}
             <div id="figure61" className="border rounded bg-light p-2 d-flex align-items-center justify-content-center" style={{height: 100, marginBottom: '1rem'}}>
@@ -609,7 +609,7 @@ const programmation = () => {
             <p className="text-center small mt-1">Figure 61 : Bouton sélecteur d'enregistrement automatique</p>
           </div>
           <div id="mouvements">
-            <h4 className="fw-bold mt-3">c) Création d'un code Blockly constitué de simples mouvements</h4>
+            <h4 className="fw-bold mt-3"> Création d'un code Blockly constitué de simples mouvements</h4>
             <p>Avant d'allumer le robot, vérifiez qu'il est en position de repos. 
               Après allumage et calibrage, maintenez le bouton <strong>FREEMOTION</strong> enfoncé, déplacez le robot à la position souhaitée, puis relâchez. 
               Pour enregistrer la position, appuyez sur <strong>SAVE</strong>.</p>
@@ -649,13 +649,13 @@ const programmation = () => {
               <a href="https://docs.niryo.com/api/blockly/movement/#section-header-two-ftat1"> https://docs.niryo.com/api/blockly/movement/#section-header-two-ftat1</a></p>
           </div>
           <div id="jouer-programme">
-            <h4 className="fw-bold mt-3">d) Jouer un programme et une position à domicile</h4>
+            <h4 className="fw-bold mt-3"> Jouer un programme et une position à domicile</h4>
             <p>Une fois son programme fini, on peut le tester en cliquant sur le bouton <strong>Play</strong>. Ce bouton est disponible uniquement lorsqu'on est connecté au robot.<br /> 
               Une fois l'exécution démarrée, le bouton Play se transforme en bouton <strong>Stop</strong>, permettant d'interrompre le programme en cliquant dessus.<br />
               Pour ramener le robot à sa position par défaut, cliquer sur le bouton <strong>Position initiale</strong>.</p>
           </div>
           <div id="ouvrir-programme">
-            <h4 className="fw-bold mt-3">e) Ouvrir un programme existant</h4>
+            <h4 className="fw-bold mt-3">Ouvrir un programme existant</h4>
             <p>On peut ouvrir un programme existant en cliquant sur le bouton <strong>Ouvrir</strong> de la barre d'outils. <strong>NiryoStudio</strong> invitera à sélectionner un programme à ouvrir. Cliquer sur l'entrée pour la charger.</p>
             {/* FIGURE 66 */}
             <div id="figure66" className="border rounded bg-light p-2 d-flex align-items-center justify-content-center" style={{height: 400, marginBottom: '1rem'}}>
@@ -664,7 +664,7 @@ const programmation = () => {
             <p className="text-center small mt-1">Figure 66 : Liste des programmes disponibles à l'ouverture</p>
           </div>
           <div id="importer-exporter">
-            <h4 className="fw-bold mt-3">f) Importer ou exporter un programme</h4>
+            <h4 className="fw-bold mt-3">Importer ou exporter un programme</h4>
             <p>On peut importer un programme en cliquant sur le bouton <strong>Ouvrir</strong> de la barre d'outils, puis en sélectionnant le bouton <strong>« Importer »</strong>. Choisir un fichier programme <strong>Blockly, NiryoStudio</strong> attend un fichier <strong>JSON</strong>.<br />
               On peut exporter un programme en cliquant sur le bouton Exporter de la barre d'outils. Les programmes <strong>Blockly</strong> sont exportés au format <strong>JSON</strong>.</p>
           </div>
@@ -675,7 +675,7 @@ const programmation = () => {
         <div id="pyniryo-logiciel" className="mt-5">
           <h3 className="text-dark fw-bold">2. Pyniryo</h3>
           <div id="description-pyniryo">
-            <h4 className="fw-bold mt-3">a) Description de Pyniryo</h4>
+            <h4 className="fw-bold mt-3"> Description de Pyniryo</h4>
             <p>L'interface Python permet de programmer le robot Niryo avec le <strong>wrapper Python ROS</strong> ou <strong>Pyniryo</strong> 
               (bibliothèque contenant des éléments utiles à la programmation de robot Niryo en Python) directement dans l'environnement NiryoStudio.</p>
             <p>Pyniryo est une bibliothèque disponible sur NiryoStudio et utilise le paquet PyPi de Ned, qui
@@ -687,7 +687,7 @@ const programmation = () => {
             <p>Il nous est conseillé d'utiliser la bibliothèque pyniryo car pyniryo2 ne recevra pas les mises à jour.</p>
           </div>
           <div id="jouer-pyniryo">
-            <h4 className="fw-bold mt-3">b) Jouer un programme et une position à domicile</h4>
+            <h4 className="fw-bold mt-3"> Jouer un programme et une position à domicile</h4>
             <p>Une fois le programme composé, on peut le tester en cliquant sur le bouton <strong>« Play »</strong>. Ce
               bouton est disponible uniquement lorsqu’on est connecté à un robot.<br />
               Une fois l'exécution démarrée, le bouton <strong>« Play »</strong> se transforme en bouton <strong>« Stop »</strong>,
@@ -700,7 +700,7 @@ const programmation = () => {
             <p className="text-center small mt-1">Figure 67 : Exemple d'erreurs d'exécution d'un programme</p>
           </div>
           <div id="importer-exporter-pyniryo">
-            <h4 className="fw-bold mt-3">c) Importer ou exporter un programme</h4>
+            <h4 className="fw-bold mt-3"> Importer ou exporter un programme</h4>
             <p>On peut importer un programme en cliquant sur le bouton <strong>« Ouvrir »</strong> de la barre d'outils, puis en
               sélectionnant le bouton <strong>« Importer »</strong>.<br />
               Choisir un fichier programme <strong>Python</strong>, NiryoStudio attend un fichier <strong>« .py »</strong>.
@@ -1139,7 +1139,7 @@ ned.goHome();</code></pre>
           <h3 className="text-dark fw-bold">1. Préambule</h3>
           <p>Dans cette première partie on va lister les différentes commandes indispensables pour utiliser et naviguer à travers un environnement ROS.</p>
           <div id="commandes-bases">
-            <h4 className="fw-bold mt-3">a) Commandes de bases</h4>
+            <h4 className="fw-bold mt-3"> Commandes de bases</h4>
             <div id="tableau28" className="table-responsive">
               <table className="table table-bordered">
                 <thead className="table-primary">
@@ -1166,7 +1166,7 @@ ned.goHome();</code></pre>
             <p className="text-center small mt-1">Tableau 28 : Tableau répertoriant les commandes ROS de base</p>
           </div>
           <div id="commandes-ros">
-            <h4 className="fw-bold mt-3">b) Commandes ROS fréquentes</h4>
+            <h4 className="fw-bold mt-3"> Commandes ROS fréquentes</h4>
             <p>Ces commandes interagissent directement avec l'environnement ROS (le Master et les noeuds).</p>
             <div id="tableau29" className="table-responsive">
               <table className="table table-bordered">
@@ -1198,7 +1198,7 @@ ned.goHome();</code></pre>
             <p className="text-center small mt-1">Tableau 29 : Tableau répertoriant les commandes ROS fréquentes</p>
           </div>
           <div id="commandes-compilation">
-            <h4 className="fw-bold mt-3">c) Commandes de compilation</h4>
+            <h4 className="fw-bold mt-3"> Commandes de compilation</h4>
             <p>Ces commandes sont utilisées pour créer et compiler les packages dans un « workspace » Catkin.</p>
             <div id="tableau30" className="table-responsive">
               <table className="table table-bordered">
@@ -1223,7 +1223,7 @@ ned.goHome();</code></pre>
         <div id="simulation-gazebo-rviz" className="mt-5">
           <h3 className="text-dark fw-bold">2. Simulation : Gazebo et RViz</h3>
           <div id="generalites-simulation">
-            <h4 className="fw-bold mt-3">a) Généralités</h4>
+            <h4 className="fw-bold mt-3"> Généralités</h4>
             <p>Dans cette partie on va présenter les méthodes pour ouvrir les pages de simulation RViz et Gazebo et y énoncer les problèmes rencontrés pour obtenir une modélisation idéale du robot Niryo Ned2.</p>
             <p>Pour lancer la simulation Gazebo la documentation Ned ROS Stack nous dit d'exécuter la commande suivante :</p>
             <pre className="bg-dark text-white p-3 rounded"><code>roslaunch niryo_robot_bringup desktop_gazebo_simulation.launch</code></pre>
@@ -1363,7 +1363,7 @@ roslaunch demo_gazebo.launch hardware_version:=ned2</code></pre>
             <p><strong>Remarque :</strong> si le robot bleu bouge en boucle, décochez <strong>Loop Animation</strong> dans l'onglet <strong>Planned Path</strong>.</p>
           </div>
           <div id="modeles-robot-rviz">
-            <h4 className="fw-bold mt-3">b) Les différents modèles de robot dans Rviz</h4>
+            <h4 className="fw-bold mt-3"> Les différents modèles de robot dans Rviz</h4>
             <p>Dans RViz, surtout lorsqu'on utilise des outils de planification comme MoveIt, 
               il est fréquent de voir plusieurs "versions" du robot se superposer.</p>
             <p><strong>MoveIt</strong> est un framework de planification de mouvements pour robots manipulateurs sous ROS. 
@@ -1462,7 +1462,7 @@ roslaunch demo_gazebo.launch hardware_version:=ned2</code></pre>
           </ul>
           <p>La version de Ubuntu 18.04 est compatible seulement avec le Niryo One. Comme le Ned2 repose sur ROS Noetic, seule la version Ubuntu 20.04 est compatible.</p>
           <div id="methodologie-ros">
-            <h4 className="fw-bold mt-3">a) Méthodologie</h4>
+            <h4 className="fw-bold mt-3"> Méthodologie</h4>
             <p>Les étapes qui suivent sont uniquement valables une fois que vous avez téléchargé Ubuntu 20.04.</p>
             <p><strong>• ROS Noetic Stack</strong></p>
             <p>Avant d'installer cette pile, plusieurs commandes sont à écrire.<br />
@@ -1542,7 +1542,7 @@ source ~/niryo_ws/install/setup.bash</code></pre>
             <h3 className="text-dark fw-bold">4. Création et Lancement de programme (Simulation)</h3>
             <p>Pour pouvoir écrire les actions que l'on veut faire dans nos simulations, il est important de savoir toutes les commandes disponibles et identifier celles que nous devons utiliser. Bien évidemment, plusieurs options sont possibles mais nous en évoquerons que 2 plus un listage des commandes « générales ».</p>
             <div id="commandes-utiles">
-              <h4 className="fw-bold mt-3">a) Où trouver les commandes nécessaires ?</h4>
+              <h4 className="fw-bold mt-3"> Où trouver les commandes nécessaires ?</h4>
               <p><strong>Via le terminal.</strong> C'est la méthode la plus fiable car elle montre exactement ce qui est installé sur l'ordinateur.</p>
               <p>La méthodologie est la suivante :</p>
               <ul>
@@ -1580,7 +1580,7 @@ dir(group)</code></pre>
                 L'API Reference (plus fastidieux) : c'est la liste brute de toutes les classes.<a href="https://docs.ros.org/en/noetic/api/moveit_commander/html/classmoveit__commander_1_1move__group_1_1MoveGroupCommander.html">MoveIt Python API Doxygen</a>.</p>
             </div>
             <div id="commandes-utiles-liste">
-              <h4 className="fw-bold mt-3">b) Les commandes utiles</h4>
+              <h4 className="fw-bold mt-3"> Les commandes utiles</h4>
               <div className="table-responsive">
                 <table className="table table-bordered">
                   <thead className="table-primary">
@@ -1612,7 +1612,7 @@ dir(group)</code></pre>
               <p>La partie suivante va présenter les différents programmes de simulation que nous avons fait ainsi que leurs constructions.</p>
             </div>
             <div id="structure-programme">
-              <h4 className="fw-bold mt-3">c) Structure d'un programme</h4>
+              <h4 className="fw-bold mt-3"> Structure d'un programme</h4>
               <p><strong>Importation des bibliothèques.</strong></p>
               <p>Cette partie concerne la programmation du robot Niryo Ned2 avec MoveIt, 
                 via son interface Python <code className="text-dark">moveit_commander</code>. 
@@ -1765,7 +1765,7 @@ tidy()</code></pre>
               <p>Cette structure est essentielle pour concevoir des programmes modulaires, évolutifs et réutilisables, notamment dans des projets ROS impliquant plusieurs fichiers et plusieurs nœuds.</p>
             </div>
             <div id="simulation-programmes">
-              <h4 className="fw-bold mt-3">d) Simulation</h4>
+              <h4 className="fw-bold mt-3"> Simulation</h4>
               <p>Pour les exercices de cette partie, nous avons utilisé « moveit_commander » et « rospy ». C'est la méthode la plus fiable en simulation car le Wrapper Niryo (pyniryo) est conçu pour le robot réel et gère mal l'ajout d'obstacles virtuels dans RViz.</p>
               <strong>Remarques :</strong>
               <ul>
@@ -1851,7 +1851,7 @@ gedit test_1.py</code></pre>
                 Les deux prochaines parties expliquent la méthodologie pour résoudre ces erreurs.</p>
             </div>
             <div id="defaut-trajectoire">
-              <h4 className="fw-bold mt-3">e) Défaut de trajectoire</h4>
+              <h4 className="fw-bold mt-3">Défaut de trajectoire</h4>
               <p>Après compilation du fichier « launch » puis du script Python, on a observé que le robot adoptait une trajectoire anormale, qualité de « tordue », lors de la tentative de saisie de l'objet. Pour modifier cela, deux approches ont été envisagées :</p>
               <ul>
                 <li>Amener la pince <strong>parallèle au sol</strong> avant la pièce puis avancer horizontalement pour la saisir</li>
@@ -1874,7 +1874,7 @@ gedit test_1.py</code></pre>
                 pour éviter des solutions mathématiquement valides mais physiquement peu réalistes.</p>
             </div>
             <div id="debug-warn">
-              <h4 className="fw-bold mt-3">f) Méthodologie de débogage d'une erreur de type [WARN]</h4>
+              <h4 className="fw-bold mt-3">Méthodologie de débogage d'une erreur de type [WARN]</h4>
               <p>L'erreur suivante apparaissait régulièrement lors de l'exécution des simulations :</p>
               <pre className="bg-dark text-white p-3 rounded"><code>[WARN] [1764164355.420297073, 17.801000000]: New joint state for joint 'joint_1' is not newer than the previous state. Assuming your rosbag looped.</code></pre>
               <p>Cet avertissement est fréquent dans les environnements combinant ROS et Gazebo. Il est généralement lié à un conflit de gestion du temps (d'horloge). Gazebo utilise une horloge simulée (qui démarre à 0 quand on lance la simulation), alors que ROS peut, par défaut, s'appuyer sur l'horloge de l'ordinateur.</p>
@@ -1935,7 +1935,7 @@ rosparam get /use_sim_time</code></pre>
                 à condition que le robot reste stable.</p>
             </div>
             <div id="plateformes-simulation">
-              <h4 className="fw-bold mt-3">g) Ajouter des plateformes en simulations</h4>
+              <h4 className="fw-bold mt-3"> Ajouter des plateformes en simulations</h4>
               <p>Dans cette partie, l'objectif est de rapprocher l'environnement de simulation des conditions rencontrées sur une cellule robotisée réelle. Pour cela, nous avons étudié la création de plateformes (tables / workspaces) ainsi que de convoyeurs, éléments fréquemment utilisés dans les applications industrielles.</p>
               <p><strong>Plateformes</strong></p>
               <p>Il existe principalement deux méthodes pour créer une plateforme dans Gazebo, selon le niveau de réalisme recherché et la complexité de la scène.</p>
@@ -2010,7 +2010,7 @@ spawn_urdf("work_table", table_xml, "", Pose(position=Point(0.5, 0, -0.35)), "wo
                 Cette partie n'a pas été validée expérimentalement dans le cadre de ce projet et doit être considérée comme une piste théorique basée sur la documentation Gazebo et les pratiques courantes en simulation robotique.</p>
             </div>
             <div id="conclusion-simulation">
-              <h4 className="fw-bold mt-3">h) Conclusion sur la simulation</h4>
+              <h4 className="fw-bold mt-3">Conclusion sur la simulation</h4>
               <p>La simulation du robot Niryo Ned2 avec ROS, MoveIt et Gazebo a permis d'appréhender la planification de trajectoires, la manipulation d'objets et la gestion d'obstacles dans un environnement 3D. L'usage de MoveIt a montré sa robustesse pour générer des trajectoires sûres, optimiser les mouvements et intégrer les contraintes physiques et géométriques.</p>
               <p>Les exercices réalisés ont mis en évidence <strong>les limites de la simulation</strong>, notamment dans la gestion des collisions et de la friction. Ils ont également illustré l'importance d'une méthodologie rigoureuse de débogage :</p>
               <ul>
@@ -2028,7 +2028,7 @@ spawn_urdf("work_table", table_xml, "", Pose(position=Point(0.5, 0, -0.35)), "wo
           <div id="programmation-reel" className="mt-5">
             <h3 className="text-dark fw-bold">5. Programmation du robot réel</h3>
             <div id="commande-reel">
-              <h4 className="fw-bold mt-3">a) Commande du robot réel</h4>
+              <h4 className="fw-bold mt-3"> Commande du robot réel</h4>
               <p>Après validation en simulation (Gazebo et RViz), nous avons commandé le robot réel Niryo Ned2. 
                 Pour rester cohérent avec la simulation et faciliter l'intégration de capteurs, 
                 nous avons utilisé des scripts Python basés sur l'interface ROS (rospy), 
@@ -2053,7 +2053,7 @@ spawn_urdf("work_table", table_xml, "", Pose(position=Point(0.5, 0, -0.35)), "wo
               <p>L'utilisation du wrapper Python permet notamment d'interroger le robot afin de récupérer dynamiquement la liste des positions enregistrées. Cette approche s'avère particulièrement utile pour automatiser des séquences de mouvements ou vérifier l'existence de positions avant leur utilisation dans un programme.</p>
             </div>
             <div id="limites-connexion">
-              <h4 className="fw-bold mt-3">b) Limites rencontrées pour se connecter au robot par la méthode « rospy »</h4>
+              <h4 className="fw-bold mt-3"> Limites rencontrées pour se connecter au robot par la méthode « rospy »</h4>
               <p>Lors de la commande du robot réel via ROS, un problème bloquant est apparu : 
                 malgré une calibration correcte (LED verte), aucune communication ROS n'était possible depuis l'ordinateur. 
                 Les commandes ROS standard échouaient avec une erreur indiquant l'impossibilité de se connecter au ROS Master.</p>
@@ -2065,7 +2065,7 @@ spawn_urdf("work_table", table_xml, "", Pose(position=Point(0.5, 0, -0.35)), "wo
                 que ce soit avec des scripts Python (rospy), des bibliothèques comme roslibpy, ou des outils externes comme MATLAB.</p>
             </div>
             <div id="analyse-cause">
-              <h4 className="fw-bold mt-3">c) Analyse de la cause du dysfonctionnement</h4>
+              <h4 className="fw-bold mt-3"> Analyse de la cause du dysfonctionnement</h4>
               <p>L'origine du problème : une modification manuelle du fichier <code className="text-dark">.bashrc</code> du robot. 
                 Des variables d'environnement critiques ont été ajoutées ou modifiées, 
                 alors que sur le Ned2, le ROS Master est géré automatiquement par le logiciel interne.</p>
@@ -2108,7 +2108,7 @@ spawn_urdf("work_table", table_xml, "", Pose(position=Point(0.5, 0, -0.35)), "wo
               <p>Cela explique pourquoi les commandes ROS exécutées depuis le PC, telles que `rostopic list`, échouaient systématiquement avec une erreur de communication, malgré une calibration correcte du robot et une LED indiquant un état opérationnel.</p>
             </div>
             <div id="solution-mise-oeuvre">
-              <h4 className="fw-bold mt-3">d) Solution mise en œuvre</h4>
+              <h4 className="fw-bold mt-3"> Solution mise en œuvre</h4>
               <p>Face à l'impossibilité de rétablir une configuration réseau ROS fonctionnelle, 
                 nous avons reflashé la carte SD du robot avec le firmware 5.8.5, 
                 restaurant ainsi un environnement logiciel stable.</p>
@@ -2173,7 +2173,7 @@ spawn_urdf("work_table", table_xml, "", Pose(position=Point(0.5, 0, -0.35)), "wo
                 nous avons opté pour la méthode embarquée.</p>
             </div>
             <div id="methode-embarquee">
-              <h4 className="fw-bold mt-3">e) La méthode embarquée : principe et protocole</h4>
+              <h4 className="fw-bold mt-3">La méthode embarquée : principe et protocole</h4>
               <p>Cette méthode est relativement simple à mettre en pratique. Dans celle-ci, on arrête de vouloir faire tourner le code sur l'ordinateur. On développe sur le PC, mais on exécute sur le robot. Dans ce cas, plus de problèmes de ports, le script est « à côté » du Master en localhost.</p>
               <p>Le principe est le suivant :</p>
               <ul>
@@ -2210,7 +2210,7 @@ spawn_urdf("work_table", table_xml, "", Pose(position=Point(0.5, 0, -0.35)), "wo
               </ul>
             </div>
             <div id="mise-place-embarquee">
-              <h4 className="fw-bold mt-3">f) Mise en place de la méthode embarquée</h4>
+              <h4 className="fw-bold mt-3">Mise en place de la méthode embarquée</h4>
               <p>Lors de la mise en place de la méthode embarquée, 
                 notre premier programme (mouvement vers pos_cam puis home_position) a rencontré deux problèmes. 
                 Nous avons d'abord vérifié que ces positions étaient bien enregistrées dans le robot. 
@@ -2304,7 +2304,7 @@ python3 mon_script.py</code></pre>
               <p>On peut voir dans le script de l'Exemple 16 une boucle de polling. La fonction « wait_for_ir_sensor » interroge le service « get_digital_io » en continu jusqu'à ce que la valeur passe à « 0 ».</p>
             </div>
             <div id="definitions">
-              <h4 className="fw-bold mt-3">g) Quelques définitions</h4>
+              <h4 className="fw-bold mt-3"> Quelques définitions</h4>
               <p><strong>Localhost</strong></p>
               <p>Localhost = la machine elle-même.</p>
               <ul>

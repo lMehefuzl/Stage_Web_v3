@@ -1,4 +1,7 @@
+//npm install framer-motion   pour télécharger les truc de motion
+
 import React from 'react';
+import { motion } from 'framer-motion';
 
 const Navbar = ({ setPage, currentPage }) => {
   // Cette fonction détermine le titre à afficher selon la page active
@@ -28,13 +31,14 @@ const Navbar = ({ setPage, currentPage }) => {
       <div className="container-fluid py-3 px-4 d-flex align-items-center">
         {/* Le bouton retour s'affiche uniquement si on n'est pas sur l'accueil */}
         {currentPage !== 'home' && (
-          <button onClick={() => setPage('home')} className="btn btn-outline-primary btn-sm">
+          <motion.button initial={{ opacity: 0, x: -10 }} animate={{ opacity: 1, x: 0 }}onClick={() => setPage('home')} 
+            className="btn btn-outline-primary btn-sm border rounded-3">
             <i className="bi bi-arrow-left"></i> Accueil
-          </button>
+          </motion.button>
         )}
-        <span className="ms-3 fs-5 fw-semibold text-primary">
-          {getTitle()}
-        </span>
+        <motion.span key={currentPage} initial={{ opacity: 0 }}animate={{ opacity: 1 }}transition={{ duration: 0.5 }}
+          className="ms-3 fs-5 fw-semibold text-primary">{getTitle()}
+        </motion.span>
       </div>
     </div>
   );

@@ -46,19 +46,19 @@ const théorie = () => {
             </div>
             <div className="collapse ps-4" id="collapseResumeRos">
               <a className="nav-link px-0 py-1 text-secondary small" href="#objectifs-philosophie">1. Objectifs et Philosophie de ROS</a>
-              <a className="nav-link px-0 py-1 text-secondary small ps-3" href="#objectifs">a) Objectifs Principaux</a>
-              <a className="nav-link px-0 py-1 text-secondary small ps-3" href="#philosophie">b) Philosophie</a>
+              <a className="nav-link px-0 py-1 text-secondary small ps-3" href="#objectifs"> Objectifs Principaux</a>
+              <a className="nav-link px-0 py-1 text-secondary small ps-3" href="#philosophie"> Philosophie</a>
               <a className="nav-link px-0 py-1 text-secondary small" href="#concepts-cles">2. Concepts Clés de l'Architecture</a>
-              <a className="nav-link px-0 py-1 text-secondary small ps-3" href="#noeuds">a) Nœuds</a>
-              <a className="nav-link px-0 py-1 text-secondary small ps-3" href="#master">b) Master</a>
-              <a className="nav-link px-0 py-1 text-secondary small ps-3" href="#topics">c) Topics</a>
-              <a className="nav-link px-0 py-1 text-secondary small ps-3" href="#messages">d) Messages</a>
-              <a className="nav-link px-0 py-1 text-secondary small ps-3" href="#services">e) Services</a>
-              <a className="nav-link px-0 py-1 text-secondary small ps-3" href="#serveur-parametres">f) Serveur de Paramètres</a>
-              <a className="nav-link px-0 py-1 text-secondary small ps-3" href="#package">g) Package</a>
+              <a className="nav-link px-0 py-1 text-secondary small ps-3" href="#noeuds"> Nœuds</a>
+              <a className="nav-link px-0 py-1 text-secondary small ps-3" href="#master"> Master</a>
+              <a className="nav-link px-0 py-1 text-secondary small ps-3" href="#topics"> Topics</a>
+              <a className="nav-link px-0 py-1 text-secondary small ps-3" href="#messages"> Messages</a>
+              <a className="nav-link px-0 py-1 text-secondary small ps-3" href="#services"> Services</a>
+              <a className="nav-link px-0 py-1 text-secondary small ps-3" href="#serveur-parametres"> Serveur de Paramètres</a>
+              <a className="nav-link px-0 py-1 text-secondary small ps-3" href="#package"> Package</a>
               <a className="nav-link px-0 py-1 text-secondary small" href="#outils-ecosysteme">3. Outils et Écosystème</a>
-              <a className="nav-link px-0 py-1 text-secondary small ps-3" href="#outils">a) Outils</a>
-              <a className="nav-link px-0 py-1 text-secondary small ps-3" href="#bibliotheques">b) Écosystème</a>
+              <a className="nav-link px-0 py-1 text-secondary small ps-3" href="#outils"> Outils</a>
+              <a className="nav-link px-0 py-1 text-secondary small ps-3" href="#bibliotheques"> Écosystème</a>
               <a className="nav-link px-0 py-1 text-secondary small" href="#limites">4. Limites de ROS</a>
               <a className="nav-link px-0 py-1 text-secondary small" href="#cours">5. Lien vers un cours complet ROS</a>
             </div>
@@ -446,11 +446,11 @@ const théorie = () => {
         <div id="objectifs-philosophie" className="mt-3">
           <h3 className="text-dark fw-bold">1. Objectifs et Philosophie de ROS</h3>
           <div id="objectifs">
-            <h4 className="fw-bold mt-3">a) Objectifs Principaux</h4>
+            <h4 className="fw-bold mt-3"> Objectifs Principaux</h4>
             <p>L'objectif fondamental de ROS est de <strong>soutenir la réutilisation de code (code reuse)</strong> en recherche et développement robotique. L'idée est d'<strong>arrêter de réinventer la roue</strong> en mutualisant les briques logicielles élémentaires.</p>
           </div>
           <div id="philosophie">
-            <h4 className="fw-bold mt-3">b) Philosophie</h4>
+            <h4 className="fw-bold mt-3"> Philosophie</h4>
             <ul>
               <li><strong>Open Source et Gratuit :</strong> ROS est distribué sous licence BSD.</li>
               <li><strong>Architecture Microkernel :</strong> Plutôt que d'être un environnement d'exécution monolithique, ROS utilise un grand nombre d'outils et d'exécutables indépendants (Nœuds). Le crash d'un nœud n'affecte pas l'ensemble du système, le rendant plus robuste et évolutif.</li>
@@ -466,34 +466,34 @@ const théorie = () => {
           <h3 className="text-dark fw-bold">2. Concepts Clés de l'Architecture</h3>
           <p>L'architecture de ROS est structurée autour de quatre grands mécanismes : <strong>la Plomberie</strong>, <strong>les Outils</strong>, <strong>les Capacités</strong> et <strong>l'Écosystème</strong>. La "Plomberie" (mécanismes de communication) est la base du système.</p>
           <div id="noeuds">
-            <h4 className="fw-bold mt-3">a) Nœuds (Nodes)</h4>
+            <h4 className="fw-bold mt-3"> Nœuds (Nodes)</h4>
             <p>Les Nœuds sont des programmes indépendants, instances d'un exécutable, représentant une unité de traitement spécifique (par exemple, un algorithme de planification ou un pilote de capteur/moteur).</p>
           </div>
           <div id="master">
-            <h4 className="fw-bold mt-3">b) Master (ROS Master)</h4>
+            <h4 className="fw-bold mt-3"> Master (ROS Master)</h4>
             <p>Le Master est le service d'enregistrement et de déclaration des nœuds (un name service). Il permet aux nœuds de se connaître et de se mettre en contact pour échanger de l'information.</p>
           </div>
           <div id="topics">
-            <h4 className="fw-bold mt-3">c) Topics (Communication Asynchrone)</h4>
+            <h4 className="fw-bold mt-3"> Topics (Communication Asynchrone)</h4>
             <p>Un <strong>Topic</strong> est un canal de communication <strong>unidirectionnel</strong> de type many-to-many (plusieurs émetteurs pour plusieurs récepteurs).<br />
               Un nœud peut être <strong>Publisher</strong> (émetteur) sur un ou plusieurs topics.<br />
               Un nœud peut être <strong>Subscriber</strong> (récepteur) sur un ou plusieurs topics.<br />
               Les Topics transmettent des <strong>Messages</strong>.</p>
           </div>
           <div id="messages">
-            <h4 className="fw-bold mt-3">d) Messages</h4>
+            <h4 className="fw-bold mt-3"> Messages</h4>
             <p>Un <strong>Message</strong> est une structure de données typée (entiers, flottants, strings, ou d'autres messages complexes). Il définit le format de l'information échangée via les Topics.</p>
           </div>
           <div id="services">
-            <h4 className="fw-bold mt-3">e) Services</h4>
+            <h4 className="fw-bold mt-3"> Services</h4>
             <p>Les <strong>Services</strong> permettent une communication de type <strong>synchrone</strong> (requête/réponse) entre deux nœuds. Ils sont utilisés lorsqu'il est nécessaire d'envoyer une donnée et d'attendre immédiatement le résultat d'un calcul. Contrairement aux Topics, un seul nœud peut se déclarer comme un Service sous un nom donné.</p>
           </div>
           <div id="serveur-parametres">
-            <h4 className="fw-bold mt-3">f) Serveur de Paramètres</h4>
+            <h4 className="fw-bold mt-3"> Serveur de Paramètres</h4>
             <p>C'est une <strong>mémoire partagée</strong> qui permet de définir et de gérer des <strong>paramètres globaux</strong> (gains de contrôleur, noms de répertoires, etc.). Ces paramètres sont accessibles et modifiables par l'ensemble des nœuds, y compris en temps réel.</p>
           </div>
           <div id="package">
-            <h4 className="fw-bold mt-3">g) Package</h4>
+            <h4 className="fw-bold mt-3"> Package</h4>
             <p>Un <strong>Package</strong> est l'unité d'organisation et de distribution dans ROS. Il s'agit d'un répertoire contenant le code, les messages, les services, les fichiers de lancement, et le fichier package.xml qui spécifie ses dépendances.</p>
           </div>
         </div>
@@ -503,7 +503,7 @@ const théorie = () => {
         <div id="outils-ecosysteme" className="mt-5">
           <h3 className="text-dark fw-bold">3. Outils et Écosystème</h3>
           <div id="outils">
-            <h4 className="fw-bold mt-3">a) Outils (Software Tools)</h4>
+            <h4 className="fw-bold mt-3"> Outils (Software Tools)</h4>
             <p>ROS fournit une suite d'outils graphiques et en ligne de commande essentiels pour le développement et le débogage :</p>
             <ul>
               <li><strong>RViz :</strong> Interface graphique de visualisation 3D des modèles de robots, des cartes de navigation et des données de capteurs (images, nuages de points 3D).</li>
@@ -513,7 +513,7 @@ const théorie = () => {
             </ul>
           </div>
           <div id="bibliotheques">
-            <h4 className="fw-bold mt-3">b) Écosystème (Libraries &amp; Standards)</h4>
+            <h4 className="fw-bold mt-3"> Écosystème (Libraries &amp; Standards)</h4>
             <ul>
               <li><strong>URDF :</strong> Unified Robot Description Format, un format XML standardisé pour décrire l'arbre cinématique, la géométrie, la dynamique et les capteurs d'un robot.</li>
               <li><strong>KDL :</strong> Librairie pour le calcul de la géométrie et la cinématique des robots.</li>
