@@ -1,0 +1,33 @@
+{
+  "users": [
+    {
+      "name": "Mehefuz",
+      "email": "mehefuz.khondaker@yahoo.com",
+      "password": "Vusun488",
+      "cpassword": "Vusun488",
+      "id": "I_1o0Ns4V4c"
+    },
+    {
+      "name": "Mehefuz",
+      "email": "mehefuz.khondaker@yahoo.com",
+      "password": "Vusun488",
+      "cpassword": "Vusun488",
+      "id": "jypG-yBmDWQ"
+    },
+    {
+      "name": "Mehefuz Khondaker",
+      "email": "mehefuz.khondaker@yahoo.com",
+      "password": "Vusun488",
+      "cpassword": "Vusun488",
+      "id": "DgBvxyjw_o8"
+    },
+    {
+      "name": "Mehefuz Khondaker",
+      "email": "mehefuz.khondaker@yahoo.co",
+      "password": "Vusun488",
+      "cpassword": "Vusun488",
+      "id": "ByzIj6lBczk"
+    }
+  ],
+  "$schema": "./node_modules/json-server/schema.json"
+}

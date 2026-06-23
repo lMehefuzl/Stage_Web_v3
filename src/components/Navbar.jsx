@@ -1,11 +1,11 @@
 import React, { useState } from 'react';
 import { Link, useLocation, } from 'react-router-dom';
 import { motion } from 'framer-motion';
-import FormulaireConnexion from './FormulaireConnexion';
+//import FormulaireConnexion from './FormulaireConnexion';
 
 const Navbar = () => {
   const location = useLocation();
-  const [showLogin, setShowLogin] = useState(false);
+  //const [showLogin, setShowLogin] = useState(false);
 
   const getTitle = () => {
     const path = location.pathname;
@@ -55,17 +55,18 @@ const Navbar = () => {
           </motion.span>
 
           
-          <motion.button
+          <Link to="registration" className="ms-auto"><motion.button
             initial={{ opacity: 0, x: -10 }}
             animate={{ opacity: 1, x: 0 }}
-            onClick={() => setShowLogin(true)}
+            //onClick={() => setShowLogin(true)}
             className="btn btn-outline-primary btn-sm border rounded-3 ms-auto"
           >
             Connexion
-          </motion.button>
+          </motion.button></Link>
         </div>
       </div>
 
+    {/* 
       {showLogin && (
         <div
           className="position-fixed top-0 start-0 w-100 h-100 d-flex align-items-center justify-content-center"
@@ -77,6 +78,7 @@ const Navbar = () => {
           </div>
         </div>
       )}
+    */}
     </>
   );
 };

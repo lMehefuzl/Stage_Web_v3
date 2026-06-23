@@ -14,6 +14,8 @@ import JumeauNumerique from './pages/JumeauNumerique';
 import Theorie from './pages/Theorie';
 import Ressources from './pages/Ressources';
 import Ia from './pages/Ia';
+import Registration from './components/Registration';
+import Login from './components/Login';
 
 const App = () => {
   return (
@@ -22,6 +24,11 @@ const App = () => {
         <Navbar></Navbar>
         <Routes>
           <Route path="/" element={<><Hero /><HomeCards /></>} /> {/* acceuil */}
+
+         
+          <Route path="registration" element={<Registration/>} />
+          <Route path="login" element={<Login/>} />
+          
 
           <Route path="/documentation-technique" element={<DocumentationTechnique />} />
           <Route path="/programmation" element={<Programmation />} />

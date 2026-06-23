@@ -1,0 +1,28 @@
+npm install framer-motion // for some animations
+npm install react-router-dom // for routing and navigating..
+npm install bootstrap-icons
+npm install bootstrap
+// d'autre bootstraps peutetre aussi pour le bootstrap js mais jsp
+
+npm install axios //http request and response library
+npm install json-server
+
+npm install react-router-dom framer-motion bootstrap-icons bootstrap axios json-server
+
+
+
+/////////EXTENSIONS//////////
+
+ES7+ React/Redux/React-Native snippets
+html to JSX  //pour ceux qui on eu une base html/ html-bootstrap ...
+
+
+
+///////DEMARAGE////////
+npm run dev 
+
+
+/////////JSON server////////
+il faut crée db.json dans fichier principal (avec vite.config.js; package.json...)
+et puis:
+npx json-server --watch db.json --port 6789
