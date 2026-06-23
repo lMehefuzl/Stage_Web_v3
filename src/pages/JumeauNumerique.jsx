@@ -1,6 +1,6 @@
 import React from 'react'
 
-const jumeau_numérique = () => {
+const JumeauNumerique = () => {
   return (
 <div className="container-fluid px-0 px-md-3 mb-5">
   <div className="row g-0 g-md-4 mx-0">
@@ -522,4 +522,4 @@ const jumeau_numérique = () => {
   )
 }
 
-export default jumeau_numérique
+export default JumeauNumerique

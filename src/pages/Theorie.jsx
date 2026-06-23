@@ -1,6 +1,6 @@
 import React from 'react'
 
-const théorie = () => {
+const Theorie = () => {
   return (
 <div className="container-fluid px-0 px-md-3 mb-5">
   <div className="row g-0 g-md-4 mx-0">
@@ -550,4 +550,4 @@ const théorie = () => {
   )
 }
 
-export default théorie
+export default Theorie

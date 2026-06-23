@@ -1,6 +1,6 @@
 import React from 'react'
 
-const programmation = () => {
+const Programmation = () => {
   return (
         <div className="container-fluid px-0 px-md-3 mb-5">
   <div className="row g-0 g-md-4 mx-0">
@@ -3567,4 +3567,4 @@ if __name__ == "__main__":{"\n"}
   )
 }
 
-export default programmation
+export default Programmation

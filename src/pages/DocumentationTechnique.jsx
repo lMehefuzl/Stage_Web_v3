@@ -1,7 +1,8 @@
 import React from 'react'
+import HashLink from '../components/HashLink';
 import Quiz from '../components/Quiz'
 
-const documentation_technique = () => {
+const DocumentationTechnique = () => {
   return (
 <div className="container-fluid px-0 px-md-3 mb-5">
   <div className="row g-0 g-md-4 mx-0">
@@ -885,4 +886,4 @@ const documentation_technique = () => {
   )
 }
 
-export default documentation_technique
+export default DocumentationTechnique
