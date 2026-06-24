@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
 
 // Components
@@ -18,16 +18,27 @@ import Registration from './components/Registration';
 import Login from './components/Login';
 
 const App = () => {
+  const [user, setUser] = useState(null);
+
+  useEffect(() => {
+    const savedUser = localStorage.getItem('user');
+    if (savedUser) {
+      setUser(JSON.parse(savedUser));
+    }
+  }, []);
+
+
   return (
     <BrowserRouter>
       <div className="bg-light min-h-screen">
-        <Navbar></Navbar>
+        <Navbar user={user} setUser={setUser} />
         <Routes>
           <Route path="/" element={<><Hero /><HomeCards /></>} /> {/* acceuil */}
 
          
           <Route path="registration" element={<Registration/>} />
-          <Route path="login" element={<Login/>} />
+          <Route path="login" element={<Login setUser={setUser} />} />
+          
           
 
           <Route path="/documentation-technique" element={<DocumentationTechnique />} />

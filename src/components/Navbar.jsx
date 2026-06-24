@@ -1,11 +1,10 @@
 import React, { useState } from 'react';
-import { Link, useLocation, } from 'react-router-dom';
+import { Link, useLocation, useNavigate} from 'react-router-dom';
 import { motion } from 'framer-motion';
-//import FormulaireConnexion from './FormulaireConnexion';
 
-const Navbar = () => {
+const Navbar = ({ user, setUser }) => {
   const location = useLocation();
-  //const [showLogin, setShowLogin] = useState(false);
+  const navigate = useNavigate();
 
   const getTitle = () => {
     const path = location.pathname;
@@ -30,6 +29,13 @@ const Navbar = () => {
   };
 
   const isHome = location.pathname === '/';
+  
+
+  const handleLogout = () => {
+    setUser(null);
+    localStorage.removeItem('user'); //localStorage.removeItem('user') → supprime la session
+    navigate('/');
+  };
 
   return (
     <>
@@ -55,30 +61,29 @@ const Navbar = () => {
           </motion.span>
 
           
-          <Link to="registration" className="ms-auto"><motion.button
-            initial={{ opacity: 0, x: -10 }}
-            animate={{ opacity: 1, x: 0 }}
-            //onClick={() => setShowLogin(true)}
-            className="btn btn-outline-primary btn-sm border rounded-3 ms-auto"
-          >
-            Connexion
-          </motion.button></Link>
+          {user ? (
+            <div className="ms-auto d-flex flex-column">
+              <button className="btn btn-outline-primary btn-sm border rounded-3" type="button" data-bs-toggle="collapse" data-bs-target="#userMenu">
+                <i className="bi bi-person-circle me-1"></i>
+                {user.name}
+              </button>
+              <div className="collapse" id="userMenu">
+                <button onClick={handleLogout} className="btn btn-outline-danger btn-sm border rounded-3 mt-1">
+                  <i className="bi bi-box-arrow-right me-1"></i>Déconnexion
+                </button>
+              </div>
+            </div>
+          ) : (
+            <Link to="registration" className="ms-auto">
+              <motion.button
+                initial={{ opacity: 0, x: -10 }}
+                animate={{ opacity: 1, x: 0 }}
+                className="btn btn-outline-primary btn-sm border rounded-3">Connexion
+              </motion.button>
+            </Link>
+          )}
         </div>
       </div>
-
-    {/* 
-      {showLogin && (
-        <div
-          className="position-fixed top-0 start-0 w-100 h-100 d-flex align-items-center justify-content-center"
-          style={{ backgroundColor: 'rgba(0,0,0,0.5)', zIndex: 1050 }}
-          onClick={() => setShowLogin(false)}
-        >
-          <div onClick={(e) => e.stopPropagation()}>
-            <FormulaireConnexion />
-          </div>
-        </div>
-      )}
-    */}
     </>
   );
 };

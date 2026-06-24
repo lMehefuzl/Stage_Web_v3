@@ -1,11 +1,11 @@
 import React, {useState}from 'react'
-import { Link, useLocation, useNavigate } from 'react-router-dom';
-import axios from 'axios'
-import Login from './Login';
+import { Link, useNavigate } from 'react-router-dom';
+import axios from 'axios'  //Bibliothèque pour effectuer des requêtes HTTP vers l'API
 
 // messages d'erreurs soit:
 //{ valid ? <></> :<span className="text-danger"> {errors.name} </span>} {/*message erreur */}
-//{errors.name && <span className="text-danger">{errors.name}</span>}
+//{errors.name && <span className="text-danger">{errors.name}</span>}  (je pense que avc ca on peut enlever le state valide / is valide)
+// potentionellemant plus optimale
 
 const Registration = () => {
     const [formData, setFormData] = useState({
@@ -19,7 +19,7 @@ const Registration = () => {
     const navigate = useNavigate()
 
 const handleSubmit = (e) => {
-    e.preventDefault();
+    e.preventDefault(); //(un variable oficielle)
     let isvalid = true;
     let validationErrors = {}
     if (formData.name === "" || formData.name === null) {
@@ -52,11 +52,11 @@ const handleSubmit = (e) => {
 
     // Vérifier si l'email existe déjà
     if(Object.keys(validationErrors).length === 0) {
-        axios.get(`http://localhost:6789/users?email=${formData.email}`)
-        .then(response => {
-            if(response.data.length > 0) {
+        axios.get(`http://localhost:6789/users?email=${formData.email}`) // avec ?email=${formData.email} on demande les utilisateurs avec cet email
+        .then(response => { //Quand la requête est finie, fais ça  et response => = La réponse du serveur
+            if(response.data.length > 0) { // >0 ducoup on a trouve un match avec ce get ?email=${formData.email}  aussi response.data = Les données reçues (liste des utilisateurs)
                 // L'email existe déjà
-                setErrors({...validationErrors, email: "Cet email est déjà utilisé"})
+                setErrors({...validationErrors, email: "Cet email est déjà utilisé"}) //...validationErrors = copie tout ce qu'il y a dans validationErrors // email: "..." = ajoute ou remplace la propriété email
                 setValid(false)
             } else {
                 // L'email n'existe pas, on peut créer le compte
@@ -78,10 +78,10 @@ return (
         <h1 className="card-title h1 m-3 border-bottom border-primary border-4 text-center text-primary"><b>Connexion</b></h1>
         <div className="row mx-4 my-5">
         <div className="col-md-12">
-            <label className="form-label" htmlFor="email">Nom d'utilisateur</label>
+            <label className="form-label" htmlFor="email">Nom d'utilisateur</label> {/*htmlFor="email" : Relie le label à l'input qui a id="email" (quand on clique sur le texte, l'input est sélectionné) */}
             <input className="form-control border border-secondary border-3 rounded-3" type="text" id="name" name="name" placeholder="Nom d'utilisateur" 
             onChange={(event) => setFormData({...formData, name: event.target.value})} /> {/* {...formData, name takes previous the previous properties and updates the name */}
-            { valid ? <></> :<span className="text-danger"> {errors.name} </span>} {/*message erreur */}
+            { valid ? <></> :<span className="text-danger"> {errors.name} </span>} {/*message erreur "Si valid est vrai (true), alors n'affiche rien. Sinon, affiche le message d'erreur en rouge." */} 
         </div>
         <div className="col-md-12 mt-4">
             <label className="form-label" htmlFor="email">Adresse email</label>
@@ -115,3 +115,5 @@ return (
 }
 
 export default Registration
+
+

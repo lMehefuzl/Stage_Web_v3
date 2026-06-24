@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import axios from "axios";
 
-const Login = () => {
+const Login = ({ setUser }) => {  // ← MODIFICATION : ajout de la prop
     const [formData, setFormData] = useState({
         email: "",
         password: "",
@@ -37,9 +37,13 @@ const handleSubmit = (e) => {
 
     axios.get('http://localhost:6789/users')
     .then(result => {
+        let userFound = false;  // ← AJOUT : variable pour suivre si l'email existe
         result.data.map(user => {
             if(user.email === formData.email) {
+                userFound = true;  // ← AJOUT
                 if(user.password === formData.password) {
+                    setUser(user);                                              // pour sauvegarde d'utilisateur
+                    localStorage.setItem('user', JSON.stringify(user));         // pour sauvegarde d'utilisateur
                     alert ("vous êtes connecté")
                     navigate('/')
                 } else {
@@ -96,7 +100,7 @@ const handleSubmit = (e) => {
               </label>
               <input
                 className="form-control border border-secondary border-3 rounded-3"
-                type="text"
+                type="password"    //c t text avant
                 id="password"
                 name="password"
                 placeholder="Entrez votre mot de passe"
