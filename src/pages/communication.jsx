@@ -16,12 +16,14 @@ const Communication = () => {
           <a className="nav-link px-0 py-1 text-dark mt-2" href="#entrees-discretes"><i className="bi bi-toggle2-on text-primary me-2" />2. Entrées discrètes</a>
           <a className="nav-link px-0 py-1 text-dark mt-2" href="#registres-holding"><i className="bi bi-database text-primary me-2" />3. Registres de holding</a>
           <a className="nav-link px-0 py-1 text-dark mt-2" href="#registres-entrees"><i className="bi bi-database-fill text-primary me-2" />4. Registres d'entrées</a>
+          {/* =
           <div className="border-top mt-3 pt-2">
             <p className="text-primary fw-semibold small mb-1"><i className="bi bi-image text-primary me-1" /> Figures :</p>
             <div className="ps-3">
               <a className="nav-link px-0 py-1 text-secondary small" href="#figure68">Figure 68</a>
             </div>
           </div>
+          */}
         </nav>
       </div>
     </div>

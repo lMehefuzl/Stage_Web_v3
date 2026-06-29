@@ -172,7 +172,7 @@ const Programmation = () => {
           
           {/* ============================================ */}
           {/* FIGURES */}
-          {/* ============================================ */}
+          {/* ============================================ 
           <div className="border-top mt-3 pt-2" />
           <div className="mb-2">
             <div className="nav-link px-0 py-1 text-dark d-flex justify-content-between align-items-center">
@@ -243,10 +243,10 @@ const Programmation = () => {
               <a className="nav-link px-0 py-1 text-secondary small" href="#figure128">Figure 128</a>
             </div>
           </div>
-          
+          */}
           {/* ============================================ */}
           {/* TABLEAUX */}
-          {/* ============================================ */}
+          {/* ============================================ 
           <div className="mb-2">
             <div className="nav-link px-0 py-1 text-dark d-flex justify-content-between align-items-center">
               <span style={{cursor: 'default'}}>
@@ -271,6 +271,7 @@ const Programmation = () => {
               <a className="nav-link px-0 py-1 text-secondary small" href="#tableau39">Tableau 39</a>
             </div>
           </div>
+          */}
         </nav>
       </div>
     </div>

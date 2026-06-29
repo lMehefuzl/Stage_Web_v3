@@ -26,3 +26,15 @@ npm run dev
 il faut crée db.json dans fichier principal (avec vite.config.js; package.json...)
 et puis:
 npx json-server --watch db.json --port 6789
+
+////////////vider json bdd/////////
+PS C:\Users\mehef> netstat -ano | findstr :6789
+PS C:\Users\mehef> netstat -ano | findstr :6789
+  TCP    0.0.0.0:6789           0.0.0.0:0              LISTENING       14380
+  TCP    [::]:6789              [::]:0                 LISTENING       14380
+PS C:\Users\mehef> taskkill /PID 14380
+Erreur : le processus de PID 14380 n’a pas pu être arrêté.
+Raison : Ce processus ne peut être arrêté que de force (avec l’option /F).
+PS C:\Users\mehef> taskkill /F /PID 14380
+Opération réussie : le processus avec PID 14380 a été terminé.
+PS C:\Users\mehef>

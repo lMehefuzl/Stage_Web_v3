@@ -5,21 +5,8 @@
       "email": "mehefuz.khondaker@yahoo.com",
       "password": "jahamed",
       "cpassword": "jahamed",
-      "id": "1BsrshS9uUc"
-    },
-    {
-      "name": "Mehefuz",
-      "email": "khondaker@yahoo.com",
-      "password": "Jahamed",
-      "cpassword": "Jahamed",
-      "id": "hW0t1RsWAeY"
-    },
-    {
-      "name": "Mehefuz",
-      "email": "boubou@yahoo.com",
-      "password": "lebron",
-      "cpassword": "lebron",
-      "id": "zbU5pjXZ3ok"
+      "id": "LvAoAS5kF0c",
+      "score": 3
     }
   ],
   "$schema": "./node_modules/json-server/schema.json"

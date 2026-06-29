@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { Link, useLocation, useNavigate} from 'react-router-dom';
 import { motion } from 'framer-motion';
+import SearchBar from './SearchBar';
 
 const Navbar = ({ user, setUser }) => {
   const location = useLocation();
@@ -22,7 +23,7 @@ const Navbar = ({ user, setUser }) => {
       case '/ressources': 
         return 'RESSOURCES';
       case '/ia': 
-        return 'BENCHMARKS';
+        return 'IA';
       default: 
         return 'GUIDE NIRYO NED 2';
     }
@@ -30,7 +31,6 @@ const Navbar = ({ user, setUser }) => {
 
   const isHome = location.pathname === '/';
   
-
   const handleLogout = () => {
     setUser(null);
     localStorage.removeItem('user'); //localStorage.removeItem('user') → supprime la session
@@ -45,9 +45,7 @@ const Navbar = ({ user, setUser }) => {
             <Link to="/"><motion.button
               initial={{ opacity: 0, x: -10 }}
               animate={{ opacity: 1, x: 0 }}
-              className="btn btn-outline-primary btn-sm border rounded-3"
-            >
-              <i className="bi bi-arrow-left"></i> Accueil
+              className="btn btn-outline-primary btn-sm border rounded-3"><i className="bi bi-arrow-left"></i> Accueil
             </motion.button></Link>
           )}
           <motion.span
@@ -55,11 +53,10 @@ const Navbar = ({ user, setUser }) => {
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             transition={{ duration: 0.5 }}
-            className="ms-3 fs-5 fw-semibold text-primary"
-          >
-            {getTitle()}
+            className="ms-3 fs-5 fw-semibold text-primary">{getTitle()}
           </motion.span>
 
+           <SearchBar />
           
           {user ? (
             <div className="ms-auto d-flex flex-column">

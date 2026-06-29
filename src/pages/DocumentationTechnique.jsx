@@ -109,7 +109,7 @@ const DocumentationTechnique = () => {
           
           {/* ============================================ */}
           {/* FIGURES */}
-          {/* ============================================ */}
+          {/* ============================================ 
           <div className="border-top mt-3 pt-2" />
           <div className="mb-2">
             <div className="nav-link px-0 py-1 text-dark d-flex justify-content-between align-items-center">
@@ -151,10 +151,10 @@ const DocumentationTechnique = () => {
               <a className="nav-link px-0 py-1 text-secondary small" href="#figure33">Figure 33</a>
             </div>
           </div>
-          
+          */}
           {/* ============================================ */}
           {/* TABLEAUX */}
-          {/* ============================================ */}
+          {/* ============================================ 
           <div className="mb-2">
             <div className="nav-link px-0 py-1 text-dark d-flex justify-content-between align-items-center">
               <span style={{cursor: 'default'}}>
@@ -185,6 +185,7 @@ const DocumentationTechnique = () => {
               <a className="nav-link px-0 py-1 text-secondary small" href="#tableau20">Tableau 20</a>
             </div>
           </div>
+          */}
         </nav>
       </div>
     </div>

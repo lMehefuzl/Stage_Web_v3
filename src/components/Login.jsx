@@ -13,7 +13,7 @@ const Login = ({ setUser }) => {  // ← MODIFICATION : ajout de la prop
     const navigate = useNavigate()
 
 const handleSubmit = (e) => {
-    e.preventDefault();
+    e.preventDefault(); //pas pertinant le preventDefault
     let isvalid = true;
     let validationErrors = {}
 

@@ -79,7 +79,7 @@ const JumeauNumerique = () => {
               <i className="bi bi-chevron-down small" data-bs-toggle="collapse" data-bs-target="#collapseGazebo" aria-expanded="false" style={{cursor: 'pointer'}} />
             </div>
             <div className="collapse ps-4" id="collapseGazebo">
-              <a className="nav-link px-0 py-1 text-secondary small" href="#gazebo-presentation">Pour utiliser la simulat Présentation</a>
+              <a className="nav-link px-0 py-1 text-secondary small" href="#gazebo-presentation">Présentation Gazebo</a>
               <a className="nav-link px-0 py-1 text-secondary small" href="#gazebo-choix"> Un choix évident</a>
               <a className="nav-link px-0 py-1 text-secondary small" href="#gazebo-installation"> Installation</a>
               <a className="nav-link px-0 py-1 text-secondary small ps-3" href="#gazebo-wsl">— WSL</a>
@@ -100,15 +100,33 @@ const JumeauNumerique = () => {
               <i className="bi bi-chevron-down small" data-bs-toggle="collapse" data-bs-target="#collapseWebots" aria-expanded="false" style={{cursor: 'pointer'}} />
             </div>
             <div className="collapse ps-4" id="collapseWebots">
-              <a className="nav-link px-0 py-1 text-secondary small" href="#webots-presentation">Pour utiliser la simulat Présentation</a>
+              <a className="nav-link px-0 py-1 text-secondary small" href="#webots-presentation">Présentation Webots</a>
               <a className="nav-link px-0 py-1 text-secondary small" href="#webots-caracteristiques"> Caractéristiques</a>
               <a className="nav-link px-0 py-1 text-secondary small" href="#webots-limites"> Limites avec Niryo</a>
+            </div>
+          </div>
+
+          {/* ============================================ */}
+          {/* 6. PYBULLET */}
+          {/* ============================================ */}
+          <div className="mb-2">
+            <div className="nav-link px-0 py-1 text-dark d-flex justify-content-between align-items-center">
+              <a href="#pybullet" className="text-dark text-decoration-none" style={{cursor: 'pointer'}}>
+                <i className="bi bi-cpu text-primary me-2" />PyBullet
+              </a>
+              <i className="bi bi-chevron-down small" data-bs-toggle="collapse" data-bs-target="#collapsePybullet" aria-expanded="false" style={{cursor: 'pointer'}} />
+            </div>
+            <div className="collapse ps-4" id="collapsePybullet">
+              <a className="nav-link px-0 py-1 text-secondary small" href="#pybullet-presentation">Présentation</a>
+              <a className="nav-link px-0 py-1 text-secondary small" href="#pybullet-fonctionnement">Fonctionnement</a>
+              <a className="nav-link px-0 py-1 text-secondary small" href="#pybullet-choix">PyBullet, un choix adapté</a>
+              <a className="nav-link px-0 py-1 text-secondary small" href="#pybullet-limites">Limites</a>
             </div>
           </div>
           
           {/* ============================================ */}
           {/* FIGURES */}
-          {/* ============================================ */}
+          {/* ============================================ 
           <div className="border-top mt-3 pt-2" />
           <div className="mb-2">
             <div className="nav-link px-0 py-1 text-dark d-flex justify-content-between align-items-center">
@@ -132,11 +150,11 @@ const JumeauNumerique = () => {
               <a className="nav-link px-0 py-1 text-secondary small" href="#webot1">Webots</a>
             </div>
           </div>
-          
+          */}
           {/* ============================================ */}
           {/* TABLEAUX */}
           {/* ============================================ */}
-          <div className="mb-2">
+          {/*<div className="mb-2">
             <div className="nav-link px-0 py-1 text-dark d-flex justify-content-between align-items-center">
               <span style={{cursor: 'default'}}>
                 <i className="bi bi-table text-primary me-2" />Tableaux
@@ -149,6 +167,7 @@ const JumeauNumerique = () => {
               <a className="nav-link px-0 py-1 text-secondary small" href="#tableau26">Tableau 26</a>
             </div>
           </div>
+          */}
         </nav>
       </div>
     </div>
@@ -408,7 +427,6 @@ const JumeauNumerique = () => {
       <div id="gazebo" className="bg-white rounded-3 shadow-sm p-4 mb-4">
         <h2 className="text-primary border-bottom pb-2 mb-4"><i className="bi bi-display" /> GAZEBO</h2>
         <div id="gazebo-presentation" className="mt-3">
-          <h3 className="text-dark fw-bold">Pour utiliser la simulat Gazebo</h3>
           <h4 className="fw-bold mt-3"> Présentation</h4>
           <p>Gazebo est un logiciel de simulation open source largement utilisé en robotique. Il s'intègre parfaitement avec ROS.
             Cette compatibilité facilite l'intégration des algorithmes de contrôle et des programmes développés par les utilisateurs. </p>
@@ -462,7 +480,6 @@ const JumeauNumerique = () => {
       <div id="webots" className="bg-white rounded-3 shadow-sm p-4 mb-4">
         <h2 className="text-primary border-bottom pb-2 mb-4"><i className="bi bi-globe" /> WEBOTS</h2>
         <div id="webots-presentation" className="mt-3">
-          <h3 className="text-dark fw-bold">Pour utiliser la simulat Webots</h3>
           <h4 className="fw-bold mt-3"> Présentation</h4>
           {/* doc 1 */}
           <p>Le système virtuel a été développé avec le simulateur Webots. 
@@ -513,6 +530,64 @@ const JumeauNumerique = () => {
           {/* doc 2 */}
           <p>Ces facteurs rendent Webots moins adapté pour un usage avec les robots Niryo et expliquent pourquoi cette plateforme 
             n'a pas été retenue pour ce projet.</p>
+        </div>
+      </div>
+
+      {/* ============================================ */}
+      {/* PYBULLET */}
+      {/* ============================================ */}
+      <div id="pybullet" className="bg-white rounded-3 shadow-sm p-4 mb-4">
+        <h2 className="text-primary border-bottom pb-2 mb-4"><i className="bi bi-cpu" /> PYBULLET</h2>
+        <div id="pybullet-presentation" className="mt-3">
+          <h3 className="text-dark fw-bold">16. PyBullet</h3>
+          <h4 className="fw-bold mt-3"> Présentation</h4>
+          <p>PyBullet est un module Python de simulation physique rapide et facile à utiliser, axé sur la robotique et le machine learning, avec un accent particulier sur le transfert simulation-réel (<em>sim-to-real</em>). Il est développé par Erwin Coumans et Yunfei Bai, et s'appuie sur le moteur physique Bullet3, open source.</p>
+          <p>Avec PyBullet, il est possible de charger des robots articulés à partir de fichiers standards (URDF, SDF, MJCF), de simuler leur dynamique directe et inverse, de détecter les collisions, et de calculer la cinématique directe et inverse. L'installation est aussi simple que :</p>
+          <pre className="bg-dark text-white p-3 rounded"><code>pip install pybullet</code></pre>
+          <p>PyBullet est largement utilisé dans la communauté RL : des équipes de Google Brain, Stanford AI Lab et OpenAI l'ont adopté pour leurs travaux de recherche. Il s'intègre naturellement avec des bibliothèques comme Gymnasium, Stable-Baselines3 ou CleanRL.</p>
+        </div>
+        <div id="pybullet-fonctionnement" className="mt-5">
+          <h4 className="fw-bold mt-3"> Fonctionnement</h4>
+          <p>PyBullet fonctionne selon un modèle client-serveur : le client Python envoie des commandes à un serveur de simulation qui retourne l'état physique. Deux modes de connexion principaux existent :</p>
+          <ul>
+            <li><strong>Mode GUI</strong> (<code>p.GUI</code>) : ouvre une fenêtre OpenGL 3D interactive permettant de visualiser la simulation en temps réel. Utile pour le développement et le débogage.</li>
+            <li><strong>Mode DIRECT</strong> (<code>p.DIRECT</code>) : exécute la simulation sans rendu graphique (headless). Indispensable pour l'entraînement RL intensif sur CPU, car il supprime la charge graphique et permet d'accélérer la simulation bien au-delà du temps réel.</li>
+          </ul>
+          <p>La boucle de simulation avance par pas discrets via la commande <code>stepSimulation()</code>. La fréquence par défaut est de 240 Hz (pas de 1/240 s), ce qui assure une intégration temporelle stable de la dynamique articulaire. Chaque corps chargé (robot, sol, objets) est identifié par un <em>body unique id</em> retourné lors du chargement URDF.</p>
+          <pre className="bg-dark text-white p-3 rounded"><code>import pybullet as p{"\n"}
+import pybullet_data{"\n"}
+{"\n"}
+client = p.connect(p.DIRECT){"          "}# mode headless pour l'entraînement{"\n"}
+p.setAdditionalSearchPath(pybullet_data.getDataPath()){"\n"}
+p.setGravity(0, 0, -9.81){"\n"}
+p.loadURDF("plane.urdf"){"\n"}
+robotId = p.loadURDF("ned_custom.urdf", useFixedBase=True){"\n"}
+{"\n"}
+for _ in range(1000):{"\n"}
+p.stepSimulation(){"\n"}
+{"\n"}
+p.disconnect()</code></pre>
+          <p className="text-center small mt-1">Exemple minimal : chargement d'un robot Niryo Ned et boucle de simulation</p>
+          <p>Pour contrôler les articulations, PyBullet expose un système de moteurs articulaires. La commande <code>setJointMotorControl2()</code> permet de définir le mode de contrôle (position, vitesse ou couple) et la cible à atteindre. Par défaut, chaque joint mobile est motorisé avec un moteur de vitesse qu'il convient de désactiver ou reconfigurer selon les besoins.</p>
+        </div>
+        <div id="pybullet-choix" className="mt-5">
+          <h4 className="fw-bold mt-3"> PyBullet, un choix adapté à ce projet</h4>
+          <p>Pour ce projet exécuté sous Windows, PyBullet constitue le choix naturel pour plusieurs raisons. Contrairement à Gazebo qui requiert Ubuntu 18.04 via une machine virtuelle, PyBullet s'installe nativement sous Windows en une seule commande pip, sans couche de compatibilité Linux.</p>
+          <p>Son mode DIRECT (headless) est indispensable pour paralléliser l'entraînement SAC sur CPU : en supprimant le rendu graphique, la simulation peut tourner dix fois plus vite que le temps réel, ce qui réduit considérablement la durée des cycles d'entraînement. Gazebo, pensé pour la visualisation ROS, ne propose pas cet avantage.</p>
+          <p>Enfin, PyBullet charge nativement les fichiers URDF du robot Niryo Ned, et s'intègre directement avec Gymnasium pour exposer l'environnement de simulation aux algorithmes de RL — ce qui constitue exactement la chaîne technique nécessaire au projet.</p>
+          <div className="alert alert-info mt-3">
+            <i className="bi bi-info-circle-fill" /> <strong>Remarque :</strong> dans le contexte de ce projet, PyBullet joue le rôle que Gazebo joue pour la programmation ROS : il fournit le jumeau numérique du bras, mais spécialisé pour l'apprentissage par renforcement plutôt que pour la commande temps réel.
+          </div>
+        </div>
+        <div id="pybullet-limites" className="mt-5">
+          <h4 className="fw-bold mt-3"> Limites</h4>
+          <p>Malgré ses avantages, PyBullet présente certaines limites à connaître :</p>
+          <ul>
+            <li><strong>Fidélité physique</strong> : les contacts et frottements simulés restent moins précis que MuJoCo, moteur de référence pour la recherche académique. Cela peut introduire un écart (gap sim-to-real) lors du transfert de la politique apprise vers le robot physique.</li>
+            <li><strong>Vitesse maximale des joints</strong> : par défaut, PyBullet plafonne la vitesse articulaire à 100 unités/s pour assurer la stabilité numérique. Au-delà, la simulation peut devenir instable ou produire des comportements non physiques.</li>
+            <li><strong>Pas de ROS natif</strong> : contrairement à Gazebo, PyBullet ne publie pas de topics ROS. Pour connecter la simulation à l'écosystème ROS (Node-RED, PyNiryo), des couches de communication supplémentaires seraient nécessaires.</li>
+            <li><strong>Documentation dispersée</strong> : la documentation officielle (PyBullet Quickstart Guide) est moins structurée que celle de Gazebo ou MuJoCo, ce qui peut ralentir la prise en main sur des cas avancés.</li>
+          </ul>
         </div>
       </div>
     </div>

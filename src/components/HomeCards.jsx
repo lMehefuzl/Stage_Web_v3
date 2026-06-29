@@ -9,7 +9,7 @@ const HomeCards = () => {
     { id: 'jumeau-numerique', icon: 'bi-cpu', title: 'JUMEAU NUMÉRIQUE', desc: 'Installation NiryoStudio • Simulation • Linux/Windows • RViz • Gazebo • Webots' },
     { id: 'theorie', icon: 'bi-calculator-fill', title: 'FONDAMENTAUX THÉORIQUES', desc: 'MGD • Convention DH • MGI' },
     { id: 'ressources', icon: 'bi-folder-symlink-fill', title: 'RESSOURCES', desc: 'Lexique • Liens utiles' },
-    { id: 'ia', icon: 'bi-info-circle-fill', title: 'BENCHMARK', desc: 'ia • reinforced learning • machine learning' },
+    { id: 'ia', icon: 'bi-info-circle-fill', title: 'IA', desc: 'ia • reinforced learning • machine learning' },
   ];
 
   return (

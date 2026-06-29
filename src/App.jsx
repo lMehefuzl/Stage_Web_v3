@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { BrowserRouter, Routes, Route } from 'react-router-dom';
+import { BrowserRouter, Routes, Route, useLocation } from 'react-router-dom';
 
 // Components
 import Navbar from './components/Navbar';
@@ -17,6 +17,25 @@ import Ia from './pages/Ia';
 import Registration from './components/Registration';
 import Login from './components/Login';
 
+const ScrollToHash = () => {
+  const location = useLocation();
+  
+  useEffect(() => {
+    // Si l'URL contient un hash (ex: #generalites)
+    if (location.hash) {
+      // On attend un peu que la page soit chargée
+
+      const element = document.getElementById(location.hash.replace('#', ''));
+      if (element) {
+        element.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      }
+  
+    }
+  }, [location]);
+
+  return null;
+};
+
 const App = () => {
   const [user, setUser] = useState(null);
 
@@ -30,6 +49,7 @@ const App = () => {
 
   return (
     <BrowserRouter>
+    <ScrollToHash />
       <div className="bg-light min-h-screen">
         <Navbar user={user} setUser={setUser} />
         <Routes>
