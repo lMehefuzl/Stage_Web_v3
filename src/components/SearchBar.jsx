@@ -241,7 +241,7 @@ const SearchBar = () => {
       {isOpen && suggestions.length > 0 && (
         <div
           ref={inputRef}
-          className="position-absolute top-100 start-0 mt-2 bg-white rounded-3 shadow-lg border overflow-hidden"
+          className="position-absolute top-100 start-0 mt-2 bg-white rounded-3 shadow-lg border"
           style={{ width: '100%', maxHeight: '300px', overflowY: 'auto', zIndex: 1050 }}
         >
           {suggestions.map(([title], i) => (

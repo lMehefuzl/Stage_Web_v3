@@ -21,6 +21,7 @@ const Hero = () => {
         </motion.div>
 
         {/* Titre : Apparition en fondu vers le haut */}
+        
         <motion.h1 
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
@@ -29,6 +30,14 @@ const Hero = () => {
         >
           NIRYO NED 2
         </motion.h1>
+
+          {/*//la bare bleu */}
+        <motion.div
+          initial={{ width: 0 }}
+          animate={{ width: '400px' }}
+          transition={{ delay: 0.8, duration: 0.6 }}
+          style={{ height: '4px', background: 'linear-gradient(90deg, #0d6efd, #6610f2)', borderRadius: '2px', margin: '12px auto 24px' }}
+        />
         
         {/* Sous-titre : Apparition après le titre */}
         <motion.p 

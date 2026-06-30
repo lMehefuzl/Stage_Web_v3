@@ -38,7 +38,7 @@ const handleSubmit = (e) => {
     axios.get('http://localhost:6789/users')
     .then(result => {
         let userFound = false;  // ← AJOUT : variable pour suivre si l'email existe
-        result.data.map(user => {
+        result.data.map(user => { //.map ou .find jsp
             if(user.email === formData.email) {
                 userFound = true;  // ← AJOUT
                 if(user.password === formData.password) {

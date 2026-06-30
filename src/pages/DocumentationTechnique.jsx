@@ -1,6 +1,7 @@
 import React from 'react'
-import HashLink from '../components/HashLink';
 import Quiz from '../components/Quiz'
+
+
 
 const DocumentationTechnique = () => {
   return (
