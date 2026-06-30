@@ -13,7 +13,7 @@ const Login = ({ setUser }) => {  // ← MODIFICATION : ajout de la prop
     const navigate = useNavigate()
 
 const handleSubmit = (e) => {
-    e.preventDefault(); //pas pertinant le preventDefault
+    e.preventDefault();
     let isvalid = true;
     let validationErrors = {}
 
@@ -33,33 +33,25 @@ const handleSubmit = (e) => {
         validationErrors.password = "Votre mot de passe est trop courte, veuillez mettre au moin 4 charactères"
     }
 
+    setErrors(validationErrors)
+    setValid(isvalid)
 
-
-    axios.get('http://localhost:6789/users')
-    .then(result => {
-        let userFound = false;  // ← AJOUT : variable pour suivre si l'email existe
-        result.data.map(user => { //.map ou .find jsp
-            if(user.email === formData.email) {
-                userFound = true;  // ← AJOUT
-                if(user.password === formData.password) {
-                    setUser(user);                                              // pour sauvegarde d'utilisateur
-                    localStorage.setItem('user', JSON.stringify(user));         // pour sauvegarde d'utilisateur
-                    alert ("vous êtes connecté")
-                    navigate('/')
-                } else {
-                    isvalid = false;
-                    validationErrors.password = "Votre mot de passe ou email est incorrect"
-                }
-
-            } else if(formData.email !== "") {
-                isvalid = false;
-                validationErrors.email = "Votre mot de passe ou email est incorrect"
-            }
+    if (isvalid) {
+        axios.post('http://localhost:6789/users/login', {
+            email: formData.email,
+            password: formData.password
         })
-        setErrors(validationErrors)
-        setValid(isvalid)
-    })
-    .catch(err => console.log(err))
+        .then(response => {
+            setUser(response.data);
+            localStorage.setItem('user', JSON.stringify(response.data));
+            alert("vous êtes connecté")
+            navigate('/')
+        })
+        .catch(err => {
+            alert("Email ou mot de passe incorrect")
+            console.log(err)
+        })
+    }
 }
 
 

@@ -19,9 +19,10 @@ const Registration = () => {
     const navigate = useNavigate()
 
 const handleSubmit = (e) => {
-    e.preventDefault(); //(un variable oficielle)
+    e.preventDefault();
     let isvalid = true;
     let validationErrors = {}
+    
     if (formData.name === "" || formData.name === null) {
         isvalid = false;
         validationErrors.name = "Veuillez mettre votre nom d'utilisateur"
@@ -39,7 +40,7 @@ const handleSubmit = (e) => {
         validationErrors.password = "Veuillez mettre mot de passe"
     } else if(formData.password.length < 4) {
         isvalid = false;
-        validationErrors.password = "Votre mot de passe est trop courte, veuillez mettre au moin 4 charactères"
+        validationErrors.password = "Votre mot de passe est trop courte, veuillez mettre au moin 5 charactères"
     }
 
     if (formData.cpassword !== formData.password) {
@@ -50,25 +51,21 @@ const handleSubmit = (e) => {
     setErrors(validationErrors)
     setValid(isvalid)
 
-    // Vérifier si l'email existe déjà
-    if(Object.keys(validationErrors).length === 0) {
-        axios.get(`http://localhost:6789/users?email=${formData.email}`) // avec ?email=${formData.email} on demande les utilisateurs avec cet email
-        .then(response => { //Quand la requête est finie, fais ça  et response => = La réponse du serveur
-            if(response.data.length > 0) { // >0 ducoup on a trouve un match avec ce get ?email=${formData.email}  aussi response.data = Les données reçues (liste des utilisateurs)
-                // L'email existe déjà
-                setErrors({...validationErrors, email: "Cet email est déjà utilisé"}) //...validationErrors = copie tout ce qu'il y a dans validationErrors // email: "..." = ajoute ou remplace la propriété email
-                setValid(false)
+    // Si tout est valide, on essaie de créer le compte
+    if(isvalid) {
+        axios.post('http://localhost:6789/users', formData)
+        .then(result => {
+            alert("Vous avez créé votre compte")
+            navigate('/login')
+        })
+        .catch(err => {
+            if(err.response && err.response.status === 400) {
+                alert("Cet email est déjà utilisé")
             } else {
-                // L'email n'existe pas, on peut créer le compte
-                axios.post('http://localhost:6789/users', formData)
-                .then(result => {
-                    alert("Vous avez créé votre compte")
-                    navigate('/login')
-                })
-                .catch(err => console.log(err))
+                alert("Erreur lors de la création du compte")
+                console.log(err)
             }
         })
-        .catch(err => console.log(err))
     }
 }
 return (

@@ -82,7 +82,7 @@ const Quiz = () => {
     if (!user) {
       navigate('/registration');
     } else {
-      axios.patch(`http://localhost:6789/users/${user.id}`, {   //patch pour modifier (ca écrase l'ancien donné)
+      axios.patch(`http://localhost:6789/users/${user._id}`, {   //patch pour modifier (ca écrase l'ancien donné)
         score: score
       })
       .then(() => {
