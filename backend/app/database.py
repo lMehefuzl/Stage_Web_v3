@@ -1,11 +1,15 @@
 from motor.motor_asyncio import AsyncIOMotorClient
-from .config import config
+import os
+from dotenv import load_dotenv
 
-# Connexion à MongoDB
-client = AsyncIOMotorClient(config.MONGO_URI)
-db = client[config.DB_NAME]
+load_dotenv()
 
-# Collections (comme des tables dans une base SQL)
-users_collection = db["users"]        # pour les utilisateurs
-quiz_collection = db["quiz"]          # pour les questions du quiz
-scores_collection = db["scores"]      # pour les scores
+MONGO_URI = os.getenv("MONGO_URI")
+DB_NAME = os.getenv("DB_NAME")
+
+client = AsyncIOMotorClient(MONGO_URI)
+db = client[DB_NAME]
+
+users_collection = db["users"]
+quiz_collection = db["quiz"]
+scores_collection = db["scores"]
