@@ -145,11 +145,11 @@ const Quiz = () => {
       {/* Opérateur ternaire pour remplacer le if/else dans le JSX */}
       {score >= data.length / 2 ? (
         <div className="alert alert-success my-3 p-3 rounded" role="alert">
-          <strong>gg t un bg</strong> 
+          <strong>Vous aviez un score satisfaisant !</strong>
         </div>
       ) : (
         <div className="alert alert-warning my-3 p-3 rounded" role="alert">
-          <strong>t mauvais jack</strong> 
+          <strong>Vous pouvez faire mieux !</strong>
         </div>
       )}
       <div className="d-flex justify-content-between align-items-center">

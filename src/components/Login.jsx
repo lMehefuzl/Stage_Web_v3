@@ -112,6 +112,9 @@ const handleSubmit = (e) => {
             <p className="text-center small mt-1 text-secondary">
               Si vous n'aviez pas de compte,<Link to="/registration"> Crée votre compte </Link>{" "}
             </p>
+            <p className="text-center small mt-2">
+              <Link to="/forgot-password">Mot de passe oublié ?</Link>
+            </p>
           </div>
         </div>
       </form>

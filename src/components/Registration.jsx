@@ -16,10 +16,15 @@ const Registration = () => {
     })
     const [errors, setErrors] = useState({})
     const [valid, setValid] = useState(true)
+    const [loading, setLoading] = useState(false) //pour éviter que l'utilisateur clique plusieurs fois sur le bouton "Valider" et envoie plusieurs requêtes simultanément
     const navigate = useNavigate()
 
 const handleSubmit = (e) => {
     e.preventDefault();
+   
+    if (loading) return; //pour éviter que l'utilisateur clique plusieurs fois sur le bouton "Valider" et envoie plusieurs requêtes simultanément
+
+
     let isvalid = true;
     let validationErrors = {}
     
@@ -53,6 +58,8 @@ const handleSubmit = (e) => {
 
     // Si tout est valide, on essaie de créer le compte
     if(isvalid) {
+        setLoading(true)
+
         axios.post('http://localhost:6789/users', formData)
         .then(result => {
             alert("Vous avez créé votre compte")
@@ -65,6 +72,10 @@ const handleSubmit = (e) => {
                 alert("Erreur lors de la création du compte")
                 console.log(err)
             }
+        })
+
+        .finally(() => {
+            setLoading(false)  // ← RÉACTIVE LE BOUTON
         })
     }
 }

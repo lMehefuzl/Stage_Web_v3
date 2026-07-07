@@ -1,6 +1,6 @@
-from motor.motor_asyncio import AsyncIOMotorClient
+from motor.motor_asyncio import AsyncIOMotorClient #pour communiquer avec MongoDB
 import os
-from dotenv import load_dotenv
+from dotenv import load_dotenv #Charge le fichier .env
 
 load_dotenv()
 
@@ -11,5 +11,3 @@ client = AsyncIOMotorClient(MONGO_URI)
 db = client[DB_NAME]
 
 users_collection = db["users"]
-quiz_collection = db["quiz"]
-scores_collection = db["scores"]
