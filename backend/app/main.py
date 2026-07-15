@@ -17,12 +17,3 @@ app.include_router(users.router)
 @app.get("/")
 async def root():
     return {"message": "API OK"}
-
-#from fastapi import FastAPI
-
-#app = FastAPI()
-
-#@app.get("/")
-
-#async def root():
-#    return {"message" : "welcome to the fast api mongodb Blog API"}

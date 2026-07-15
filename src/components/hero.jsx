@@ -4,7 +4,7 @@ import { motion } from 'framer-motion'; //pour animé les bail
 
 const Hero = () => {
   return (
-    <div className="bg-light border-bottom py-5 text-center">
+    <div className="bg-light border-bottom py-3 text-center">
       <div className="container position-relative" style={{ zIndex: 1 }}>
         
         {/* Icône animée : Elle flotte de haut en bas en continu */}
@@ -17,7 +17,7 @@ const Hero = () => {
           }}
           className="mb-3 d-inline-block"
         >
-          <i className="bi bi-robot text-primary" style={{ fontSize: '3.5rem' }}></i>
+           <img src="images/logo.png" className="img-fluid" style={{maxHeight: '10rem', width: 'auto', objectFit: 'contain'}} />
         </motion.div>
 
         {/* Titre : Apparition en fondu vers le haut */}
