@@ -1,4 +1,5 @@
 import React from 'react'
+import Quiz from '../components/Quiz'
 
 const Theorie = () => {
   return (
@@ -86,27 +87,36 @@ const Theorie = () => {
                     </div>
                     <div className="collapse ps-4" id="collapseResumeRos">
                         <a className="nav-link px-0 py-1 text-secondary small" href="#objectifs-philosophie">1. Objectifs et Philosophie de ROS</a>
-                        <a className="nav-link px-0 py-1 text-secondary small ps-3" href="#objectifs">a) Objectifs Principaux</a>
-                        <a className="nav-link px-0 py-1 text-secondary small ps-3" href="#philosophie">b) Philosophie</a>
+                        <a className="nav-link px-0 py-1 text-secondary small ps-3" href="#objectifs"> Objectifs Principaux</a>
+                        <a className="nav-link px-0 py-1 text-secondary small ps-3" href="#philosophie"> Philosophie</a>
                         <a className="nav-link px-0 py-1 text-secondary small" href="#concepts-cles">2. Concepts Clés de l'Architecture</a>
-                        <a className="nav-link px-0 py-1 text-secondary small ps-3" href="#noeuds">a) Nœuds</a>
-                        <a className="nav-link px-0 py-1 text-secondary small ps-3" href="#master">b) Master</a>
-                        <a className="nav-link px-0 py-1 text-secondary small ps-3" href="#topics">c) Topics</a>
-                        <a className="nav-link px-0 py-1 text-secondary small ps-3" href="#messages">d) Messages</a>
-                        <a className="nav-link px-0 py-1 text-secondary small ps-3" href="#services">e) Services</a>
-                        <a className="nav-link px-0 py-1 text-secondary small ps-3" href="#serveur-parametres">f) Serveur de Paramètres</a>
-                        <a className="nav-link px-0 py-1 text-secondary small ps-3" href="#package">g) Package</a>
+                        <a className="nav-link px-0 py-1 text-secondary small ps-3" href="#noeuds"> Nœuds</a>
+                        <a className="nav-link px-0 py-1 text-secondary small ps-3" href="#master"> Master</a>
+                        <a className="nav-link px-0 py-1 text-secondary small ps-3" href="#topics"> Topics</a>
+                        <a className="nav-link px-0 py-1 text-secondary small ps-3" href="#messages"> Messages</a>
+                        <a className="nav-link px-0 py-1 text-secondary small ps-3" href="#services"> Services</a>
+                        <a className="nav-link px-0 py-1 text-secondary small ps-3" href="#serveur-parametres"> Serveur de Paramètres</a>
+                        <a className="nav-link px-0 py-1 text-secondary small ps-3" href="#package"> Package</a>
                         <a className="nav-link px-0 py-1 text-secondary small" href="#outils-ecosysteme">3. Outils et Écosystème</a>
-                        <a className="nav-link px-0 py-1 text-secondary small ps-3" href="#outils">a) Outils</a>
-                        <a className="nav-link px-0 py-1 text-secondary small ps-3" href="#bibliotheques">b) Écosystème</a>
+                        <a className="nav-link px-0 py-1 text-secondary small ps-3" href="#outils"> Outils</a>
+                        <a className="nav-link px-0 py-1 text-secondary small ps-3" href="#bibliotheques"> Écosystème</a>
                         <a className="nav-link px-0 py-1 text-secondary small" href="#limites">4. Limites de ROS</a>
                         <a className="nav-link px-0 py-1 text-secondary small" href="#cours">5. Lien vers un cours complet ROS</a>
+                    </div>
+                </div>
+
+                <div className="mb-2">
+                    <div className="nav-link px-0 py-1 text-dark d-flex justify-content-between align-items-center">
+                        <a href="#quiz" className="text-dark text-decoration-none" style={{ cursor: 'pointer' }}>
+                            <i className="bi bi-puzzle text-primary me-2"></i>Je teste mes connaissance
+                        </a>
                     </div>
                 </div>
                 
                 {/* ============================================ */}
                 {/* FIGURES */}
                 {/* ============================================ */}
+                {/*}
                 <div className="border-top mt-3 pt-2"></div>
                 
                 <div className="mb-2">
@@ -184,10 +194,12 @@ const Theorie = () => {
                         <a className="nav-link px-0 py-1 text-secondary small" href="#mgi13">MGI 13</a>
                     </div>
                 </div>
+                */}
                 
                 {/* ============================================ */}
                 {/* TABLEAUX */}
                 {/* ============================================ */}
+                {/*
                 <div className="mb-2">
                     <div className="nav-link px-0 py-1 text-dark d-flex justify-content-between align-items-center">
                         <span style={{ cursor: 'default' }}>
@@ -200,6 +212,7 @@ const Theorie = () => {
                         <a className="nav-link px-0 py-1 text-secondary small" href="#tableau22">Tableau 22</a>
                     </div>
                 </div>
+                */}
 
             </nav>
         </div>
@@ -997,6 +1010,10 @@ const Theorie = () => {
           <p>Pour une introduction en vidéo aux concepts de ROS, ce séminaire offre un bon aperçu :<br />
             <a href="https://www.youtube.com/watch?v=vAb5SnaJbF0">Introduction à ROS - Séminaire VAUL / Norlab #3</a></p> 
         </div>
+      </div>
+      <div id="quiz" className="bg-white rounded-3 shadow-sm p-4 mb-4">
+        <h2 className="text-primary border-bottom pb-2 mb-4"><i className="bi bi-info-circle-fill" /> Je teste mes connaissances</h2>
+        <Quiz />
       </div>
     </div>
   </div>

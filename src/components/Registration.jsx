@@ -80,7 +80,7 @@ const handleSubmit = (e) => {
     }
 }
 return (
-<div classname="formulaire">
+<div className="formulaire">
     <form className="container-fluid d-flex justify-content-center w-50 bg-light border border-primary border-5 rounded-5 shadow-lg my-4" onSubmit={handleSubmit}>
     <div className="rounded-5 py-4 px-5 w-100 ">
         <h1 className="card-title h1 m-3 border-bottom border-primary border-4 text-center text-primary"><b>Connexion</b></h1>

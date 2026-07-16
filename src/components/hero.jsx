@@ -7,7 +7,7 @@ const Hero = () => {
     <div className="bg-light border-bottom py-3 text-center">
       <div className="container position-relative" style={{ zIndex: 1 }}>
         
-        {/* Icône animée : Elle flotte de haut en bas en continu */}
+        {/* logo animé */}
         <motion.div
           animate={{ y: [0, -12, 0] }}
           transition={{
@@ -20,8 +20,6 @@ const Hero = () => {
            <img src="images/logo.png" className="img-fluid" style={{maxHeight: '10rem', width: 'auto', objectFit: 'contain'}} />
         </motion.div>
 
-        {/* Titre : Apparition en fondu vers le haut */}
-        
         <motion.h1 
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
@@ -39,7 +37,7 @@ const Hero = () => {
           style={{ height: '4px', background: 'linear-gradient(90deg, #0d6efd, #6610f2)', borderRadius: '2px', margin: '12px auto 24px' }}
         />
         
-        {/* Sous-titre : Apparition après le titre */}
+        {/* pop up soustitre */}
         <motion.p 
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}

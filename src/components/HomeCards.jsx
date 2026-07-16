@@ -1,6 +1,5 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import { motion } from 'framer-motion';
 
 const HomeCards = () => {
   const cardsData = [
@@ -14,10 +13,6 @@ const HomeCards = () => {
   ];
 
   return (
-    <motion.div
-      whileHover={{ y: -6, boxShadow: '0 16px 32px rgba(13, 110, 253, 0.12)' }}
-      transition={{ type: 'spring', stiffness: 300, damping: 20 }}
-      className="card h-100 border rounded-4 p-3">
     <div className="container py-5">
       <div className="row g-4">
         {cardsData.map((card) => (
@@ -35,7 +30,6 @@ const HomeCards = () => {
         ))}
       </div>
     </div>
-    </motion.div>
   );
 };
 

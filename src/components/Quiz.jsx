@@ -37,8 +37,6 @@ const Quiz = () => {
           e.target.classList.add("bg-success", "text-white");
           setLock(true)
 
-          // je met ici les explications
-
           setScore(prev=>prev+1);
         }
         else {
@@ -100,10 +98,9 @@ const Quiz = () => {
       {result?<></>:<>
       <h4>{index+1}. {question.question}</h4> {/* displays question 1 then 2 ... */}
       <div className="index fw-bold text-primary fs-5 mb-3">{index+1} sur {data.length} questions</div>
-      {/* 1. CHANGEMENT : Remplacement de <ul> par une grille Bootstrap "row" avec un écartement (g-3) */}
+
       <div className="row g-3 mb-4">
-        {/* Chaque option est maintenant enveloppée dans un "col-md-6" (2 par ligne sur PC) */}
-        {/* Le style des options a été épuré avec "border rounded p-3" au lieu de "list-group-item" seul */}
+
         <div className="col-6">
           <div ref={option1} className="list-group-item p-3 border rounded" style={{ cursor: 'pointer' }} onClick={(e)=>{checkAns(e,1)}}>{question.option1}</div>
         </div>
@@ -124,9 +121,7 @@ const Quiz = () => {
         </div>
       )}
 
-      {/* 2. CHANGEMENT : Création d'une ligne pour séparer le bouton (gauche) et le compteur (droite) */}
       <div className="row align-items-center">
-        {/* Colonne de gauche (col-6) : Bouton agrandi avec "btn-lg" et élargi avec "px-5" */}
         <div className="col-6">
           <button className="btn btn-primary btn-lg px-5" onClick={next}>Prochain</button>
         </div>
@@ -142,7 +137,7 @@ const Quiz = () => {
       </>}
       {result?<>
       <h2>Vous avez {score} sur {data.length}</h2>
-      {/* Opérateur ternaire pour remplacer le if/else dans le JSX */}
+      {/* des terner pour remplacer les if et else dans la partie return*/}
       {score >= data.length / 2 ? (
         <div className="alert alert-success my-3 p-3 rounded" role="alert">
           <strong>Vous aviez un score satisfaisant !</strong>

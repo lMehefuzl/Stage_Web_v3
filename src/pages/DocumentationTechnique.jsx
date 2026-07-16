@@ -1,5 +1,4 @@
 import React from 'react'
-import Quiz from '../components/Quiz'
 
 
 
@@ -877,10 +876,6 @@ const DocumentationTechnique = () => {
           </div>
           <p className="text-center small mt-1">Tableau 20 : Tableau répertoriant les accessoires fournit dans le kit vision</p>
         </div>
-      </div>
-      <div id="quiz" className="bg-white rounded-3 shadow-sm p-4 mb-4">
-        <h2 className="text-primary border-bottom pb-2 mb-4"><i className="bi bi-info-circle-fill" /> Je teste mes connaissances</h2>
-        <Quiz />
       </div>
     </div>
   </div>

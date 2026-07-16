@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import axios from "axios";
 
-const Login = ({ setUser }) => {  // ← MODIFICATION : ajout de la prop
+const Login = ({ setUser }) => {
     const [formData, setFormData] = useState({
         email: "",
         password: "",
@@ -56,7 +56,7 @@ const handleSubmit = (e) => {
 
 
   return (
-    <div classname="formulaire">
+    <div className="formulaire">
       <form
         className="container-fluid d-flex justify-content-center w-50 bg-light border border-primary border-5 rounded-5 shadow-lg my-4"
         onSubmit={handleSubmit}

@@ -111,13 +111,26 @@ const SearchBar = () => {
     ['Concepts ROS', '/theorie', 'concepts-cles'],
     ['Outils ROS', '/theorie', 'outils-ecosysteme'],
     ['Limites ROS', '/theorie', 'limites'],
+    // ========== NOUVELLES ENTRÉES POUR LA PARTIE THÉORIE (CINÉMATIQUE) ==========
+    ['Cinématique directe (MGD)', '/theorie', 'cinematique-directe'],
+    ['Introduction à la cinématique', '/theorie', 'fk-intro'],
+    ['Cinématique directe et inverse', '/theorie', 'ciné_direct_et_inverse'],
+    ['Exemple robot 2R plan', '/theorie', 'fk-exemple'],
+    ['Attribution des repères cinématique', '/theorie', 'fk-regles'],
+    ['Matrice de transformation homogène', '/theorie', 'fk-homogene'],
+    ['Convention de Denavit-Hartenberg', '/theorie', 'convention_hartenberg'],
+    ['Cinématique inverse (MGI)', '/theorie', 'cinematique-inverse'],
+    ['Commande des robots articulés', '/theorie', 'commande'],
+    ['Définition du modèle géométrique inverse', '/theorie', 'definition'],
+    ['Méthodes de calcul du MGI', '/theorie', 'methodes'],
+    ['Méthode de Paul', '/theorie', 'de_paul'],
+    ['Modèle cinématique direct (MCD)', '/theorie', 'mcd_fin'],
 
     // Ressources
     ['Ressources', '/ressources', 'ressources'],
     ['Lexique', '/ressources', 'lexique'],
     ['Liens utiles', '/ressources', 'liens'],
 
-    // IA
     // IA
     ['1. Apprentissage par renforcement', '/ia', 'cadrage'],
     ['Présentation de l\'Apprentissage par Reinforcement', '/ia', 'présentation_rl'],
@@ -129,7 +142,7 @@ const SearchBar = () => {
     ['2. Soft Actor-Critic (SAC)', '/ia', 'sac'],
     ['Définition du SAC', '/ia', 'sac-def'],
     ['Objectif du SAC', '/ia', 'sac-objectif'],
-    ['Principe de fonctionnement', '/ia', 'sac-fonctionnement'],
+    ['Principe de fonctionnement du SAC', '/ia', 'sac-fonctionnement'],
     ['3. Simulation et jumeau numérique', '/ia', 'jumeau'],
     ['Concept de jumeau numérique', '/ia', 'jumeau-concept'],
     ['Moteurs de simulation physique', '/ia', 'moteurs'],
@@ -144,22 +157,25 @@ const SearchBar = () => {
     ['Installation des dépendances', '/ia', 'dependances'],
     ['Vérification de l\'installation', '/ia', 'verif-install'],
     ['6. Conception de NiryoEnv', '/ia', 'niryoenv'],
-    ['Architecture générale', '/ia', 'architecture-env'],
-    ['Modélisation du bras', '/ia', 'modelisation'],
+    ['Architecture générale de NiryoEnv', '/ia', 'architecture-env'],
+    ['Modélisation du bras Niryo Ned', '/ia', 'modelisation'],
     ['Espace d\'action', '/ia', 'espace-action'],
     ['Espace d\'observation', '/ia', 'espace-observation'],
     ['Fonction de récompense', '/ia', 'recompense'],
     ['Génération de la cible', '/ia', 'cible-aleatoire'],
     ['7. Apprentissage par renforcement (Entraînement)', '/ia', 'entrainement'],
-    ['Architecture du script', '/ia', 'architecture-script'],
-    ['Hyperparamètres', '/ia', 'hyperparametres'],
+    ['Architecture du script d\'entraînement', '/ia', 'architecture-script'],
+    ['Hyperparamètres SAC', '/ia', 'hyperparametres'],
     ['Boucle d\'entraînement', '/ia', 'boucle'],
     ['Lancement de l\'entraînement', '/ia', 'lancement'],
     ['Résultats du premier cycle', '/ia', 'resultats'],
     ['8. Benchmark et tests', '/ia', 'benchmark'],
-    ['Comparaison des versions', '/ia', 'versions-env'],
+    ['Comparaison des versions d\'environnement', '/ia', 'versions-env'],
     ['Script d\'évaluation', '/ia', 'script-evaluation'],
     ['Résultats du benchmark', '/ia', 'resultats-benchmark'],
+    
+    // ========== NOUVELLES ENTRÉES POUR LA PARTIE IA (COMPLÉMENTS) ==========
+    ['Je teste mes connaissances (Quiz)', '/theorie', 'quiz'],
       ];
 
   useEffect(() => {
@@ -220,21 +236,6 @@ const SearchBar = () => {
             onFocus={() => query.trim().length > 0 && setIsOpen(true)}
             autoComplete="off"
           />
-          {/* 
-          {query && (
-            <button
-              type="button"
-              className="btn btn-link text-muted p-0 border-0"
-              onClick={() => {
-                setQuery('');
-                setIsOpen(false);
-                inputRef.current?.focus();
-              }}
-            >
-              <i className="bi bi-x-lg"></i>
-            </button>
-          )}
-          */}
         </div>
       </form>
 
