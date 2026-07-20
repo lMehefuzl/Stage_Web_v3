@@ -46,17 +46,18 @@ const Hero = () => {
           style={{ maxWidth: '600px' }}
         >
           <strong>Guide d'utilisation du robot Niryo Ned 2</strong>
-
+          {/*}
           <div className="d-flex justify-content-center gap-3 mt-4">
-          <span className="badge bg-white text-dark border p-2 shadow-sm">
-            <i className="bi bi-person text-primary me-2"></i>
-            Auteurs : A. Bevilacqua & M. Errard
-          </span>
-          <span className="badge bg-white text-dark border p-2 shadow-sm">
-            <i className="bi bi-people text-primary me-2"></i>
-            Encadrants : L. Arcese & S. Lecasse
-          </span>
-        </div>
+            <span className="badge bg-white text-dark border p-2 shadow-sm">
+              <i className="bi bi-person text-primary me-2"></i>
+              Auteurs : A. Bevilacqua & M. Errard
+            </span>
+            <span className="badge bg-white text-dark border p-2 shadow-sm">
+              <i className="bi bi-people text-primary me-2"></i>
+              Encadrants : L. Arcese & S. Lecasse
+            </span>
+          </div>
+          */}
         </motion.p>
       </div>
     </div>
