@@ -7,7 +7,8 @@ const ForgotPassword = () => {
 
     const handleSubmit = (e) => {
         e.preventDefault();
-        axios.post('http://localhost:6789/users/forgot-password', { email })
+        //axios.post('http://localhost:6789/users/forgot-password', { email })
+        axios.post('http://10.151.128.105:6789/users/forgot-password', { email })
             .then(() => setMessage("Si cet email existe, un lien de réinitialisation a été envoyé."))
             .catch(() => setMessage("Une erreur est survenue"));
     };

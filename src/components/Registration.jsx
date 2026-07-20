@@ -60,7 +60,8 @@ const handleSubmit = (e) => {
     if(isvalid) {
         setLoading(true)
 
-        axios.post('http://localhost:6789/users', formData)
+        //axios.post('http://localhost:6789/users', formData)
+        axios.post('http://10.151.128.105:6789/users', formData)
         .then(result => {
             alert("Vous avez créé votre compte")
             navigate('/login')

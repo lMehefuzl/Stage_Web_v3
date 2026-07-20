@@ -12,7 +12,8 @@ const ResetPassword = () => {
 
     const handleSubmit = (e) => {
         e.preventDefault();
-        axios.post('http://localhost:6789/users/reset-password', { token, new_password: newPassword })
+        //axios.post('http://localhost:6789/users/reset-password', { token, new_password: newPassword })
+        axios.post('http://10.151.128.105:6789/users/reset-password', { token, new_password: newPassword })
             .then(() => {
                 alert("Mot de passe réinitialisé !");
                 navigate('/login');

@@ -1,15 +1,15 @@
 import React, { useState, useRef, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import axios from 'axios';
-import { data } from '../assets/data';
+import { data as defaultData } from '../assets/data'; //import { data } from '../assets/data';
 
-const Quiz = () => {
+const Quiz = ({ data: quizData = defaultData, quizId = "default", title }) => {
 
 
     const navigate = useNavigate();
 
     let [index, setIndex] = useState(0);
-    let [question, setQuestion] = useState(data[index]);
+    let [question, setQuestion] = useState(quizData[0]);
     let [lock, setLock] = useState(false);
     let [score, setScore] = useState(0);
     let [result, setResult] = useState(false);
@@ -25,11 +25,24 @@ const Quiz = () => {
     let option_array = [option1,option2,option3,option4];
 
     useEffect(() => {
-    const user = JSON.parse(localStorage.getItem('user'));
-    if (user && user.score !== undefined) {
-      setSavedScore(user.score);
-    }
-  }, []);
+        const user = JSON.parse(localStorage.getItem('user'));
+        if (user && user.scores && user.scores[quizId] !== undefined) {
+            setSavedScore(user.scores[quizId]);
+        } else if (user && quizId === "default" && user.score !== undefined) {
+            // rétrocompatibilité avec l'ancien champ "score"
+            setSavedScore(user.score);
+        }
+    }, [quizId]);
+
+
+    //pour q'on puissent ouvrie plusieurs quiz a la fois
+    useEffect(() => {
+        setIndex(0);
+        setQuestion(quizData[0]);
+        setScore(0);
+        setLock(false);
+        setResult(false);
+    }, [quizData]);
 
     const checkAns = (e,ans) => {
       if (lock === false) {                 {/*pour désautoriser la prise d'une autre option apres avoir répondue */}
@@ -48,56 +61,57 @@ const Quiz = () => {
     }
 
     {/*Pour aller au prochain question */}
-    const next = ()=>{
-      if (lock===true) {
-        if (index === data.length -1) {
-          setResult(true);
-          return 0;
+    const next = () => {
+        if (lock === true) {
+            if (index === quizData.length - 1) {
+                setResult(true);
+                return 0;
+            }
+            const newIndex = index + 1;
+            setIndex(newIndex);
+            setQuestion(quizData[newIndex]);
+            setLock(false);
+            option_array.map((option) => {
+                option.current.classList.remove("bg-success", "bg-danger", "text-white");
+                return null;
+            });
         }
-
-        setIndex(++index); //mettre index + 1 peutetre
-        setQuestion(data[index]);
-
-        setLock(false);
-        option_array.map((option)=>{
-          option.current.classList.remove("bg-success", "bg-danger", "text-white");
-          return null;
-        })
-      }
     }
 
     const reset = () => {
-      setIndex(0);
-      setQuestion(data[0]);
-      setScore(0);
-      setLock(false);
-      setResult(false);
+        setIndex(0);
+        setQuestion(quizData[0]);
+        setScore(0);
+        setLock(false);
+        setResult(false);
     }
 
     const handleSaveScore = () => {
-    const user = JSON.parse(localStorage.getItem('user'));
-    
-    if (!user) {
-      navigate('/registration');
-    } else {
-      axios.patch(`http://localhost:6789/users/${user._id}`, {   //patch pour modifier (ca écrase l'ancien donné)
-        score: score
-      })
-      .then(() => {
-        user.score = score;
-        localStorage.setItem('user', JSON.stringify(user));
-        setSavedScore(score);
-      })
-      .catch(err => console.log(err));
+        const user = JSON.parse(localStorage.getItem('user'));
+
+        if (!user) {
+            navigate('/registration');
+        } else {
+            axios.patch(`http://localhost:6789/users/${user._id}`, {
+                quiz_id: quizId,
+                score: score
+            })
+            .then(() => {
+                if (!user.scores) user.scores = {};
+                user.scores[quizId] = score;
+                localStorage.setItem('user', JSON.stringify(user));
+                setSavedScore(score);
+            })
+            .catch(err => console.log(err));
+        }
     }
-  }
 
 
   return (
     <div className='container my-4 p-3 bg-white rounded shadow-sm'>
       {result?<></>:<>
       <h4>{index+1}. {question.question}</h4> {/* displays question 1 then 2 ... */}
-      <div className="index fw-bold text-primary fs-5 mb-3">{index+1} sur {data.length} questions</div>
+      <div className="index fw-bold text-primary fs-5 mb-3">{index+1} sur {quizData.length} questions</div>
 
       <div className="row g-3 mb-4">
 
@@ -136,9 +150,9 @@ const Quiz = () => {
       </div>
       </>}
       {result?<>
-      <h2>Vous avez {score} sur {data.length}</h2>
+      <h2>Vous avez {score} sur {quizData.length}</h2>
       {/* des terner pour remplacer les if et else dans la partie return*/}
-      {score >= data.length / 2 ? (
+      {score >= quizData.length / 2 ? (
         <div className="alert alert-success my-3 p-3 rounded" role="alert">
           <strong>Vous aviez un score satisfaisant !</strong>
         </div>

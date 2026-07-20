@@ -1,5 +1,6 @@
 import React from 'react'
-import Quiz from '../components/Quiz'
+import Quiz from '../components/Quiz';
+import { data } from '../assets/data';
 
 const Theorie = () => {
   return (
@@ -1013,7 +1014,7 @@ const Theorie = () => {
       </div>
       <div id="quiz" className="bg-white rounded-3 shadow-sm p-4 mb-4">
         <h2 className="text-primary border-bottom pb-2 mb-4"><i className="bi bi-info-circle-fill" /> Je teste mes connaissances</h2>
-        <Quiz />
+        <Quiz data={data} quizId="quiz" />
       </div>
     </div>
   </div>

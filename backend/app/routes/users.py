@@ -33,6 +33,7 @@ def send_reset_email(to_email: str, token: str):
 
 class ScoreUpdate(BaseModel):
     score: int
+    quiz_id: str = "default" #avant y avait pas
 
 
 def hash_password(password: str) -> str:
@@ -54,6 +55,7 @@ async def create_user(user: UserCreate):
         "email": user.email,
         "password": hash_password(user.password),
         "score": 0,
+        "scores": {},
         "created_at": datetime.now()
     })
 
@@ -79,12 +81,10 @@ async def login(user: UserLogin):
 async def update_user(user_id: str, data: ScoreUpdate):
     result = await users_collection.update_one(
         {"_id": ObjectId(user_id)},
-        {"$set": {"score": data.score}}
+        {"$set": {f"scores.{data.quiz_id}": data.score}} #avant c t : {"$set": {"score": data.score}}
     )
-
     if result.matched_count == 0:
         raise HTTPException(status_code=404, detail="Utilisateur non trouvé")
-
     updated = await users_collection.find_one({"_id": ObjectId(user_id)})
     updated["_id"] = str(updated["_id"])
     del updated["password"]
