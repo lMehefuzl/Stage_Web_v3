@@ -1,8 +1,8 @@
-export const dataV2 = [
+export const dataV3 = [
     {
-      question: "Quelle est la charge utile maximale du Niryo Ned2 ?",
+      question: "testing question ?",
       option1: "150 g",
-      option2: "300 g",
+      option2: "test",
       option3: "500 g",
       option4: "1 kg",
       explications: "Le Niryo Ned2 a une charge utile maximale de 300 g, comme indiqué dans le tableau descriptif du robot.",

@@ -28,10 +28,7 @@ const Quiz = ({ data: quizData = defaultData, quizId = "default", title }) => {
         const user = JSON.parse(localStorage.getItem('user'));
         if (user && user.scores && user.scores[quizId] !== undefined) {
             setSavedScore(user.scores[quizId]);
-        } else if (user && quizId === "default" && user.score !== undefined) {
-            // rétrocompatibilité avec l'ancien champ "score"
-            setSavedScore(user.score);
-        }
+          }
     }, [quizId]);
 
 

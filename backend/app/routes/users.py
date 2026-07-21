@@ -54,7 +54,6 @@ async def create_user(user: UserCreate):
         "name": user.name,
         "email": user.email,
         "password": hash_password(user.password),
-        "score": 0,
         "scores": {},
         "created_at": datetime.now()
     })
