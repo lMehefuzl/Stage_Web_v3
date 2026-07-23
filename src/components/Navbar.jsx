@@ -33,7 +33,7 @@ const Navbar = ({ user, setUser }) => {
   
   const handleLogout = () => {
     setUser(null);
-    localStorage.removeItem('user'); //localStorage.removeItem('user') → supprime la session
+    localStorage.removeItem('user'); // supprime la session
     navigate('/');
   };
 

@@ -11,9 +11,9 @@ const ia = () => {
           <i className="bi bi-list-ul" /> Sommaire
         </h5>
         <nav className="nav flex-column">
-          {/* ============================================ */}
+          
           {/* 1. APPRENTISSAGE PAR RENFORCEMENT */}
-          {/* ============================================ */}
+          
           <div className="mb-2">
             <div className="nav-link px-0 py-1 text-dark d-flex justify-content-between align-items-center">
               <a href="#rl" className="text-dark text-decoration-none" style={{cursor: 'pointer'}}>
@@ -30,9 +30,9 @@ const ia = () => {
             </div>
           </div>
 
-          {/* ============================================ */}
+          
           {/* 2. SOFT ACTOR-CRITIC (SAC) */}
-          {/* ============================================ */}
+          
           <div className="mb-2">
             <div className="nav-link px-0 py-1 text-dark d-flex justify-content-between align-items-center">
               <a href="#sac" className="text-dark text-decoration-none" style={{cursor: 'pointer'}}>
@@ -47,9 +47,9 @@ const ia = () => {
             </div>
           </div>
 
-          {/* ============================================ */}
+          
           {/* 3. SIMULATION PHYSIQUE ET JUMEAU NUMERIQUE */}
-          {/* ============================================ */}
+          
           <div className="mb-2">
             <div className="nav-link px-0 py-1 text-dark d-flex justify-content-between align-items-center">
               <a href="#simulation" className="text-dark text-decoration-none" style={{cursor: 'pointer'}}>
@@ -66,9 +66,9 @@ const ia = () => {
             </div>
           </div>
 
-          {/* ============================================ */}
+          
           {/* 4. ENVIRONNEMENT VIRTUEL NIRYOENV */}
-          {/* ============================================ */}
+          
           <div className="mb-2">
             <div className="nav-link px-0 py-1 text-dark d-flex justify-content-between align-items-center">
               <a href="#niryoenv" className="text-dark text-decoration-none" style={{cursor: 'pointer'}}>
@@ -87,9 +87,9 @@ const ia = () => {
             </div>
           </div>
 
-          {/* ============================================ */}
+          
           {/* 5. ENTRAINEMENT SAC */}
-          {/* ============================================ */}
+          
           <div className="mb-2">
             <div className="nav-link px-0 py-1 text-dark d-flex justify-content-between align-items-center">
               <a href="#entrainement" className="text-dark text-decoration-none" style={{cursor: 'pointer'}}>
@@ -105,9 +105,9 @@ const ia = () => {
             </div>
           </div>
 
-          {/* ============================================ */}
+          
           {/* 6. BENCHMARK ET TESTS */}
-          {/* ============================================ */}
+          
           <div className="mb-2">
             <div className="nav-link px-0 py-1 text-dark d-flex justify-content-between align-items-center">
               <a href="#benchmark" className="text-dark text-decoration-none" style={{cursor: 'pointer'}}>
@@ -121,9 +121,9 @@ const ia = () => {
             </div>
           </div>
 
-          {/* ============================================ */}
+          
           {/* 7. DIFFICULTES ET SOLUTIONS */}
-          {/* ============================================ */}
+          
           <div className="mb-2">
             <div className="nav-link px-0 py-1 text-dark d-flex justify-content-between align-items-center">
               <a href="#difficultes" className="text-dark text-decoration-none" style={{cursor: 'pointer'}}>
@@ -139,9 +139,9 @@ const ia = () => {
             </div>
           </div>
 
-          {/* ============================================ */}
+          
           {/* FIGURES */}
-          {/* ============================================ */}
+          
           <div className="border-top mt-3 pt-2" />
           <div className="mb-2">
             <div className="nav-link px-0 py-1 text-dark d-flex justify-content-between align-items-center">
@@ -162,9 +162,9 @@ const ia = () => {
             </div>
           </div>
 
-          {/* ============================================ */}
+          
           {/* TABLEAUX */}
-          {/* ============================================ */}
+          
           <div className="mb-2">
             <div className="nav-link px-0 py-1 text-dark d-flex justify-content-between align-items-center">
               <span style={{cursor: 'default'}}>
@@ -190,9 +190,9 @@ const ia = () => {
     </div>
     {/* contenu principal */}
     <div className="col-md-9 ps-0 ps-md-2 pe-0">
-      {/* ============================================ */}
+      
       {/* 1. APPRENTISSAGE PAR RENFORCEMENT */}
-      {/* ============================================ */}
+      
       <div id="rl" className="bg-white rounded-3 shadow-sm p-4 mb-4">
         <h2 className="text-primary border-bottom pb-2 mb-4"><i className="bi bi-book-fill" /> 1. APPRENTISSAGE PAR RENFORCEMENT</h2>
         {/* doc tech */}
@@ -252,9 +252,9 @@ const ia = () => {
           <p><strong>Justification du choix de SAC</strong> : Pour un projet de contrôle de bras robotique en espace d'action continu, SAC (Soft Actor-Critic) s'impose pour trois raisons décisives. Premièrement, sa nature off-policy lui confère une excellente efficacité d'échantillonnage, critique lorsque les simulations sont coûteuses en temps de calcul. Deuxièmement, la maximisation conjointe de l'entropie favorise une exploration systématique de l'espace des configurations articulaires, réduisant le risque de convergence prématurée vers des optima locaux. Troisièmement, SAC est reconnu pour sa robustesse aux hyperparamètres, propriété particulièrement précieuse en l'absence d'un protocole de réglage intensif (Haarnoja et al., 2018).</p>
         </div>
       </div>
-      {/* ============================================ */}
+      
       {/* 2. SOFT ACTOR-CRITIC (SAC) */}
-      {/* ============================================ */}
+      
       <div id="sac" className="bg-white rounded-3 shadow-sm p-4 mb-4">
         <h2 className="text-primary border-bottom pb-2 mb-4"><i className="bi bi-cpu-fill" /> 2. SOFT ACTOR-CRITIC (SAC)</h2>
         <div id="sac-def">
@@ -292,9 +292,9 @@ const ia = () => {
           <p>À chaque itération, SAC observe l'état, fait agir l'acteur, stocke la transition, puis tire un mini-batch du buffer pour mettre à jour les Critic et l'Actor (maximiser Q tout en maximisant l'entropie). Les target networks sont ensuite glissés doucement.</p>
         </div>
       </div>
-      {/* ============================================ */}
+      
       {/* 3. SIMULATION PHYSIQUE ET JUMEAU NUMERIQUE */}
-      {/* ============================================ */}
+      
       <div id="simulation" className="bg-white rounded-3 shadow-sm p-4 mb-4">
         <h2 className="text-primary border-bottom pb-2 mb-4"><i className="bi bi-box-fill" /> 3. SIMULATION PHYSIQUE ET JUMEAU NUMÉRIQUE</h2>
         <div id="jumeau-concept">
@@ -351,9 +351,9 @@ const ia = () => {
           <p>La bibliothèque CleanRL a été sélectionnée pour ce projet en raison de sa philosophie « single-file » qui privilégie une implémentation autonome et transparente, facilitant ainsi la compréhension algorithmique ligne à ligne, indispensable dans un contexte de recherche. Ce choix garantit une excellente reproductibilité des résultats grâce à une gestion rigoureuse des graines aléatoires (seeds), répondant directement aux standards académiques de lutte contre la crise de la reproductibilité. De plus, l'outil offre un suivi natif des performances via TensorBoard et assure une compatibilité immédiate avec les interfaces Gymnasium développées pour le bras Niryo Ned. Enfin, sa simplicité d'installation sous Windows au sein d'un environnement Anaconda standard en fait une solution parfaitement adaptée aux contraintes logicielles du laboratoire.</p>
         </div>
       </div>
-      {/* ============================================ */}
+      
       {/* 4. ENVIRONNEMENT VIRTUEL NIRYOENV */}
-      {/* ============================================ */}
+      
       <div id="niryoenv" className="bg-white rounded-3 shadow-sm p-4 mb-4">
         <h2 className="text-primary border-bottom pb-2 mb-4"><i className="bi bi-robot" /> 4. ENVIRONNEMENT VIRTUEL NIRYOENV</h2>
         {/* doc tech */}
@@ -508,9 +508,9 @@ obs = np.concatenate([pos_norm, vel_norm, delta_norm, eef_norm])</code></pre>
           <p className="text-center small mt-1">Tableau 6 : Comparaison des trois versions d'environnement</p>
         </div>
       </div>
-      {/* ============================================ */}
+      
       {/* 5. ENTRAINEMENT SAC */}
-      {/* ============================================ */}
+      
       <div id="entrainement" className="bg-white rounded-3 shadow-sm p-4 mb-4">
         <h2 className="text-primary border-bottom pb-2 mb-4"><i className="bi bi-graph-up-arrow" /> 5. ENTRAÎNEMENT SAC</h2>
         {/* doc tech */}
@@ -608,9 +608,9 @@ tensorboard --logdir runs/</code></pre>
           <p>La courbe de longueur épisodique présente un signal bimodal très marqué : les épisodes sont soit très courts (5 à 25 pas, lorsque la cible est proche de la configuration initiale), soit très longs (atteignant 220 pas, lorsque l'agent échoue). La persistance de cette bimodalité sur l'ensemble des 300 000 pas confirme que l'agent n'a pas encore acquis de politique générale couvrant l'ensemble de l'espace de travail.</p>
         </div>
       </div>
-      {/* ============================================ */}
+      
       {/* 6. BENCHMARK ET TESTS */}
-      {/* ============================================ */}
+      
       <div id="benchmark" className="bg-white rounded-3 shadow-sm p-4 mb-4">
         <h2 className="text-primary border-bottom pb-2 mb-4"><i className="bi bi-speedometer2" /> 6. BENCHMARK ET TESTS</h2>
         {/* doc tech */}
@@ -681,9 +681,9 @@ if len(recent_distances) == STALL_WINDOW:{"\n"}
           <p><strong>Conclusion benchmark</strong> : l'analyse comparative des trois versions d'environnement a permis d'identifier NiryoEnv v1, avec sa récompense exponentielle exp(−20·d), comme la configuration offrant le signal d'apprentissage le plus discriminant pour les cycles à venir.</p>
         </div>
       </div>
-      {/* ============================================ */}
+      
       {/* 7. DIFFICULTES ET SOLUTIONS */}
-      {/* ============================================ */}
+      
       <div id="difficultes" className="bg-white rounded-3 shadow-sm p-4 mb-4">
         <h2 className="text-primary border-bottom pb-2 mb-4"><i className="bi bi-exclamation-triangle-fill" /> 7. DIFFICULTÉS ET SOLUTIONS APPORTÉES</h2>
         <div className="mb-4">

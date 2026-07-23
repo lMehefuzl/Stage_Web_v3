@@ -56,7 +56,7 @@ const handleSubmit = (e) => {
     setErrors(validationErrors)
     setValid(isvalid)
 
-    // Si tout est valide, on essaie de créer le compte
+    // Si tout est valide, ca crée le compte
     if(isvalid) {
         setLoading(true)
 
@@ -76,7 +76,7 @@ const handleSubmit = (e) => {
         })
 
         .finally(() => {
-            setLoading(false)  // ← RÉACTIVE LE BOUTON
+            setLoading(false)
         })
     }
 }

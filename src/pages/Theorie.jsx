@@ -14,9 +14,9 @@ const Theorie = () => {
             </h5>
             <nav className="nav flex-column">
                 
-                {/* ============================================ */}
+                
                 {/* 1. MODÉLISATION GÉOMÉTRIQUE */}
-                {/* ============================================ */}
+                
                 <div className="mb-2">
                     <div className="nav-link px-0 py-1 text-dark d-flex justify-content-between align-items-center">
                         <a href="#modelisation" className="text-dark text-decoration-none" style={{ cursor: 'pointer' }}>
@@ -37,9 +37,9 @@ const Theorie = () => {
                     </div>
                 </div>
                 
-                {/* ============================================ */}
+                
                 {/* 2. CINÉMATIQUE DIRECTE (MGD) */}
-                {/* ============================================ */}
+                
                 <div className="mb-2">
                     <div className="nav-link px-0 py-1 text-dark d-flex justify-content-between align-items-center">
                         <a href="#cinematique-directe" className="text-dark text-decoration-none" style={{ cursor: 'pointer' }}>
@@ -57,9 +57,9 @@ const Theorie = () => {
                     </div>
                 </div>
                 
-                {/* ============================================ */}
+                
                 {/* 3. CINÉMATIQUE INVERSE (MGI) */}
-                {/* ============================================ */}
+                
                 <div className="mb-2">
                     <div className="nav-link px-0 py-1 text-dark d-flex justify-content-between align-items-center">
                         <a href="#cinematique-inverse" className="text-dark text-decoration-none" style={{ cursor: 'pointer' }}>
@@ -76,9 +76,9 @@ const Theorie = () => {
                     </div>
                 </div>
                 
-                {/* ============================================ */}
+                
                 {/* 4. RÉSUMÉ ROS */}
-                {/* ============================================ */}
+                
                 <div className="mb-2">
                     <div className="nav-link px-0 py-1 text-dark d-flex justify-content-between align-items-center">
                         <a href="#resume-ros" className="text-dark text-decoration-none" style={{ cursor: 'pointer' }}>
@@ -114,9 +114,9 @@ const Theorie = () => {
                     </div>
                 </div>
                 
-                {/* ============================================ */}
+                
                 {/* FIGURES */}
-                {/* ============================================ */}
+                
                 {/*}
                 <div className="border-top mt-3 pt-2"></div>
                 
@@ -197,9 +197,9 @@ const Theorie = () => {
                 </div>
                 */}
                 
-                {/* ============================================ */}
+                
                 {/* TABLEAUX */}
-                {/* ============================================ */}
+                
                 {/*
                 <div className="mb-2">
                     <div className="nav-link px-0 py-1 text-dark d-flex justify-content-between align-items-center">
@@ -220,9 +220,9 @@ const Theorie = () => {
     </div>
     {/* contenu principal */}
     <div className="col-md-9 ps-0 ps-md-2 pe-0">
-      {/* ============================================ */}
+      
       {/* MODÉLISATION GÉOMÉTRIQUE */}
-      {/* ============================================ */}
+      
       <div id="modelisation" className="bg-white rounded-3 shadow-sm p-4 mb-4">
         <h2 className="text-primary border-bottom pb-2 mb-4"><i className="bi bi-graph-up" /> MODÉLISATION GÉOMÉTRIQUE</h2>
         <div id="introduction" className="mt-3">
@@ -535,9 +535,9 @@ const Theorie = () => {
       </div>
 
       <div>
-        {/* ============================================ */}
+        
         {/* CINÉMATIQUE DIRECTE (nouveau — diapo MGD) */}
-        {/* ============================================ */}
+        
         <div id="cinematique-directe" className="bg-white rounded-3 shadow-sm p-4 mb-4">
           <h2 className="text-primary border-bottom pb-2 mb-4"><i className="bi bi-arrow-right-circle" /> CINÉMATIQUE DIRECTE (MGD)</h2>
           {/* 1. INTRODUCTION */}
@@ -814,9 +814,9 @@ const Theorie = () => {
             </div>
           </div>
         </div>
-        {/* ============================================ */}
+        
         {/* CINÉMATIQUE INVERSE (nouveau — diapo MGI) */}
-        {/* ============================================ */}
+        
         <div id="cinematique-inverse" className="bg-white rounded-3 shadow-sm p-4 mb-4">
           <h2 className="text-primary border-bottom pb-2 mb-4"><i className="bi bi-arrow-left-circle" /> CINÉMATIQUE INVERSE (MGI)</h2>
           {/* 1. COMMANDE AVEC LE MGD — PROBLÈME */}
@@ -909,9 +909,9 @@ const Theorie = () => {
       <div id="resume-ros" className="bg-white rounded-3 shadow-sm p-4 mb-4">
         <h2 className="text-primary border-bottom pb-2 mb-4"><i className="bi bi-diagram-3" /> RÉSUMÉ ROS</h2>
         <p><strong>Le Robot Operating System (ROS)</strong> est un <strong>méta système d'exploitation (ou middleware)</strong> conçu spécifiquement pour la robotique. Il vise à simplifier le développement d'applications robotiques complexes en fournissant des services d'OS et des fonctionnalités de haut niveau.</p>
-        {/* ============================================ */}
+        
         {/* 1. OBJECTIFS ET PHILOSOPHIE DE ROS */}
-        {/* ============================================ */}
+        
         <div id="objectifs-philosophie" className="mt-3">
           <h3 className="text-dark fw-bold">1. Objectifs et Philosophie de ROS</h3>
           <div id="objectifs">
@@ -928,9 +928,9 @@ const Theorie = () => {
             </ul>
           </div>
         </div>
-        {/* ============================================ */}
+        
         {/* 2. CONCEPTS CLÉS DE L'ARCHITECTURE */}
-        {/* ============================================ */}
+        
         <div id="concepts-cles" className="mt-5">
           <h3 className="text-dark fw-bold">2. Concepts Clés de l'Architecture</h3>
           <p>L'architecture de ROS est structurée autour de quatre grands mécanismes : <strong>la Plomberie</strong>, <strong>les Outils</strong>, <strong>les Capacités</strong> et <strong>l'Écosystème</strong>. La "Plomberie" (mécanismes de communication) est la base du système.</p>
@@ -966,9 +966,9 @@ const Theorie = () => {
             <p>Un <strong>Package</strong> est l'unité d'organisation et de distribution dans ROS. Il s'agit d'un répertoire contenant le code, les messages, les services, les fichiers de lancement, et le fichier package.xml qui spécifie ses dépendances.</p>
           </div>
         </div>
-        {/* ============================================ */}
+        
         {/* 3. OUTILS ET ÉCOSYSTÈME */}
-        {/* ============================================ */}
+        
         <div id="outils-ecosysteme" className="mt-5">
           <h3 className="text-dark fw-bold">3. Outils et Écosystème</h3>
           <div id="outils">
@@ -991,9 +991,9 @@ const Theorie = () => {
             </ul>
           </div>
         </div>
-        {/* ============================================ */}
+        
         {/* 4. LIMITES DE ROS */}
-        {/* ============================================ */}
+        
         <div id="limites" className="mt-5">
           <h3 className="text-dark fw-bold">4. Limites de ROS</h3>
           <p>La principale limitation de ROS est qu'il <strong>n'est pas temps-réel</strong>.
@@ -1001,9 +1001,9 @@ const Theorie = () => {
             De plus, le code tend à devenir dépendant de ROS, bien que la bonne pratique consiste à maximiser l'écriture de bibliothèques sans ROS.
             <br /> Il fonctionne essentiellement sous <strong>Ubuntu</strong>.</p>
         </div>
-        {/* ============================================ */}
+        
         {/* 5. LIEN VERS UN COURS COMPLET ROS */}
-        {/* ============================================ */}
+        
         <div id="cours" className="mt-5">
           <h3 className="text-dark fw-bold">5. Lien vers un cours complet ROS</h3>
           <p>Pour votre rapport, vous pouvez citer les tutoriels officiels de la documentation ROS qui couvrent l'installation et les concepts de base pas à pas :<br />

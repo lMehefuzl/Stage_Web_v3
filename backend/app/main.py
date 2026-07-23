@@ -1,8 +1,9 @@
 from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
 from .routes import users
+from .routes import access   # 1. imports d'abord
 
-app = FastAPI()
+app = FastAPI()               # 2. créer l'app
 
 app.add_middleware(
     CORSMiddleware,
@@ -12,7 +13,8 @@ app.add_middleware(
     allow_headers=["*"],
 )
 
-app.include_router(users.router)
+app.include_router(users.router)   # 3. inclure les routers APRÈS la création de app
+app.include_router(access.router)
 
 @app.get("/")
 async def root():

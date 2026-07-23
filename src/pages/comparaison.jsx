@@ -5,7 +5,7 @@ import { dataV3 } from '../assets/datav3';
 
 
 
-const DocumentationTechnique = () => {
+const comparaison = () => {
   return (
 <div className="container-fluid px-0 px-md-3 mb-5">
   <div className="row g-0 g-md-4 mx-0">
@@ -880,10 +880,19 @@ const DocumentationTechnique = () => {
           <p className="text-center small mt-1">Tableau 20 : Tableau répertoriant les accessoires fournit dans le kit vision</p>
         </div>
       </div>
+        <div id="quiz" className="bg-white rounded-3 shadow-sm p-4 mb-4">
+          <h2 className="text-primary border-bottom pb-2 mb-4"><i className="bi bi-info-circle-fill" /> Je teste mes connaissances</h2>
+          <Quiz data={dataV2} quizId="doc_technique" />
+        </div>
+
+      <div id="test" className="bg-white rounded-3 shadow-sm p-4 mb-4">
+        <h2 className="text-primary border-bottom pb-2 mb-4"><i className="bi bi-info-circle-fill" /> Je teste mes connaissances</h2>
+        <Quiz data={dataV3} quizId="testing" />
+      </div>
     </div>
   </div>
 </div>
   )
 }
 
-export default DocumentationTechnique
+export default comparaison

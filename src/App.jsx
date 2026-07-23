@@ -18,6 +18,7 @@ import Registration from './components/Registration';
 import Login from './components/Login';
 import ForgotPassword from './components/ForgotPassword';
 import ResetPassword from './components/ResetPassword';
+import Comparaison from './pages/comparaison';
 
 const ScrollToHash = () => {
   const location = useLocation();
@@ -70,6 +71,7 @@ const App = () => {
           <Route path="/theorie" element={<Theorie />} />
           <Route path="/ressources" element={<Ressources />} />
           <Route path="/ia" element={<Ia />} />
+          <Route path="/comparaison" element={<Comparaison />} />
 
 
 

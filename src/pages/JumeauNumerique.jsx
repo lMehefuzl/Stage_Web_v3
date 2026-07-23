@@ -11,9 +11,9 @@ const JumeauNumerique = () => {
           <i className="bi bi-list-ul" /> Sommaire
         </h5>
         <nav className="nav flex-column">
-          {/* ============================================ */}
+          
           {/* 1. INSTALLATION DE NIRYOSTUDIO */}
-          {/* ============================================ */}
+          
           <div className="mb-2">
             <div className="nav-link px-0 py-1 text-dark d-flex justify-content-between align-items-center">
               <a href="#installation" className="text-dark text-decoration-none" style={{cursor: 'pointer'}}>
@@ -27,9 +27,9 @@ const JumeauNumerique = () => {
             </div>
           </div>
           
-          {/* ============================================ */}
+          
           {/* 2. SIMULATION NIRYOSTUDIO */}
-          {/* ============================================ */}
+          
           <div className="mb-2">
             <div className="nav-link px-0 py-1 text-dark d-flex justify-content-between align-items-center">
               <a href="#simulation-niryostudio" className="text-dark text-decoration-none" style={{cursor: 'pointer'}}>
@@ -50,9 +50,9 @@ const JumeauNumerique = () => {
             </div>
           </div>
           
-          {/* ============================================ */}
+          
           {/* 3. ENVIRONNEMENTS DE PROGRAMMATION */}
-          {/* ============================================ */}
+          
           <div className="mb-2">
             <div className="nav-link px-0 py-1 text-dark d-flex justify-content-between align-items-center">
               <a href="#environnements" className="text-dark text-decoration-none" style={{cursor: 'pointer'}}>
@@ -68,9 +68,9 @@ const JumeauNumerique = () => {
             </div>
           </div>
           
-          {/* ============================================ */}
+          
           {/* 4. GAZEBO */}
-          {/* ============================================ */}
+          
           <div className="mb-2">
             <div className="nav-link px-0 py-1 text-dark d-flex justify-content-between align-items-center">
               <a href="#gazebo" className="text-dark text-decoration-none" style={{cursor: 'pointer'}}>
@@ -89,9 +89,9 @@ const JumeauNumerique = () => {
             </div>
           </div>
           
-          {/* ============================================ */}
+          
           {/* 5. WEBOTS */}
-          {/* ============================================ */}
+          
           <div className="mb-2">
             <div className="nav-link px-0 py-1 text-dark d-flex justify-content-between align-items-center">
               <a href="#webots" className="text-dark text-decoration-none" style={{cursor: 'pointer'}}>
@@ -106,9 +106,9 @@ const JumeauNumerique = () => {
             </div>
           </div>
 
-          {/* ============================================ */}
+          
           {/* 6. PYBULLET */}
-          {/* ============================================ */}
+          
           <div className="mb-2">
             <div className="nav-link px-0 py-1 text-dark d-flex justify-content-between align-items-center">
               <a href="#pybullet" className="text-dark text-decoration-none" style={{cursor: 'pointer'}}>
@@ -124,9 +124,9 @@ const JumeauNumerique = () => {
             </div>
           </div>
           
-          {/* ============================================ */}
+          
           {/* FIGURES */}
-          {/* ============================================ 
+          {/*  
           <div className="border-top mt-3 pt-2" />
           <div className="mb-2">
             <div className="nav-link px-0 py-1 text-dark d-flex justify-content-between align-items-center">
@@ -151,9 +151,9 @@ const JumeauNumerique = () => {
             </div>
           </div>
           */}
-          {/* ============================================ */}
+          
           {/* TABLEAUX */}
-          {/* ============================================ */}
+          
           {/*<div className="mb-2">
             <div className="nav-link px-0 py-1 text-dark d-flex justify-content-between align-items-center">
               <span style={{cursor: 'default'}}>
@@ -174,9 +174,9 @@ const JumeauNumerique = () => {
 
     {/* contenu principal */}
     <div className="col-md-9 ps-0 ps-md-2 pe-0">
-      {/* ============================================ */}
+      
       {/* INSTALLATION NIRYOSTUDIO */}
-      {/* ============================================ */}
+      
       <div id="installation" className="bg-white rounded-3 shadow-sm p-4 mb-4">
         <h2 className="text-primary border-bottom pb-2 mb-4"><i className="bi bi-cloud-download" /> INSTALLATION DE NIRYOSTUDIO</h2>
         <div id="prerequis" className="mt-3">
@@ -216,9 +216,9 @@ const JumeauNumerique = () => {
             <a href="https://docs.niryo.com/niryostudio/" target="_blank">https://docs.niryo.com/niryostudio/</a></p>
         </div>
       </div>
-      {/* ============================================ */}
+      
       {/* SIMULATION NIRYOSTUDIO */}
-      {/* ============================================ */}
+      
       <div id="simulation-niryostudio" className="bg-white rounded-3 shadow-sm p-4 mb-4">
         <h2 className="text-primary border-bottom pb-2 mb-4"><i className="bi bi-play-circle" /> SIMULATION NIRYOSTUDIO</h2>
         <div id="sim-generalites" className="mt-3">
@@ -376,9 +376,9 @@ const JumeauNumerique = () => {
           <p>Assurez-vous d'avoir les droits nécessaires sur votre ordinateur (des droits d'administrateur peuvent être requis pour permettre à NiryoStudio d'ouvrir des ports et d'exécuter la simulation). Si vous utilisez un ordinateur d'entreprise ou scolaire, contactez votre administrateur informatique pour confirmer que les autorisations sont correctement définies.</p>
         </div>
       </div>
-      {/* ============================================ */}
+      
       {/* ENVIRONNEMENTS DE PROGRAMMATION */}
-      {/* ============================================ */}
+      
       <div id="environnements" className="bg-white rounded-3 shadow-sm p-4 mb-4">
         <h2 className="text-primary border-bottom pb-2 mb-4"><i className="bi bi-window-desktop" /> ENVIRONNEMENTS DE PROGRAMMATION</h2>
         <div id="linux-windows" className="mt-3">
@@ -421,9 +421,9 @@ const JumeauNumerique = () => {
           </div>
         </div>
       </div>
-      {/* ============================================ */}
+      
       {/* GAZEBO */}
-      {/* ============================================ */}
+      
       <div id="gazebo" className="bg-white rounded-3 shadow-sm p-4 mb-4">
         <h2 className="text-primary border-bottom pb-2 mb-4"><i className="bi bi-display" /> GAZEBO</h2>
         <div id="gazebo-presentation" className="mt-3">
@@ -474,9 +474,9 @@ const JumeauNumerique = () => {
           <p>Cette limitation est un point bloquant important à connaître avant de concevoir des scénarios pédagogiques impliquant plusieurs robots simulés.</p>
         </div>
       </div>
-      {/* ============================================ */}
+      
       {/* WEBOTS */}
-      {/* ============================================ */}
+      
       <div id="webots" className="bg-white rounded-3 shadow-sm p-4 mb-4">
         <h2 className="text-primary border-bottom pb-2 mb-4"><i className="bi bi-globe" /> WEBOTS</h2>
         <div id="webots-presentation" className="mt-3">
@@ -533,9 +533,9 @@ const JumeauNumerique = () => {
         </div>
       </div>
 
-      {/* ============================================ */}
+      
       {/* PYBULLET */}
-      {/* ============================================ */}
+      
       <div id="pybullet" className="bg-white rounded-3 shadow-sm p-4 mb-4">
         <h2 className="text-primary border-bottom pb-2 mb-4"><i className="bi bi-cpu" /> PYBULLET</h2>
         <div id="pybullet-presentation" className="mt-3">

@@ -1,4 +1,3 @@
-// components/SearchBar.jsx
 import React, { useState, useEffect, useRef } from 'react';
 import { useNavigate } from 'react-router-dom';
 
@@ -7,10 +6,9 @@ const SearchBar = () => {
   const [suggestions, setSuggestions] = useState([]);
   const [isOpen, setIsOpen] = useState(false);
   const inputRef = useRef(null);
-  //const dropdownRef = useRef(null);
   const navigate = useNavigate();
 
-  // Structure : [titre, page, section] (tableau 3 colonne)
+  // Structure : [titre, page, section]
   const data = [
     // Documentation Technique
     ['Documentation Technique', '/documentation-technique'],
@@ -111,7 +109,6 @@ const SearchBar = () => {
     ['Concepts ROS', '/theorie', 'concepts-cles'],
     ['Outils ROS', '/theorie', 'outils-ecosysteme'],
     ['Limites ROS', '/theorie', 'limites'],
-    // ========== NOUVELLES ENTRÉES POUR LA PARTIE THÉORIE (CINÉMATIQUE) ==========
     ['Cinématique directe (MGD)', '/theorie', 'cinematique-directe'],
     ['Introduction à la cinématique', '/theorie', 'fk-intro'],
     ['Cinématique directe et inverse', '/theorie', 'ciné_direct_et_inverse'],
@@ -174,7 +171,7 @@ const SearchBar = () => {
     ['Script d\'évaluation', '/ia', 'script-evaluation'],
     ['Résultats du benchmark', '/ia', 'resultats-benchmark'],
     
-    // ========== NOUVELLES ENTRÉES POUR LA PARTIE IA (COMPLÉMENTS) ==========
+    // quiz
     ['Je teste mes connaissances (Quiz)', '/theorie', 'quiz'],
       ];
 

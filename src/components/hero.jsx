@@ -1,6 +1,5 @@
-//npm install framer-motion   pour télécharger les truc de motion
 import React from 'react';
-import { motion } from 'framer-motion'; //pour animé les bail
+import { motion } from 'framer-motion'; //pour animé
 
 const Hero = () => {
   return (
@@ -17,7 +16,7 @@ const Hero = () => {
           }}
           className="mb-3 d-inline-block"
         >
-           <img src="images/logo.png" className="img-fluid" style={{maxHeight: '10rem', width: 'auto', objectFit: 'contain'}} />
+           <img src="images/logov2.png" className="img-fluid" style={{maxHeight: '10rem', width: 'auto', objectFit: 'contain'}} />
         </motion.div>
 
         <motion.h1 
@@ -46,6 +45,7 @@ const Hero = () => {
           style={{ maxWidth: '600px' }}
         >
           <strong>Guide d'utilisation du robot Niryo Ned 2</strong>
+          {/*lignes pour les credits  */}
           {/*}
           <div className="d-flex justify-content-center gap-3 mt-4">
             <span className="badge bg-white text-dark border p-2 shadow-sm">

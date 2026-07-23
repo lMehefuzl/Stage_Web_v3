@@ -1,7 +1,7 @@
 import React, { useState, useRef, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import axios from 'axios';
-import { data as defaultData } from '../assets/data'; //import { data } from '../assets/data';
+import { data as defaultData } from '../assets/data'
 
 const Quiz = ({ data: quizData = defaultData, quizId = "default", title }) => {
 
@@ -16,7 +16,6 @@ const Quiz = ({ data: quizData = defaultData, quizId = "default", title }) => {
     let [savedScore, setSavedScore] = useState(null);
 
 
-    {/*Pour afficher qui est la bonne mm si c mauvais */}
     let option1 = useRef(null);
     let option2 = useRef(null);
     let option3 = useRef(null);

@@ -12,9 +12,9 @@ const ia = () => {
         <i className="bi bi-list-ul" /> Sommaire
         </h5>
         <nav className="nav flex-column">
-        {/* ============================================ */}
+        
         {/* 1. APPRENTISSAGE PAR RENFORCEMENT */}
-        {/* ============================================ */}
+        
         <div className="mb-2">
             <div className="nav-link px-0 py-1 text-dark d-flex justify-content-between align-items-center">
             <a href="#cadrage" className="text-dark text-decoration-none" style={{cursor: 'pointer'}}>
@@ -32,9 +32,9 @@ const ia = () => {
             </div>
         </div>
 
-        {/* ============================================ */}
+        
         {/* 2. SOFT ACTOR-CRITIC (SAC) */}
-        {/* ============================================ */}
+        
         <div className="mb-2">
             <div className="nav-link px-0 py-1 text-dark d-flex justify-content-between align-items-center">
             <a href="#sac" className="text-dark text-decoration-none" style={{cursor: 'pointer'}}>
@@ -49,9 +49,9 @@ const ia = () => {
             </div>
         </div>
 
-        {/* ============================================ */}
+        
         {/* 3. SIMULATION PHYSIQUE ET JUMEAU NUMERIQUE */}
-        {/* ============================================ */}
+        
         <div className="mb-2">
             <div className="nav-link px-0 py-1 text-dark d-flex justify-content-between align-items-center">
             <a href="#jumeau" className="text-dark text-decoration-none" style={{cursor: 'pointer'}}>
@@ -68,9 +68,9 @@ const ia = () => {
             </div>
         </div>
 
-        {/* ============================================ */}
+        
         {/* 4. ANALYSE DES BESOINS DU PROJET */}
-        {/* ============================================ */}
+        
         <div className="mb-2">
             <div className="nav-link px-0 py-1 text-dark d-flex justify-content-between align-items-center">
             <a href="#besoins" className="text-dark text-decoration-none" style={{cursor: 'pointer'}}>
@@ -84,9 +84,9 @@ const ia = () => {
             </div>
         </div>
 
-        {/* ============================================ */}
+        
         {/* 5. CONFIGURATION DE L'ENVIRONNEMENT */}
-        {/* ============================================ */}
+        
         <div className="mb-2">
             <div className="nav-link px-0 py-1 text-dark d-flex justify-content-between align-items-center">
             <a href="#config-env" className="text-dark text-decoration-none" style={{cursor: 'pointer'}}>
@@ -101,9 +101,9 @@ const ia = () => {
             </div>
         </div>
 
-        {/* ============================================ */}
+        
         {/* 6. CONCEPTION DE NIRYOENV */}
-        {/* ============================================ */}
+        
         <div className="mb-2">
             <div className="nav-link px-0 py-1 text-dark d-flex justify-content-between align-items-center">
             <a href="#niryoenv" className="text-dark text-decoration-none" style={{cursor: 'pointer'}}>
@@ -121,9 +121,9 @@ const ia = () => {
             </div>
         </div>
 
-        {/* ============================================ */}
+        
         {/* 7. APPRENTISSAGE PAR RENFORCEMENT */}
-        {/* ============================================ */}
+        
         <div className="mb-2">
             <div className="nav-link px-0 py-1 text-dark d-flex justify-content-between align-items-center">
             <a href="#entrainement" className="text-dark text-decoration-none" style={{cursor: 'pointer'}}>
@@ -140,9 +140,9 @@ const ia = () => {
             </div>
         </div>
 
-        {/* ============================================ */}
+        
         {/* 8. BENCHMARK ET TESTS */}
-        {/* ============================================ */}
+        
         <div className="mb-2">
             <div className="nav-link px-0 py-1 text-dark d-flex justify-content-between align-items-center">
             <a href="#benchmark" className="text-dark text-decoration-none" style={{cursor: 'pointer'}}>
@@ -157,9 +157,9 @@ const ia = () => {
             </div>
         </div>
 
-        {/* ============================================ */}
+        
         {/* FIGURES */}
-        {/* ============================================ */}
+        
         <div className="border-top mt-3 pt-2" />
         <div className="mb-2">
             <div className="nav-link px-0 py-1 text-dark d-flex justify-content-between align-items-center">
@@ -193,9 +193,9 @@ const ia = () => {
             </div>
         </div>
 
-        {/* ============================================ */}
+        
         {/* TABLEAUX */}
-        {/* ============================================ */}
+        
         <div className="mb-2">
             <div className="nav-link px-0 py-1 text-dark d-flex justify-content-between align-items-center">
             <span style={{cursor: 'default'}}>
@@ -239,9 +239,6 @@ const ia = () => {
             concrètes pour le projet.</p>
         </div>
         <div id="definition_rl">
-          <div className="alert alert-danger" role="alert">
-            <strong>Formule a vérifier p 10/38</strong>
-          </div>
           <h3 className="text-dark fw-bold"> Définition de l'Apprentissage par Reinforcement</h3>
           {/* doc tech */}
           <p>L'apprentissage par reinforcement (Reinforcement Learning, RL) est une branche du machine learning dans laquelle un agent apprend à se comporter dans un environnement en exécutant des actions et en observant les récompenses qui en découlent (Sutton et Barto, 1998). À chaque pas de temps t, l'agent observe l'état sₜ, sélectionne une action aₜ selon sa politique courante π, reçoit une récompense scalaire rₜ et transite vers un nouvel état sₜ₊₁ ; l'objectif est d'apprendre une politique optimale π* maximisant l'espérance de la somme actualisée des récompenses futures. Ce paradigme se distingue de l'apprentissage supervisé par l'absence de données étiquetées, et de l'apprentissage non supervisé par la présence d'un signal de récompense orientant l'exploration.</p>
@@ -261,9 +258,6 @@ const ia = () => {
         </div>
         <div id="bellman" className="mt-5">
           <h3 className="text-dark fw-bold"> Fonctions de valeur et équations de Bellman</h3>
-          <div className="alert alert-danger" role="alert">
-            <strong>Formule a vérifier p 11/38</strong>
-          </div>
           {/* doc tech */}
           <p><strong>Fonction de valeur d'état Vπ(s)</strong> : elle quantifie le retour cumulé espéré en partant de l'état s et en suivant la politique π :</p>
           <p className="text-center fst-italic">Vπ(s) = ᵓπ [ Σₜ₌₀ ∞ γᵗ rₜ | s₀ = s ]</p>
@@ -298,9 +292,9 @@ const ia = () => {
           <p><strong>Justification du choix de SAC</strong> : Pour un projet de contrôle de bras robotique en espace d'action continu, SAC (Soft Actor-Critic) s'impose pour trois raisons décisives. Premièrement, sa nature off-policy lui confère une excellente efficacité d'échantillonnage, critique lorsque les simulations sont coûteuses en temps de calcul. Deuxièmement, la maximisation conjointe de l'entropie favorise une exploration systématique de l'espace des configurations articulaires, réduisant le risque de convergence prématurée vers des optima locaux. Troisièmement, SAC est reconnu pour sa robustesse aux hyperparamètres, propriété particulièrement précieuse en l'absence d'un protocole de réglage intensif (Haarnoja et al., 2018).</p>
         </div>
       </div>
-      {/* ============================================ */}
+      
       {/* 3. SOFT ACTOR-CRITIC (SAC) */}
-      {/* ============================================ */}
+      
       <div id="sac" className="bg-white rounded-3 shadow-sm p-4 mb-4">
         <h2 className="text-primary border-bottom pb-2 mb-4"><i className="bi bi-cpu-fill" /> 3. PRÉSENTATION DU SOFT ACTOR-CRITIC (SAC)</h2>
         <div id="sac-def">
@@ -311,9 +305,6 @@ const ia = () => {
         </div>
         <div id="sac-objectif" className="mt-5">
           <h3 className="text-dark fw-bold"> Objectif du SAC</h3>
-          <div className="alert alert-danger" role="alert">
-            <strong>Formule a vérifier p 13/38</strong>
-          </div>
           {/* doc tech */}
           <p>Contrairement aux algorithmes classiques, l'objectif du SAC intègre un terme d'entropie pour maximiser à la fois la récompense et la diversité des actions. Formellement, il maximise J(π) = Σₜ 𝔼π [ r(sₜ, aₜ) + α · H(π( · | sₜ)) ], où le coefficient de température α pilote le compromis entre exploration et exploitation. L'automatisation de l'apprentissage de α selon une entropie cible H̄ = −dim(A) renforce la robustesse pratique de l'algorithme en éliminant les réglages manuels complexes. Cet objectif augmenté permet non seulement d'éviter les optima locaux en encourageant une exploration approfondie des configurations articulaires, mais assure aussi une meilleure adaptabilité du bras robotique face aux perturbations ou aux imprécisions de modélisation du jumeau numérique.</p>
         </div>
@@ -336,29 +327,25 @@ const ia = () => {
             <img src="images/IA_Figure02.png" className="img-fluid" style={{maxHeight: '100%', objectFit: 'contain'}} />
           </div>
           <p className="text-center small mt-1">Figure 2 : Schéma SAC</p>
-          {/* depuis rapport */}
+          
           <p>SAC repose sur trois réseaux appris et deux réseaux cibles figés :</p>
-          {/* depuis rapport */}
+          
           <ul>
             <li>l'Actor (politique stochastique π) produit une distribution gaussienne sur les actions. Il ne choisit pas une action déterministe, il échantillonne.</li>
             <li>les deux Critic Q₁ et Q₂ évaluent la qualité d'un couple (état, action). On en prend le minimum pour éviter la surestimation, biais classique en RL.</li>
             <li>les Target networks sont des copies lentes des Critic, mises à jour par une moyenne mobile (Polyak averaging, τ ≈ 0.005) pour stabiliser l'entraînement.</li>
             <li>le Replay buffer stocke des millions de transitions passées, permettant à SAC d'être off-policy : il réutilise des expériences anciennes, ce qui le rend bien plus efficace que PPO.</li>
           </ul>
-          {/* depuis rapport */}
+          
           <p>À chaque itération, SAC observe l'état, fait agir l'acteur, stocke la transition, puis tire un mini-batch du buffer pour mettre à jour les Critic et l'Actor (maximiser Q tout en maximisant l'entropie). Les target networks sont ensuite glissés doucement. Le coeur mathématique de SAC tient dans son objectif augmenté :</p>
-          {/* depuis rapport */}
-          <div className="alert alert-danger" role="alert">
-            <strong>Formule a vérifier p 11/38</strong>
-          </div>
           <p className="text-center fst-italic">J(π) = E [Σ γᵗ (r (sₜ, aₜ) + α · H(π(·|sₜ)))]</p>
-          {/* depuis rapport */}
+          
           <p>Où H est l'entropie de la politique et α un coefficient de température. C'est ce terme d'entropie qui distingue SAC de DDPG ou TD3.</p>
         </div>
       </div>
-      {/* ============================================ */}
+      
       {/* 4. SIMULATION PHYSIQUE ET JUMEAU NUMERIQUE */}
-      {/* ============================================ */}
+      
       <div id="jumeau" className="bg-white rounded-3 shadow-sm p-4 mb-4">
         <h2 className="text-primary border-bottom pb-2 mb-4"><i className="bi bi-box-fill" /> 4. SIMULATION PHYSIQUE ET JUMEAU NUMÉRIQUE</h2>
         <div id="jumeau-concept">
@@ -412,9 +399,9 @@ const ia = () => {
           <p>La bibliothèque CleanRL a été sélectionnée pour ce projet en raison de sa philosophie « single-file » qui privilégie une implémentation autonome et transparente, facilitant ainsi la compréhension algorithmique ligne à ligne, indispensable dans un contexte de recherche. Ce choix garantit une excellente reproductibilité des résultats grâce à une gestion rigoureuse des graines aléatoires (seeds), répondant directement aux standards académiques de lutte contre la crise de la reproductibilité. De plus, l'outil offre un suivi natif des performances via TensorBoard et assure une compatibilité immédiate avec les interfaces Gymnasium développées pour le bras Niryo Ned. Enfin, sa simplicité d'installation sous Windows au sein d'un environnement Anaconda standard en fait une solution parfaitement adaptée aux contraintes logicielles du laboratoire.</p>
         </div>
       </div>
-      {/* ============================================ */}
+      
       {/* 5. ANALYSE DES BESOINS DU PROJET */}
-      {/* ============================================ */}
+      
       <div id="besoins" className="bg-white rounded-3 shadow-sm p-4 mb-4">
         <h2 className="text-primary border-bottom pb-2 mb-4"><i className="bi bi-list-check" /> 5. ANALYSE DES BESOINS DU PROJET</h2>
         <h3 className="text-dark fw-bold">Méthodologie d'analyse</h3>
@@ -466,9 +453,9 @@ const ia = () => {
             modélisation URDF et la robustesse inhérente des politiques SAC à entropie maximale.</p>
         </div>
       </div>
-      {/* ============================================ */}
+      
       {/* 6. CONFIGURATION DE L'ENVIRONNEMENT DE TRAVAIL */}
-      {/* ============================================ */}
+      
       <div id="config-env" className="bg-white rounded-3 shadow-sm p-4 mb-4">
         <h2 className="text-primary border-bottom pb-2 mb-4"><i className="bi bi-gear-fill" /> 6. CONFIGURATION DE L'ENVIRONNEMENT DE TRAVAIL</h2>
         <h3 className="text-dark fw-bold">Présentation de l'environnement de développement</h3> 
@@ -541,9 +528,9 @@ const ia = () => {
           <p>Cette configuration constitue le socle technique stable sur lequel repose l'intégralité du développement ultérieur. L'isolation assurée par l'environnement conda NewEnv garantit la reproductibilité complète du pipeline : tout collaborateur ou évaluateur peut reconstituer un environnement fonctionnellement identique en exécutant la séquence de commandes décrites dans ce chapitre, indépendamment de sa configuration système préexistante sous Windows 11.</p>
         </div>
       </div>
-      {/* ============================================ */}
+      
       {/* 7. CONCEPTION DE L'ENVIRONNEMENT VIRTUEL NIRYOENV */}
-      {/* ============================================ */}
+      
       <div id="niryoenv" className="bg-white rounded-3 shadow-sm p-4 mb-4">
         <h2 className="text-primary border-bottom pb-2 mb-4"><i className="bi bi-robot" /> 7. CONCEPTION DE L'ENVIRONNEMENT VIRTUEL NIRYOENV</h2>
         {/* doc tech */}
@@ -639,9 +626,9 @@ const ia = () => {
           </ul>
         </div>
       </div>
-      {/* ============================================ */}
+      
       {/* 8. APPRENTISSAGE PAR Reinforcement */}
-      {/* ============================================ */}
+      
       <div id="entrainement" className="bg-white rounded-3 shadow-sm p-4 mb-4">
         <h2 className="text-primary border-bottom pb-2 mb-4"><i className="bi bi-graph-up-arrow" /> 8. APPRENTISSAGE PAR Reinforcement</h2>
         <h3 className="text-dark fw-bold">Introduction Reinforcement Learning</h3>
@@ -745,9 +732,9 @@ const ia = () => {
           </ul>
         </div>
       </div>
-      {/* ============================================ */}
+      
       {/* 9. BENCHMARK ET TESTS */}
-      {/* ============================================ */}
+      
       <div id="benchmark" className="bg-white rounded-3 shadow-sm p-4 mb-4">
         <h2 className="text-primary border-bottom pb-2 mb-4"><i className="bi bi-speedometer2" /> 9. BENCHMARK ET TESTS</h2>
         {/* doc tech + rapport */}
@@ -755,13 +742,13 @@ const ia = () => {
         <p>La phase de benchmark valide le pipeline en évaluant les modèles en mode déterministe (sans bruit d'exploration). Cette étape repose sur deux métriques clés : la précision spatiale (distance effecteur-cible) et la performance de calcul (débit SPS), afin de quantifier à la fois la qualité de la politique de contrôle et l'efficience de la simulation.</p>
         <div id="versions-env" className="mt-5">
           <h3 className="text-dark fw-bold">Comparaison des trois versions d'environnement</h3>
-          {/* depuis rapport */}
+          
           <h4 className="text-dark fw-bold"> Caractéristiques différentielles</h4>
           <p>Les trois versions d'environnement ont été développées de manière incrémentale,
             chacune introduisant des modifications ciblées visant à améliorer la stabilité de
             l'apprentissage. <br />
             Le tableau suivant synthétise les différences structurelles entre les trois versions :</p>
-          {/* depuis rapport */}
+          
           <div id="tableau11" className="table-responsive">
             <table className="table table-bordered table-sm">
               <thead className="table-primary"><tr><th>Caractéristique</th><th>NiryoEnv (NewEnv)</th><th>NiryoEnv v1</th><th>NiryoEnv v2</th></tr></thead>

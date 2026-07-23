@@ -61,9 +61,9 @@ const Communication = () => {
         </ul>
         <p>Les entrées discrètes et les registres d'entrées sont des tables <strong>READ-ONLY</strong>. Ceux-ci ont été utilisés pour conserver l'état des robots.</p>
         <p>Le registre des bobines et des registres des holdings sont des tableaux de <strong>LECTURE/ÉCRITURE</strong>. Ceux-ci ont été utilisés pour donner des commandes utilisateur au robot. Par conséquent, ces 2 tables ne contiennent pas l'état du robot, mais la dernière commande donnée.</p>
-        {/* ============================================ */}
+        
         {/* 1. LES BOBINES (COILS) */}
-        {/* ============================================ */}
+        
         <div id="bobines" className="mt-5">
           <h3 className="text-dark fw-bold">1. Les bobines (coils)</h3>
           <p>Chaque adresse contient une valeur de <strong>1 bit</strong>.</p>
@@ -75,9 +75,9 @@ const Communication = () => {
           </ul>
           <p>Ce datastore peut être utilisé pour définir et lire différents états.</p>
         </div>
-        {/* ============================================ */}
+        
         {/* 2. ENTRÉES DISCRÈTES */}
-        {/* ============================================ */}
+        
         <div id="entrees-discretes" className="mt-5">
           <h3 className="text-dark fw-bold">2. Entrées discrètes</h3>
           <p>Chaque adresse contient une valeur de <strong>1 bit</strong>.</p>
@@ -88,9 +88,9 @@ const Communication = () => {
           </ul>
           <p>Ce datastore peut être utilisé pour lire différents états.</p>
         </div>
-        {/* ============================================ */}
+        
         {/* 3. REGISTRES DE HOLDING */}
-        {/* ============================================ */}
+        
         <div id="registres-holding" className="mt-5">
           <h3 className="text-dark fw-bold">3. Registres de holding</h3>
           <p>Chaque adresse contient une valeur de <strong>16 bits</strong>.</p>
@@ -102,9 +102,9 @@ const Communication = () => {
           </ul>
           <p>Ce datastore peut être utilisé pour définir et lire différents états.</p>
         </div>
-        {/* ============================================ */}
+        
         {/* 4. REGISTRES D'ENTRÉES */}
-        {/* ============================================ */}
+        
         <div id="registres-entrees" className="mt-5">
           <h3 className="text-dark fw-bold">4. Registres d'entrées</h3>
           <p>Chaque adresse contient une valeur de <strong>16 bits</strong>.</p>
@@ -117,9 +117,9 @@ const Communication = () => {
         </div>
         <p>Pour connaître les registres Modbus TCP du Ned2 ainsi que des exemples, se référer aux sections correspondantes sur le lien suivant :<br />
           <a href="https://docs.niryo.com/api/modbus/use-the-modbus-tcp-server/#section-header-two-g2hq">https://docs.niryo.com/api/modbus/use-the-modbus-tcp-server/#section-header-two-g2hq/</a></p>
-        {/* ============================================ */}
+        
         {/* PACKAGE PYMODBUS */}
-        {/* ============================================ */}
+        
         <h3 className="text-dark fw-bold mt-5"><a href="https://pymodbus.readthedocs.io/en/latest/index.html">Package PyModbus</a></h3>
         <p>PyModbus est une implémentation complète du protocole Modbus offrant un client et un serveur avec des API et des simulateurs synchrones/asynchrones.</p>
         <p>Les différentes versions suivent le modèle X.Y.Z :</p>

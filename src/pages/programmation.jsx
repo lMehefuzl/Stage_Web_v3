@@ -12,9 +12,9 @@ const Programmation = () => {
           <i className="bi bi-list-ul" /> Sommaire
         </h5>
         <nav className="nav flex-column">
-          {/* ============================================ */}
+          
           {/* 1. NIRYO NED2 ET NIRYOSTUDIO */}
-          {/* ============================================ */}
+          
           <div className="mb-2">
             <div className="nav-link px-0 py-1 text-dark d-flex justify-content-between align-items-center">
               <a href="#nirystudio" className="text-dark text-decoration-none" style={{cursor: 'pointer'}}>
@@ -37,9 +37,9 @@ const Programmation = () => {
             </div>
           </div>
           
-          {/* ============================================ */}
+          
           {/* 2. PROGRAMMATION */}
-          {/* ============================================ */}
+          
           <div className="mb-2">
             <div className="nav-link px-0 py-1 text-dark d-flex justify-content-between align-items-center">
               <a href="#logiciels" className="text-dark text-decoration-none" style={{cursor: 'pointer'}}>
@@ -64,9 +64,9 @@ const Programmation = () => {
             </div>
           </div>
           
-          {/* ============================================ */}
+          
           {/* 3. INSTALLATION DES LIBRAIRIES */}
-          {/* ============================================ */}
+          
           <div className="mb-2">
             <div className="nav-link px-0 py-1 text-dark d-flex justify-content-between align-items-center">
               <a href="#librairies" className="text-dark text-decoration-none" style={{cursor: 'pointer'}}>
@@ -81,9 +81,9 @@ const Programmation = () => {
             </div>
           </div>
           
-          {/* ============================================ */}
+          
           {/* 4. PROGRAMMATION MATLAB */}
-          {/* ============================================ */}
+          
           <div className="mb-2">
             <div className="nav-link px-0 py-1 text-dark d-flex justify-content-between align-items-center">
               <a href="#matlab" className="text-dark text-decoration-none" style={{cursor: 'pointer'}}>
@@ -99,9 +99,9 @@ const Programmation = () => {
             </div>
           </div>
           
-          {/* ============================================ */}
+          
           {/* 5. PROGRAMMATION ROS */}
-          {/* ============================================ */}
+          
           <div className="mb-2">
             <div className="nav-link px-0 py-1 text-dark d-flex justify-content-between align-items-center">
               <a href="#programmation-ros" className="text-dark text-decoration-none" style={{cursor: 'pointer'}}>
@@ -139,9 +139,9 @@ const Programmation = () => {
             </div>
           </div>
           
-          {/* ============================================ */}
+          
           {/* 6. Exemples */}
-          {/* ============================================ */}
+          
           <div className="mb-2">
             <div className="nav-link px-0 py-1 text-dark d-flex justify-content-between align-items-center">
               <a href="#Exemples" className="text-dark text-decoration-none" style={{cursor: 'pointer'}}>
@@ -170,9 +170,9 @@ const Programmation = () => {
             </div>
           </div>
           
-          {/* ============================================ */}
+          
           {/* FIGURES */}
-          {/* ============================================ 
+          {/*  
           <div className="border-top mt-3 pt-2" />
           <div className="mb-2">
             <div className="nav-link px-0 py-1 text-dark d-flex justify-content-between align-items-center">
@@ -244,9 +244,9 @@ const Programmation = () => {
             </div>
           </div>
           */}
-          {/* ============================================ */}
+          
           {/* TABLEAUX */}
-          {/* ============================================ 
+          {/*  
           <div className="mb-2">
             <div className="nav-link px-0 py-1 text-dark d-flex justify-content-between align-items-center">
               <span style={{cursor: 'default'}}>
@@ -279,9 +279,9 @@ const Programmation = () => {
     <div className="col-md-9 ps-0 ps-md-2 pe-0">
       <div id="nirystudio" className="bg-white rounded-3 shadow-sm p-4 mb-4">
         <h2 className="text-primary border-bottom pb-2 mb-4"><i className="bi bi-display" /> NIRYO NED2 ET NIRYOSTUDIO</h2>
-        {/* ============================================ */}
+        
         {/* 1. UTILISATION DU ROBOT SEUL */}
-        {/* ============================================ */}
+        
         <div id="utilisation-seul" className="mt-3">
           <h3 className="text-dark fw-bold">1. Utilisation du robot seul</h3>
           <p>Les deux images suivantes montrent les différentes amplitudes que peut emprunter le robot.</p>
@@ -300,9 +300,9 @@ const Programmation = () => {
             <li><strong>Bouton Custom :</strong> bouton programmable et permet à l'utilisateur de choisir le type d'action et la fonction du bouton</li>
           </ul>
         </div>
-        {/* ============================================ */}
+        
         {/* 2. CONFIGURATION INITIALE DE NIRYOSTUDIO */}
-        {/* ============================================ */}
+        
         <div id="configuration-initiale" className="mt-5">
           <h3 className="text-dark fw-bold">2. Configuration initiale de NiryoStudio</h3>
           <p><strong>• Allumer le robot :</strong></p>
@@ -340,9 +340,9 @@ const Programmation = () => {
           </div>
           <p className="text-center small mt-1">Figure 72 : Page de vérification du compte</p>
         </div>
-        {/* ============================================ */}
+        
         {/* 3. CONNEXION AU ROBOT */}
-        {/* ============================================ */}
+        
         <div id="connexion" className="mt-5">
           <h3 className="text-dark fw-bold">3. Connexion au robot</h3>
           <p>Il existe plusieurs possibilités pour connecter le logiciel NiryoStudio.</p>
@@ -463,9 +463,9 @@ const Programmation = () => {
             <p className="text-center small mt-1">Figure 82 : Activation du mode de connexion Ethernet</p>
           </div>
         </div>
-        {/* ============================================ */}
+        
         {/* 4. CALIBRATION DU ROBOT */}
-        {/* ============================================ */}
+        
         <div id="calibration" className="mt-5">
           <h3 className="text-dark fw-bold">4. Calibration du robot</h3>
           <p>Le robot doit être calibré à chaque redémarrage. Cliquez sur le bouton clignotant 
@@ -481,9 +481,9 @@ const Programmation = () => {
             permettant d'effectuer un autre calibrage.</p>
           <p>Une fois calibré, à l'emplacement <strong>(1)</strong>, le message « Calibration OK » en vert s'affiche.</p>
         </div>
-        {/* ============================================ */}
+        
         {/* 5. INTERFACE DE NIRYOSTUDIO */}
-        {/* ============================================ */}
+        
         <div id="interface" className="mt-5">
           <h3 className="text-dark fw-bold">5. Interface de NiryoStudio</h3>
           {/* FIGURE 84 */}
@@ -516,9 +516,9 @@ const Programmation = () => {
             le tableau de bord sur cette image (qui sera décrit dans la partie suivante).</p>
           <p><strong>(5) Vue 3D du robot :</strong> affiche un modèle 3D du robot permettant aux utilisateurs de visualiser son état actuel et son positionnement.</p>
         </div>
-        {/* ============================================ */}
+        
         {/* 6. TABLEAU DE BORD */}
-        {/* ============================================ */}
+        
         <div id="tableau-bord" className="mt-5">
           <h3 className="text-dark fw-bold">6. Tableau de bord</h3>
           {/* FIGURE 85 */}
@@ -532,9 +532,9 @@ const Programmation = () => {
           <p><strong>(4) Mes équipements connectés :</strong> Affiche la liste de tous les appareils actuellement connectés à NiryoStudio. Cette section indique le nom, l'état et les paramètres des équipements connectés. Vous pouvez lancer une analyse pour détecter les nouveaux équipements connectés en cliquant sur le bouton <strong>« Nouvelle analyse »</strong>.</p>
           <p><strong>(5) Mes derniers programmes :</strong> Affiche la liste des programmes récemment créés ou utilisés par l'utilisateur. Cette section permet un accès rapide aux programmes précédemment utilisés pour faciliter leur modification ou leur exécution. La liste complète des programmes se trouve dans la section <a href="https://docs.niryo.com/niryostudio/interface/library/">Bibliothèque</a>.</p>
         </div>
-        {/* ============================================ */}
+        
         {/* 7. UTILISATION DU ROBOT AVEC LE LOGICIEL NIRYOSTUDIO */}
-        {/* ============================================ */}
+        
         <div id="utilisation" className="mt-5">
           <h3 className="text-dark fw-bold">7. Utilisation du robot avec le logiciel NiryoStudio</h3>
           <p>Le Niryo Ned2 permet d'enregistrer des trajectoires : maintenez les boutons <strong>SAVE</strong> et <strong>FreeMotion</strong> enfoncés simultanément, effectuez le mouvement, puis relâchez. 
@@ -574,9 +574,9 @@ const Programmation = () => {
           <img src="images/Figure58.png" className="img-fluid" style={{maxHeight: '100%', objectFit: 'contain'}} />
         </div>
         <p className="text-center small mt-1">Figure 58 : Communications interne et externe du robot et ses composants</p>
-        {/* ============================================ */}
+        
         {/* 1. BLOCKLY (VIA NIRYOSTUDIO) */}
-        {/* ============================================ */}
+        
         <div id="blockly" className="mt-5">
           <h3 className="text-dark fw-bold">1. Blockly (via NiryoStudio)</h3>
           <p><strong>Blockly</strong> est un langage de programmation visuelle développé par Google. 
@@ -670,9 +670,9 @@ const Programmation = () => {
               On peut exporter un programme en cliquant sur le bouton Exporter de la barre d'outils. Les programmes <strong>Blockly</strong> sont exportés au format <strong>JSON</strong>.</p>
           </div>
         </div>
-        {/* ============================================ */}
+        
         {/* 2. PYNIRYO */}
-        {/* ============================================ */}
+        
         <div id="pyniryo-logiciel" className="mt-5">
           <h3 className="text-dark fw-bold">2. Pyniryo</h3>
           <div id="description-pyniryo">
@@ -709,12 +709,12 @@ const Programmation = () => {
               programmes <strong>Blockly</strong> sont exportés au format <strong>« .py »</strong>.</p>
           </div>
         </div>
-        {/* ============================================ */}
+        
         {/* 3. ROS */}
-        {/* ============================================ */}
-        {/* ============================================ */}
+        
+        
         {/* 4. MATLAB / SIMULINK */}
-        {/* ============================================ */}
+        
         <div id="matlab" className="mt-5">
           <h3 className="text-dark fw-bold">3. MATLAB / Simulink</h3>
           <p>En cliquant sur le lien suivant et à condition que vous ayez une licence MATLAB, ce dernier vous proposera un tutoriel de ROS appliquée à MATLAB. Ces cours se déroulant dans l'environnement MATLAB, les lignes de codes des exemples sont toutes détaillées et peuvent être lancées les unes après les autres. Ainsi on comprend à quoi sert chacune des lignes mise en exemple et on se retrouve à pouvoir mettre en pratique directement ce que l'on apprend.</p>
@@ -722,9 +722,9 @@ const Programmation = () => {
           <p>Tutoriel expliquant l'installation et la configuration de MATLAB pour contrôler les robots Ned et Ned2. Ce guide utilise l'Add-on ROS Toolbox. (cf. chapitre 7 – partie 3)</p>
           <p>Pour en savoir plus sur l'utilisation de MATLAB avec les robots Niryo Ned2, veuillez-vous rendre au lien suivant : <a href="https://github.com/NiryoRobotics/matlab-support-for-niryo-ned2-robots?tab=readme-ov-file">https://github.com/NiryoRobotics/matlab-support-for-niryo-ned2-robots?tab=readme-ov-file</a></p>
         </div>
-        {/* ============================================ */}
+        
         {/* 5. NODE-RED */}
-        {/* ============================================ */}
+        
         <div id="node-red" className="mt-5">
           <h3 className="text-dark fw-bold">4. Node-RED</h3>
           <p><strong>Node-RED</strong> est un outil low-code qui permet de créer des flux de données pour automatiser des environnements (domotique, industrie, IoT). 
@@ -736,9 +736,9 @@ const Programmation = () => {
       </div>
       <div id="librairies" className="bg-white rounded-3 shadow-sm p-4 mb-4">
         <h2 className="text-primary border-bottom pb-2 mb-4"><i className="bi bi-book" /> INSTALLATION DES LIBRAIRIES</h2>
-        {/* ============================================ */}
+        
         {/* 1. PYNIRYO */}
-        {/* ============================================ */}
+        
         <div id="pyniryo" className="mt-3">
           <h3 className="text-dark fw-bold">1. PyNiryo</h3>
           <p>Pour utiliser la bibliothèque, il faut être sur une version égale ou supérieur :</p>
@@ -766,9 +766,9 @@ const Programmation = () => {
           <p>Pour désinstaller la bibliothèque, exécutez :<br /> <strong>« pip uninstall pyniryo »</strong>.</p>
           <p>Vous pouvez trouver plus d'informations sur le forfait PyPi : <a href="https://pypi.org/project/pyniryo/">https://pypi.org/project/pyniryo/</a></p>
         </div>
-        {/* ============================================ */}
+        
         {/* 2. PYMODBUS */}
-        {/* ============================================ */}
+        
         <div id="pymodbus" className="mt-5">
           <h3 className="text-dark fw-bold">2. PyModbus</h3>
           <p>Elle peut être installée avec <strong>pip</strong> ou <strong>github</strong> via un terminal.</p>
@@ -802,7 +802,7 @@ const Programmation = () => {
         </div>
       </div>
       {/* PROGRAMMATION MATLAB */}
-      {/* ============================================ */}
+      
       <div id="matlab" className="bg-white rounded-3 shadow-sm p-4 mb-4">
         <h2 className="text-primary border-bottom pb-2 mb-4"><i className="bi bi-graph-up" /> PROGRAMMATION MATLAB</h2>
         <div id="matlab-installation" className="mt-3">
@@ -1133,9 +1133,9 @@ ned.goHome();</code></pre>
       </div>
       <div id="programmation-ros" className="bg-white rounded-3 shadow-sm p-4 mb-4">
         <h2 className="text-primary border-bottom pb-2 mb-4"><i className="bi bi-terminal" /> PROGRAMMATION ROS</h2>
-        {/* ============================================ */}
+        
         {/* 1. PRÉAMBULE */}
-        {/* ============================================ */}
+        
         <div id="preambule" className="mt-3">
           <h3 className="text-dark fw-bold">1. Préambule</h3>
           <p>Dans cette première partie on va lister les différentes commandes indispensables pour utiliser et naviguer à travers un environnement ROS.</p>
@@ -1218,9 +1218,9 @@ ned.goHome();</code></pre>
             <p className="text-center small mt-1">Tableau 30 : Tableau répertoriant les commandes principales de compilation</p>
           </div>
         </div>
-        {/* ============================================ */}
+        
         {/* 2. SIMULATION : GAZEBO ET RVIZ */}
-        {/* ============================================ */}
+        
         <div id="simulation-gazebo-rviz" className="mt-5">
           <h3 className="text-dark fw-bold">2. Simulation : Gazebo et RViz</h3>
           <div id="generalites-simulation">
@@ -1536,9 +1536,9 @@ source ~/niryo_ws/install/setup.bash</code></pre>
           </div>
         </div>
         <div id="creation-programmes" className="mt-5">
-          {/* ============================================ */}
+          
           {/* 3. CRÉATION ET LANCEMENT DE PROGRAMME (SIMULATION) */}
-          {/* ============================================ */}
+          
           <div id="creation-programmes" className="mt-5">
             <h3 className="text-dark fw-bold">4. Création et Lancement de programme (Simulation)</h3>
             <p>Pour pouvoir écrire les actions que l'on veut faire dans nos simulations, il est important de savoir toutes les commandes disponibles et identifier celles que nous devons utiliser. Bien évidemment, plusieurs options sont possibles mais nous en évoquerons que 2 plus un listage des commandes « générales ».</p>
@@ -2023,9 +2023,9 @@ spawn_urdf("work_table", table_xml, "", Pose(position=Point(0.5, 0, -0.35)), "wo
               <p>Après plusieurs jours à étudier et comprendre différents points de la simulation, nous sommes passés sur la programmation du robot réel.</p>
             </div>
           </div>
-          {/* ============================================ */}
+          
           {/* 4. PROGRAMMATION DU ROBOT RÉEL */}
-          {/* ============================================ */}
+          
           <div id="programmation-reel" className="mt-5">
             <h3 className="text-dark fw-bold">5. Programmation du robot réel</h3>
             <div id="commande-reel">
