@@ -16,7 +16,7 @@ const Hero = () => {
           }}
           className="mb-3 d-inline-block"
         >
-           <img src="images/logov2.png" className="img-fluid" style={{maxHeight: '10rem', width: 'auto', objectFit: 'contain'}} />
+           <img src="images/logov3.png" className="img-fluid" style={{maxHeight: '10rem', width: 'auto', objectFit: 'contain'}} />
         </motion.div>
 
         <motion.h1 
