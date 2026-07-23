@@ -82,7 +82,8 @@ const Hero = () => {
             />
           </div>
         </div>
-
+        
+        {/*
         <motion.h1 
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
@@ -91,6 +92,7 @@ const Hero = () => {
         >
           NIRYO NED
         </motion.h1>
+        */}
 
           {/*//la bare bleu */}
         <motion.div
@@ -108,7 +110,7 @@ const Hero = () => {
           className="lead text-secondary fs-4 mx-auto" 
           style={{ maxWidth: '600px' }}
         >
-          <strong>Guide d'utilisation du robot Niryo Ned 2</strong>
+          <strong>Micro Learning Factory</strong>
           {/*lignes pour les credits  */}
           {/*}
           <div className="d-flex justify-content-center gap-3 mt-4">
