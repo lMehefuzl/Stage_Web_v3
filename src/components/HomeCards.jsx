@@ -10,7 +10,7 @@ const HomeCards = () => {
     { id: 'theorie', icon: 'bi-calculator-fill', title: 'FONDAMENTAUX THÉORIQUES', desc: 'MGD • Convention DH • MGI' },
     { id: 'ressources', icon: 'bi-folder-symlink-fill', title: 'RESSOURCES', desc: 'Lexique • Liens utiles' },
     { id: 'ia', icon: 'bi-info-circle-fill', title: 'IA', desc: 'ia • reinforced learning • machine learning' },
-    { id: 'comparaison', icon: 'bi-bar-chart', title: 'Comparaison', desc: 'bloc expérimentale' },
+    //{ id: 'comparaison', icon: 'bi-bar-chart', title: 'Comparaison', desc: 'bloc expérimentale' },
   ];
 
   return (

@@ -5,6 +5,7 @@ import { BrowserRouter, Routes, Route, useLocation } from 'react-router-dom';
 import Navbar from './components/Navbar';
 import Hero from './components/hero';
 import HomeCards from './components/HomeCards';
+import Footer from './components/Footer'
 
 // Pages
 import DocumentationTechnique from './pages/DocumentationTechnique';
@@ -77,6 +78,7 @@ const App = () => {
 
         </Routes>
       </div>
+      <Footer />
     </BrowserRouter>
   );
 };
