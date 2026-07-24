@@ -19,7 +19,7 @@ EMAIL_ADDRESS = os.getenv("EMAIL_ADDRESS")
 EMAIL_PASSWORD = os.getenv("EMAIL_PASSWORD")
 
 def send_reset_email(to_email: str, token: str):
-    reset_link = f"http://localhost:5173/reset-password?token={token}"
+    reset_link = f"http://10.151.128.105:5173/reset-password?token={token}"
 
     msg = MIMEText(f"Clique ici pour réinitialiser ton mot de passe : {reset_link}\n\nCe lien expire dans 1h.")
     msg["Subject"] = "Réinitialisation de mot de passe"

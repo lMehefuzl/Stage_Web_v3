@@ -17,6 +17,10 @@ const Registration = () => {
     const [errors, setErrors] = useState({})
     const [valid, setValid] = useState(true)
     const [loading, setLoading] = useState(false) //pour éviter que l'utilisateur clique plusieurs fois sur le bouton "Valider" et envoie plusieurs requêtes simultanément
+    const [showPassword, setShowPassword] = useState(false)
+    const [showCPassword, setShowCPassword] = useState(false)
+    const [eyeHoveredPwd, setEyeHoveredPwd] = useState(false)
+    const [eyeHoveredCPwd, setEyeHoveredCPwd] = useState(false)
     const navigate = useNavigate()
 
 const handleSubmit = (e) => {
@@ -100,14 +104,42 @@ return (
         </div>
         <div className="col-md-12 mt-4">
             <label className="form-label" htmlFor="password">Mot de passe</label>
-            <input className="form-control border border-secondary border-3 rounded-3" type="text" id="password" name="password" placeholder="Entrez votre mot de passe"
-            onChange={(event) => setFormData({...formData, password: event.target.value})} />
+            <div className="position-relative">
+                <input className="form-control border border-secondary border-3 rounded-3" type={showPassword ? "text" : "password"} id="password" name="password" placeholder="Entrez votre mot de passe"
+                onChange={(event) => setFormData({...formData, password: event.target.value})}
+                style={{ paddingRight: '2.5rem' }} />
+                <button
+                    type="button"
+                    onClick={() => setShowPassword(!showPassword)}
+                    onMouseEnter={() => setEyeHoveredPwd(true)}
+                    onMouseLeave={() => setEyeHoveredPwd(false)}
+                    tabIndex={-1}
+                    className="btn position-absolute top-50 end-0 translate-middle-y me-2 p-0 border-0 bg-transparent"
+                    style={{ color: eyeHoveredPwd ? '#0d6efd' : '#6c757d', transition: 'color 0.2s' }}
+                >
+                    <i className={`bi ${showPassword ? "bi-eye-slash" : "bi-eye"} fs-5`}></i>
+                </button>
+            </div>
             { valid ? <></> :<span className="text-danger"> {errors.password} </span>}
         </div>
         <div className="col-md-12 mt-4">
-            <label className="form-label" htmlFor="password">Confirmez Mot de passe</label>
-            <input className="form-control border border-secondary border-3 rounded-3" type="text" id="cpassword" name="cpassword" placeholder="Confirmez votre mot de passe"
-            onChange={(event) => setFormData({...formData, cpassword: event.target.value})} />
+            <label className="form-label" htmlFor="cpassword">Confirmez Mot de passe</label>
+            <div className="position-relative">
+                <input className="form-control border border-secondary border-3 rounded-3" type={showCPassword ? "text" : "password"} id="cpassword" name="cpassword" placeholder="Confirmez votre mot de passe"
+                onChange={(event) => setFormData({...formData, cpassword: event.target.value})}
+                style={{ paddingRight: '2.5rem' }} />
+                <button
+                    type="button"
+                    onClick={() => setShowCPassword(!showCPassword)}
+                    onMouseEnter={() => setEyeHoveredCPwd(true)}
+                    onMouseLeave={() => setEyeHoveredCPwd(false)}
+                    tabIndex={-1}
+                    className="btn position-absolute top-50 end-0 translate-middle-y me-2 p-0 border-0 bg-transparent"
+                    style={{ color: eyeHoveredCPwd ? '#0d6efd' : '#6c757d', transition: 'color 0.2s' }}
+                >
+                    <i className={`bi ${showCPassword ? "bi-eye-slash" : "bi-eye"} fs-5`}></i>
+                </button>
+            </div>
             { valid ? <></> :<span className="text-danger"> {errors.cpassword} </span>}
         </div>
         <div className="col-md-12 mt-4">

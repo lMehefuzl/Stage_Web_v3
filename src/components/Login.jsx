@@ -10,6 +10,9 @@ const Login = ({ setUser }) => {
 
     const [errors, setErrors] = useState({})
     const [valid, setValid] = useState(true)
+    const [showPassword, setShowPassword] = useState(false) //state pour afficher/cacher le mdp
+    const [eyeHovered, setEyeHovered] = useState(false) //state pour avoir bleu ou pas quand hover car jsp pk bootstrap override le hover de index.css
+
     const navigate = useNavigate()
 
 const handleSubmit = (e) => {
@@ -91,16 +94,31 @@ const handleSubmit = (e) => {
               <label className="form-label" htmlFor="password">
                 Mot de passe
               </label>
-              <input
-                className="form-control border border-secondary border-3 rounded-3"
-                type="password"    //c t text avant
-                id="password"
-                name="password"
-                placeholder="Entrez votre mot de passe"
-                onChange={(event) =>
-                  setFormData({ ...formData, password: event.target.value })
-                }
-              />
+              
+              <div className="position-relative"> {/*wrapper pour positionner l'oeil dans le champ */}
+                <input
+                  className="form-control border border-secondary border-3 rounded-3"
+                  type={showPassword ? "text" : "password"} // était juste type="password" avant
+                  id="password"
+                  name="password"
+                  placeholder="Entrez votre mot de passe"
+                  onChange={(event) =>
+                    setFormData({ ...formData, password: event.target.value })
+                  }
+                  style={{ paddingRight: '2.5rem' }} //laisse la place pour l'icône à droite
+                />
+                <button
+                  type="button"
+                  onClick={() => setShowPassword(!showPassword)}
+                  onMouseEnter={() => setEyeHovered(true)}
+                  onMouseLeave={() => setEyeHovered(false)} 
+                  tabIndex={-1}
+                  className="btn position-absolute top-50 end-0 translate-middle-y me-2 p-0 border-0 bg-transparent"
+                  style={{ color: eyeHovered ? '#0d6efd' : '#6c757d', transition: 'color 0.2s' }} //couleur gérée en JS, plus de dépendance au CSS externe
+                >
+                  <i className={`bi ${showPassword ? "bi-eye-slash" : "bi-eye"} fs-5`}></i>
+                </button>
+              </div>
               {valid ? (
                 <></>
               ) : (
