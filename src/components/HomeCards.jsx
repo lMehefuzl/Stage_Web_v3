@@ -1,5 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+import Footer from './Footer'
 
 const HomeCards = () => {
   const cardsData = [
@@ -14,22 +15,25 @@ const HomeCards = () => {
   ];
 
   return (
-    <div className="container py-5">
-      <div className="row g-4">
-        {cardsData.map((card) => (
-          <div className="col-md-6 col-lg-4" key={card.id}>
-            <Link to={`/${card.id}`} className="text-decoration-none">
-              <div className="card h-100 border rounded-4 shadow-sm text-center p-3 custom-card">
-                <div className="card-body">
-                  <i className={`bi ${card.icon} display-5 text-primary mb-3`}></i>
-                  <h5 className="card-title text-primary fw-bold mb-3">{card.title}</h5>
-                  <p className="card-text text-muted small">{card.desc}</p>
+    <div> {/*div pour mettre le Footer sinon ca reste dans le container */}
+      <div className="container py-5">
+        <div className="row g-4">
+          {cardsData.map((card) => (
+            <div className="col-md-6 col-lg-4" key={card.id}>
+              <Link to={`/${card.id}`} className="text-decoration-none">
+                <div className="card h-100 border rounded-4 shadow-sm text-center p-3 custom-card">
+                  <div className="card-body">
+                    <i className={`bi ${card.icon} display-5 text-primary mb-3`}></i>
+                    <h5 className="card-title text-primary fw-bold mb-3">{card.title}</h5>
+                    <p className="card-text text-muted small">{card.desc}</p>
+                  </div>
                 </div>
-              </div>
-            </Link>
-          </div>
-        ))}
+              </Link>
+            </div>
+          ))}
+        </div>
       </div>
+      <Footer/>
     </div>
   );
 };

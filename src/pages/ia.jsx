@@ -5,7 +5,6 @@ const ia = () => {
 <div className="container-fluid px-0 px-md-3 mb-5">
   <div className="row g-0 g-md-4 mx-0">
     {/* side bar */}
-    {/* side bar */}
     <div className="col-md-3 ps-0 pe-0 pe-md-2">
     <div className="bg-white rounded-3 shadow-sm p-3 me-0 me-md-2" style={{position: 'sticky', top: 87, maxHeight: 'calc(100vh - 40px)', overflowY: 'auto'}}>
         <h5 className="text-primary mb-3 pb-2 border-bottom">
@@ -159,7 +158,7 @@ const ia = () => {
 
         
         {/* FIGURES */}
-        
+        {/*
         <div className="border-top mt-3 pt-2" />
         <div className="mb-2">
             <div className="nav-link px-0 py-1 text-dark d-flex justify-content-between align-items-center">
@@ -192,10 +191,11 @@ const ia = () => {
             <a className="nav-link px-0 py-1 text-secondary small" href="#IA_Figure21">Figure 21</a>
             </div>
         </div>
+        */}
 
         
         {/* TABLEAUX */}
-        
+        {/* 
         <div className="mb-2">
             <div className="nav-link px-0 py-1 text-dark d-flex justify-content-between align-items-center">
             <span style={{cursor: 'default'}}>
@@ -219,6 +219,7 @@ const ia = () => {
             <a className="nav-link px-0 py-1 text-secondary small" href="#tableau13">Tableau 13</a>
             </div>
         </div>
+        */}
         </nav>
     </div>
     </div>

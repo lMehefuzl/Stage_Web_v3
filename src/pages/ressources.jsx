@@ -15,6 +15,8 @@ const Ressources = () => {
           <a className="nav-link px-0 py-1 text-dark" href="#lexique"><i className="bi bi-book-half text-primary me-2" />Lexique</a>
           {/* LIENS UTILES */}
           <a className="nav-link px-0 py-1 text-dark mt-2" href="#liens"><i className="bi bi-link-45deg text-primary me-2" />Liens utiles</a>
+          {/* SOURCES UTILISÉ */}
+          <a className="nav-link px-0 py-1 text-dark mt-2" href="#sources"><i className="bi bi-file-earmark-text-fill text-primary me-2" />Sources</a>
         </nav>
       </div>
     </div>
@@ -93,6 +95,39 @@ const Ressources = () => {
           <div className="list-group-item bg-transparent px-0"><i className="bi bi-github text-primary me-2" />Github MATLAB : <a href="https://github.com/NiryoRobotics/matlab-support-for-niryo-ned2-robots/tree/main?tab=readme-ov-file" target="_blank" rel="noopener noreferrer">https://github.com/NiryoRobotics/matlab-support-for-niryo-ned2-robots/tree/main?tab=readme-ov-file</a></div>
           <div className="list-group-item bg-transparent px-0"><i className="bi bi-plug-fill text-primary me-2" />Connexion à ROS via MATLAB : <a href="https://fr.mathworks.com/help/ros/gs/ros1-nodes.html" target="_blank" rel="noopener noreferrer">https://fr.mathworks.com/help/ros/gs/ros1-nodes.html</a></div>
           <div className="list-group-item bg-transparent px-0"><i className="bi bi-journal-bookmark-fill text-primary me-2" />Tutoriels ROS MATLAB &amp; Simulink : <a href="https://fr.mathworks.com/matlabcentral/fileexchange/118630-matlab-and-simulink-ros-tutorials" target="_blank" rel="noopener noreferrer">https://fr.mathworks.com/matlabcentral/fileexchange/118630-matlab-and-simulink-ros-tutorials</a></div>
+        </div>
+      </div>
+      <div id="sources" className="bg-white rounded-3 shadow-sm p-4 mb-4">
+        <h2 className="text-primary border-bottom pb-2 mb-4"><i className="bi bi-file-earmark-text-fill" /> SOURCES</h2>
+        <div className="list-group list-group-flush">
+          <div className="list-group-item bg-transparent px-0">
+            <i className="bi bi-file-earmark-pdf-fill text-primary me-2" />
+            Guide_Descriptif_Robot_Niryo_Ned2 <span className="text-muted">(de BEVILACQUA Arthur et ERRARD Mathéo)</span>
+          </div>
+          <div className="list-group-item bg-transparent px-0">
+            <i className="bi bi-file-earmark-pdf-fill text-primary me-2" />
+            Rapport_Stage_Astride GOGAN <span className="text-muted">(de Astride Gogan)</span>
+          </div>
+          <div className="list-group-item bg-transparent px-0">
+            <i className="bi bi-file-earmark-pdf-fill text-primary me-2" />
+            Document_Technique_Stage <span className="text-muted">(de Astride Gogan)</span>
+          </div>
+          <div className="list-group-item bg-transparent px-0">
+            <i className="bi bi-file-earmark-pdf-fill text-primary me-2" />
+            RAPPORT__PFE__Mame_Cheikh_SOW__I5_GSP__2022 <span className="text-muted">(de Mame Cheikh SOW)</span>
+          </div>
+          <div className="list-group-item bg-transparent px-0">
+            <i className="bi bi-file-earmark-pdf-fill text-primary me-2" />
+            Rapport de stage CESI Bendotti Ugo <span className="text-muted">(de Bendotti Ugo)</span>
+          </div>
+          <div className="list-group-item bg-transparent px-0">
+            <i className="bi bi-file-earmark-pdf-fill text-primary me-2" />
+            SAM 1 - Forward kinematics <span className="text-muted">(de ZAIDI Lazher)</span>
+          </div>
+          <div className="list-group-item bg-transparent px-0">
+            <i className="bi bi-file-earmark-pdf-fill text-primary me-2" />
+            SAM 2 - Inverse kinematics <span className="text-muted">(de MARTINEZ Sinuhé)</span>
+          </div>
         </div>
       </div>
     </div>

@@ -78,7 +78,8 @@ const App = () => {
 
         </Routes>
       </div>
-      <Footer />
+      {/*<Footer />*/}
+      {/* Footer voulou que dans l'acceuil ducoup maintenant se trouve dans HomeCards.jsx*/}
     </BrowserRouter>
   );
 };
